@@ -4,7 +4,7 @@ title: First steps with the P5.js library
 permalink: /blog/First-steps-with-P5
 ---
 
-##Introduction
+## Introduction
 
 A few days ago I attended a talk given by Esperanza Moreno [@_mimina_](https://twitter.com/_mimina_){:target="_blank"}, architect, researcher and developer. She's developing applications that allows connect musical file (metadata) with renderings and musical remixes, a visual and auditory show called "Antropoloops", a quite powerful cultural project. [See their website](http://antropoloops.tumblr.com/){:target="_blank"}
 
@@ -15,7 +15,7 @@ During her talk while explaining Processing and P5, Esperanza was doing live pra
 
 The library has functions for processing images, elemental shapes, movements and sounds, so there is a very interesting way to investigate with it. I installed all the resources and started testing with canvas creation functions and basic shapes, with parameters, doing something like this, within the proposed initiation examples:
 
-##Basic Example
+## Basic Example
 
 ```javascript
 function setup() {
@@ -59,7 +59,7 @@ function draw() {
 ```
 These were the first steps for me and the results...well, Well, it seems I still have a long way to go :-P
 
-##Results
+## Results
 
 ![First steps with P5.js]({{ site.baseurl }}/images/P5_1.jpg)
 
@@ -67,7 +67,7 @@ With the same script (called sketch.js) I played to change elements like the bac
 
 ![Steps with P5.js and backgrounds]({{ site.baseurl }}/images/P5_2.png)
 
-##Recipe:
+## Recipe:
 
 * The P5 libraries. You can link them remotely via CDN with these addresses, putting this code inside your -head- zone from an index.html
 
@@ -85,6 +85,6 @@ Or you can download them (normal or compressed as .min.js) and enter them in you
 * Atom
 * Mozilla Firefox (with Chrome I had some loading problems)
 
-##wq!
+## wq!
 
 Greetings. wq!    :-* 
