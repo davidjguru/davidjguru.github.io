@@ -17,6 +17,7 @@ function setup() {
 
   // Create the Canvas
   createCanvas(windowWidth, windowHeight);
+
   // Set the background
   // Note: if you load the background
   // inside the setup, it won't be updated
@@ -26,15 +27,13 @@ function setup() {
 
 function draw() {
 
-
-
-
 // Go to draw
   if (mouseIsPressed) {
     fill(0);
   } else {
     fill(255);
   }
+
  // Creating a flat circle
   ellipse(mouseX, mouseY, 120, 120);
 
@@ -62,5 +61,4 @@ With the same script (called sketch.js) I played to change elements like the bac
 ![Steps with P5.js and backgrounds]({{ site.baseurl }}/images/P5_2.png)
 
 
-Greetings. 
-
+Greetings. wq! :-* 
