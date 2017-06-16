@@ -61,5 +61,23 @@ With the same script (called sketch.js) I played to change elements like the bac
 
 ![Steps with P5.js and backgrounds]({{ site.baseurl }}/images/P5_2.png)
 
+Recipe:
 
-Greetings. wq! :-* 
+The P5 libraries. You can link them remotely via CDN with these addresses, putting this code inside your -head- zone from an index.html
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+
+Or you can download them (normal or committed as .min.js) and enter them in your project folder: [P5.js Download zone](https://p5js.org/download/){:target="_blank"}
+
+(In my case):
+Ubuntu 17.04 zesty
+Apache2 (classic)
+Vim
+Atom
+Mozilla Firefox (with Chrome I had some loading problems)
+
+
+
+Greetings. wq!    :-* 
