@@ -9,7 +9,7 @@ This is my own sketchbook for the things that I'm testing in my environments. I 
 
 ### More Information
 
-It's Me on my [Drupal.org profile](https://www.drupal.org/u/davidjguru){:target="_blank"}. You can see also my [Gist profile](https://gist.github.com/davidjguru){:target="_blank"}, my [Github](https://github.com/davidjguru){:target="_blank"}, my [Linkedin profile](https://www.linkedin.com/in/davidjguru){:target="_blank"}
+It's Me on my [Drupal.org profile](https://www.drupal.org/u/davidjguru){:target="_blank"}. You can see also my [Gist profile](https://gist.github.com/davidjguru){:target="_blank"}, my [Github](https://github.com/davidjguru){:target="_blank"}, my [Linkedin profile](https://www.linkedin.com/in/davidjguru){:target="_blank"}.
 
 ### Contact me
 
