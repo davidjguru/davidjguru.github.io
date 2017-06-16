@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Yes, I'm up and running!
+title: First steps with the P5.js library 
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
