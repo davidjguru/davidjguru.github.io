@@ -25,7 +25,7 @@ footer-links:
   instagram: davidjguru
   linkedin: davidjguru
   pinterest: #nopes
-  rss: yes
+  rss: enable
   twitter: davidjguru
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
@@ -49,6 +49,12 @@ disqus: davidrodrguezvicente
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
   baseurl: "/davidjguru.github.io"
+
+# Pagination
+# Set the number of posts per page
+paginate: 6
+paginate_path: "/page:num"
+paginate_limit: 7
 
 #
 # !! You don't need to change any of the configuration flags below !!
