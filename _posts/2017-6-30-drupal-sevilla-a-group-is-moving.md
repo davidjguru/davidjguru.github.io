@@ -65,5 +65,5 @@ We are looking forward to doing more things throughout the new course that will 
 Do you want a more extensive review? [Here's a better one](https://groups.drupal.org/node/517058){:target="_blank"} 
 (but you'll have to read it in Spanish). Greetings to all.
 
-: wq!
+:wq!
 
