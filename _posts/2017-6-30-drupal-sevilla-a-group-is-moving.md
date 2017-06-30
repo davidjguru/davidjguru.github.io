@@ -5,10 +5,12 @@ permalink: /blog/drupal-sevilla-a-group-is-moving
 ---
 
 
-This week the local group [Drupal Sevilla](https://groups.drupal.org/sevilla) -the community of people interested in Drupal living and working from Seville (Andalusia, Spain)- has met and we have done a retrospective on the cycle of activities developed to date, taking advantage of the last appointment before Of summer to review and prepare ideas for the new course that will begin in September. 
+This week the local group [Drupal Sevilla](https://groups.drupal.org/sevilla){:target="_blank"} -the community of people interested in Drupal living and working from Seville (Andalusia, Spain)- has met and we have done a retrospective on the cycle of activities developed to date, taking advantage of the last appointment before Of summer to review and prepare ideas for the new course that will begin in September. 
  <!--more-->
  
 The life of the local group Drupal Sevilla began six years ago (2011) related to the first organization of a medium-sized event in Seville, DrupalCamp Spain 2011 and from there has had a complex life cycle, with periodic stops and reactivations , But it is true that in recent times has had a constant activity, diverse and even with the production of important events such as Drupal Developer Days 2017 here in Seville. And it's been a very busy year :-)
+
+For these reasons, we meet in [Bodega Aurora](https://www.facebook.com/bodegaaurorasevilla/){:target="_blank"} (one of the oldest bars in Seville) [José Luis Bellido](https://twitter.com/jose_lakatos){:target="_blank"}, [Diego Marrufo](https://twitter.com/Dimaro_){:target="_blank"}, [Joe Carvajal](https://twitter.com/raistlinjoe){:target="_blank"}, [Carmen García](https://twitter.com/mcgarcia_wq){:target="_blank"}, [Isaura Galafate](https://twitter.com/Isaurich){:target="_blank"}, [Christian López](https://twitter.com/penyaskito){:target="_blank"} and /me [David Rodríguez](https://twitter.com/davidjguru){:target="_blank"}.
 
 ![Drupal Sevilla June Poster]({{ site.baseurl }}/images/drupal_svq_junio_2017.png)
 
@@ -16,17 +18,17 @@ The life of the local group Drupal Sevilla began six years ago (2011) related to
  
 We have treated different topics from different dimensions: site-building, development, content, SEO ... here is a list of activities carried out (written in Spanish)
 
-* March 2017: [Drupal Developer Days Seville 2017](https://seville2017.drupaldays.org/)
+* March 2017: [Drupal Developer Days Seville 2017](https://seville2017.drupaldays.org/){:target="_blank"}
 
-* February 2017: [XML_Sitemap Module](https://groups.drupal.org/node/516139)
+* February 2017: [XML_Sitemap Module](https://groups.drupal.org/node/516139){:target="_blank"}
 
-* January 2017: [Drupal Global Sprint Weekend Seville](https://groups.drupal.org/node/515870)
+* January 2017: [Drupal Global Sprint Weekend Seville](https://groups.drupal.org/node/515870){:target="_blank"}
 
-* November  2017: [Write testaable code on Drupal 8](https://groups.drupal.org/node/515218)
+* November  2017: [Write testaable code on Drupal 8](https://groups.drupal.org/node/515218){:target="_blank"}
 
-* October 2017: [SEO on Drupal: modules and contents](https://groups.drupal.org/node/514669) 
+* October 2017: [SEO on Drupal: modules and contents](https://groups.drupal.org/node/514669){:target="_blank"} 
  
-* September 2017: [An introduction to Rules, a Drupal module](https://groups.drupal.org/node/513637)
+* September 2017: [An introduction to Rules, a Drupal module](https://groups.drupal.org/node/513637){:target="_blank"}
 
 
 ![Visual resume Drupal Sevilla]({{ site.baseurl }}/images/drupal_sevilla_review.png )
@@ -55,5 +57,5 @@ The term "community", is a relatively abstract element, becomes an empty term at
  
 3- Bring Drupal to schools
 
-
+**A very important step is to try to agree on a gender and diversity policy** according to the current times, echoing all the problems of the integration of women and people of non-binary gender within society in general and the technological sector in particular. The local group Drupal Sevilla is committed to seek parity in its activities and its sessions.
 
