@@ -1,4 +1,5 @@
-yout: post
+---
+layout: post
 title: Drupal Sevilla: A group is moving
 permalink: /blog/drupal-sevilla-a-group-is-moving
 ---
