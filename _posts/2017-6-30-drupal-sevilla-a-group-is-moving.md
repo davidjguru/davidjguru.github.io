@@ -62,7 +62,8 @@ We are looking forward to doing more things throughout the new course that will 
 
 ![Drupal Developer Days Seville 2017 family picture]({{ site.baseurl }}/images/drupal_developer_days.png )
 
-Do you want a more extensive review? [Here's a better one]()(but you'll have to read it in Spanish). Greetings to all.
+Do you want a more extensive review? [Here's a better one](https://groups.drupal.org/node/517058){:target="_blank"} 
+(but you'll have to read it in Spanish). Greetings to all.
 
 : wq!
 
