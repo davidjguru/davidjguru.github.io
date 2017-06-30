@@ -7,6 +7,7 @@ permalink: /blog/First-steps-with-P5
 
 
 A few days ago I attended a talk given by Esperanza Moreno [@_mimina_](https://twitter.com/_mimina_){:target="_blank"}, architect, researcher and developer. She's developing applications that allows connect musical files (metadata) with renderings and musical remixes, a visual and auditory show called "Antropoloops", a quite powerful cultural project. [See their website](http://antropoloops.tumblr.com/){:target="_blank"}
+<!--more-->
 
 ## Introduction
 
