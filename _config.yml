@@ -56,6 +56,10 @@ paginate: 6
 paginate_path: "/page:num"
 paginate_limit: 7
 
+# Creating an separator
+# for the posts and the read more options
+excerpt_separator: "<!--more-->" 
+
 #
 # !! You don't need to change any of the configuration flags below !!
 #
