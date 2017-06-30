@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Drupal Sevilla, A group is moving
+title: Drupal Sevilla, a group is moving
 permalink: /blog/drupal-sevilla-a-group-is-moving
 ---
 
 
 This week the local group [Drupal Sevilla](https://groups.drupal.org/sevilla) -the community of people interested in Drupal living and working from Seville (Andalusia, Spain)- has met and we have done a retrospective on the cycle of activities developed to date, taking advantage of the last appointment before Of summer to review and prepare ideas for the new course that will begin in September. 
+ <!--more-->
  
 The life of the local group Drupal Sevilla began six years ago (2011) related to the first organization of a medium-sized event in Seville, DrupalCamp Spain 2011 and from there has had a complex life cycle, with periodic stops and reactivations , But it is true that in recent times has had a constant activity, diverse and even with the production of important events such as Drupal Developer Days 2017 here in Seville. And it's been a very busy year :-)
 
