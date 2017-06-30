@@ -58,7 +58,7 @@ The term "community", is a relatively abstract element, becomes an empty term at
 3- Bring Drupal to schools
 
 **A very important step is to try to agree on a gender and diversity policy** according to the current times, echoing all the problems of the integration of women and people of non-binary gender within society in general and the technological sector in particular. The local group Drupal Sevilla is committed to seek parity in its activities and its sessions.
-We are looking forward to doing more things throughout the new course that will start in September, with the memory of a year of activities and of course, the pride of having brought to our city a great reference event as the Drupal Developer Days 2017. 
+We are looking forward to doing more things throughout the new course that will start in September, with the memory of a year of activities and of course, the pride of having brought to our city a great reference event as the [Drupal Developer Days 2017](https://www.flickr.com/groups/drupaldevdays2017/){:target="_blank"} . 
 
 ![Drupal Developer Days Seville 2017 family picture]({{ site.baseurl }}/images/drupal_developer_days.png )
 
