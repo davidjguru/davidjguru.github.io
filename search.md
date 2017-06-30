@@ -1,12 +1,12 @@
 ---
-layout: page
+layout: search
 title: Search
 permalink: /search/
 ---
 <div id="home-search" class="home">
      <script>
          (function() {
-             var cx = '<Your CSE id>';
+             var cx = '008364522872177623436:ir0q3cbbosm';
              var gcse = document.createElement('script');
              gcse.type = 'text/javascript';
              gcse.async = true;
