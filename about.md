@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+sitemap: true
 ---
 Well, my name is David (I've always had the same nickname - [@davidjguru](https://twitter.com/davidjguru){:target="_blank"}) and I'm  working at Rojomorgan, a digital consulting agency for projects based on Drupal technology. PHP, MySQL, Apache ... some CSS, some javascript ... sitebuilding ... and so on and so on ...
 
