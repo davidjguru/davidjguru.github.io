@@ -29,6 +29,7 @@ Sevilla4Real came to us motivated to know us from our positive reputation in our
 
 ## Year 2015
 ### Haban&Co
+![Haban&Co]({{ site.baseurl }}/images/davidjguru_drupal_project_habanandco.png)
 
 Haban & Co is a tourist travel company focused on cultural routes and visits to artists from the Caribbean island who commissioned Rojomorgan to design and implement an online platform to promote their business and publicize their products. And we did it with Drupal.
 
