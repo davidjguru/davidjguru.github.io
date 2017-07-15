@@ -37,9 +37,10 @@ Haban & Co is a tourist travel company focused on cultural routes and visits to 
 
 ## Year 2014
 ### Catalog of Flamenco shows in Andalusia
+![Catalog of Flamenco shows in Andalusia]({{ site.baseurl }}/images/davidjguru_drupal_project_flamenco.png)
 
 The Regional Government of the “Autonomous Community” (Well,It’s the original title in Spanish) of Andalusia in southern Spain decides to create a platform to register, index and locate all flamenco professionals and their artistic productions.
 The Regional Government of Andalusia chose Rojomorgan as the favorite agency to design and build the project: to create an online platform for the search of everything related to Flamenco.
-URL: https://www.juntadeandalucia.es/cultura/catalogoflamenco/
+**URL:** [https://www.juntadeandalucia.es/cultura/catalogoflamenco/](https://www.juntadeandalucia.es/cultura/catalogoflamenco/){:target="_blank"}
 
 
