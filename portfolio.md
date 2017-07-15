@@ -19,11 +19,12 @@ The organization relied on Rojomorgan to implement its new website.
 
 ## Year 2016
 ### Sevilla4Real
+![Sevilla4Real]({{ site.baseurl }}/images/davidjguru_drupal_project_sevilla4real.png)
 
 Sevilla4Real is tourism company focused on the city of Seville. It was put in our hands for a consulting process of analysis, design and implementation of a new visual approach and a new platform that better covered its objectives.
 Sevilla4Real came to us motivated to know us from our positive reputation in our direct environment in terms of working with platforms for tourism companies based on Drupal.
 
-URL: http://sevilla4real.com/
+**URL:** [http://sevilla4real.com/](http://sevilla4real.com/){:target="_blank"}
 
 
 ## Year 2015
