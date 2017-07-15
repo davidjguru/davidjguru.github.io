@@ -17,7 +17,7 @@ The organization relied on Rojomorgan to implement its new website.
 **URL:** [http://andaluciaconpalestina.org/](http://andaluciaconpalestina.org/){:target="_blank"}
 
 ### Drupal Developer Days 2017 Seville
-![Drupal Developer Days 2017 Seville]({{ site.baseurl }}/images/davidjguru_drupal_event_ddd.png)
+![Drupal Developer Days 2017 Seville]({{ site.baseurl }}/images/ddd.png)
 
 This year 2017, some people from the local group of Drupal Sevilla joined to prepare a proposal: to celebrate the Drupal Developer Days in Seville and producing one of the most important events of Drupal (and the strongest oriented to developers) in the capital of Andalusia. Our proposal was accepted and we are responsible for carrying out the DDD for five days in one of the most attractive areas of the city.
 
