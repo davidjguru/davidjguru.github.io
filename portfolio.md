@@ -33,7 +33,7 @@ Sevilla4Real came to us motivated to know us from our positive reputation in our
 
 Haban & Co is a tourist travel company focused on cultural routes and visits to artists from the Caribbean island who commissioned Rojomorgan to design and implement an online platform to promote their business and publicize their products. And we did it with Drupal.
 
-URL: http://www.habanandco.com/
+**URL:** [http://www.habanandco.com/](http://www.habanandco.com/){:target="_blank"}
 
 ## Year 2014
 ### Catalog of Flamenco shows in Andalusia
