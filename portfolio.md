@@ -1,5 +1,5 @@
 ---
-title: My Portfolio
+title: My Portfolio: Projects & Events & Colaborations
 permalink: /portfolio/
 layout: page
 sitemap: true 
