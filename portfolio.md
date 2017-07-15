@@ -9,8 +9,11 @@ This is a placeholder page for some Drupal-basedd Projects I've worked on.
 ## Year 2017
 ### Andalusian network of support for the Palestinian population
 ![Andalusian network of support for the Palestinian population]({{ site.baseurl }}/images/davidjguru_Palestina.png)
+
+
 The coordinating platform Andalusia with Palestine is a non-governmental organization dedicated to organizing support networks for the Palestinian population, integrating various entities, organizations and associations from southern Spain.
 The organization relied on Rojomorgan to implement its new website.
+
 **URL:** [http://andaluciaconpalestina.org/](http://andaluciaconpalestina.org/){:target="_blank"}
 
 
@@ -19,6 +22,7 @@ The organization relied on Rojomorgan to implement its new website.
 
 Sevilla4Real is tourism company focused on the city of Seville. It was put in our hands for a consulting process of analysis, design and implementation of a new visual approach and a new platform that better covered its objectives.
 Sevilla4Real came to us motivated to know us from our positive reputation in our direct environment in terms of working with platforms for tourism companies based on Drupal.
+
 URL: http://sevilla4real.com/
 
 
@@ -26,6 +30,7 @@ URL: http://sevilla4real.com/
 ### Haban&Co
 
 Haban & Co is a tourist travel company focused on cultural routes and visits to artists from the Caribbean island who commissioned Rojomorgan to design and implement an online platform to promote their business and publicize their products. And we did it with Drupal.
+
 URL: http://www.habanandco.com/
 
 ## Year 2014
