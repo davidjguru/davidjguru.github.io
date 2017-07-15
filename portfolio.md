@@ -4,7 +4,7 @@ permalink: /portfolio/
 layout: page
 sitemap: true 
 ---
-This is a placeholder page for some Drupal-basedd Projects I've worked on.
+This is a placeholder page for some Drupal-based Projects I've worked on.
 
 ## Year 2017
 ### Andalusian network of support for the Palestinian population
