@@ -14,6 +14,8 @@ This is my own sketchbook for the things that I'm testing in my environments. I 
 
 * **Less NIH, more PFE: Demolishing myths about Drupal (Slides, English)**: [https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337](https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337)
 
+* **Reviewing the local community of Drupal Sevilla (Retrospective, Spanish)**: [https://groups.drupal.org/node/517058](https://groups.drupal.org/node/517058)
+
 * **Drupal con arquitectura desacoplada (Spanish)**: [https://openwebinars.net/blog/drupal-con-arquitectura-desacoplada/](https://openwebinars.net/blog/drupal-con-arquitectura-desacoplada/)
 
 * **Enrutando Drupal8 para construir tu propio módulo (Spanish)**: [https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/](https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/)
