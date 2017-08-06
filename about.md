@@ -18,11 +18,11 @@ This is my own sketchbook for the things that I'm testing in my environments. I 
 
 * **Enrutando Drupal8 para construir tu propio módulo (Spanish)**: [https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/](https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/)
 
-* **Drush para Drupal(Spanish**): [https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/](https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/)
+* **Drush para Drupal (Spanish)**: [https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/](https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/)
 
-* **A quice años vista de la primera release de Drupal(Spanish):** [https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/](https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/)
+* **A quice años vista de la primera release de Drupal (Spanish)**: [https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/](https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/)
 
-* **¿Qué es Drupal? (Spanish):** [https://openwebinars.net/blog/que-es-drupal/](https://openwebinars.net/blog/que-es-drupal/)
+* **¿Qué es Drupal? (Spanish)**: [https://openwebinars.net/blog/que-es-drupal/](https://openwebinars.net/blog/que-es-drupal/)
 
 ### More Information
 
