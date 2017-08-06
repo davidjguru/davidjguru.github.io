@@ -10,21 +10,21 @@ This is my own sketchbook for the things that I'm testing in my environments. I 
 
 ### Articles about Drupal
 
-* **Menos NIH, más PFE: Demoliendo mitos sobre Drupal (Spanish)**: [http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal](http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal)
+* **Menos NIH, más PFE: Demoliendo mitos sobre Drupal (Spanish)**: [http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal](http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal){:target="_blank"}
 
-* **Less NIH, more PFE: Demolishing myths about Drupal (Slides, English)**: [https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337](https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337)
+* **Less NIH, more PFE: Demolishing myths about Drupal (Slides, English)**: [https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337](https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337){:target="_blank"}
 
-* **Reviewing the local community of Drupal Sevilla (Retrospective, Spanish)**: [https://groups.drupal.org/node/517058](https://groups.drupal.org/node/517058)
+* **Reviewing the local community of Drupal Sevilla (Retrospective, Spanish)**: [https://groups.drupal.org/node/517058](https://groups.drupal.org/node/517058){:target="_blank"}
 
-* **Drupal con arquitectura desacoplada (Spanish)**: [https://openwebinars.net/blog/drupal-con-arquitectura-desacoplada/](https://openwebinars.net/blog/drupal-con-arquitectura-desacoplada/)
+* **Drupal con arquitectura desacoplada (Spanish)**: [https://openwebinars.net/blog/drupal-con-arquitectura-desacoplada/](https://openwebinars.net/blog/drupal-con-arquitectura-desacoplada/){:target="_blank"}
 
-* **Enrutando Drupal8 para construir tu propio módulo (Spanish)**: [https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/](https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/)
+* **Enrutando Drupal8 para construir tu propio módulo (Spanish)**: [https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/](https://betabeers.com/blog/enrutando-drupal-8-construir-tu-propio-modulo-296/){:target="_blank"}
 
-* **Drush para Drupal (Spanish)**: [https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/](https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/)
+* **Drush para Drupal (Spanish)**: [https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/](https://betabeers.com/blog/drush-drupal-el-viejo-make-el-moderno-composer-254/){:target="_blank"}
 
-* **A quince años vista de la primera release de Drupal (Spanish)**: [https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/](https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/)
+* **A quince años vista de la primera release de Drupal (Spanish)**: [https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/](https://betabeers.com/blog/a-quince-anos-vista-la-primera-release-drupal-239/){:target="_blank"}
 
-* **¿Qué es Drupal? (Spanish)**: [https://openwebinars.net/blog/que-es-drupal/](https://openwebinars.net/blog/que-es-drupal/)
+* **¿Qué es Drupal? (Spanish)**: [https://openwebinars.net/blog/que-es-drupal/](https://openwebinars.net/blog/que-es-drupal/){:target="_blank"}
 
 ### More Information
 
