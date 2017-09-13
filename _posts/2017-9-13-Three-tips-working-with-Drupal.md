@@ -94,11 +94,19 @@ function module_menu() {
 ![Geohide just for Drupal by Rojomorgan]({{ site.baseurl }}/images/geohide_drupal_rojomorgan_branding.png)
 
 
-We've called our future module "Geohide" and we're working inside [a Drupal.org sandbox](https://www.drupal.org/sandbox/diegol_de_los_bosques/2827812){:target="_blank"}.Ok. 
+We've called our future module "Geohide" and we're working inside [a Drupal.org sandbox](https://www.drupal.org/sandbox/diegol_de_los_bosques/2827812){:target="_blank"} and I promise myself to write a post about our future module. Ok. 
 
-**Problem:**
+**Problem:** The operating mode we had come up with it was to offer a module configuration menu in which the user could make several selections to set the country, city, or region. And then select what Content Type, Node and field wanted to apply the functions of Geohide itself. This generates a structure of location and dynamic filtering of the fields, in this order:
 
-**Questions:**
+1. Select the type of content.
+2. Select the node (s)
+3. Select the field or fields to hide.
+
+**Questions:** The mechanics had to be that when selecting a certain content type they would be loaded on the next select the created nodes and then the available fields. How to get successive dynamic changes in the three selects of the form?
+
+The key was to combine two techniques: The possibility of working with "event" type attributes within the form component and the possibilities of [the AJAX API in Drupal](https://api.drupal.org/api/drupal/includes%21ajax.inc/group/ajax/7.x){:target="_blank"}.
+
+*Idea:* describe an event on the first select, control it and activate AJAX operations for real-time modification.
 
 **Results:**
 
