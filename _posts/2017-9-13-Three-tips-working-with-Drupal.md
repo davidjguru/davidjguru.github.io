@@ -25,9 +25,9 @@ Drupal hooks for give the elemental form to my new and little new module.
 
 **Hook_help() and Hook_menu()**
 
-I think getting closer to these basic Hooks is a good way to get started with Drupal. On one hand, the hook_help() provides help and additional information about the module to the user. You can learn more about this elementary hook in the official Drupal documentation and [this brief tutorial on how to implement it]( https://www.drupal.org/docs/7/creating-custom-modules/writing-comments-and-implementing-your -first-hook)
+I think getting closer to these basic Hooks is a good way to get started with Drupal. On one hand, the hook_help() provides help and additional information about the module to the user. You can learn more about this elementary hook in the official Drupal documentation and [this brief tutorial on how to implement it]( https://www.drupal.org/docs/7/creating-custom-modules/writing-comments-and-implementing-your-first-hook){:target="_blank"}.
 
-On the other hand, hook_menu() is another elementary function provided by [the system API system.api.php](https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_menu/7.x), and consists of a method for this hook enables modules to register paths in order to define how URL requests are handled. Paths may be registered for URL handling only, or they can register the link to be placed in a menu (usually the Navigation menu).
+On the other hand, hook_menu() is another elementary function provided by [the system API system.api.php](https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_menu/7.x){:target="_blank"}, and consists of a method for this hook enables modules to register paths in order to define how URL requests are handled. Paths may be registered for URL handling only, or they can register the link to be placed in a menu (usually the Navigation menu).
 
 And don't forget the legendary Drupal t() function, that wraps the text marks for translation. This function is for make strings used in Drupal translatable. Every string in a t() function can be translated through the Drupal UI, so you must use it when you "paint" strings on screen and you want that your module be translatable. 
 
@@ -88,7 +88,7 @@ function module_menu() {
 
 ## Second -  Dynamic selects in a Drupal Form (changing elections,  changing options)
 
-**Context:**
+**Context:** 
 
 **Problem:**
 
