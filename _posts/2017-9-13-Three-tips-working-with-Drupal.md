@@ -86,7 +86,7 @@ function module_menu() {
 
 
 
-## Second -  Dynamic selects in a Drupal Form (changing elections,  changing options)
+## Second -  Dynamic selects in a Drupal Form (changing options)
 
 
 **Context:** My workmate [Diego Guillermo](https://twitter.com/diegoguillermo4){:target="_blank"} and me  are working on a slightly crazy idea to build a module (currently Drupal 7) that geolocates a visitor to a website and based on its geographic location, operate on the visibility of nodes and fields. This is a slightly longer idea, but this serves as a summary.
@@ -128,6 +128,9 @@ This is the first select, oriented to get a Drupal content type created in the w
            );
 ```
 
+Now, the second dropdown. With the parameter 'multiple' we'll allow multiple selection of nodes. But the most important thing here is the closing div created for replacement when dropdown_first is changed in the previous dropdown. 
+When the form is rebuilt during AJAX processing, the $value_dropdown_first variable will have the new value and so the options will change. 
+
 ```php
  $form['dropdown_second'] = array(
           '#type' => 'select',
@@ -141,6 +144,8 @@ This is the first select, oriented to get a Drupal content type created in the w
     );
 
 ```
+
+Here, in the third dropdown we allow the multiple selection as well and the processing is the same than the second dropdown. 
 
 ```php
  $form['dropdown_third'] = array(
@@ -156,6 +161,9 @@ This is the first select, oriented to get a Drupal content type created in the w
      );
 
 ```
+
+Ok, and how we launch the form rebuilt? Using a ajax_callback() function, which launch the two replace commands to re-draw the form on every change at the first dropdown. 
+
 
 ```php
 
@@ -190,10 +198,15 @@ function geohide_ajax_callback($form, $form_state) {
 ### Results: Ok, mission accomplished. I only used six (or seven :-P) parts:
 
 1. First, I've created a new text field for the content type called facebook_direction.
+
 2. Second, I got the facebook script given by Facebook Developers.
+
 3. Third, I wrote some PHP code for get the info about the current node and processing the field values asociated to the node.
+
 4. Fourth, I've changed the URL values from the snippet with PHP code to get every facebook page from every node.
-5. Fifth, I made a new custom block in my Drupal site, called "facebook stream widget"
+
+5. Fifth, I made a new custom block in my Drupal site, called "facebook stream widget".
+
 6. Sixth, I've inserted the code in the custom block body with PHP editor active, marking the block as only for content types of kind "companies".
 
 7. Add: I made sure that only the Facebook widget view is created yes and only if the node has completed its field facebook direction. Otherwise, the widget is not generated (line if (!is_null($direction)) ), so it does not show it empty.
