@@ -110,68 +110,67 @@ The key was to combine two techniques: The possibility of working with "event" t
 
 **Results:**
 
+This is the first select, oriented to get a Drupal content type created in the website. Bind an AJAX callback to the change event (wich is coded for the select form type of the first dropdown. It will replace the second dropdown and the third dropdown when rebuilt. When "event" ocurrs, Drupal will perform an AJAX request in background. Usually the default value is sufficient (eg. change for selec elements), but it's valid with values including any JQuery event, like 'mousedown', 'blur', 'submit' and many others.
+
+
 ```php
  $form['dropdown_first'] = array(
           '#type' => 'select',
           '#title' => t('Select a Content Type'),
-      '#description' => t('Take a content type for use with Geohide'),
+          '#description' => t('Take a content type for use with Geohide'),
           '#options' => $options_first,
           '#default_value' => $value_dropdown_first,
-          // Bind an ajax callback to the change event (which is the default for the
-          // select form type) of the first dropdown. It will replace the second
-          // dropdown when rebuilt
-           '#ajax' => array(
-          // When 'event' occurs, Drupal will perform an ajax request in the
-          // background. Usually the default value is sufficient (eg. change for
-          // select elements), but valid values include any jQuery event,
-          // most notably are 'mousedown', 'blur', and 'submit'.
-            'event' => 'change',
+          '#ajax' => array(
+          'event' => 'change',
           'callback' => 'geohide_ajax_callback',
-        'wrapper' => array('dropdown_second_replace', 'dropdown_thrid_replace'),
-        //'wrapper' => 'dropdown_second_replace',
-              ),
+          'wrapper' => array('dropdown_second_replace', 'dropdown_thrid_replace'),
+            ),
            );
 ```
 
 ```php
-   $form['dropdown_second'] = array(
-      '#type' => 'select',
-      '#title' => t('Select all the nodes what you need'),
-      '#description' => t('Here you can select all the nodes whose fields you want to hide'),
-      // Allow multiple selection of nodes
-      '#multiple' => TRUE,
-      // The entire enclosing div created here gets replaced when dropdown_first
-      // is changed.
-     '#prefix' => '<div id="dropdown_second_replace">',
-     '#suffix' => '</div>',
-     // when the form is rebuilt during ajax processing, the $value_dropdown_first variable
-     // will now have the new value and so the options will change
-     '#options' => geohide_second_dropdown_options($value_dropdown_first),
-     '#default_value' => isset($form_state['values']['dropdown_second']) ? $form_state['values']['dropdown_second'] : '',
+ $form['dropdown_second'] = array(
+          '#type' => 'select',
+          '#title' => t('Select all the nodes what you need'),
+          '#description' => t('Here you can select all the nodes whose fields you want to hide'),
+          '#multiple' => TRUE,
+          '#prefix' => '<div id="dropdown_second_replace">',
+          '#suffix' => '</div>',
+          '#options' => geohide_second_dropdown_options($value_dropdown_first),
+          '#default_value' => isset($form_state['values']['dropdown_second']) ? $form_state['values']['dropdown_second'] : '',
     );
 
 ```
 
 ```php
-    $form['dropdown_third'] = array(
-       '#type' => 'select',
-       '#title' => t('Select the fields from the selected Content Type'),
-       '#description' => t('And now, check all the fields to hide'),
-       // Allow multiple selection of fields
-       '#multiple' => TRUE,
-       // The entire enclosing div created here gets replaced when dropdown_first
-       // is changed.
-      '#prefix' => '<div id="dropdown_third_replace">',
-      '#suffix' => '</div>',
-      // when the form is rebuilt during ajax processing, the $value_dropdown_first variable
-      // will now have the new value and so the options will change
-      '#options' => geohide_third_dropdown_options($value_dropdown_first),
-      '#default_value' => isset($form_state['values']['dropdown_third']) ? $form_state['values']['dropdown_third'] : '',
+ $form['dropdown_third'] = array(
+          '#type' => 'select',
+          '#title' => t('Select the fields from the selected Content Type'),
+          '#description' => t('And now, check all the fields to hide'),
+          '#multiple' => TRUE,
+          '#prefix' => '<div id="dropdown_third_replace">',
+          '#suffix' => '</div>',
+          '#options' => geohide_third_dropdown_options($value_dropdown_first),
+          '#default_value' => isset($form_state['values']['dropdown_third']) ? $form_state['values']['dropdown_third'] : '',
 
      );
 
 ```
 
+```php
+
+function geohide_ajax_callback($form, $form_state) {
+          return array(
+          '#type' => 'ajax',
+          '#commands' => array(
+          ajax_command_replace("#dropdown_second_replace", render($form['dropdown_second'])),
+          ajax_command_replace("#dropdown_third_replace", render($form['dropdown_third']))
+          )
+        );
+
+  }
+
+```
 
 
 ## Third - Setting up Facebook Page Plugin for every node on Drupal
