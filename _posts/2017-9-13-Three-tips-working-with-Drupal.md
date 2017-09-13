@@ -5,7 +5,7 @@ permalink: /blog/three-tips-working-with-drupal
 ---
 
 
-I have been working with Drupal 7 recently and I have done configuration and development tasks for projects based on Drupal7: projects of work (consultancy) and other tasks 
+I have been working with Drupal 7 recently and I have done configuration and development tasks for projects based on Drupal 7: projects of work (consultancy) and other tasks 
 for Drupal modules on which I am working in my free time.
 I would like to make a collection of snippets and ideas that I have implemented recently (some of which I have not done for a long time) and to register here. Maybe it 
 will help someone at some point who needs to do the same things.
@@ -14,18 +14,18 @@ will help someone at some point who needs to do the same things.
 
 ## First - Two basic hooks 
 
-### Context:  A Very Quick Introduction to Drupal's hook_menu() and hook_help(). And what is a hook? Hooks in Drupal are just ways of modifying the website page's results
+**Context:**  A Very Quick Introduction to Drupal's hook_menu() and hook_help(). And what is a hook? Hooks in Drupal are just ways of modifying the website page's results
  through methods which connecting to the Drupal Core and are provided by the Drupal API (or specific APIs like Form API, for example).  
 
-### Problem: Well, the problem was very simple...I want to create a basic module for working on a crazy idea, and the first question is all about to complete the basic 
+**Problem:** Well, the problem was very simple...I want to create a basic module for working on a crazy idea, and the first question is all about to complete the basic 
 Drupal hooks for give the elemental form to my new and little new module.  
 
-### Questions: Which are the elementary methods for a module in Drupal? well, although in reality there are many and the answer is relative, to start with a good foot and go "exercising"
+**Questions:** Which are the elementary methods for a module in Drupal? well, although in reality there are many and the answer is relative, to start with a good foot and go "exercising"
  in the wonderful world of Drupal hooks I recommend starting with two very intuitive:
 
-Hook_help() and Hook_menu()
+**Hook_help() and Hook_menu()**
 
-### Results: 
+**Results:** 
 
 
 ```php
@@ -82,14 +82,15 @@ function module_menu() {
 
 ## Second -  Dynamic selects in a Drupal Form (changing elections,  changing options)
 
-### Context:
+**Context:**
 
-### Problem:
+**Problem:**
 
-### Questions:
+**Questions:**
 
-### Results:
+**Results:**
 
+```php
  $form['dropdown_first'] = array(
           '#type' => 'select',
           '#title' => t('Select a Content Type'),
@@ -110,8 +111,9 @@ function module_menu() {
         //'wrapper' => 'dropdown_second_replace',
               ),
            );
+```
 
-
+```php
    $form['dropdown_second'] = array(
       '#type' => 'select',
       '#title' => t('Select all the nodes what you need'),
@@ -128,6 +130,9 @@ function module_menu() {
      '#default_value' => isset($form_state['values']['dropdown_second']) ? $form_state['values']['dropdown_second'] : '',
     );
 
+```
+
+```php
     $form['dropdown_third'] = array(
        '#type' => 'select',
        '#title' => t('Select the fields from the selected Content Type'),
@@ -145,7 +150,7 @@ function module_menu() {
 
      );
 
-
+```
 
 
 
@@ -153,14 +158,14 @@ function module_menu() {
 
 
 
-### Context: I'm trying to set up the Drupal 7 Facebook Page Plugin module, and everything ok, it works fine.
+**Context:** I'm trying to set up the Drupal 7 Facebook Page Plugin module, and everything ok, it works fine.
 
-### Problem: I don't need a unique widget for the whole website. I need N Facebook PagePlugin widgets to display within M nodes of a specific content type. I have a content type "companies" and I need that in each profile created of company, the configuration of this widget is available in a segmented way. (1 node "company" = 1 facebook page plugin widget).
+**Problem:** I don't need a unique widget for the whole website. I need N Facebook PagePlugin widgets to display within M nodes of a specific content type. I have a content type "companies" and I need that in each profile created of company, the configuration of this widget is available in a segmented way. (1 node "company" = 1 facebook page plugin widget).
 
-### Questions: Is there any way to do this for each node? Does each node show a block from facebook page plugin configured ad-hoc? Code? Site-building?
+**Questions:** Is there any way to do this for each node? Does each node show a block from facebook page plugin configured ad-hoc? Code? Site-building?
 
 
-### Limitations: Each client of this website will be the drupal editor user who creates their company profile. It is not intuitive to ask them to generate the code and insert it. Best to do it automatically: request the link to Facebook page through a field in the form and then insert it into the widget settings, Yes, that's the way. 
+**Limitations:** Each client of this website will be the drupal editor user who creates their company profile. It is not intuitive to ask them to generate the code and insert it. Best to do it automatically: request the link to Facebook page through a field in the form and then insert it into the widget settings, Yes, that's the way. 
 
 
 ### Results: Ok, mission accomplished. I only used six (or seven :-P) parts:
@@ -176,6 +181,7 @@ function module_menu() {
 
 **Here is the code and works fine:**
 
+```javascript
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -185,6 +191,8 @@ function module_menu() {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+```
+```php
 <?php
 
 $field = 'field_facebook_direction';
@@ -207,4 +215,4 @@ ignore">
 }
 
 ?>
-
+```
