@@ -88,7 +88,9 @@ function module_menu() {
 
 ## Second -  Dynamic selects in a Drupal Form (changing elections,  changing options)
 
-**Context:** 
+**Context:** My workmate [Diego Guillermo](https://twitter.com/diegoguillermo4){:target="_blank"} and me  are working on a slightly crazy idea to build a module (currently Drupal 7) that geolocates a visitor to a website and based on its geographic location, operate on the visibility of nodes and fields. This is a slightly longer idea, but this serves as a summary.
+
+We've called our future module "Geohide" and we're working inside [a Drupal.org sandbox](https://www.drupal.org/sandbox/diegol_de_los_bosques/2827812){:target="_blank"}.Ok. 
 
 **Problem:**
 
