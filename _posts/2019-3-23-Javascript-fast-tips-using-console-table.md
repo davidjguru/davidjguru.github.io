@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript Fast Tips (I) - Showing data with console.table()
+title: Javascript Fast Tips (I) - Data with console.table()
 permalink: /blog/javascript-fast-tips-using-console-table
 ---
 
