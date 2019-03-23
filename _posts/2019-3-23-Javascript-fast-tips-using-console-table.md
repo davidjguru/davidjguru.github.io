@@ -8,7 +8,7 @@ permalink: /blog/javascript-fast-tips-using-console-table
 | *Picture from Unsplash, user Denis Oliveira @denisolvr* |
 
 
-I would like to write down a quick and little trick to get information from an HTML - based web view through Javascript. It’s a useful tip for those who work daily with web technologies and want to do element listings or maybe locate a specific element within [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model){:target="_blank"}
+I would like to write down a quick and little trick to get information from an HTML - based web view through Javascript. It’s a useful tip for those who work daily with web technologies and want to do element listings or maybe locate a specific element within [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 <!--more-->
 
 ## Introduction
