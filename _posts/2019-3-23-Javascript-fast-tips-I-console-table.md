@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript Fast Tips (I): Showing data with console.table()
+title: Javascript Fast Tips (I) - Showing data with console.table()
 permalink: /blog/javascript-fast-tips-using-console-table
 ---
 
@@ -41,4 +41,4 @@ Get more info about console.table at [developer.mozilla.org](https://developer.m
 
 ## :wq!
 
-Greetings. wq!    :-* 
+Greetings. wq!    :-*
