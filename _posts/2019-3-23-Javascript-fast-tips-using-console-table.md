@@ -3,7 +3,9 @@ layout: post
 title: Javascript Fast Tips (I) - Data with console.table()
 permalink: /blog/javascript-fast-tips-using-console-table
 ---
-
+| ![davidjguru Drupal 8 web cau Regional Government]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash.jpeg) |
+|:--:|
+| *Picture from Unsplash, user Denis Oliveira @denisolvr* |
 
 
 I would like to write down a quick and little trick to get information from an HTML - based web view through Javascript. It’s a useful tip for those who work daily with web technologies and want to do element listings or maybe locate a specific element within [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model){:target="_blank"}
@@ -11,7 +13,9 @@ I would like to write down a quick and little trick to get information from an H
 
 ## Introduction
 I was recently working on a web project based on Drupal 8 for the regional government of Andalucia (an internal platform for helping Social Services users) and when rendering in the browser, there were several errors and problems with broken links to images (due to permissions /sites/default/files/ within Drupal).
-![davidjguru Drupal 8 web cau Regional Government]({{ site.baseurl }}/images/davidjguru_drupal_8_web_cau.png)
+| ![davidjguru Drupal 8 web cau Regional Government]({{ site.baseurl }}/images/davidjguru_drupal_8_web_cau.png) |
+|:--:|
+| *Web Site of the User Support Center (CAU, in Spanish) in Social Affairs, Andalucia* |
 
 The point is that I wanted to get a quick view of the elements and in an orderly fashion, so I needed a segmented view of the HTML document tree. For that I took a function called console.table(), a way to sort values and display them in a tabbed way, filtering them through one of their attributes.
 
@@ -35,7 +39,9 @@ console.table(paragraphs, "innerText");
 }
 
 ```
-![davidjguru Drupal 8 Using console.table Javascript]({{ site.baseurl }}/images/davidjguru_drupal_8_web_cau_console_table.png)
+| ![davidjguru Drupal 8 Using console.table Javascript]({{ site.baseurl }}/images/davidjguru_drupal_8_web_cau_console_table.png) |
+|:--:|
+| *Gettings all the paragraphs in the CAU website through console.table* |
 
 Get more info about console.table at [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/API/Console/table){:target="_blank"}
 
