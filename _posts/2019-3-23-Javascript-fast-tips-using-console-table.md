@@ -34,7 +34,7 @@ First takes a mandatory argument: data, wich must be an array or an object, and 
 window.onload = function() {
 
 // Shows data in a table format, Get all the paragraphs
-var paragraphs = document.getElementsByTagName("p");
+let paragraphs = document.getElementsByTagName("p");
 console.table(paragraphs, "innerText");
 
 }
