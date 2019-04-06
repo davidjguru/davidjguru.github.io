@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JavaScript Fast Tips (II) - Stylizing output in console
+title: JavaScript Fast Tips (II) - Styles in console output
 permalink: /blog/javascript-fast-tips-stylizing-output-console-log
 ---
 | ![Picture from Unsplash, by @danielwatsondesign]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash_colours.jpeg) |
