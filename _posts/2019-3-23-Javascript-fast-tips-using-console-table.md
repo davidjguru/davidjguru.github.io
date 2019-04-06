@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Javascript Fast Tips (I) - Data with console.table()
+title: JavaScript Fast Tips (I) - Data with console.table()
 permalink: /blog/javascript-fast-tips-using-console-table
 ---
 | ![Picture from Unsplash, by @denisolvr]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash.jpeg) |
