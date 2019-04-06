@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Javascript Fast Tips (I) - Data with console.table()
-permalink: /blog/javascript-fast-tips-using-console-table
+title: Javascript Fast Tips (II) - Stylizing output from console
+permalink: /blog/javascript-fast-tips-stylizing-output-console-log
 ---
-| ![Picture from Unsplash, by @denisolvr]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash.jpeg) |
+| ![Picture from Unsplash, by @danielwatsondesign]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash_colours.jpeg) |
 |:--:|
-| *Picture from Unsplash, user Denis Oliveira @denisolvr* |
+| *Picture from Unsplash, user Daniel Watson @danielwatsondesign* |
 
 
 I would like to write down a quick and little trick to get information from an HTML - based web view through Javascript. It’s a useful tip for those who work daily with web technologies and want to do element listings or maybe locate a specific element within [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model){:target="_blank"}
