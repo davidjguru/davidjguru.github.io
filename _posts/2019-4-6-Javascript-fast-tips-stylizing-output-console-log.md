@@ -123,7 +123,7 @@ function myCustomLog(message, color="black") {
       color = "Green";
       fontsize = "2rem";
       break;
-    case "sucess":
+    case "success":
       color = "Blue";
       fontsize = "3rem";
       break;
