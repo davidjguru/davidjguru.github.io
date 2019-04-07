@@ -41,7 +41,7 @@ We can extend the CSS rules application as much as we want to style our console 
 ```javascript
 console.log(
         "%cPROTECT YA NECK!",
-        "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold"
+        "color:blue;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 4px black;font-weight:bold"
       );
 
 ```
@@ -144,14 +144,16 @@ function myCustomLog(message, color="black") {
 }
 
 myCustomLog("Calling to my custom log without a color value, using default");
-myCustomLog("Now, a Success! message", "success");
-myCustomLog("Gets an Error!", "error");
-myCustomLog("This is a Warning!!", "warning");
 myCustomLog("Take more Info...", "info");
+myCustomLog("Now, a Success! message", "success");
+myCustomLog("This is a Warning!!", "warning");
+myCustomLog("Gets an Error!", "error");
 ```
 ![Console Style example six]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_console_style_example_six.png)
 
-Get more info about console.table at [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/API/Console/table){:target="_blank"}
+Well, here we come with this quick post about applying CSS styles to console.log(). If you are interested, I have created a folder in a Gitlab repository and a specific branch for these and other console tips.
+ [Here](https://gitlab.com/davidjguru/master-javascript/tree/js_Tips_and_Tricks_for_Console/js_Tips_and_Tricks_for_Console_Folder){:target="_blank"}
+ In the file called "tips_tricks_console.js" you will find the examples.
 
 ## :wq!
 
