@@ -8,42 +8,34 @@ permalink: /blog/javascript-fast-tips-stylizing-output-console-log
 | *Picture from Unsplash, user Daniel Watson @danielwatsondesign* |
 
 
-I would like to write down a quick and little trick to get information from an HTML - based web view through Javascript. It’s a useful tip for those who work daily with web technologies and want to do element listings or maybe locate a specific element within [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model){:target="_blank"}
+The previous Tuesday I was practicing with JavaScript and using console.log() to show data (nothing serious, if it was important I had used breakpoints, of course :-P), and in an outflow of extensive information, I remembered a nice way to organize it visually: You could give color and shape to the information displayed through console.log().
 <!--more-->
 
 ## Introduction
-I was recently working on a web project based on Drupal 8 for the regional government of Andalucia (an internal platform for helping Social Services users) and when rendering in the browser, there were several errors and problems with broken links to images (due to permissions /sites/default/files/ within Drupal).
+Then I remembered the first time I saw the Facebook console.log announcement (years ago) AFAIK my first experience of seeing a stylized console output. The key? the use of the %c directive as a parameter. Yes, you can use the %c directive to apply a CSS style to console output.  
 
-| ![davidjguru Drupal 8 web cau Regional Government]({{ site.baseurl }}/images/davidjguru_drupal_8_web_cau.png) |
+| ![Javascript Warning through Console by Facebook]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_facebook_warning.png) |
 |:--:|
-| *Web Site of the User Support Center (CAU, in Spanish) in Social Affairs, Andalucia* |
+| *STOP! - Javascript Warning through Console by Facebook* |
 
-The point is that I wanted to get a quick view of the elements and in an orderly fashion, so I needed a segmented view of the HTML document tree. For that I took a function called console.table(), a way to sort values and display them in a tabbed way, filtering them through one of their attributes.
+When we use the directive% c we are indicating that the parameter that we add next will be CSS guidelines that will have to be interpreted starting from the appearance of the directive.
+
+## Example 1
 
 ```javascript      
-console.table(data, columns);
+console.log("%cBEWARE OF THE DOG", "color: red; font-size: 3rem; font-weight:bold;");
 ```
+![Console Style example one]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_console_style_example_one.png)
 
-This function show data as a table, ok -Just what I need-.
-First takes a mandatory argument: data, wich must be an array or an object, and a additional parameter called columns. It shows data as a table in the console. Each element in the array (or property if data is an object) will be a row in the final table.
+Ok, but we can combine the style guidelines so that they apply only to certain parts of the text (not just the entire chain). Let's see.
 
-## Example
+## Example 2
 
 ```javascript
-// We have to ensure all the document is loaded previously
-window.onload = function() {
-
-// Shows data in a table format, Get all the paragraphs
-let paragraphs = document.getElementsByTagName("p");
-console.table(paragraphs, "innerText");
-
-}
-
+console.log("This is a partial %cStylized message", "color: green; font-style: italic; font-size: 4rem; background-color: yellow; padding: 2px");
 ```
+![Console Style example two]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_console_style_example_two.png)
 
-| ![davidjguru Drupal 8 Using console.table Javascript]({{ site.baseurl }}/images/davidjguru_drupal_8_web_cau_console_table.png) |
-|:--:|
-| *Gettings all the paragraphs in the CAU website through console.table* |
 
 Get more info about console.table at [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/API/Console/table){:target="_blank"}
 
