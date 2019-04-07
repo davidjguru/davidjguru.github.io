@@ -28,7 +28,7 @@ console.log("%cBEWARE OF THE DOG", "color: red; font-size: 3rem; font-weight:bol
 
 
 ## Example 2
-Ok, but we can combine the style guidelines so that they apply only to certain parts of the text (not just the entire chain). Let's see.
+Ok, but we can combine the style guidelines so that they apply only to certain parts of the text (not just the entire string). Let's see.
 
 ```javascript
 console.log("This is a partial %cStylized message", "color: green; font-style: italic; font-size: 4rem; background-color: yellow; padding: 2px");
