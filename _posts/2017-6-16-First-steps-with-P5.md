@@ -5,6 +5,7 @@ permalink: /blog/First-steps-with-P5
 published: true
 date: 2017-06-16
 categories: [JavaScript, Web, Tips]
+sitemap: true
 ---
 
 

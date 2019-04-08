@@ -5,6 +5,7 @@ permalink: /blog/three-tips-working-with-drupal
 published: true
 date: 2017-09-13
 categories: [Drupal, Web, Projects]
+sitemap: true
 ---
 
 
