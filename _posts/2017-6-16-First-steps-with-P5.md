@@ -1,7 +1,10 @@
 ---
 layout: post
-title: First steps with the P5.js library 
+title: First steps with the P5.js library
 permalink: /blog/First-steps-with-P5
+published: true
+date: 2017-06-16
+categories: [JavaScript, Web, Tips]
 ---
 
 
@@ -18,7 +21,7 @@ During her talk while explaining Processing and P5, Esperanza was doing live pra
 
 ## Overview
 
-The set of utilities and functions of P5 is divided into two resource areas: on the one hand the libraries that are part of the core of P5 and on the other hand the "contributed" libraries created by third parties that are part of the community of P5. 
+The set of utilities and functions of P5 is divided into two resource areas: on the one hand the libraries that are part of the core of P5 and on the other hand the "contributed" libraries created by third parties that are part of the community of P5.
 Really, a p5.js library can be any JavaScript code that extends or adds to the p5.js core functionality. There are two categories of libraries. Core libraries (DOM and Sound) are part of the p5.js distribution and can be downloaded inside the basic package, while contributed libraries are developed, owned, and maintained by members of the p5.js community. The contributed libraries includes some very interesting tools for working with geodata, arduino or generative literature, music sequencing ...these resources really add an very striking "expanded universe" of p5... [check out the area of contributed libraries, please](https://p5js.org/libraries/){:target="_blank"}.
 
 
@@ -44,7 +47,7 @@ function draw() {
      ellipse(120, 120, 100, 100);
   // We're drawing a flat circle
   // with 120px of distance from left
-  // and from the top, with a width 
+  // and from the top, with a width
   // and height of 100px.
 
 }
@@ -112,7 +115,7 @@ function draw() {
       rotate(PI/5);
   // It will create the flower
   // only a rotated ellipse with
-  // ten "petals" 
+  // ten "petals"
 
   }
 }
@@ -124,7 +127,7 @@ These were the first steps for me and the results...well, Well, it seems I still
 
 ![First steps with P5.js]({{ site.baseurl }}/images/P5_1.jpg)
 
-With the same script (called sketch.js) I played to change elements like the background (testing options) or another basics shapes. As you can view at the bottom of the draw() function, I tried to draw a flower. I think I'm in love with this library...I'll follow working with it. 
+With the same script (called sketch.js) I played to change elements like the background (testing options) or another basics shapes. As you can view at the bottom of the draw() function, I tried to draw a flower. I think I'm in love with this library...I'll follow working with it.
 
 ![Steps with P5.js and backgrounds]({{ site.baseurl }}/images/P5_2.png)
 
@@ -148,4 +151,4 @@ Or you can download them (normal or compressed as .min.js) and enter them in you
 
 ## wq!
 
-Greetings. wq!    :-* 
+Greetings. wq!    :-*

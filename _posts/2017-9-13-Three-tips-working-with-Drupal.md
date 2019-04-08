@@ -2,22 +2,25 @@
 layout: post
 title: Three tips working with Drupal
 permalink: /blog/three-tips-working-with-drupal
+published: true
+date: 2017-09-13
+categories: [Drupal, Web, Projects]
 ---
 
 
-I have been working with Drupal 7 recently and I have done configuration and development tasks for projects based on Drupal 7: projects of work (consultancy) and other tasks 
+I have been working with Drupal 7 recently and I have done configuration and development tasks for projects based on Drupal 7: projects of work (consultancy) and other tasks
 for Drupal modules on which I am working in my free time.
-I would like to make a collection of snippets and ideas that I have implemented recently (some of which I have not done for a long time) and to register here. Maybe it 
+I would like to make a collection of snippets and ideas that I have implemented recently (some of which I have not done for a long time) and to register here. Maybe it
 will help someone at some point who needs to do the same things.
 <!--more-->
 
 
-## First - Two basic hooks 
+## First - Two basic hooks
 
 **Context:**  A Very Quick Introduction to Drupal's hook_menu() and hook_help(). And what is a hook? Hooks in Drupal are just ways of modifying the website page's results
  through methods which connecting to the Drupal Core and are provided by the Drupal API (or specific APIs like Form API, for example).  
 
-**Problem:** Well, the problem was very simple...I want to create a basic module for working on a crazy idea, and the first question is all about to complete the basic 
+**Problem:** Well, the problem was very simple...I want to create a basic module for working on a crazy idea, and the first question is all about to complete the basic
 Drupal hooks for give the elemental form to my new and little new module.  
 
 **Questions:** Which are the elementary methods for a module in Drupal? well, although in reality there are many and the answer is relative, to start with a good foot and go "exercising"
@@ -29,9 +32,9 @@ I think getting closer to these basic Hooks is a good way to get started with Dr
 
 On the other hand, hook_menu() is another elementary function provided by [the system API system.api.php](https://api.drupal.org/api/drupal/modules%21system%21system.api.php/function/hook_menu/7.x){:target="_blank"}, and consists of a method for this hook enables modules to register paths in order to define how URL requests are handled. Paths may be registered for URL handling only, or they can register the link to be placed in a menu (usually the Navigation menu).
 
-And don't forget the legendary Drupal t() function, that wraps the text marks for translation. This function is for make strings used in Drupal translatable. Every string in a t() function can be translated through the Drupal UI, so you must use it when you "paint" strings on screen and you want that your module be translatable. 
+And don't forget the legendary Drupal t() function, that wraps the text marks for translation. This function is for make strings used in Drupal translatable. Every string in a t() function can be translated through the Drupal UI, so you must use it when you "paint" strings on screen and you want that your module be translatable.
 
-**Results:** 
+**Results:**
 
 
 ```php
@@ -94,7 +97,7 @@ function module_menu() {
 ![Geohide just for Drupal by Rojomorgan]({{ site.baseurl }}/images/geohide_drupal_rojomorgan_branding.png)
 
 
-We've called our future module "Geohide" and we're working inside [a Drupal.org sandbox](https://www.drupal.org/sandbox/diegol_de_los_bosques/2827812){:target="_blank"} and I promise myself to write a post about our future module. Ok. 
+We've called our future module "Geohide" and we're working inside [a Drupal.org sandbox](https://www.drupal.org/sandbox/diegol_de_los_bosques/2827812){:target="_blank"} and I promise myself to write a post about our future module. Ok.
 
 **Problem:** The operating mode we had come up with it was to offer a module configuration menu in which the user could make several selections to set the country, city, or region. And then select what Content Type, Node and field wanted to apply the functions of Geohide itself. This generates a structure of location and dynamic filtering of the fields, in this order:
 
@@ -128,8 +131,8 @@ This is the first select, oriented to get a Drupal content type created in the w
            );
 ```
 
-Now, the second dropdown. With the parameter 'multiple' we'll allow multiple selection of nodes. But the most important thing here is the closing div created for replacement when dropdown_first is changed in the previous dropdown. 
-When the form is rebuilt during AJAX processing, the $value_dropdown_first variable will have the new value and so the options will change. 
+Now, the second dropdown. With the parameter 'multiple' we'll allow multiple selection of nodes. But the most important thing here is the closing div created for replacement when dropdown_first is changed in the previous dropdown.
+When the form is rebuilt during AJAX processing, the $value_dropdown_first variable will have the new value and so the options will change.
 
 ```php
  $form['dropdown_second'] = array(
@@ -145,7 +148,7 @@ When the form is rebuilt during AJAX processing, the $value_dropdown_first varia
 
 ```
 
-Here, in the third dropdown we allow the multiple selection as well and the processing is the same than the second dropdown. 
+Here, in the third dropdown we allow the multiple selection as well and the processing is the same than the second dropdown.
 
 ```php
  $form['dropdown_third'] = array(
@@ -162,7 +165,7 @@ Here, in the third dropdown we allow the multiple selection as well and the proc
 
 ```
 
-Ok, and how we launch the form rebuilt? Using a ajax_callback() function, which launch the two replace commands to re-draw the form on every change at the first dropdown. 
+Ok, and how we launch the form rebuilt? Using a ajax_callback() function, which launch the two replace commands to re-draw the form on every change at the first dropdown.
 
 
 ```php
@@ -192,7 +195,7 @@ function geohide_ajax_callback($form, $form_state) {
 **Questions:** Is there any way to do this for each node? Does each node show a block from facebook page plugin configured ad-hoc? Code? Site-building?
 
 
-**Limitations:** Each client of this website will be the drupal editor user who creates their company profile. It is not intuitive to ask them to generate the code and insert it. Best to do it automatically: request the link to Facebook page through a field in the form and then insert it into the widget settings, Yes, that's the way. 
+**Limitations:** Each client of this website will be the drupal editor user who creates their company profile. It is not intuitive to ask them to generate the code and insert it. Best to do it automatically: request the link to Facebook page through a field in the form and then insert it into the widget settings, Yes, that's the way.
 
 
 ### Results: Ok, mission accomplished. I only used six (or seven :-P) parts:
