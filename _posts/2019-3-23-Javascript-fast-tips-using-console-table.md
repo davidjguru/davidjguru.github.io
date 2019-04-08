@@ -4,7 +4,7 @@ title: JavaScript Fast Tips (I) - Data with console.table()
 permalink: /blog/javascript-fast-tips-using-console-table
 published: true
 date: 2019-03-23
-categories: [JavaScript, Web, Tips]
+categories: [JavaScript]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @denisolvr]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash.jpeg) |
