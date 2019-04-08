@@ -12,13 +12,13 @@ The previous Tuesday I was practicing with JavaScript and using console.log() to
 <!--more-->
 
 ## Introduction
-Then I remembered the first time I saw the Facebook console.log announcement (years ago) AFAIK my first experience of seeing a stylized console output. The key? the use of the %c directive as a parameter. Yes, you can use the %c directive to apply a CSS style to console output.  
+Then I remembered the first time I saw the Facebook console.log announcement (years ago) AFAIK my first experience of seeing a stylized console output. The key? the use of the -%c- directive as a parameter. Yes, you can use the %c directive to apply a CSS style to console output.  
 
 | ![Javascript Warning through Console by Facebook]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_facebook_warning.png) |
 |:--:|
 | *STOP! - Javascript Warning through Console by Facebook* |
 
-When we use the directive% c we are indicating that the parameter that we add next will be CSS guidelines that will have to be interpreted starting from the appearance of the directive.
+When we're using the directive -%c- we are indicating that the parameter that we'll add next will be CSS guidelines that will have to be interpreted starting from the appearance of the directive.
 
 ## Example 1
 ```javascript      
