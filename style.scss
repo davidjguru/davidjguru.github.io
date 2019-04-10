@@ -156,7 +156,6 @@ img {
 }
 
 .masthead {
-  padding: 20px 0;
   border-bottom: 1px solid $lightGray;
   position: fixed;
   padding: 25px;
@@ -243,6 +242,10 @@ nav {
 //
 // .main
 //
+
+.posts {
+    padding-top: 200px;
+}
 
 .posts > .post {
   padding-bottom: 2em;
