@@ -222,7 +222,9 @@ img {
 .site-description {
   margin: -5px 0 0 0;
   color: $gray;
-  font-size: 16px;
+  font-size: 22px;
+  font-family: 'Cardo', serif;
+  text-shadow: 1px 1px 1px rgba(11, 10, 10, 0.6);
 
   @include mobile {
     margin: 3px 0;
