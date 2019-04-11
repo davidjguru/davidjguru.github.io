@@ -156,9 +156,11 @@ img {
 }
 
 .masthead {
+  position: relative;	
   border-bottom: 1px solid $lightGray;
   padding: 25px;
   height: 384px;
+  width: 100%;
   border-radius: 0 0 85% 85% / 30%;
 
   @include mobile {
@@ -167,8 +169,14 @@ img {
 }
 
 .masthead::before {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
    background: linear-gradient(rgba(203, 32, 4, 0.5), rgba(22, 48, 248, 0.29)), url('https://gitlab.com/davidjguru/master-javascript/raw/master/HTML_Folder/WEB/images/davidjguru_github_io_header_image_van.png');
-     opacity: .5; 
+   opacity: .5; 
 
 }
 
