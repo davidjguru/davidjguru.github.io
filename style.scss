@@ -221,7 +221,7 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: #f6f3f3;
   font-size: 22px;
   font-family: 'Cardo', serif;
   text-shadow: 1px 1px 1px rgba(11, 10, 10, 0.6);
@@ -233,9 +233,10 @@ img {
 
 nav {
   float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
+  margin-top: -63px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
-  font-size: 18px;
+  font-size: 21px;
+  color: #f6f3f3;
 
   @include mobile {
     float: none;
@@ -245,11 +246,14 @@ nav {
   }
 
   a {
-    margin-left: 20px;
-    color: $darkGray;
+    margin-left: 10px;
+    color: #f6f3f3;
     text-align: right;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 1px;
+    text-decoration: underline;
+    font-family: 'Cardo', serif;
+    text-shadow: 1px 1px 1px rgba(11, 10, 10, 0.6);
 
     @include mobile {
       margin: 0 10px;
