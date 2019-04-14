@@ -7,6 +7,9 @@ date: 2017-06-30
 categories: [Community]
 sitemap: true
 ---
+| ![Picture from Unsplash, by @tegan]({{ site.baseurl }}/images/davidjguru_drupal_8_drupal_sevilla_moving_group.png) |
+|:--:|
+| *Picture from Unsplash, user Tegan Mierle @tegan* |
 
 
 This week the local group [Drupal Sevilla](https://groups.drupal.org/sevilla){:target="_blank"} -the community of people interested in Drupal living and working from Seville (Andalusia, Spain)- has met and we have done a retrospective on the cycle of activities developed to date, taking advantage of the last appointment before Of summer to review and prepare ideas for the new course that will begin in September.

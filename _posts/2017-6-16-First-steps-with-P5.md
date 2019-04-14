@@ -7,7 +7,9 @@ date: 2017-06-16
 categories: [JavaScript]
 sitemap: true
 ---
-
+| ![Picture from Unsplash, by @davideragusa]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_p5_library_steps.png) |
+|:--:|
+| *Picture from Unsplash, user Davide Ragusa @davideragusa* |
 
 
 A few days ago I attended a talk given by Esperanza Moreno [@_mimina_](https://twitter.com/_mimina_){:target="_blank"}, architect, researcher and developer. She's developing applications that allows connect musical files (metadata) with renderings and musical remixes, a visual and auditory show called "Antropoloops", a quite powerful cultural project. [See their website](http://antropoloops.tumblr.com/){:target="_blank"}

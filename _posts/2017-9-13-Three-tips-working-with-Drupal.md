@@ -7,6 +7,9 @@ date: 2017-09-13
 categories: [Drupal]
 sitemap: true
 ---
+| ![Picture from Unsplash, by @markusspiske]({{ site.baseurl }}/images/davidjguru_drupal_7_tips_drupal.png) |
+|:--:|
+| *Picture from Unsplash, user Markus Spiske @markusspiske* |
 
 
 I have been working with Drupal 7 recently and I have done configuration and development tasks for projects based on Drupal 7: projects of work (consultancy) and other tasks
