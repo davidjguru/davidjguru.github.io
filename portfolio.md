@@ -1,8 +1,8 @@
 ---
 title: My Portfolio...Projects & Events & Colaborations
-permalink: /portfolio/
+permalink: /projects/
 layout: page
-sitemap: true 
+sitemap: true
 ---
 This is a placeholder page for some Drupal-based Projects I've worked on.
 
@@ -50,5 +50,3 @@ The Regional Government of the “Autonomous Community” (Well,It’s the origi
 The Regional Government of Andalusia chose Rojomorgan as the favorite agency to design and build the project: to create an online platform for the search of everything related to Flamenco.
 
 **URL:** [https://www.juntadeandalucia.es/cultura/catalogoflamenco/](https://www.juntadeandalucia.es/cultura/catalogoflamenco/){:target="_blank"}
-
-
