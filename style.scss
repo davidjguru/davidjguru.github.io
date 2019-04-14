@@ -321,6 +321,16 @@ nav {
     z-index: 1;
 }
 
+.posts > .post h1{
+   z-index: 2;
+   position: absolute;
+   padding-top: 437px;
+   color: white;
+   font-size: 0px;
+   width: 720px;
+   text-align: center;
+}
+
 
 .posts > .post:last-child {
   padding-bottom: 1em;
