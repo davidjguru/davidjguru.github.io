@@ -12,7 +12,8 @@ sitemap: true
 | *Picture from Unsplash, user Patrick Lindenberg @heapdump* |
 
 
-The previous Tuesday I was practicing with JavaScript and using console.log() to show data (nothing serious, if it was important I had used breakpoints, of course :-P), and in an outflow of extensive information, I remembered a nice way to organize it visually: You could give color and shape to the information displayed through console.log().
+I always (or almost always) had worked on Drupal projects with the same stack of versions, so I only had one environment set up. Then, I started to have different versions (Drupal 6.x, Drupal 7 ... 8) at the same time for diverse projects and then I started playing with Docker. But now I have discovered ddev and a new game has started.
+
 <!--more-->
 
 ## Introduction
