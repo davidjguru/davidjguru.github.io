@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Creating development environments for Drupal with DDEV
+title: Development environments for Drupal with DDEV
 permalink: /blog/creating-development-environments-for-drupal-with-ddev
 published: true
 date: 2019-05-18
 categories: [Drupal]
 sitemap: true
 ---
-| ![Picture from Unsplash, by @officestock]({{ site.baseurl }}/images/davidjguru_drupal_8_ddev_image_from_unsplash_laptop.jpg) |
+| ![Picture from Unsplash, by @heapdump]({{ site.baseurl }}/images/davidjguru_drupal_8_ddev_image_from_unsplash_harddrive.jpg) |
 |:--:|
-| *Picture from Unsplash, user Sebastian Herrmann @officestock* |
+| *Picture from Unsplash, user Patrick Lindenberg @heapdump* |
 
 
 The previous Tuesday I was practicing with JavaScript and using console.log() to show data (nothing serious, if it was important I had used breakpoints, of course :-P), and in an outflow of extensive information, I remembered a nice way to organize it visually: You could give color and shape to the information displayed through console.log().
