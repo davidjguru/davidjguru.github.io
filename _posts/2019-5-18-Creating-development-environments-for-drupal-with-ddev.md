@@ -18,6 +18,7 @@ I always (or almost always) had worked on Drupal projects with the same stack of
 
 ## Introduction
 I was reading in somewhere that there's two main kinds of developers: Those who works with a simple and unique stack locally (It requires a main environment with changes per project), and those who work with an encapsulated environment per each project, and it requires the use of tools for virtualization or containerization (and add another layer of complexity). 
+
 Today I wanna talk about the second option: developers with a isolated environment per project, what kind of tools we can use for it and, of course, the role that DDEV has been ocupied in my life (and in my heart). 
 But for this travel to the tool DDEV, we need remember (I'm sure you know about it) some previous concepts. 
 
