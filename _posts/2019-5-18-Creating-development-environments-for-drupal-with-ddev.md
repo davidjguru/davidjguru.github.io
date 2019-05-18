@@ -17,11 +17,16 @@ I always (or almost always) had worked on Drupal projects with the same stack of
 <!--more-->
 
 ## Introduction
-Then I remembered the first time I saw the Facebook console.log announcement (years ago) AFAIK my first experience of seeing a stylized console output. The key? the use of the -%c- directive as a parameter. Yes, you can use the %c directive to apply a CSS style to console output.  
+I was reading in somewhere that there's two main kinds of developers: Those who works with a simple and unique stack locally (It requires a main environment with changes per project), and those who work with an encapsulated environment per each project, and it requires the use of tools for virtualization or containerization (and add another layer of complexity). 
+Today I wanna talk about the second option: developers with a isolated environment per project, what kind of tools we can use for it and, of course, the role that DDEV has been ocupied in my life (and in my heart). 
+But for this travel to the tool DDEV, we need remember (I'm sure you know about it) some previous concepts. 
 
-| ![Javascript Warning through Console by Facebook]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_facebook_warning.png) |
+Let's go.    
+
+## OS Virtualization 
+| ![Basic Scheme of Docker Engine Virtualization Model First Image]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_1.png) |
 |:--:|
-| *STOP! - Javascript Warning through Console by Facebook* |
+| *Basic Scheme of Docker Engine Virtualization Model* |
 
 When we're using the directive -%c- we are indicating that the parameter that we'll add next will be CSS guidelines that will have to be interpreted starting from the appearance of the directive.
 
