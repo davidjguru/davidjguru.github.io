@@ -25,9 +25,16 @@ But for this travel to the tool DDEV, we need remember (I'm sure you know about 
 Let's go.    
 
 ## OS Virtualization 
-| ![Basic Scheme of Docker Engine Virtualization Model First Image]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_1.png) |
-|:--:|
-| *Basic Scheme of Docker Engine Virtualization Model* |
+Originally, the problem was: **How to host various applications with different versions or diverse stacks in the same single server?** and there were three answers: 
+
+1. Three physical machines.
+1. A single physical machine and three virtual machines (Hardware Virtualization).
+1. A single physical machine and three containers (Operating System Virtualization). 
+
+And the last is the point for us: The Operating System Virtualization, the concept wich Docker is based and by extension DDEV as well. Docker was a kind of OS Virtualization based in LXC (Linux Containers). 
+ 
+Let's see the basic scheme of the Docker Engine Virtualization Model: 
+![Basic Scheme of Docker Engine Virtualization Model First Image]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_1.png)
 
 When we're using the directive -%c- we are indicating that the parameter that we'll add next will be CSS guidelines that will have to be interpreted starting from the appearance of the directive.
 
