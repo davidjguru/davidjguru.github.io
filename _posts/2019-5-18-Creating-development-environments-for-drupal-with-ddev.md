@@ -90,7 +90,7 @@ So let's see a new iteration on the previous picture to understand what this con
 
 ![Docker and DDEV Structure for Local Development]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_3.png)
 
-## Setting up a Drupal 8 Site on DDEV
+## Setting up a Drupal 8 Site with DDEV
 
 We are going to try to build a development environment and deploy a project based on Drupal 8 thanks to DDEV. Initially, we will start with OS Ubuntu and evidently, these steps should only be completed completely the first time (installation of Docker and DDEV).
 The following iterations will be much faster with all the tools already installed and configured. Once you have the tools installed, steps 1, 2, 3, 4 and 5 will not be necessary anymore. 
