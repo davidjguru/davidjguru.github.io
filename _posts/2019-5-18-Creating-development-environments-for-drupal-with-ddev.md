@@ -96,18 +96,18 @@ So let's see a new iteration on the previous picture to understand what this con
 ## Setting up a Drupal 8 Site on DDEV
 
 We are going to try to build a development environment and deploy a project based on Drupal 8 thanks to DDEV. Initially, we will start with OS Ubuntu and evidently, these steps should only be completed completely the first time (installation of Docker and DDEV).
-The following iterations will be much faster with all the tools already installed and configured.
+The following iterations will be much faster with all the tools already installed and configured. Once you have the tools installed, steps 1, 2, 3, 4 and 5 will not be necessary anymore. 
 
-**Remember:** everything we see in this article is for local development (no production or live).
+**Remember:** everything we have seen here in this article is for local development (no production or live).
 
-### Preparing your sistem
+### 1- Preparing your sistem
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y build-essential apt-transport-https ca-certificates jq curl software-properties-common file
 ```
 
-### Installing Docker
+### 2- Installing Docker
 
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -118,7 +118,7 @@ sudo chmod 666 /var/run/docker*
 systemctl is-active docker
 ```
 
-### Installing Docker Compose
+### 3- Installing Docker Compose
 
 ```bash
 VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
@@ -128,7 +128,7 @@ sudo chmod 755 $DESTINATION
 docker-compose --version
 ```
 
-### Installing Linuxbrew
+### 4- Installing Linuxbrew
 
 ```bash
 yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
@@ -136,13 +136,13 @@ yes | test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 yes | test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 yes | test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile 
 ```
-### Installing DDEV 
+### 5- Installing DDEV 
 
 ```bash
 brew install ddev
 ```
 
-### Build a new Drupal project
+### 6- Build a new Drupal project
 
 ```bash
 mkdir projectname
@@ -154,15 +154,23 @@ ddev exec drush site-install standard --site-name=projectname --account-name=adm
 ddev start
 ```
 
-### Install and enable some basic Drupal Modules for work: devel, masquerade, admin_toolbar and webprofiler
+### 7- Install and enable some basic Drupal Modules for work
 
 ```bash
 ddev composer require drupal/devel drupal/masquerade drupal/admin_toolbar
 ddev exec drush en devel masquerade admin_toolbar webprofiler
 ddev exec drush cr
-sensible-browser http://$varkeyname.ddev.local
+sensible-browser http://projectname.ddev.local
 ```
 
 ## :wq!
+
+What do you think about DDEV and its possibilities? You have to think that many unix commands shown above are totally scrollable to the ddev configuration file like hooks (pre and post formats), but I preferred to make it explicit here as an introduction.
+
+Finally, I add some links of interest for you:
+
++ [Docker Simplified: A Hands-On Guide for Absolute Beginners](https://medium.freecodecamp.org/docker-simplified-96639a35ff36){:target="_blank"}
++ [DDEV, Docksal, and Lando: A Comparison](https://www.drupaleasy.com/blogs/ultimike/2018/03/ddev-docksal-and-lando-comparison){:target="_blank"}
++ [Docker Tutorial Series : Writing a Dockerfile](Docker Tutorial Series : Writing a Dockerfile){:target="_blank"}
 
 Greetings. wq!    :-*
