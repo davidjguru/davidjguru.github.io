@@ -63,7 +63,7 @@ Now defining the relationships between containers trought Docker Compose we coul
 
 
 ## And now, enter DDEV
-Well, that's how I was working lately until a good friend of mine, [Pedro Cambra](https://twitter.com/pcambra){:target="_blank"} from [Cambrico](http://cambrico.net){:target="_blank"}, told me about DDEV and asked me to try it. From there everything for me has been joy :-D
+Well, that's how I was working lately until a good friend of mine (and sensei), [Pedro Cambra](https://twitter.com/pcambra){:target="_blank"} from [Cambrico](http://cambrico.net){:target="_blank"}, told me about DDEV and asked me to try it. From there everything for me has been joy :-D
 
 DDEV Website: [https://www.drud.com](https://www.drud.com){:target="_blank"}
 
