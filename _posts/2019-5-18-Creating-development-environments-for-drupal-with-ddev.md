@@ -34,9 +34,16 @@ Originally, the problem was: **How to host various applications with different v
 And the last is the point for us: The Operating System Virtualization, the concept wich Docker is based and by extension DDEV as well. Docker was a kind of OS Virtualization based in LXC (Linux Containers). 
  
 Let's see the basic scheme of the Docker Engine Virtualization Model: 
+
 ![Basic Scheme of Docker Engine Virtualization Model First Image]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_1.png)
 
-When we're using the directive -%c- we are indicating that the parameter that we'll add next will be CSS guidelines that will have to be interpreted starting from the appearance of the directive.
+Then, a container (or Docker Container) is a Logical Entity with a copy of the Process Table, the Network Interface and the File System Mount Point, related with the kernel of the OS Host where Docker is running. This is the reason why - *unlike in the case of virtualization via hardware where an OS Guest can be different from OS Host* - OS-Virtualization must maintain systems that share the same version of the kernel.
+
+**Let's say in summary:**
+
+1. The kernel of the Host's Operating System is shared across all the containers.
+1. Each container is (initially) isolated from others existing containers. 
+1. Docker virtualize the Operating System of the Host, not the Hardware.  
 
 ## Example 1
 ```javascript      
