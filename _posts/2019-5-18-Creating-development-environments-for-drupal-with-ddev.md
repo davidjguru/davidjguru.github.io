@@ -46,7 +46,9 @@ Then, a container (or Docker Container) is a Logical Entity with a copy of the P
 1. Docker virtualize the Operating System of the Host, not the Hardware.  
 
 ## Multi-Container applications with Docker
-We now have a partial deployment performed through the equality 1 Application = 1 Docker container, but now in the next step, we see that a Drupal project = N applications = N Containers. How to relate all this? for that we entered into the use of Docker Compose, a tool to articulate the links and connections of all the Containers that we want to operate in an integrated way within the context of a project. 
+We now have a partial deployment performed through the equality 1 Application = 1 Docker container, but now in the next step, we see that a Drupal project = N applications = N Containers. **How to relate all this?** for that we entered into the use of Docker Compose, a tool to articulate the links and connections of all the Containers that we want to operate in an integrated way within the context of a project. 
+
+Now defining the relationships between containers trought Docker Compose we could deploy applications from some containers.
 
 ![Development Structure based in Docker and Docker Compose]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_2.png)
 
@@ -62,7 +64,21 @@ We now have a partial deployment performed through the equality 1 Application = 
 
 ## And now, enter DDEV
 Well, that's how I was working lately until a good friend of mine, [Pedro Cambra](https://twitter.com/pcambra){:target="_blank"} from [Cambrico](http://cambrico.net){:target="_blank"}, told me about DDEV and asked me to try it. From there everything for me has been joy :-D
-ddev is an open-source, PHP development tool, built upon Docker. It can easliy create local hosting environments, and its server configurations can be version controlled. Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites. Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.
+
+DDEV Website: (https://www.drud.com)[https://www.drud.com]{:target="_blank"}
+
+**What is DDEV?**
+Well, as they explain: *Is an open-source, PHP development tool, built upon Docker. It can easliy create local hosting environments, and its server configurations can be version controlled. Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites. Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.**
+
+**Advantages**
+There are many operational advantages to using DDEV as a tool for building development environments, but I will summarize some of the main ones:
+
+1. Fast Setup: Fast and Simple Setup. Once you have installed all the necesary stack (docker, ddev, etc.), It's extremely easy to initialize a new project based on PHP (Drupal in this case).
+1. Routing: There is basic configuration between Containers provided by DDEV. This simplifies all the connections and access tasks between Containers or between user and application. 
+1. Sharing setups within a Team: You can put the ddev configuration file per project under version control by git. And share it with your workmates. 
+1. Essentially, you just have to worry about specifying some versions. DDEV is in charge of the rest. And with some more commands, you will not have to do anything more.  
+
+**My Case**
 
 I will explain myself taking as an example my current situation: At the moment, I have a company laptop with Windows 10, loaded with pre-configured corporate applications that I can not delete and that gives me problems when building a boot manager. So I've virtualized Ubuntu in virtualbox. In this OS Ubuntu 18.04 I have no resources associated with development...nothing! I don't have Apache, neither Composer, or Drush, or PHP...nothing...only the Docker Engine system mixed with DDEV. Just This. I have everything isolated in Containers, through DDEV. A DDEV structure (of multiple related containers) for each project.
 
