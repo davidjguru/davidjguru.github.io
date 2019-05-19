@@ -61,7 +61,13 @@ We now have a partial deployment performed through the equality 1 Application = 
 
 
 ## And now, enter DDEV
+Well, that's how I was working lately until a good friend of mine, [Pedro Cambra](https://twitter.com/pcambra){:target="_blank"} from [Cambrico](http://cambrico.net){:target="_blank"}, told me about DDEV and asked me to try it. From there everything for me has been joy :-D
 ddev is an open-source, PHP development tool, built upon Docker. It can easliy create local hosting environments, and its server configurations can be version controlled. Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites. Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.
+
+I will explain myself taking as an example my current situation: At the moment, I have a company laptop with Windows 10, loaded with pre-configured corporate applications that I can not delete and that gives me problems when building a boot manager. So I've virtualized Ubuntu in virtualbox. In this OS Ubuntu 18.04 I have no resources associated with development...nothing! I don't have Apache, neither Composer, or Drush, or PHP...nothing...only the Docker Engine system mixed with DDEV. Just This. I have everything isolated in Containers, through DDEV. A DDEV structure (of multiple related containers) for each project.
+
+So let's see a new iteration on the previous picture to understand what this construction entails for development in a local environment:
+
 ![Docker and DDEV Structure for Local Development]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_3.png)
 
 [Here](https://gitlab.com/davidjguru/master-javascript/tree/js_Tips_and_Tricks_for_Console/js_Tips_and_Tricks_for_Console_Folder){:target="_blank"}
