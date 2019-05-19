@@ -71,7 +71,8 @@ DDEV Website: [https://www.drud.com](https://www.drud.com){:target="_blank"}
 
 Well, as they explain: *Is an open-source, PHP development tool, built upon Docker. It can easliy create local hosting environments, and its server configurations can be version controlled. Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites. Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.*
 
-DDEV Documentation: [https://ddev.readthedocs.io/en/stable/](https://ddev.readthedocs.io/en/stable){:target="_blank"}
+But for me, in my own words and in my bad English, DDEV is something like a pre-cooked solution to assemble Drupal projects and later, keep developing with them. Also release as Open Source Software under Apache License v2 in: [https://github.com/drud/ddev](https://github.com/drud/ddev){:target="_blank"}
+You can see the Documentation here, DDEV Documentation: [https://ddev.readthedocs.io/en/stable/](https://ddev.readthedocs.io/en/stable){:target="_blank"}
 
 **Advantages**
 
