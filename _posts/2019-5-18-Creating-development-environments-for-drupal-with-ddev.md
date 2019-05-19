@@ -77,10 +77,10 @@ DDEV Documentation: [https://ddev.readthedocs.io/en/stable/](https://ddev.readth
 
 There are many operational advantages to using DDEV as a tool for building development environments, but I will summarize some of the main ones:
 
-1. Fast Setup: Fast and Simple Setup. Once you have installed all the necesary stack (docker, ddev, etc.), It's extremely easy to initialize a new project based on PHP (Drupal in this case).
-1. Routing: There is basic configuration between Containers provided by DDEV. This simplifies all the connections and access tasks between Containers or between user and application. 
-1. Sharing setups within a Team: You can put the ddev configuration file per project under version control by git. And share it with your workmates. 
-1. Essentially, you just have to worry about specifying some versions. DDEV is in charge of the rest. And with some more commands, you will not have to do anything more.  
+1. **Fast Setup:** Fast and Simple Setup. Once you have installed all the necesary stack (docker, ddev, etc.), It's extremely easy to initialize a new project based on PHP (Drupal in this case).
+1. **Routing:** There is basic configuration between Containers provided by DDEV. This simplifies all the connections and access tasks between Containers or between user and application. 
+1. **Sharing setups within a Team:** You can put the ddev configuration file per project under version control by git. And share it with your workmates. 
+1. **Essentially,** you just have to worry about specifying some versions. DDEV is in charge of the rest. And with some more commands, you will not have to do anything more.  
 
 **My Case**
 
