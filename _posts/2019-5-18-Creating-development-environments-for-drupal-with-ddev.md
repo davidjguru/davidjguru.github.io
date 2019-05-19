@@ -90,9 +90,6 @@ So let's see a new iteration on the previous picture to understand what this con
 
 ![Docker and DDEV Structure for Local Development]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_3.png)
 
-[Here](https://gitlab.com/davidjguru/master-javascript/tree/js_Tips_and_Tricks_for_Console/js_Tips_and_Tricks_for_Console_Folder){:target="_blank"}
- In the file called "tips_tricks_console.js" you will find the examples.
-
 ## Setting up a Drupal 8 Site on DDEV
 
 We are going to try to build a development environment and deploy a project based on Drupal 8 thanks to DDEV. Initially, we will start with OS Ubuntu and evidently, these steps should only be completed completely the first time (installation of Docker and DDEV).
@@ -161,6 +158,13 @@ ddev composer require drupal/devel drupal/masquerade drupal/admin_toolbar
 ddev exec drush en devel masquerade admin_toolbar webprofiler
 ddev exec drush cr
 sensible-browser http://projectname.ddev.local
+```
+### 8- Connect to Container and some commands
+
+```bash
+ddev ssh
+ddev describe projectname
+ddev list
 ```
 
 ## :wq!
