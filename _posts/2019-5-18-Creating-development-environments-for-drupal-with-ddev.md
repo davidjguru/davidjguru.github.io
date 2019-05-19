@@ -65,12 +65,16 @@ Now defining the relationships between containers trought Docker Compose we coul
 ## And now, enter DDEV
 Well, that's how I was working lately until a good friend of mine, [Pedro Cambra](https://twitter.com/pcambra){:target="_blank"} from [Cambrico](http://cambrico.net){:target="_blank"}, told me about DDEV and asked me to try it. From there everything for me has been joy :-D
 
-DDEV Website: (https://www.drud.com)[https://www.drud.com]{:target="_blank"}
+DDEV Website: [https://www.drud.com](https://www.drud.com){:target="_blank"}
 
 **What is DDEV?**
-Well, as they explain: *Is an open-source, PHP development tool, built upon Docker. It can easliy create local hosting environments, and its server configurations can be version controlled. Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites. Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.**
+
+Well, as they explain: *Is an open-source, PHP development tool, built upon Docker. It can easliy create local hosting environments, and its server configurations can be version controlled. Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites. Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.*
+
+DDEV Documentation: [https://ddev.readthedocs.io/en/stable/](https://ddev.readthedocs.io/en/stable){:target="_blank"}
 
 **Advantages**
+
 There are many operational advantages to using DDEV as a tool for building development environments, but I will summarize some of the main ones:
 
 1. Fast Setup: Fast and Simple Setup. Once you have installed all the necesary stack (docker, ddev, etc.), It's extremely easy to initialize a new project based on PHP (Drupal in this case).
@@ -91,7 +95,73 @@ So let's see a new iteration on the previous picture to understand what this con
 
 ## Setting up a Drupal 8 Site on DDEV
 
+We are going to try to build a development environment and deploy a project based on Drupal 8 thanks to DDEV. Initially, we will start with OS Ubuntu and evidently, these steps should only be completed completely the first time (installation of Docker and DDEV).
+The following iterations will be much faster with all the tools already installed and configured.
 
+**Remember:** everything we see in this article is for local development (no production or live).
+
+### Preparing your sistem
+
+```bash
+sudo apt-get update
+sudo apt-get install -y build-essential apt-transport-https ca-certificates jq curl software-properties-common file
+```
+
+### Installing Docker
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt-get install -y docker-ce
+sudo chmod 666 /var/run/docker*
+systemctl is-active docker
+```
+
+### Installing Docker Compose
+
+```bash
+VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+DESTINATION=/usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION
+sudo chmod 755 $DESTINATION
+docker-compose --version
+```
+
+### Installing Linuxbrew
+
+```bash
+yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+yes | test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+yes | test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+yes | test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile 
+```
+### Installing DDEV 
+
+```bash
+brew install ddev
+```
+
+### Build a new Drupal project
+
+```bash
+mkdir projectname
+cd projectname
+ddev config --project-type php --php-version 7.3 
+ddev composer create drupal-composer/drupal-project:8.x-dev --stability dev --no-interaction
+ddev config --project-type drupal8
+ddev exec drush site-install standard --site-name=projectname --account-name=admin --account-pass=admin --account-mail=mail@example.com --yes
+ddev start
+```
+
+### Install and enable some basic Drupal Modules for work: devel, masquerade, admin_toolbar and webprofiler
+
+```bash
+ddev composer require drupal/devel drupal/masquerade drupal/admin_toolbar
+ddev exec drush en devel masquerade admin_toolbar webprofiler
+ddev exec drush cr
+sensible-browser http://$varkeyname.ddev.local
+```
 
 ## :wq!
 
