@@ -45,17 +45,26 @@ Then, a container (or Docker Container) is a Logical Entity with a copy of the P
 1. Each container is (initially) isolated from others existing containers. 
 1. Docker virtualize the Operating System of the Host, not the Hardware.  
 
-## Local Development & DDEV
+## Multi-Container applications with Docker
 
 ![Development Structure based in Docker and Docker Compose]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_2.png)
 
+**Concepts:**
+1. Docker Engine: a set of software resources for work with Docker. Includes a server (Docker Daemon called dockerd, a Rest API and a client Docker CLI).  
+1. Dockerfile: File with a description about how to build an Docker Image. 
+1. Docker Image: Implementation of a Dockerfile as a template with the application.
+1. Docker Hub: An external (and official) repository with availables Docker Images. [https://hub.docker.com/](https://hub.docker.com/){:target="_blank"}
+1. Docker Container: A Logical Entity, a running instance of a Docker Image. 
+1. Docker Compose:  A tool for defining and running multi-container Docker applications. 
+
+
+
+## And now, enter DDEV
 ddev is an open-source, PHP development tool, built upon Docker. It can easliy create local hosting environments, and its server configurations can be version controlled. Originally meant for Drupal development, ddev easily can host Drupal, Wordpress, and GravCMS sites. Since it is based on Docker, ddev is compatible with Windows, Mac, and Linux.
 ![Docker and DDEV Structure for Local Development]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_3.png)
 
 [Here](https://gitlab.com/davidjguru/master-javascript/tree/js_Tips_and_Tricks_for_Console/js_Tips_and_Tricks_for_Console_Folder){:target="_blank"}
  In the file called "tips_tricks_console.js" you will find the examples.
-
-## Commands and Configurations of DDEV for Drupal-based projects
 
 ## Setting up a Drupal 8 Site on DDEV
 
