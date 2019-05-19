@@ -46,6 +46,7 @@ Then, a container (or Docker Container) is a Logical Entity with a copy of the P
 1. Docker virtualize the Operating System of the Host, not the Hardware.  
 
 ## Multi-Container applications with Docker
+We now have a partial deployment performed through the equality 1 Application = 1 Docker container, but now in the next step, we see that a Drupal project = N applications = N Containers. How to relate all this? for that we entered into the use of Docker Compose, a tool to articulate the links and connections of all the Containers that we want to operate in an integrated way within the context of a project. 
 
 ![Development Structure based in Docker and Docker Compose]({{ site.baseurl }}/images/davidjguru_drupal_8_docker_engine_mockup_2.png)
 
