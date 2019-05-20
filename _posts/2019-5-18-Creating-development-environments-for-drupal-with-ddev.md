@@ -101,8 +101,8 @@ The following iterations will be much faster with all the tools already installe
 ### 1- Preparing your sistem
 
 ```bash
-sudo apt-get update
-sudo apt-get install -y build-essential apt-transport-https ca-certificates jq curl software-properties-common file
+sudo apt update
+sudo apt install -y build-essential apt-transport-https ca-certificates jq curl software-properties-common file
 ```
 
 ### 2- Installing Docker
@@ -111,7 +111,7 @@ sudo apt-get install -y build-essential apt-transport-https ca-certificates jq c
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
-sudo apt-get install -y docker-ce
+sudo apt install -y docker-ce
 sudo chmod 666 /var/run/docker*
 systemctl is-active docker
 ```
