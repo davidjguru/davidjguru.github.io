@@ -134,10 +134,10 @@ yes | test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 yes | test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 yes | test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile 
 ```
-### 5- Installing DDEV 
+### 5- Adding the vendor/package to brew & Installing DDEV 
 
 ```bash
-brew install ddev
+brew tap drud/ddev && brew install ddev
 ```
 
 ### 6- Build a new Drupal project
