@@ -179,3 +179,29 @@ Finally, I add some links of interest for you:
 + [Docker Tutorial Series : Writing a Dockerfile](Docker Tutorial Series : Writing a Dockerfile){:target="_blank"}
 
 Greetings. wq!    :-*
+
+## PS; Post-Script: 50 Ways of Install Drupal
+Thinking about putting together some of the various Drupal installation modes, I have created a repository for this. I have called this repository "50 ways to install Drupal", mainly for teaching purposes. It's a set of Installers for Drupal, a collection of craft scripts to launch various types of processes installing Drupal codebase.
+[See the repo in gitlab](https://gitlab.com/davidjguru/50-ways-to-install-drupal){:target="_blank"}
+
+I have started by building a script that performs all the steps above plus some additions (such as installing npm, Node, Angular and some more packages). 
+It's a script to deploy a local development environment in Drupal - Headless projects with an uncoupled frontend and based on Angular.
+[Angular & Drupal & DDEV](https://gitlab.com/davidjguru/50-ways-to-install-drupal/blob/master/installers/recipe_1_ADD_Angular_Drupal_DDEV){:target="_blank"} 
+
+**Use:** Just for create Debian - based environments to work in Drupal - Headless projects (In this case, using Angular for the frontend). Launch your Terminal (Ctrl + alt + T), go to the folder and launch just: ```$ . recipe_1_ADD_Angular_Drupal_DDEV```
+
+**Characteristics:**
+
++ **Search** for older versions of Docker and uninstall it.
++ **Stop** your Apache main server, to free the port 80.
++ **Update** your package list.
++ **Install** all the basic resources for Docker Engine in your host system: docker-ce, docker-compose, linuxbrew and ddev.
++ **Also install** a set of software packages in OS - Host: curl, jq, files, build-essential apt-transport-https ca-certificates software-properties-common
++ **Create** a new ddev environment with containers for Drupal, database, etc. (See 5 to see the container specifications).
++ **Build** a new Drupal-based project using ddev, Composer and Drush.
++ **Install and enable** some basic modules needs to work like devel, webprofiler, admin_toolbar and masquerade.
++ **Install** some more packages in the container: sqlite3, node, npm and Angular.
++ **Open** the new Drupal in Browser and goes to the container prompt.
++ **Ready to work**.
+
+
