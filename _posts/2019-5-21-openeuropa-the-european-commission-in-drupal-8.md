@@ -29,65 +29,99 @@ Now I have a centralized recipe. I put it here, in case someone needs it.
 
 ### **Environment:**
 
-OS - Ubuntu 18.04
-PHP - 7.3.5 (but the container will run with its own PHP 7.1). 
++ OS - Ubuntu 18.04
++ PHP - 7.3.5 (but the container will run with its own PHP 7.1). 
 
 ### **Prerequisites:**
-Docker 
-Docker Compose
+
++ Docker 
++ Docker Compose
 
 ### **Installing Docker**
-`sudo apt install -y build-essential apt-transport-https ca-certificates jq curl software-properties-common file`
-`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
-`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"`
-`sudo apt update`
-`sudo apt install -y docker-ce`
-`sudo chmod 666 /var/run/docker*`
-`systemctl is-active docker`
+
+```bash
+sudo apt install -y build-essential apt-transport-https ca-certificates jq curl software-properties-common file
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install -y docker-ce
+sudo chmod 666 /var/run/docker*
+systemctl is-active docker
+```
 
 ### **Installing Docker Compose**
-`VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)`
-`DESTINATION=/usr/local/bin/docker-compose`
-`sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION`
-`sudo chmod 755 $DESTINATION`
-`docker-compose --version`
 
+```bash
+VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)`
+DESTINATION=/usr/local/bin/docker-compose`
+sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION`
+sudo chmod 755 $DESTINATION`
+docker-compose --version
+```
 ## Installing OpenEuropa Drupal 8 Site
+
 ### **First:** You have to stop your Apache webserver, in order to free the port:80 
-`sudo /etc/init.d/apache2 stop`
+
+```bash
+sudo /etc/init.d/apache2 stop
+```
 
 ### **Second:** Clone the Drupal Site project inside your working directory
-`git clone https://github.com/openeuropa/drupal-site-template.git`
+
+```bash
+git clone https://github.com/openeuropa/drupal-site-template.git
+```
 
 ### **Third:** Run the project (general and the web container for Drupal)
-`cd drupal-site-template`
-`docker-compose up -d`
-`docker-compose exec web composer install`
+
+```bash
+cd drupal-site-template`
+docker-compose up -d``docker-compose exec web composer install
+```
 
 ![Docker inspect container to get the IP]({{ site.baseurl }}/imagesdavidjguru_drupal_8_openeuropa_3.png)
 
+
 ### **Fourth:** Get the ID of the web container and inspect it
-`docker ps
-docker container inspect IDCONTAINER`
+
+```bash 
+docker ps
+docker container inspect IDCONTAINER
+```
 
 
 ### **Fifth:** Get the IP of the container and see it in browser
-`sensible-browser IPCONTAINER:8080`
 
-![Open Drupal in Browser]({{ site.baseurl }}/imagesdavidjguru_drupal_8_openeuropa_1.png)
+```bash
+sensible-browser IPCONTAINER:8080
+```
+
+![Open Drupal in Browser]({{ site.baseurl }}/images/davidjguru_drupal_8_openeuropa_1.png)
 
 ### **Sixth:** Connect to the container
-`docker exec -it IDCONTAINER /bin/bash `
+
+```bash
+docker exec -it IDCONTAINER /bin/bash 
+```
 
 ### **Seventh:** Run the installer / Task Runner
-`./vendor/bin/run toolkit:install-clean`
+
+```bash
+./vendor/bin/run toolkit:install-clean
+```
 
 ### **Eighth:** Export configuration files from database to config/sync
-`./vendor/bin/drush cex`
+
+```bash
+./vendor/bin/drush cex
+```
 
 ### **Ninth:** Visit your new project in
-`http://IPCONTAINER:8080/web `
+```bash
+http://IPCONTAINER:8080/web 
+```
 
 ### **Happy Hacking!** 
-![Login Drupal OpenEuropa]({{ site.baseurl }}/imagesdavidjguru_drupal_8_openeuropa_2.png)
+
+![Login Drupal OpenEuropa]({{ site.baseurl }}/images/davidjguru_drupal_8_openeuropa_2.png)
 
