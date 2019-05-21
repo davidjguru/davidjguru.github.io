@@ -4,7 +4,7 @@ permalink: /topics/
 title: Topics
 ---
 
-
+<p>In this section you can find the main list of articles organized by categories.</p>
 <div id="archives">
 {% for category in site.categories %}
   <div class="archive-group">
@@ -17,6 +17,7 @@ title: Topics
     {% for post in site.categories[category_name] %}
     <article class="archive-item">
       <h4><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h4>
+      <h5>{{post.date}}</h5>
     </article>
     {% endfor %}
   </div>
