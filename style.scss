@@ -368,6 +368,18 @@ nav {
   }
 }
 
+.entry > p {
+font-family: 'Cardo', serif;
+}
+
+.archive-item > p {
+font-family: 'Cardo', serif;
+}
+.archive-item > p > a {
+font-size: 20px;
+font-family: 'Oswald';
+}
+
 .wrapper-footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
