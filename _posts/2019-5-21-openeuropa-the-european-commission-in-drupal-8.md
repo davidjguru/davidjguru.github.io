@@ -79,7 +79,7 @@ cd drupal-site-template`
 docker-compose up -d``docker-compose exec web composer install
 ```
 
-![Docker inspect container to get the IP]({{ site.baseurl }}/imagesdavidjguru_drupal_8_openeuropa_3.png)
+![Docker inspect container to get the IP]({{ site.baseurl }}/images/davidjguru_drupal_8_openeuropa_3.png)
 
 
 ### **Fourth:** Get the ID of the web container and inspect it
