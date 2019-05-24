@@ -89,7 +89,7 @@ docker-compose exec web composer install
 docker ps
 docker container inspect IDCONTAINER
 ```
-Tip: The IP from the container with /web inside (drupal_site_template_web_1) will have always the same ID. You only have to watch it once. 
+**Tip:** The ID of the container with /web inside (drupal_site_template_web_1) will have always the same ID. You only have to watch it once. 
 
 
 ### Fifth: Get the IP of the container and see it in browser
