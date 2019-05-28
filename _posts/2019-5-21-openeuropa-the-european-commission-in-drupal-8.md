@@ -52,10 +52,10 @@ systemctl is-active docker
 ### Installing Docker Compose
 
 ```bash
-VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)`
-DESTINATION=/usr/local/bin/docker-compose`
-sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION`
-sudo chmod 755 $DESTINATION`
+VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+DESTINATION=/usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION
+sudo chmod 755 $DESTINATION
 docker-compose --version
 ```
 ## Installing OpenEuropa Drupal 8 Site
@@ -75,7 +75,7 @@ git clone https://github.com/openeuropa/drupal-site-template.git
 ### Third: Run the project
 
 ```bash
-cd drupal-site-template`
+cd drupal-site-template
 docker-compose up -d
 docker-compose exec web composer install
 ```
