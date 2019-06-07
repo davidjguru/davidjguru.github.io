@@ -133,6 +133,7 @@ yes | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/ma
 yes | test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 yes | test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 yes | test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile 
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 ```
 ### 5- Adding the vendor/package to brew & Installing DDEV 
 
