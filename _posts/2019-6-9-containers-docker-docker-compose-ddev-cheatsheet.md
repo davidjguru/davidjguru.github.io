@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Docker, Docker-Compose and DDEV: Fast Cheatsheet
-permalink: /blog/docker-docker-compose-and-ddev-cheatsheet
+permalink: /blog/containers-docker-docker-compose-ddev-cheatsheet
 published: true
 date: 2019-06-09
 categories: [Tools]
