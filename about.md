@@ -10,17 +10,15 @@ My primary spoken language is Western - Andalusian, a mixed variant of Spanish (
 How is this possible?...I recommend you see / enjoy this video with English subtitles to understand it better: [The keys of the memory](https://www.youtube.com/watch?v=zeUEQWhLgtg){:target="_blank"}).
 
 
-
-
-
-
-
-
-
-
 ![Years after, at school]({{ site.baseurl }}/images/davidjguru_at_school_720x430.jpg)
 
-Apart from this, I write in Spanish (Castillian) and sometimes also in English -as you can see in this blog-. I am currently Technical Director at Everis (they call it 'Centers Leader Specialist' or so) for the development of projects based on Drupal, involved with a team of 20 people working from Seville. I design training plans, I trace the on-boarding processes for PHP-Drupal developers, supervising projects, and I do software architecture and development. I'm a [facilitator](https://dictionary.cambridge.org/es/diccionario/ingles/facilitator){:target="_blank"} whose main concern is how to advance the people who are part of my team: that is my [leitmotiv](https://dictionary.cambridge.org/es/diccionario/ingles/leitmotiv){:target="_blank"}.
+Apart from this, I write in Spanish (Castillian) and sometimes also in English -as you can see in this blog-. 
+I am interested in natural languages as a sign of diversity and a way of respecting other cultures and identities. 
+Because of this I try to learn a bit of Catalan or Euskara, the language of the basque people. I also have another blog about Drupal written in Spanish with other content and texts (not directly translated from here) if it is more comfortable for you to read in Spanish.
+
+
+
+I am currently Technical Director at Everis (they call it 'Centers Leader Specialist' or so) for the development of projects based on Drupal, involved with a team of 20 people working from Seville. I design training plans, I trace the on-boarding processes for PHP-Drupal developers, supervising projects, and I do software architecture and development. I'm a [facilitator](https://dictionary.cambridge.org/es/diccionario/ingles/facilitator){:target="_blank"} whose main concern is how to advance the people who are part of my team: that is my [leitmotiv](https://dictionary.cambridge.org/es/diccionario/ingles/leitmotiv){:target="_blank"}.
 
 I have been linked to Drupal since 2011 (approximately). I've always had the same nickname - [@davidjguru](https://twitter.com/davidjguru){:target="_blank"} and I'm  working at Everis, doing digital consulting for Drupal - based projects. PHP, MySQL(MariaDB), Apache, NGINX, Composer, Drush, Drupal Console, Drupal Code Generator, Docker, DDEV... some CSS, some javascript ... sitebuilding ... and so on and so on ...
 
