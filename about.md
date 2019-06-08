@@ -1,10 +1,20 @@
 ---
 layout: page
-title: Me
+title: /me
 permalink: /me/
 sitemap: true
 ---
-Well, my name is David (I've always had the same nickname - [@davidjguru](https://twitter.com/davidjguru){:target="_blank"}) and I'm  working at Rojomorgan, a digital consulting agency for projects based on Drupal technology. PHP, MySQL, Apache ... some CSS, some javascript ... sitebuilding ... and so on and so on ...
+![Yeah. It's me]({{ site.baseurl }}/images/davidjguru_child_its_me_400x546.jpg) My name is David and I was born in Seville, Andalusia, many years ago. 
+My primary spoken language is Western - Andalusian, a mixed variant of Spanish (Castilian) and ancient Arabic sounds of Al-Andalus (the old name of Andalusia). How is this possible? I recommend you see / enjoy this video with English subtitles to understand it better: [The keys of the memory](https://www.youtube.com/watch?v=zeUEQWhLgtg){:target="_blank"}).
+
+![Years after, at school]({{ site.baseurl }}/images/davidjguru_at_school_600x359.jpg)
+
+Apart from this, I write in Spanish (Castillian) and sometimes also in English -as you can see in this blog-. I am currently Technical Director at Everis (they call it 'Centers Leader Specialist' or so) for the development of projects based on Drupal, involved with a team of 20 people working from Seville. I design training plans, I trace the on-boarding processes for PHP-Drupal developers, supervising projects, and I do software architecture and development. I'm a [facilitator](https://dictionary.cambridge.org/es/diccionario/ingles/facilitator){:target="_blank"} whose main concern is how to advance the people who are part of my team: that is my [leitmotiv](https://dictionary.cambridge.org/es/diccionario/ingles/leitmotiv){:target="_blank"}.
+
+I have been linked to Drupal since 2011 (approximately). I've always had the same nickname - [@davidjguru](https://twitter.com/davidjguru){:target="_blank"} and I'm  working at Everis, doing digital consulting for Drupal - based projects. PHP, MySQL(MariaDB), Apache, NGINX, Composer, Drush, Drupal Console, Drupal Code Generator, Docker, DDEV... some CSS, some javascript ... sitebuilding ... and so on and so on ...
+
+![Playing with friends]({{ site.baseurl }}/images/davidjguru_playing_with_friends_600x450.jpg)
+
 
 This is my own sketchbook for the things that I'm testing in my environments. I hope you like it and there is something that might interest you.
 
@@ -33,3 +43,6 @@ It's Me on my [Drupal.org profile](https://www.drupal.org/u/davidjguru){:target=
 ### Contact me
 
 [davidjguru@gmail.com](mailto:davidjguru@gmail.com)
+
+![See you]({{ site.baseurl }}/images/davidjguru_bye_600x400.jpg)
+
