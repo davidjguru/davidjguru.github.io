@@ -12,7 +12,7 @@ How is this possible?...I recommend you see / enjoy this video with English subt
 
 Apart from this, I write in Spanish (Castillian) and sometimes also in English -as you can see in this blog-. 
 I am interested in natural languages as a sign of diversity and a way of respecting other cultures and identities. 
-Because of this I try to learn a bit of Catalan or Euskara, the language of the basque people. I also have another blog about Drupal written in Spanish with other content and texts (not directly translated from here) if it is more comfortable for you to read in Spanish.
+Because of this I try to learn a bit of Catalan or Euskara, the language of the basque people. I also have another blog about Drupal written in Spanish with other content and texts (not directly translated from here) if it is more comfortable for you to read in Spanish. [It's here, in Medium](https://medium.com/@davidjguru){:target="_blank"}
 
 ![Years after, at school]({{ site.baseurl }}/images/davidjguru_at_school_720x430.jpg)
 
