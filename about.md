@@ -7,15 +7,14 @@ sitemap: true
 ![Yeah. It's me]({{ site.baseurl }}/images/davidjguru_child_its_me_400x546.jpg) My name is David and I was born in Seville, Andalusia, many years ago.
  
 My primary spoken language is Western - Andalusian, a mixed variant of Spanish (Castilian) and ancient Arabic sounds of Al-Andalus (the old name of Andalusia). 
-How is this possible?...I recommend you see / enjoy this video with English subtitles to understand it better: [The keys of the memory](https://www.youtube.com/watch?v=zeUEQWhLgtg){:target="_blank"}).
+How is this possible?...I recommend you see / enjoy this video with English subtitles to understand it better: [The keys of the memory](https://www.youtube.com/watch?v=zeUEQWhLgtg){:target="_blank"}.
 
-
-![Years after, at school]({{ site.baseurl }}/images/davidjguru_at_school_720x430.jpg)
 
 Apart from this, I write in Spanish (Castillian) and sometimes also in English -as you can see in this blog-. 
 I am interested in natural languages as a sign of diversity and a way of respecting other cultures and identities. 
 Because of this I try to learn a bit of Catalan or Euskara, the language of the basque people. I also have another blog about Drupal written in Spanish with other content and texts (not directly translated from here) if it is more comfortable for you to read in Spanish.
 
+![Years after, at school]({{ site.baseurl }}/images/davidjguru_at_school_720x430.jpg)
 
 
 I am currently Technical Director at Everis (they call it 'Centers Leader Specialist' or so) for the development of projects based on Drupal, involved with a team of 20 people working from Seville. I design training plans, I trace the on-boarding processes for PHP-Drupal developers, supervising projects, and I do software architecture and development. I'm a [facilitator](https://dictionary.cambridge.org/es/diccionario/ingles/facilitator){:target="_blank"} whose main concern is how to advance the people who are part of my team: that is my [leitmotiv](https://dictionary.cambridge.org/es/diccionario/ingles/leitmotiv){:target="_blank"}.
