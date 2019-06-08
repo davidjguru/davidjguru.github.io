@@ -4,7 +4,7 @@ title: /me
 permalink: /me/
 sitemap: true
 ---
-![Yeah. It's me]({{ site.baseurl }}/images/davidjguru_child_its_me_400x546.jpg) My name is David and I was born in Seville, Andalusia, many years ago.
+![Yeah. It's me]({{ site.baseurl }}/images/davidjguru_child_its_me_300x409.jpg) My name is David and I was born in Seville, Andalusia, many years ago.
  
 My primary spoken language is Western - Andalusian, a mixed variant of Spanish (Castilian) and ancient Arabic sounds of Al-Andalus (the old name of Andalusia). 
 How is this possible?...I recommend you see / enjoy this video with English subtitles to understand it better: [The keys of the memory](https://www.youtube.com/watch?v=zeUEQWhLgtg){:target="_blank"}.
