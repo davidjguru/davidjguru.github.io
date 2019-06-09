@@ -210,7 +210,7 @@ docker system prune
 
 
 ### DDEV
-If you need an introduction to DDEV, I recommend you read this article that I wrote recently (the previous month): [Development environments for Drupal with DDEV](https://davidjguru.github.io/blog/creating-development-environments-for-drupal-with-ddev){:target="_blank"}
+If you need an introduction to DDEV, I recommend you read this article that I wrote recently (the previous month): [Development environments for Drupal with DDEV](https://davidjguru.github.io/blog/creating-development-environments-for-drupal-with-ddev){:target="_blank"}.
 
 | ![Picture from Unsplash, by @hannahmgibbs]({{ site.baseurl }}/images/davidjguru_docker_docker_compose_ddev_tools_3.jpg) |
 |:--:|
