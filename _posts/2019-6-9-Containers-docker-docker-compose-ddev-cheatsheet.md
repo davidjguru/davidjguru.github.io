@@ -10,9 +10,10 @@ sitemap: true
 | ![Picture from Unsplash, by @markusspiske]({{ site.baseurl }}/images/davidjguru_docker_docker_compose_ddev_tools_1.jpg) |
 |:--:|
 | *Picture from Unsplash, user Markus Spiske @markusspiske* |
-
 We know that for some years, working with Docker Engine has become a MUST. From our ability to define specifications(Dockerfiles), configure autobuilds in the cloud to generate images from our repositories(Dockerhub), run images and containers(Docker), connect containers and relate them(Docker-Composer) or deploy container networks( Docker Swarm) ... on this depends the agility that we can give to our daily work.
 <!--more-->
+
+**Acknowledgments:** Many thanks to Chache, [@erchache2000](https://twitter.com/erchache2000){:target="_blank"} for reviewing the article, giving me an extensive feedback.
 
 ## Introduction
 Due to the importance of knowing (and practicing) with these processes and daily mechanics, I have thought about gathering the most used commands in my day to day work in the context of Docker.
@@ -35,11 +36,14 @@ I would have liked to have included many more things, like DDEV hooks, but this 
 
 ```bash
 # Uninstall old versions of Docker
-sudo apt-get remove docker docker-ce docker-engine docker.io containerd runc
+sudo apt-get remove docker docker-ce docker-engine \
+docker.io containerd runc
 
 # Installing Docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+| sudo apt-key add -
+sudo add-apt-repository \
+"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
 sudo apt install -y docker-ce
 sudo chmod 666 /var/run/docker*
@@ -138,7 +142,8 @@ docker run -d centos sleep 100
 
 # Run a container, mapping ports and mapping volumes and
 # using a user from the container
-docker run -p 80:8080 -v /locahost/folder:/container/folder -u root jenkins/jenkins
+docker run -p 80:8080 -v /locahost/folder:/container/folder \
+-u root jenkins/jenkins
 
 # Get a list of existing containers
 docker ps
@@ -173,7 +178,8 @@ docker logs -f IDCONTAINER
 # last 1000 log lines of my jenkins (example) 
 # container adding the timestamp at the beginning 
 # of each line.
-sudo docker logs -t --tail 1000 jenkins 2 >&1 | grep -i error
+sudo docker logs -t --tail 1000 jenkins 2 >&1 \
+| grep -i error
 ```
 
 
@@ -218,15 +224,16 @@ If you need an introduction to DDEV, I recommend you read this article that I wr
 
 ```bash
 # Git Clone Project and launch composer install
-git clone https://github.com/randomuser/my-drupal8-random-site
-cd my-drupal8-random-site
+git clone https://github.com/randomuser/my-drupal8
+cd my-drupal8
 ddev composer install
 
 # Initial Project 
-mkdir my-drupal8-random-site
-cd my-drupal8-random-site
+mkdir my-drupal8
+cd my-drupal8
 ddev config --project-type php --php-version 7.3
-ddev composer create drupal-composer/drupal-project:8.x-dev --stability dev --no-interaction
+ddev composer create drupal-composer/drupal-project:8.x-dev \
+--stability dev --no-interaction
 ddev config --project-type drupal8
 ddev restart
 
@@ -246,7 +253,10 @@ ddev ssh
 ddev exec drush status
 ddev exec drush cex
 ddev exec drush site-install
-ddev exec drush site-install standard --site-name='Drupal Site Install Test' --account-name=admin --account-pass=admin --account-mail=mail@example.com -y
+ddev exec drush site-install standard \
+--site-name='Drupal Site Install Test' \
+--account-name=admin --account-pass=admin \
+--account-mail=mail@example.com -y
 
 
 # Installing dependencies from a ddev container
@@ -254,7 +264,19 @@ ddev composer require drupal/devel
 
 # Install a complete Drupal Site using ddev 
 # in a "single" instruction
-mkdir NAMEPROJECT && cd NAMEPROJECT && ddev config --project-type php --php-version 7.3 && ddev composer create drupal-composer/drupal-project:8.x-dev --stability dev --no-interaction && ddev config --project-type drupal8 && ddev exec drush site-install standard --site-name='NAMEPROJECT' --account-name=admin --account-pass=admin --account-mail=mail@example.com -y && ddev start && sensible-browser http://NAMEPROJECT.ddev.local
+mkdir NAMEPROJECT && cd NAMEPROJECT \
+&& ddev config --project-type php \
+--php-version 7.3 \
+&& ddev composer create drupal-composer/drupal-project:8.x-dev \
+--stability dev --no-interaction && ddev config \
+--project-type drupal8 \
+&& ddev exec drush site-install standard \
+--site-name='NAMEPROJECT' \
+--account-name=admin \
+--account-pass=admin \
+--account-mail=mail@example.com -y \
+&& ddev start \
+&& sensible-browser http://NAMEPROJECT.ddev.local
 
 # Get a list of projects using DDEV
 ddev list
