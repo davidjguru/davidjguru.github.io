@@ -25,3 +25,9 @@ $georgia: Georgia, serif;
     @content;
   }
 }
+
+@mixin mobile2 {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
