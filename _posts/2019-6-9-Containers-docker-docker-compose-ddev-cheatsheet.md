@@ -165,6 +165,9 @@ docker rm $(docker ps -q -f status=exited)
 # Executes a command inside a running container
 docker exec idcontainer unixcommand 
 
+# Connect to the Prompt of a Container
+docker exec -it IDCONTAINER /bin/bash
+
 # Attach local standard output, input and error 
 # streams to a running container
 docker attach IDCONTAINER 
