@@ -212,6 +212,8 @@ docker-compose events --json
 
 # Connect to a container using its alias (no ID, no IP)
 docker-compose exec ALIAS /bin/bash
+# Example: executing drush cache rebuild in a Drupal Container
+docker-compose exec web ./vendor/bin/drush cr
 ```
 
 
