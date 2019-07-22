@@ -168,6 +168,12 @@ docker exec idcontainer unixcommand
 # Connect to the Prompt of a Container
 docker exec -it IDCONTAINER /bin/bash
 
+# Copying files with Docker
+# From Local to Remote Docker Container
+docker cp db/dump.sql IDCONTAINER:/tmp/dump.sql
+# From Remote Docker Container to local
+docker cp IDCONTAINER:/tmp/dump_test.sql ./db 
+
 # Attach local standard output, input and error 
 # streams to a running container
 docker attach IDCONTAINER 
@@ -203,6 +209,9 @@ docker-compose down
 # Strem the container events for every container 
 # in a project
 docker-compose events --json 
+
+# Connect to a container using its alias (no ID, no IP)
+docker-compose exec ALIAS /bin/bash
 ```
 
 
