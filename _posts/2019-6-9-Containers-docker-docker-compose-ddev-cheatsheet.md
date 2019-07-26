@@ -191,6 +191,12 @@ docker logs -f IDCONTAINER
 # of each line.
 sudo docker logs -t --tail 1000 jenkins 2 >&1 \
 | grep -i error
+
+# Describe all the existing Docker Compose Networks
+docker network ls
+
+# Get all the info about an specific network
+docker network inspect name_network 
 ```
 
 
