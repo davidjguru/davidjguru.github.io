@@ -197,6 +197,9 @@ docker network ls
 
 # Get all the info about an specific network
 docker network inspect name_network 
+
+# Delete a network in your Docker Compose system
+docker network rm name_network
 ```
 
 
