@@ -168,6 +168,9 @@ docker exec idcontainer unixcommand
 # Connect to the Prompt of a Container
 docker exec -it IDCONTAINER /bin/bash
 
+# Connect to the Prompt of a Container as root
+docker exec -ti -u root IDCONTAINER /bin/bash
+
 # Copying files with Docker
 # From Local to Remote Docker Container
 docker cp db/dump.sql IDCONTAINER:/tmp/dump.sql
@@ -223,6 +226,9 @@ docker-compose events --json
 docker-compose exec ALIAS /bin/bash
 # Example: executing drush cache rebuild in a Drupal Container
 docker-compose exec web ./vendor/bin/drush cr
+
+# Connecting to a Container (called mysql) as root by prompt
+docker-compose exec -u root mysql /bin/bash
 ```
 
 
