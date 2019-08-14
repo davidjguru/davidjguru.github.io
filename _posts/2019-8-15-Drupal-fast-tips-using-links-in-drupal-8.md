@@ -31,7 +31,7 @@ There are two fundamental classes we need to know for this: First, a PHP
   core called "Link". Very intuitive, isn't it? Well now we'll see why these
    two new friends are so important. 
 
-### The URL
+### The URL Class
 The URL class is used to model an object that contains information about a
  URL (its name, whether it is absolute or relative, internal, external, etc.).  URLs in Drupal 8 are represented through this class with namespace Drupal\Core\Url. Ok. This class has a set of static methods indicated for building a URL. Specifically we will stop in two interesting cases that this class provides us: 
   1. The ability to build URLs from paths declared in routing files (my_module
@@ -40,7 +40,9 @@ The URL class is used to model an object that contains information about a
   ), using the ::fromUri() static method. 
   **Examples**
   
-   ~~~~
+   ```php
+      use Drupal\Core\Url;
+
      // Link to the Drupal Home page.
      $url1 = Url::fromRoute('<front>');
 
@@ -49,10 +51,12 @@ The URL class is used to model an object that contains information about a
 
      // External Link to Drupal.org.
      $url3 = Url::fromUri('https://www.drupal.org');
-   ~~~~
+   ```
  
-[The URL Class in the Drupal API Documentation](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Url.php/class/Url/8.8.x){:target="_blank"}
-### The Link 
+* See more at: [The URL Class in the Drupal API Documentation](https://api
+.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Url.php/class/Url/8.8.x){:target="_blank"}
+
+### The Link Class
 
 ## How it works
 
