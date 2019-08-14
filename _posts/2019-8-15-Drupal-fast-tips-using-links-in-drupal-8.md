@@ -43,10 +43,10 @@ The URL class is used to model an object that contains information about a
    ```php
       use Drupal\Core\Url;
 
-     // Link to the Drupal Home page.
+     // Link to the Drupal Home page (declared in the file 'system.routing.yml')
      $url1 = Url::fromRoute('<front>');
 
-     // Link to /admin/people.
+     // Link to /admin/people (declared in the file 'user.routing.yml')
      $url2 = Url::fromRoute('entity.user.collection');
 
      // External Link to Drupal.org.
