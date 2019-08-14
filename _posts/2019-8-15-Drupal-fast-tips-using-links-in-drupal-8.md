@@ -57,6 +57,18 @@ The URL class is used to model an object that contains information about a
 .drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Url.php/class/Url/8.8.x){:target="_blank"}
 
 ### The Link Class
+This class is responsible for modeling the corresponding HTML link from a
+ series of parameters and with the possibility of loading options added to the future rendering of the element \<a href>. 
+Certainly, in order to build HTML links it is not specifically necessary to use this class: you can use the 'LinkGenerator' service and call its generate() method as an alternative, but here I want to focus on the joint use of these two classes Url and Link.
+The Link class has a very interesting static method, ::fromTextAndUrl(), which allows you to build HTML links on the fly. Then we'll see how you can combine this element to be rendered on screen. 
+
+```php 
+use Drupal\Core\Link;
+
+$link = Link::fromTextAndUrl('This is my link', $url);
+```
+
+* See more at: [The Link Class in the Drupal API Documentation](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Link.php/class/Link/8.8.x){:target="_blank"}
 
 ## How it works
 
