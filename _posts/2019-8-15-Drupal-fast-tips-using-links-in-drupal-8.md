@@ -270,7 +270,7 @@ Go to path: **yourdrupalsite/example/page/links**
     shown.* |
 
 [Here you have the code of the example as a custom Drupal module ready to
- clone from gitlab (or download)](https://gitlab.com/davidjguru/drupal-custom-link-example){:target="_blank"}
+ clone from gitlab (or download).](https://gitlab.com/davidjguru/drupal-custom-link-example){:target="_blank"}
 
 ## :wq!
 
