@@ -103,10 +103,25 @@ But this previous code block is not exact, it is not complete. We end up
  forming a render array and returning it but from where? It's time to take a step further and observe the whole case within a function belonging to a Controller. 
 
 ## Example: case use
+As I said, let's make a small case of use something basic but useful to know the mechanics of operation of the relationship between these two classes of Drupal core (Url, Link). 
+
+For this recipe you will need a Drupal installed and active (local, Dockerized, remote, etc.). To activate the custom module that we will create would be great to have Drush or Drupal Console (for convenience). 
 
 
 ### Mission - Listing a set of links
-
+Let's set ourselves the task of creating a list of links that we will show
+ inside Drupal. To do this, following the development guidelines of Drupal 8
+ , we'll build a new custom module, defining a path to our list and complete
+  the task by implementing a controller class that will be responsible for
+   managing
+   the response to that route, building the small final view consisting only of a set of links of different types. 
+   
+   | ![Custom module for links]({{ site.baseurl }}/images
+   /davidjguru_drupal_8_using_links_creating_custom_module.png) |
+   |:--:|
+   | *Final frame of the example inside a plain Drupal (not through Composer)* |
+   
+   []()
 
 ### Creating a custom module
  Creating a folder called "links_example". 
@@ -132,7 +147,7 @@ links_example.links:
     _access: 'TRUE'
 ```
 
-### Implementing a Controller
+### Implements a Controller
 
 ```php
 <?php
