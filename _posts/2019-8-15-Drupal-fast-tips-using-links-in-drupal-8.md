@@ -102,7 +102,7 @@ return $output;
 But this previous code block is not exact, it is not complete. We end up
  forming a render array and returning it but from where? It's time to take a step further and observe the whole case within a function belonging to a Controller. 
 
-## Example: case use
+## Example: Use case
 As I said, let's make a small case of use something basic but useful to know the mechanics of operation of the relationship between these two classes of Drupal core (Url, Link). 
 
 For this recipe you will need a Drupal installed and active (local, Dockerized, remote, etc.). To activate the custom module that we will create would be great to have Drush or Drupal Console (for convenience). 
