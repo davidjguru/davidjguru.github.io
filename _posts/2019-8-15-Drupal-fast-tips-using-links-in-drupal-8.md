@@ -121,7 +121,17 @@ Let's set ourselves the task of creating a list of links that we will show
    | *Final frame of the example inside a plain Drupal (not through Composer)* |
 
 ### Creating a custom module
- Creating a folder called "links_example". 
+As usual, we'll start by creating a folder in the path **ourdrupal/modules
+/custom/name_module**
+ Creating a folder called *"links_example"*. 
+ 
+ Also as usual, we will create the
+  small informative file so that our Drupal knows with whom it is relating
+   **name_module.info.yml** (and be careful with the indexing of the  YAML
+    files :-P ). For the example, the file will be called *links_example.info
+    .yml*.
+ 
+  
  links_example.info.yml
  
  ```yaml
@@ -133,7 +143,10 @@ package: 'Testing'
 ```
 
 ### Defining a route
-links_example.routing.yml
+The next step is to declare a route for our Drupal system using a routing file of the type **name_module.routing.yml**, where we model a route: we give it a specific name, an access path, we declare that Controller will be in charge of managing it and what type of access permissions it requires. 
+
+This will be our routing file: 
+*links_example.routing.yml*
 ```yaml
 links_example.links:
   path: '/example/page/links'
@@ -143,8 +156,23 @@ links_example.links:
     _permissions: 'access content'
     _access: 'TRUE'
 ```
+In the line "_controller" we are specifying which controller class will be in
+ charge of processing the route and specifically through which method
+ . (class LinksExampleController, method links()). 
 
 ### Implements a Controller
+The time has come...to define our Controller class following the recommended
+ guidelines for development in Drupal. We will implement our controller as a
+  .php extension file in the path **ourdrupal/modules/custom/name_module/src
+  /Controller/** .
+  
+  We will extend the ControllerBase
+  class and we'll creating our method responsible for the management of the
+   route
+   that will build the output to the screen through a render array. 
+
+In this case we will mount up to seven different examples of links and assign
+ HTML attributes to the last one. Let's see: 
 
 ```php
 <?php
@@ -234,4 +262,8 @@ drupal module:install links_example
 drupal moi links_example
 ```
 
-Go to path: yourdrupalsite/example/page/links
+Go to path: **yourdrupalsite/example/page/links**
+
+| ![Rendering custom links in Drupal 8]({{ site.baseurl }}/images/davidjguru_drupal_8_using_links_rendering_links.png) |
+   |:--:|
+   | *Rendering the custom set of Links* |
