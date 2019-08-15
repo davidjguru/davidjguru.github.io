@@ -120,8 +120,6 @@ Let's set ourselves the task of creating a list of links that we will show
    /davidjguru_drupal_8_using_links_creating_custom_module.png) |
    |:--:|
    | *Final frame of the example inside a plain Drupal (not through Composer)* |
-   
-   []()
 
 ### Creating a custom module
  Creating a folder called "links_example". 
