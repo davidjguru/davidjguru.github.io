@@ -164,22 +164,22 @@ class LinksExampleController extends ControllerBase
 
     // Link to /admin/people.
     $url3 = Url::fromRoute('entity.user.collection');
-    $link3 = Link::fromTextAndUrl(t('Go to the Users administration page'), $url3);
+    $link3 = Link::fromTextAndUrl(t('Go to the Users page'), $url3);
     $list[] = $link3;
 
     // Link to Home page.
     $url4 = Url::fromRoute('<front>');
-    $link4 = Link::fromTextAndUrl(t('Go to the front page of the site'), $url4);
+    $link4 = Link::fromTextAndUrl(t('Go to the front page'), $url4);
     $list[] = $link4;
 
     // Link to the node with id = 1.
     $url5 = Url::fromRoute('entity.node.canonical', ['node' => 1]);
-    $link5 = Link::fromTextAndUrl(t('Go to the node with id = 1'), $url5);
+    $link5 = Link::fromTextAndUrl(t('Go to node with id = 1'), $url5);
     $list[] = $link5;
 
     // Link to the edit mode of the node with id = 1.
     $url6 = Url::fromRoute('entity.node.edit_form', ['node' => 1]);
-    $link6 = Link::fromTextAndUrl(t('Go to the edit mode for node with id = 1'), $url6);
+    $link6 = Link::fromTextAndUrl(t('Go to the edit mode'), $url6);
     $list[] = $link6;
 
     // External Link to Drupal.org.
@@ -193,7 +193,7 @@ class LinksExampleController extends ControllerBase
       ],
     ];
     $url7->setOptions($link_options);
-    $link7 = Link::fromTextAndUrl(t('Go to the Drupal.org site'), $url7);
+    $link7 = Link::fromTextAndUrl(t('Go to Drupal.org site'), $url7);
     $list[] = $link7;
 
     // Mount the render output.
@@ -208,3 +208,15 @@ class LinksExampleController extends ControllerBase
 ```
 
 ### Rendering our links
+
+```bash
+// Using Drush
+drush en links_example
+./vendor/bin/drush en links_example
+
+// Using Drupal Console
+drupal module:install links_example
+drupal moi links_example
+```
+
+Go to path: yourdrupalsite/example/page/links
