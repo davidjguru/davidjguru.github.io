@@ -209,6 +209,9 @@ class LinksExampleController extends ControllerBase
 
 ### Rendering our links
 
+First of all, we'll have to turn on our new custom module, enabling it within
+ Drupal. We can use Drush or Drupal Console, or maybe through sitebuilding on
+  path **/admin/modules**, as you wish. 
 ```bash
 // Using Drush
 drush en links_example
