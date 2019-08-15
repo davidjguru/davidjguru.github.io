@@ -39,6 +39,7 @@ The URL class is used to model an object that contains information about a
   .routing.yml) through the ::fromRoute() static method. 
   2. The ability to build URLs from a URI address (internal or external
   ), using the ::fromUri() static method. 
+  
   **Examples**
   
    ```php
@@ -73,7 +74,8 @@ $link = Link::fromTextAndUrl('This is my link', $url);
 * See more at: [The Link Class in the Drupal API Documentation](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Link.php/class/Link/8.8.x){:target="_blank"}
 
 ## How it works
-As I have seen, schematically, we need to cover three necessary steps at this time: 
+As we have seen, schematically, we need to cover three necessary steps at this
+ time: 
 1. Generate our URL.
 2. Build our HTML link. 
 3. Take care of rendering it on screen.
@@ -246,6 +248,12 @@ class LinksExampleController extends ControllerBase
   }
 }
 ```
+As we can see, the final step is to build a render array that will be
+ processed as an output thanks to the parameters we have added to it
+ . Although we could not do it this way, due to we can directly print the
+  $link variable as a Link Object. How? Well, the Link Object implements the
+   *__toString()* method. 
+   
 
 ### Rendering our links
 
