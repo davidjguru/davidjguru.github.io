@@ -266,4 +266,12 @@ Go to path: **yourdrupalsite/example/page/links**
 
 | ![Rendering custom links in Drupal 8]({{ site.baseurl }}/images/davidjguru_drupal_8_using_links_rendering_links.png) |
    |:--:|
-   | *Rendering the custom set of Links* |
+   | *Rendering the custom set of Links the view of the "title" attribute is
+    shown.* |
+
+[Here you have the code of the example as a custom Drupal module ready to
+ clone from gitlab (or download)](https://gitlab.com/davidjguru/drupal-custom-link-example){:target="_blank"}
+
+## :wq!
+
+Greetings. wq!    :-*
