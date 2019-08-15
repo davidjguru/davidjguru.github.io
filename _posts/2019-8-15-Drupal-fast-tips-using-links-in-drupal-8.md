@@ -85,7 +85,7 @@ use Drupal\Core\Link;
 
 // Link to /admin/structure/blocks.
 $url = Url::fromRoute('block.admin_display');
-$link = Link::fromTextAndUrl(t('Go to the Block administration page'), $url);
+$link = Link::fromTextAndUrl(t('Block administration page'), $url);
 
 // Adding the new link to an array. 
 $list[] = $link1;
@@ -99,7 +99,8 @@ $output['my_links_page'] = [
 
 return $output;
 ```
-But this previous code block is not exact, it is not complete. We end up forming a render array and returning it but from where? it's time to take a step further and observe the whole case within a function belonging to a Controller. 
+But this previous code block is not exact, it is not complete. We end up
+ forming a render array and returning it but from where? It's time to take a step further and observe the whole case within a function belonging to a Controller. 
 
 ## Example: case use
 
@@ -108,12 +109,102 @@ But this previous code block is not exact, it is not complete. We end up forming
 
 
 ### Creating a custom module
-
+ Creating a folder called "links_example". 
+ links_example.info.yml
+ 
+ ```yaml
+name: Links Example
+type: module
+description: 'Just a basic case of Links Processing.'
+core: 8.x
+package: 'Testing'
+```
 
 ### Defining a route
-
+links_example.routing.yml
+```yaml
+links_example.links:
+  path: '/example/page/links'
+  defaults:
+    _controller: '\Drupal\links_example\Controller\LinksExampleController::links'
+  requirements:
+    _permissions: 'access content'
+    _access: 'TRUE'
+```
 
 ### Implementing a Controller
 
+```php
+<?php
+
+/**
+ * @file
+ * Contains \Drupal\links_example\Controller\LinksExampleController.
+ */
+
+namespace Drupal\links_example\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+class LinksExampleController extends ControllerBase
+{
+  public function links()
+  {
+    // Link to /admin/structure/blocks.
+    $url1 = Url::fromRoute('block.admin_display');
+    $link1 = Link::fromTextAndUrl(t('Go to the Block administration page'), $url1);
+    $list[] = $link1;
+
+    // Link to /admin/content.
+    $url2 = Url::fromRoute('system.admin_content');
+    $link2 = Link::fromTextAndUrl(t('Go to the Content administration page'), $url2);
+    $list[] = $link2;
+
+    // Link to /admin/people.
+    $url3 = Url::fromRoute('entity.user.collection');
+    $link3 = Link::fromTextAndUrl(t('Go to the Users administration page'), $url3);
+    $list[] = $link3;
+
+    // Link to Home page.
+    $url4 = Url::fromRoute('<front>');
+    $link4 = Link::fromTextAndUrl(t('Go to the front page of the site'), $url4);
+    $list[] = $link4;
+
+    // Link to the node with id = 1.
+    $url5 = Url::fromRoute('entity.node.canonical', ['node' => 1]);
+    $link5 = Link::fromTextAndUrl(t('Go to the node with id = 1'), $url5);
+    $list[] = $link5;
+
+    // Link to the edit mode of the node with id = 1.
+    $url6 = Url::fromRoute('entity.node.edit_form', ['node' => 1]);
+    $link6 = Link::fromTextAndUrl(t('Go to the edit mode for node with id = 1'), $url6);
+    $list[] = $link6;
+
+    // External Link to Drupal.org.
+    $url7 = Url::fromUri('https://drupal.org.com');
+     
+    // We'll add some HTML attributes to the link. 
+    $link_options = [
+      'attributes' => [
+        'target' => '_blank',
+        'title' => 'Link to Drupal home page',
+      ],
+    ];
+    $url7->setOptions($link_options);
+    $link7 = Link::fromTextAndUrl(t('Go to the Drupal.org site'), $url7);
+    $list[] = $link7;
+
+    // Mount the render output.
+    $output['links_example'] = [
+      '#theme' => 'item_list',
+      '#items' => $list,
+      '#title' => $this->t('Examples of links:'),
+    ];
+    return $output;
+  }
+}
+```
 
 ### Rendering our links
