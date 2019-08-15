@@ -33,7 +33,8 @@ There are two fundamental classes we need to know for this: First, a PHP
 
 ### The URL Class
 The URL class is used to model an object that contains information about a
- URL (its name, whether it is absolute or relative, internal, external, etc.).  URLs in Drupal 8 are represented through this class with namespace Drupal\Core\Url. Ok. This class has a set of static methods indicated for building a URL. Specifically we will stop in two interesting cases that this class provides us: 
+ URL (its name, whether it is absolute or relative, internal, external, etc.).  URLs in Drupal 8 are represented through this class with namespace Drupal\Core\Url. Ok. 
+ This class has a set of static methods indicated for building a URL. Specifically we will stop in two interesting cases that this class provides us: 
   1. The ability to build URLs from paths declared in routing files (my_module
   .routing.yml) through the ::fromRoute() static method. 
   2. The ability to build URLs from a URI address (internal or external
@@ -60,6 +61,7 @@ The URL class is used to model an object that contains information about a
 This class is responsible for modeling the corresponding HTML link from a
  series of parameters and with the possibility of loading options added to the future rendering of the element \<a href>. 
 Certainly, in order to build HTML links it is not specifically necessary to use this class: you can use the 'LinkGenerator' service and call its generate() method as an alternative, but here I want to focus on the joint use of these two classes Url and Link.
+
 The Link class has a very interesting static method, ::fromTextAndUrl(), which allows you to build HTML links on the fly. Then we'll see how you can combine this element to be rendered on screen. 
 
 ```php 
@@ -71,5 +73,47 @@ $link = Link::fromTextAndUrl('This is my link', $url);
 * See more at: [The Link Class in the Drupal API Documentation](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Link.php/class/Link/8.8.x){:target="_blank"}
 
 ## How it works
+As I have seen, schematically, we need to cover three necessary steps at this time: 
+1. Generate our URL.
+2. Build our HTML link. 
+3. Take care of rendering it on screen.
+
+**Let's see how:** 
+```php
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+// Link to /admin/structure/blocks.
+$url = Url::fromRoute('block.admin_display');
+$link = Link::fromTextAndUrl(t('Go to the Block administration page'), $url);
+
+// Adding the new link to an array. 
+$list[] = $link1;
+
+// Mount the render output.
+$output['my_links_page'] = [
+      '#theme' => 'item_list',
+      '#items' => $list,
+      '#title' => $this->t('Examples of links:'),
+    ];
+
+return $output;
+```
+But this previous code block is not exact, it is not complete. We end up forming a render array and returning it but from where? it's time to take a step further and observe the whole case within a function belonging to a Controller. 
 
 ## Example: case use
+
+
+### Mission - Listing a set of links
+
+
+### Creating a custom module
+
+
+### Defining a route
+
+
+### Implementing a Controller
+
+
+### Rendering our links
