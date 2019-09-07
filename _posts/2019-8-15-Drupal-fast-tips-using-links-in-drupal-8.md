@@ -280,5 +280,11 @@ Go to path: **yourdrupalsite/example/page/links**
  clone from gitlab (or download).](https://gitlab.com/davidjguru/drupal-custom-link-example){:target="_blank"}
 
 ## :wq!
+[...]
+
+## Update September 07, 2019
+
+Note: I have summarized several use cases on Drupal 8 link creation for day-to-day and I have gathered them as examples in a Gitlab Snippet or as a Github Gist if you prefer.
+You can get from here [(Gitlab Snippet)](https://gitlab.com/snippets/1892707) or from there [(Github Gist)](https://gist.github.com/davidjguru/aeefe30672412d7efee485b116dce954).
 
 Greetings. wq!    :-*
