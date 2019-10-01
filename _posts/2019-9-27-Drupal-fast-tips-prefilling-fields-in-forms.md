@@ -37,6 +37,8 @@ The first step is to decide what kind of forms we want to build. In Drupal 8, th
 
 In this case, we will opt for a form created as Basic Form, more adaptable and elastic for general purposes. We will create a new custom module for Drupal 8, and in its /src/Form route we will include our test form. We will see the code in the next section. 
 
+![Creating custom basic Forms in Drupal 8]({{ site.baseurl }}/images/davidjguru_8_my_drupal_website_form.png)
+
 ## Building our Form
 
 First of all, we have to build a basic module structure for our custom Form
@@ -82,11 +84,35 @@ drupal generate:form  \
 --inputs='"name":"submit", "type":"submit", "label":"Submit", "options":"", "description":"Submit", "maxlength":"", "size":"", "default_value":"", "weight":"3", "fieldset":""' \
 --path="/my_random_module/forms/random_form" \
 --no-interaction
-
 ```
+
+
+  
+  
 ## Filling fields in our Form
 
 ### Inyecting services in Drupal 8
+But as we want to play a little with services for filling fields, we'll use
+ the options that allow us to load from Drupal Console the different services
+  by injection from the corresponding container, simply by doing this:
+  
+```bash
+drupal generate:form  \
+--module="my_random_module"  \
+--class="CustomPortClassForm"  \
+--form-id="default_custom_port_form"  \
+--config-file  \
+--inputs='"name":"name", "type":"textfield", "label":"Name", "options":"", "description":"User Name", "maxlength":"", "size":"", "default_value":"", "weight":"0", "fieldset":""'  \
+--inputs='"name":"email", "type":"email", "label":"Email", "options":"", "description":"User email", "maxlength":"", "size":"", "default_value":"", "weight":"1", "fieldset":""'  \
+--inputs='"name":"types", "type":"checkboxes", "label":"Content Types", "options":"['1' => '1']", "description":"Select Content Types", "maxlength":"", "size":"", "default_value":"1", "weight":"2", "fieldset":""' \
+--inputs='"name":"submit", "type":"submit", "label":"Submit", "options":"", "description":"Submit", "maxlength":"", "size":"", "default_value":"", "weight":"3", "fieldset":""' \
+--path="/my_random_module/forms/random_form" \
+--services="database" \
+--services="current_user" \
+--services="email.validator" \
+--no-interaction
+```
+So we can inject services through Drupal Console.
 
 ### Dynamyc Queries with Database API
 
