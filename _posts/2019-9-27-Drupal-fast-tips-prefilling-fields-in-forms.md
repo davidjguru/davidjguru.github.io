@@ -62,8 +62,28 @@ drupal generate:module \
 Then, we'll need build an initial basic form, and for that we can use (one
  more time) the Drupal Console and its functionalities related to scaffolding
   generation. In this case we will use the options associated with "generate
-  :form" [(drupal generate:form)](https://hechoendrupal.gitbooks.io/drupal-console/en/commands/generate-form.html). 
+  :form" [(drupal generate:form)](https://hechoendrupal.gitbooks.io/drupal-console/en/commands/generate-form.html).   
+  Taking the former module as reference: 
+  
+```bash
+drupal generate:form
+drupal gf
+```
+Or with params: 
 
+```bash
+drupal generate:form  \
+--module="my_random_module"  \
+--class="RandomClassForm"  \
+--form-id="default_random_form"  \
+--config-file  \
+--inputs='"name":"name", "type":"textfield", "label":"Name", "options":"", "description":"User Name", "maxlength":"64", "size":"", "default_value":"", "weight":"0", "fieldset":""'  \
+--inputs='"name":"email", "type":"email", "label":"Email", "options":"", "description":"User email", "maxlength":"", "size":"", "default_value":"", "weight":"1", "fieldset":""'  \
+--inputs='"name":"submit", "type":"submit", "label":"Submit", "options":"", "description":"Submit", "maxlength":"", "size":"", "default_value":"", "weight":"3", "fieldset":""' \
+--path="/my_random_module/forms/random_form" \
+--no-interaction
+
+```
 ## Filling fields in our Form
 
 ### Inyecting services in Drupal 8
