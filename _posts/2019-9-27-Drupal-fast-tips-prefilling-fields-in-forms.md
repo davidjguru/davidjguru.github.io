@@ -35,10 +35,26 @@ The first step is to decide what kind of forms we want to build. In Drupal 8, th
  executing an irreversible action. Created from the ConfigFormBase in Drupal
   API. [https://api.drupal.org/api/drupal/core/ConfigFormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21ConfigFormBase.php/class/ConfigFormBase/8.7.x)
 
-In this case, we will opt for a form created as Basic Form, more adaptable and elastic for general purposes. We will create a new custom module for Drupal 8, and in its /src/Form route we will include our test form. We will see the code in the next section. 
+In this case, we will opt for a form created as Basic Form, more adaptable and elastic for general purposes. We will create a new custom module for Drupal 8, and in its /src/Form route we will include our test form. 
+For the nex trick, I'll use a new Drupal instance, deployed with the
+ interesting tool [DDEV](https://ddev.readthedocs.io/en/stable/).  
+ 
+ ```bash
+mkdir mydrupalwebsite && cd mydrupalwebsite
+ddev config --project-type php --php-version 7.3 
+ddev composer create drupal-composer/drupal-project:8.x-dev --stability dev --no-interaction
+ddev config --project-type drupal8
+ddev exec drush site-install standard --site-name=My Drupal Website --account-name=admin --account-pass=admin --account-mail=mail@example.com --yes
+ddev start
+```
+ 
+ **Note:** If you want to know more about how to use ddev, I recommend you
+  this article about the tool["Development environments for Drupal with DDEV"](https://davidjguru.github.io/blog/creating-development-environments-for-drupal-with-ddev) or this related cheatsheet: ["Docker, Docker
+  -Compose and DDEV - Cheatsheet"](https://davidjguru.github.io/blog/containers-docker-docker-compose-ddev-cheatsheet).
 
 ![Creating custom basic Forms in Drupal 8]({{ site.baseurl }}/images/davidjguru_8_my_drupal_website_form.png)
 
+We will see the code in the next section. 
 ## Building our Form
 
 First of all, we have to build a basic module structure for our custom Form
@@ -86,9 +102,6 @@ drupal generate:form  \
 --no-interaction
 ```
 
-
-  
-  
 ## Filling fields in our Form
 
 ### Inyecting services in Drupal 8
