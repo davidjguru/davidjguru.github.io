@@ -50,7 +50,9 @@ ddev start
  
  **Note:** If you want to know more about how to use ddev, I recommend you
   this article about the tool["Development environments for Drupal with DDEV"](https://davidjguru.github.io/blog/creating-development-environments-for-drupal-with-ddev) or this related cheatsheet: ["Docker, Docker
-  -Compose and DDEV - Cheatsheet"](https://davidjguru.github.io/blog/containers-docker-docker-compose-ddev-cheatsheet).
+  -Compose and DDEV - Cheatsheet"](https://davidjguru.github.io/blog/containers-docker-docker-compose-ddev-cheatsheet).  
+  
+  Okay, now let's look at a little sketch of the form we're planning to build:
 
 ![Creating custom basic Forms in Drupal 8]({{ site.baseurl }}/images/davidjguru_8_my_drupal_website_form.png)
 
@@ -96,11 +98,27 @@ drupal generate:form  \
 --form-id="default_random_form"  \
 --config-file  \
 --inputs='"name":"name", "type":"textfield", "label":"Name", "options":"", "description":"User Name", "maxlength":"64", "size":"", "default_value":"", "weight":"0", "fieldset":""'  \
---inputs='"name":"email", "type":"email", "label":"Email", "options":"", "description":"User email", "maxlength":"", "size":"", "default_value":"", "weight":"1", "fieldset":""'  \
---inputs='"name":"submit", "type":"submit", "label":"Submit", "options":"", "description":"Submit", "maxlength":"", "size":"", "default_value":"", "weight":"3", "fieldset":""' \
+--inputs='"name":"id_user", "type":"number", "label":"User ID", "options":"", "description":"User ID", "maxlength":"64", "size":"", "default_value":"", "weight":"1", "fieldset":""'  \
+--inputs='"name":"email", "type":"email", "label":"Email", "options":"", "description":"User email", "maxlength":"", "size":"", "default_value":"", "weight":"2", "fieldset":""'  \
+--inputs='"name":"number_comments", "type":"number", "label":"Number of Comments", "options":"", "description":"Number of Coments", "maxlength":"", "size":"", "default_value":"", "weight":"3", "fieldset":""'  \
+--inputs='"name":"types", "type":"checkboxes", "label":"Content Types", "options":"['1' => '1']", "description":"Select Content Types", "maxlength":"", "size":"", "default_value":"1", "weight":"4", "fieldset":""' \
 --path="/my_random_module/forms/random_form" \
 --no-interaction
 ```
+We don't worry about the submit, the Drupal Console process will
+ automatically generate a submit button. Just after a few small adjustments
+  in the form at code level -such as assigning a weight to the Submit button
+   ('#weight' => 5,)- we will already have the new module and its form
+    available.Install the module and clear cache, accessing the route we
+     have defined and we already have it available.
+     
+```bash
+ddev exec drush en my_random_module
+ddev exec drush cr
+```
+Et voilá! in: ```https://d8deploy8.ddev.local/my_random_module/forms
+/random_form``` will have our new custom form: 
+![Custom form in Drupal 8 created with Drupal Console]({{ site.baseurl }}/images/davidjguru_drupal_8_custom_form.png)
 
 ## Filling fields in our Form
 
@@ -115,10 +133,11 @@ drupal generate:form  \
 --class="CustomPortClassForm"  \
 --form-id="default_custom_port_form"  \
 --config-file  \
---inputs='"name":"name", "type":"textfield", "label":"Name", "options":"", "description":"User Name", "maxlength":"", "size":"", "default_value":"", "weight":"0", "fieldset":""'  \
---inputs='"name":"email", "type":"email", "label":"Email", "options":"", "description":"User email", "maxlength":"", "size":"", "default_value":"", "weight":"1", "fieldset":""'  \
---inputs='"name":"types", "type":"checkboxes", "label":"Content Types", "options":"['1' => '1']", "description":"Select Content Types", "maxlength":"", "size":"", "default_value":"1", "weight":"2", "fieldset":""' \
---inputs='"name":"submit", "type":"submit", "label":"Submit", "options":"", "description":"Submit", "maxlength":"", "size":"", "default_value":"", "weight":"3", "fieldset":""' \
+--inputs='"name":"name", "type":"textfield", "label":"Name", "options":"", "description":"User Name", "maxlength":"64", "size":"", "default_value":"", "weight":"0", "fieldset":""'  \
+--inputs='"name":"id_user", "type":"number", "label":"User ID", "options":"", "description":"User ID", "maxlength":"64", "size":"", "default_value":"", "weight":"1", "fieldset":""'  \
+--inputs='"name":"email", "type":"email", "label":"Email", "options":"", "description":"User email", "maxlength":"", "size":"", "default_value":"", "weight":"2", "fieldset":""'  \
+--inputs='"name":"number_comments", "type":"number", "label":"Number of Comments", "options":"", "description":"Number of Coments", "maxlength":"", "size":"", "default_value":"", "weight":"3", "fieldset":""'  \
+--inputs='"name":"types", "type":"checkboxes", "label":"Content Types", "options":"['1' => '1']", "description":"Select Content Types", "maxlength":"", "size":"", "default_value":"1", "weight":"4", "fieldset":""' \
 --path="/my_random_module/forms/random_form" \
 --services="database" \
 --services="current_user" \
