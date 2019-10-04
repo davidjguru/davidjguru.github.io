@@ -118,10 +118,14 @@ ddev exec drush en my_random_module
 ddev exec drush cr
 ```
 Et voilá! in:
- ```https://d8deploy8.ddev.local/my_random_module/forms/random_form```   
-    we will have our new custom form:   
+ ```bash 
+ https://d8deploy8.ddev.local/my_random_module/forms/random_form 
+```   
+   we will have our new custom form:   
     
 ![Custom form in Drupal 8 created with Drupal Console]({{ site.baseurl }}/images/davidjguru_drupal_8_custom_form.png)
+
+
 
 ## Filling fields in our Form
 
