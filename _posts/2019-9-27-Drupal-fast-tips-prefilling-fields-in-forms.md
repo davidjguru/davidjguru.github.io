@@ -119,7 +119,7 @@ ddev exec drush cr
 ```
 Et voilá! in:
  ```bash 
- https://d8deploy8.ddev.local/my_random_module/forms/random_form 
+ http://d8deploy8.ddev.local/my_random_module/forms/random_form 
 ```   
    we will have our new custom form:   
     
@@ -237,20 +237,40 @@ public function buildForm(array $form, FormStateInterface $form_state) {
 
 So now, we can use the injected services to load values in some fields. 
 
-**User Name**
+**User Name**  
+To load the registered name, we can use two ways for two differentes values
+: first we can use [the getAccountName() function](https://api.drupal.org/api
+/drupal/core%21lib%21Drupal%21Core%21Session%21AccountProxy.php/function/AccountProxy%3A%3AgetAccountName/8.7.x) provided by the current_user service
+, wich returns the login name of an account. Then we can use [the
+ getDisplayName()](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Session%21AccountProxy.php/function/AccountProxy%3A%3AgetDisplayName/8.7.x) function too, that  shows the Display name of an account. 
+ 
+ Differences? the first function will show no value in case of an anonymous user (not registered, not logged in) and the second function will load an "Anonymous" value. So we will use the second option. 
+ 
+ 
 ```php
 $form['name'] = [
       '#type' => 'textfield',
+      '#value' => $this->currentUser->getDisplayName(),
       '#title' => $this->t('Name'),
       '#description' => $this->t('User Name'),
       '#maxlength' => 64,
     ];
 ```
 
-**User ID**
+**User ID**  
+In order to get the ID of the current User, we'll use the current_user
+ service loaded by Drupal Console as in the former example. This service use
+  [the AccountProxy class
+  from Drupal 8](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Session%21AccountProxy.php/class/AccountProxy/8.7.x), which implements
+   [the AccountProxyInterface](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Session%21AccountProxyInterface.php/interface/AccountProxyInterface/8.7.x)
+   and handles values from the current user as we made in the former example
+    (User Name), in this case with
+   the id method returning the number of the user in the system (id = 0 if it
+   's an anonymous user). Using: '#value' => $this->currentUser->id().
 ```php 
 $form['id_user'] = [
       '#type' => 'number',
+      '#value' => $this->currentUser->id(),
       '#title' => $this->t('User ID'),
       '#description' => $this->t('User ID'),
       '#maxlength' => 64,
