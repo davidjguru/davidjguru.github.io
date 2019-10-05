@@ -254,6 +254,7 @@ $form['name'] = [
       '#title' => $this->t('Name'),
       '#description' => $this->t('User Name'),
       '#maxlength' => 64,
+      '#weight' => 0,
     ];
 ```
 
@@ -278,17 +279,37 @@ $form['id_user'] = [
     ];
 ```
 
-**User email**
+**User email**  
+To load the email we will also use a function of the current_user service
+ called getEmail(). 
+ 
 ```php 
 $form['email'] = [
       '#type' => 'email',
+      '#value' => $this->currentUser->getEmail(),
       '#title' => $this->t('Email'),
       '#description' => $this->t('User email'),
       '#weight' => '2',
     ];
 ```
+Furthermore, as we are not sure that we can trust the validation of the email to the HTML5 of the browser, we add the ad-hoc validation service in the form validation method. 
+```php
+ /**
+   * {@inheritdoc}
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+
+      // Validating values in fields.
+      $mail = $form_state->getValue('email');
+
+      if(!$this->emailValidator->isValid($mail)) {
+      $form_state->setErrorByName('email', $this->t('The %email is not valid email address.', ['%email' => $mail]));
+      }
+}
+```
 
 ### Dynamyc Queries with Database API
+So ok, we've already used at least two of the services we'd already requested from Drupal Console. Now we'll use the third one for a database query, but first, let's load some test values. 
 
 ###  The final version of the class
 
