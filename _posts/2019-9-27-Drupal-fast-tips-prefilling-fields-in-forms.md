@@ -294,17 +294,18 @@ $form['email'] = [
 ```
 Furthermore, as we are not sure that we can trust the validation of the email to the HTML5 of the browser, we add the ad-hoc validation service in the form validation method. 
 ```php
- /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
+/**
+  * {@inheritdoc}
+  */
+public function validateForm(array &$form, FormStateInterface $form_state) {
 
-      // Validating values in fields.
-      $mail = $form_state->getValue('email');
+  // Get the email value from the field.
+  $mail = $form_state->getValue('email');
 
-      if(!$this->emailValidator->isValid($mail)) {
-      $form_state->setErrorByName('email', $this->t('The %email is not valid email address.', ['%email' => $mail]));
-      }
+  if(!$this->emailValidator->isValid($mail)) {
+    $form_state->setErrorByName('email', $this->t('The %email is not valid email.',
+                                ['%email' => $mail]));
+   }
 }
 ```
 
