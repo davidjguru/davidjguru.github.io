@@ -302,6 +302,7 @@ public function validateForm(array &$form, FormStateInterface $form_state) {
   // Get the email value from the field.
   $mail = $form_state->getValue('email');
 
+  // Test the format of the email. 
   if(!$this->emailValidator->isValid($mail)) {
     $form_state->setErrorByName('email', $this->t('The %email is not valid email.',
                                 ['%email' => $mail]));
@@ -311,6 +312,17 @@ public function validateForm(array &$form, FormStateInterface $form_state) {
 
 ### Dynamyc Queries with Database API
 So ok, we've already used at least two of the services we'd already requested from Drupal Console. Now we'll use the third one for a database query, but first, let's load some test values. 
+
+Using the command lines, we'll install the devel module for Drupal 8 and
+ using the devel_generate submodule we'll create a set of ten nodes with type
+  'article' with random values for comments in nodes. This will be usefull in
+   the database query that we're going to generate. 
+
+```bash
+ddev exec composer require drupal/devel
+ddev exec drush en devel devel_generate
+ddev exec drush genc 10 5 --types=article
+```
 
 ###  The final version of the class
 
