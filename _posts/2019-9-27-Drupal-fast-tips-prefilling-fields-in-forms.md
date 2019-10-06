@@ -315,7 +315,7 @@ So ok, we've already used at least two of the services we'd already requested fr
 
 Using the command lines, we'll install the devel module for Drupal 8 and
  using the devel_generate submodule we'll create a set of ten nodes with type
-  'article' with random values for comments in nodes. This will be usefull in
+  'article' with random values for comments in nodes. This will be useful in
    the database query that we're going to generate. 
 
 ```bash
