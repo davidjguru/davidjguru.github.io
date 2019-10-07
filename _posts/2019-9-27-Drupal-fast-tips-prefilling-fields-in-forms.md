@@ -323,7 +323,9 @@ ddev exec composer require drupal/devel
 ddev exec drush en devel devel_generate
 ddev exec drush genc 10 5 --types=article
 ```
-
+In the three previous instructions we are loading the devel module through composer from the dockerized environment with ddev (first line). 
+Then we activate the devel module and its submodule devel_generate through
+ Drush (second line) and finally we ask for the creation of 10 nodes of type "Article" with a number of comments per random node between zero and five comments (in the third line). 
 ###  The final version of the class
 
 ```php
