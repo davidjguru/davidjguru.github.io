@@ -40,7 +40,7 @@ For the nex trick, I'll use a new Drupal instance, deployed with the
  interesting tool [DDEV](https://ddev.readthedocs.io/en/stable/).  
  
  ```bash
-mkdir mydrupalwebsite && cd mydrupalwebsite
+mkdir d8deploy8 && cd d8deploy8
 ddev config --project-type php --php-version 7.3 
 ddev composer create drupal-composer/drupal-project:8.x-dev --stability dev --no-interaction
 ddev config --project-type drupal8
