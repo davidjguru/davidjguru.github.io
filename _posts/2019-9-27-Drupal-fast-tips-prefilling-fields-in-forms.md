@@ -362,7 +362,11 @@ $form['number_comments'] = [
 ```
 **Content Types**  
 Now, we're going to set the last value in our custom form, using an specific
- query to the database through the standard Drupal API. We want to set as
+ query to the database through the standard Drupal API, although we can also
+  use a function from the Node module, within the core of Drupal. I'm talking
+   about the [node_type_get_functions](https://api.drupal.org/api/drupal/core%21modules%21node%21node.module/function/node_type_get_names/8.8.x).
+ 
+   We want to set as
   checkboxes options all the available content types in our Drupal site. 
   What can we do?
 
