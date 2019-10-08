@@ -326,6 +326,40 @@ ddev exec drush genc 10 5 --types=article
 In the three previous instructions we are loading the devel module through composer from the dockerized environment with ddev (first line). 
 Then we activate the devel module and its submodule devel_generate through
  Drush (second line) and finally we ask for the creation of 10 nodes of type "Article" with a number of comments per random node between zero and five comments (in the third line). 
+ 
+ Now we're going to set the next value for the field 'number_comments', from
+  a dynamic query to the database. We want to count the number of comments
+   associated with the current user. So if we want to get the number, we'll
+    build a SELECT statement using SELECT COUNT(*). For this, we'll use the
+     countQuery() method from the Drupal Database API. 
+     
+The countQuery() method gives help returning a sentence from a statement
+ $query. If we execute it, will return us the number of the results.
+   
+ ```sql 
+// Build the base query.
+$query = $this->database->select('comment_field_data', 'c')
+         ->fields('c')
+         ->condition('c.uid', $this->currentUser->id(), '=');
+
+// Get the number of registers.
+$query_counter = $query->countQuery();
+$result = $query_counter->execute();
+$count = $result->fetchField();
+```
+So we have load the count value in the field:
+
+```php
+$form['number_comments'] = [
+      '#type' => 'number',
+      '#value' => $count,
+      '#title' => $this->t('Number of Comments'),
+      '#description' => $this->t('Number of Coments'),
+      '#weight' => 3,
+    ];
+
+```
+
 ###  The final version of the class
 
 ```php
