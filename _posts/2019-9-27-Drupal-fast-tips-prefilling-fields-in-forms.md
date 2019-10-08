@@ -323,20 +323,21 @@ ddev exec composer require drupal/devel
 ddev exec drush en devel devel_generate
 ddev exec drush genc 10 5 --types=article
 ```
+**Number of Comments**  
 In the three previous instructions we are loading the devel module through composer from the dockerized environment with ddev (first line). 
-Then we activate the devel module and its submodule devel_generate through
+Then we've activate the devel module and its submodule devel_generate through
  Drush (second line) and finally we ask for the creation of 10 nodes of type "Article" with a number of comments per random node between zero and five comments (in the third line). 
  
  Now we're going to set the next value for the field 'number_comments', from
   a dynamic query to the database. We want to count the number of comments
    associated with the current user. So if we want to get the number, we'll
-    build a SELECT statement using SELECT COUNT(*). For this, we'll use the
-     countQuery() method from the Drupal Database API. 
+    build a SELECT statement using SELECT COUNT(*). For this, we'll use [the
+     countQuery() method from the Drupal Database API](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Database%21Query%21Select.php/function/Select%3A%3AcountQuery/8.7.x). 
      
 The countQuery() method gives help returning a sentence from a statement
  $query. If we execute it, will return us the number of the results.
    
- ```sql 
+ ```php 
 // Build the base query.
 $query = $this->database->select('comment_field_data', 'c')
          ->fields('c')
@@ -358,6 +359,26 @@ $form['number_comments'] = [
       '#weight' => 3,
     ];
 
+```
+**Content Types**  
+Now, we're going to set the last value in our custom form, using an specific
+ query to the database through the standard Drupal API. We want to set as
+  checkboxes options all the available content types in our Drupal site. 
+  What can we do?
+
+```php
+  $options = node_type_get_names();
+  $defaults = array_keys($options); 
+```
+```php
+$form['types'] = [
+      '#type' => 'checkboxes',
+      '#title' => $this->t('Content Types'),
+      '#description' => $this->t('Select Content Types'),
+      '#options' =>   $options,
+      '#default_value' => $defaults,
+      '#weight' => '4',
+    ];
 ```
 
 ###  The final version of the class
