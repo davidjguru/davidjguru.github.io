@@ -169,8 +169,8 @@ And it will include the corresponding services available in the class:
     EmailValidatorInterface $email_validator
   ) {
     $this->database = $database;
-    $this->currentUser = $current_user;
-    $this->emailValidator = $email_validator;
+    $this->current_user = $current_user;
+    $this->email_validator = $email_validator;
   }
 
   /**
@@ -250,7 +250,7 @@ To load the registered name, we can use two ways for two differentes values
 ```php
 $form['name'] = [
       '#type' => 'textfield',
-      '#value' => $this->currentUser->getDisplayName(),
+      '#value' => $this->current_user->getDisplayName(),
       '#title' => $this->t('Name'),
       '#description' => $this->t('User Name'),
       '#maxlength' => 64,
@@ -271,7 +271,7 @@ In order to get the ID of the current User, we'll use the current_user
 ```php 
 $form['id_user'] = [
       '#type' => 'number',
-      '#value' => $this->currentUser->id(),
+      '#value' => $this->current_user->id(),
       '#title' => $this->t('User ID'),
       '#description' => $this->t('User ID'),
       '#maxlength' => 64,
@@ -286,7 +286,7 @@ To load the email we will also use a function of the current_user service
 ```php 
 $form['email'] = [
       '#type' => 'email',
-      '#value' => $this->currentUser->getEmail(),
+      '#value' => $this->current_user->getEmail(),
       '#title' => $this->t('Email'),
       '#description' => $this->t('User email'),
       '#weight' => '2',
@@ -303,7 +303,7 @@ public function validateForm(array &$form, FormStateInterface $form_state) {
   $mail = $form_state->getValue('email');
 
   // Test the format of the email. 
-  if(!$this->emailValidator->isValid($mail)) {
+  if(!$this->email_validator->isValid($mail)) {
     $form_state->setErrorByName('email', $this->t('The %email is not valid email.',
                                 ['%email' => $mail]));
    }
@@ -368,7 +368,7 @@ Now, we're going to set the last value in our custom form, using an specific
  
    We want to set as
   checkboxes options all the available content types in our Drupal site. 
-  What can we do?
+  What can we do? We'll use the former function and then, we'll take the keys of the returned array, setting all as default options. Let's see:
 
 ```php
   $options = node_type_get_names();
@@ -384,23 +384,67 @@ $form['types'] = [
       '#weight' => '4',
     ];
 ```
+Do we have all our fields ready yet?
+ Well, if we reload our form (after uninstalling and reinstalling the module), we see that there is nothing in the email field when the user is anonymous... What do we do?
+
+We will protect our form, preventing the sending if you are not a registered user and also hide the email field. **How?** We will ask if the user is registered through our service $current_user and from there, we will decide to show some fields or others thanks to a basic structure if-else. Remember that we are inside a PHP class and therefore, we can use the control structures we need. 
+
+We will pass a couple of fields (the email and Submit itself) to the user's registration confirmation:
+
+```php 
+if(!$this->current_user->isAuthenticated()) {
+      $form['help'] = [
+            '#type' => 'item',
+            '#title' => $this->t('Please, read the conditions.'),
+            '#markup' => $this->t('<strong>Only registered users can send info.</strong>'),
+      ];
+
+    }else {
+       $form['email'] = [
+             '#type' => 'email',
+             '#value' => $this->current_user->getEmail(),
+             '#title' => $this->t('Email'),
+             '#description' => $this->t('User email'),
+             '#weight' => '2',
+    ];
+      $form['submit'] = [
+            '#type' => 'submit',
+            '#value' => $this->t('Submit'),
+            '#weight' => 5,
+          ];
+    }
+```
+
+And this is the result in screen for registered and unregistered users:
+
+![Result form with prefilling]({{ site.baseurl }}/images/davidjguru_drupal_8_result_form_with_prefilling.png)
 
 ###  The final version of the class
-
+And here we can see the final look of the class...we can do something with the submit method...maybe it's a good idea for a upcomming article...who knows :-) 
 ```php
 <?php
 
-namespace Drupal\forcontu_forms\Form;
+namespace Drupal\my_random_module\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Database\Driver\mysql\Connection;
 use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\Component\Utility\EmailValidatorInterface;
 
 /**
- * Class CurriculumForm.
+ * Class RandomClassForm.
  */
-class CurriculumForm extends FormBase {
+class RandomClassForm extends FormBase {
+
+  /**
+   * Drupal\Core\Database\Driver\mysql\Connection definition.
+   *
+   * @var \Drupal\Core\Database\Driver\mysql\Connection
+   */
+  protected $database;
+
   /**
    * Drupal\Core\Session\AccountProxyInterface definition.
    *
@@ -409,12 +453,23 @@ class CurriculumForm extends FormBase {
   protected $currentUser;
 
   /**
-   * Constructs a new SimpleForm object.
+   * Drupal\Component\Utility\EmailValidatorInterface definition.
+   *
+   * @var \Drupal\Component\Utility\EmailValidatorInterface
+   */
+  protected $emailValidator;
+
+  /**
+   * Constructs a new RandomClassForm object.
    */
   public function __construct(
-    AccountProxyInterface $current_user
+    Connection $database,
+    AccountProxyInterface $current_user,
+    EmailValidatorInterface $email_validator
   ) {
-    $this->currentUser = $current_user;
+    $this->database = $database;
+    $this->current_user = $current_user;
+    $this->email_validator = $email_validator;
   }
 
   /**
@@ -422,243 +477,90 @@ class CurriculumForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('current_user')
+      $container->get('database'),
+      $container->get('current_user'),
+      $container->get('email.validator')
     );
   }
 
   /**
-   * Returns a unique string identifying the form.
-   *
-   * The returned ID should be a unique string that can be a valid PHP function
-   * name, since it's used in hook implementation names such as
-   * hook_form_FORM_ID_alter().
-   *
-   * @return string
-   *   The unique string identifying the form.
+   * {@inheritdoc}
    */
   public function getFormId() {
-    return 'curriculum_form';
+    return 'default_random_form';
   }
 
   /**
-   * Form constructor.
-   *
-   * @param array $form
-   *   An associative array containing the structure of the form.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   The current state of the form.
-   *
-   * @return array
-   *   The form structure.
+   * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    // General Structure.
-    $form['curriculum'] = [
-      '#type' => 'vertical_tabs',
-    ];
+    // Build the base query.
+    $query = $this->database->select('comment_field_data', 'c')
+      ->fields('c')
+      ->condition('c.uid', $this->current_user->id(), '=');
 
-    // First tab.
-    $form['datos_personales'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Datos Personales'),
-      '#weight' => 0,
-      '#group' => 'curriculum',
-    ];
+    // Get the number of registers.
+    $query_counter = $query->countQuery();
+    $result = $query_counter->execute();
+    $count = $result->fetchField();
 
-    $form['datos_personales']['info_personal'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Información personal'),
-      '#description' => $this->t('Grupo de campos de información personal.'),
-    ];
-    $form['datos_personales']['info_personal']['nombre'] = [
+    // Get the Content Types and its keys.
+    $options = node_type_get_names();
+    $defaults = array_keys($options);
+
+    // Building the form.
+    $form['name'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Nombre'),
-      '#required' => TRUE,
-      '#maxlength' => 20,
-      '#size' => 20,
-    ];
-    $form['datos_personales']['info_personal']['apellidos'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Apellidos'),
-      '#required' => TRUE,
-      '#maxlength' => 70,
-      '#size' => 70,
-    ];
-    $form['datos_personales']['info_personal']['fec_nac'] = [
-      '#type' => 'date',
-      '#title' => $this->t('Fecha de Nacimiento'),
-      '#required' => TRUE,
-      '#default_value' => '2021-01-13',
-    ];
-    $form['datos_personales']['info_personal']['pais'] = [
-      '#type' => 'select',
-      '#title' => $this->t('País de nacimiento'),
-      '#required' => TRUE,
-      '#default_value' => "ES",
-      '#options' => [
-        "AF" => "Afghanistan",
-        ],
-      '#description' => t('Seleccione su país de origen, por favor. '),
-    ];
-    $form['datos_personales']['info_personal']['foto'] = [
-      '#type' => 'file',
-      '#title' => $this->t('Fotografía personal'),
-      '#required' => TRUE,
-      '#description' => t('Suba una imagen, formatos permitidos: jpg, png.'),
-      '#upload_location' => 'public://managed',
-      '#upload_validators' => [
-        'file_validate_extensions' => ['jpg png'],
-      ],
-    ];
-
-    $form['datos_personales']['info_contacto'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Información de contacto'),
-      '#description' => $this->t('Grupo de campos de información de contacto.'),
-    ];
-    $form['datos_personales']['info_contacto']['direccion'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Dirección'),
-      '#cols' => 60,
-      '#rows' => 5,
-      '#description' => $this->t('Dirección de contacto.'),
-    ];
-    $form['datos_personales']['info_contacto']['email'] = [
-      '#type' => 'email',
-      '#title' => $this->t('Correo electrónico'),
-      '#required' => TRUE,
-      '#size' => 50,
-      '#maxlength' => 120,
-      '#default_value' => $this->currentUser->getEmail(),
-      '#description' => $this->t('Correo electrónico de contacto.'),
-    ];
-    $form['datos_personales']['info_contacto']['telefono'] = [
-      '#type' => 'tel',
-      '#title' => $this->t('Teléfono de contacto'),
+      '#title' => $this->t('Name'),
+      '#value' => $this->current_user->getDisplayName(),
+      '#description' => $this->t('User Name'),
       '#maxlength' => 64,
-      '#size' => 30,
-      '#description' => $this->t('Teléfono de contacto personal.'),
     ];
-
-    // Second tab.
-    $form['datos_academicos'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Datos Académicos'),
-      '#group' => 'curriculum',
-      '#weight' => 1,
+    $form['id_user'] = [
+      '#type' => 'number',
+      '#value' => $this->current_user->id(),
+      '#title' => $this->t('User ID'),
+      '#description' => $this->t('User ID'),
+      '#maxlength' => 64,
+      '#weight' => '1',
     ];
-    $form['datos_academicos']['info_titulacion'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Titulación'),
-      '#description' => $this->t('Grupo de campos de información de titulación.'),
+    $form['number_comments'] = [
+      '#type' => 'number',
+      '#value' => $count,
+      '#title' => $this->t('Number of Comments'),
+      '#description' => $this->t('Number of Comments'),
+      '#weight' => '3',
     ];
-    $form['datos_academicos']['info_titulacion']['titulacion'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Titulación'),
-      '#description' => $this->t('Complete la titulación.'),
-      '#required' => FALSE,
-      '#maxlength' => 100,
-      '#size' => 100,
-    ];
-    $form['datos_academicos']['info_titulacion']['element_machine_name'] = [
-      '#type' => 'machine_name',
-      '#description' => $this->t('Nombre Máquina de sistema para campo título.'),
-      '#machine_name' => [
-        'source' => ['titulacion'],
-
-      ],
-    ];
-    $form['datos_academicos']['info_titulacion']['fecha_fin'] = [
-      '#type' => 'date',
-      '#title' => $this->t('Fecha de finalización'),
-      '#required' => FALSE,
-      '#description' => $this->t('Fecha de finalización de los estudios.'),
-    ];
-    $form['datos_academicos']['info_titulacion']['centro_estudios'] = [
-      '#type' => 'radios',
-      '#required' => FALSE,
-      '#title' => $this->t('Centro de Estudios Universitarios'),
-      '#options' => [
-        1 => $this->t('Universidad de Sevilla'),
-        2 => $this->t('Universidad Autónoma de Barcelona'),
-        3 => $this->t('Universidad de Córdoba'),
-        4 => $this->t('Universidad Complutense de Madrid'),
-        5 => $this->t('Universidad a distancia - UNED'),
-      ],
-      '#description' => $this->t('Marque el centro donde realizó sus estudios universitarios.'),
-      '#default_value' => 1,
-    ];
-
-    // Third tab.
-    $form['experiencia_laboral'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Experiencia Laboral'),
-      '#group' => 'curriculum',
-      '#weight' => 2,
-    ];
-    $form['experiencia_laboral']['descripcion'] = [
-      '#type' => 'textarea',
-      '#required' => FALSE,
-      '#title' => $this->t('Descripción'),
-      '#cols' => 60,
-      '#rows' => 5,
-      '#description' => $this->t('Describa aquí su experiencia laboral.'),
-    ];
-    $form['experiencia_laboral']['fichero_curriculum'] = [
-      '#type' => 'managed_file',
-      '#required' => TRUE,
-      '#title' => $this->t('Adjuntar curriculum'),
-      '#description' => $this->t('Adjunte su curriculum para enviar'),
-      '#upload_location' => 'public://managed',
-      '#upload_validators' => [
-        'file_validate_extensions' => ['pdf'],
-      ],
-    ];
-
-    // Fourth tab.
-    $form['formacion_complementaria'] = [
-      '#type' => 'details',
-      '#title' => $this->t('Formación Complementaria'),
-      '#group' => 'curriculum',
-      '#weight' => 3,
-    ];
-    $form['formacion_complementaria']['cursos'] = [
+    $form['types'] = [
       '#type' => 'checkboxes',
-      '#title' => $this->t('Cursos'),
-      '#default_value' => ['proyectos','drupal'],
-      '#options' => [
-        'recursos' => $this->t('Recursos Humanos'),
-        'ofimática' => $this->t('Ofimática'),
-        'proyectos' => $this->t('Gestión de proyectos'),
-        'administracion' => $this->t('Administración'),
-        'drupal' => $this->t('Drupal'),
-      ],
-      '#description' => $this->t('Marque los cursos realizados.'),
+      '#title' => $this->t('Content Types'),
+      '#description' => $this->t('Select Content Types'),
+      '#options' =>   $options,
+      '#default_value' => $defaults,
+      '#weight' => '4',
     ];
 
-    // Extra fields.
-    $form['user_id'] = [
-      '#type' => 'hidden',
-      '#value' => $this->currentUser->id(),
-    ];
-
-    // Submit.
-    $form['actions'] = [
-      '#type' => 'actions',
-    ];
-
-
-    if(!$this->currentUser->isAuthenticated()) {
+    // Testing if the user is logged or not.
+    if(!$this->current_user->isAuthenticated()) {
       $form['help'] = [
-        '#title' => $this->t('Por favor, lea las siguientes condiciones:'),
         '#type' => 'item',
-        '#markup' => $this->t('<strong>Solo personas usuarias registradas pueden realizar el envío de este formulario.</strong>'),
+        '#title' => $this->t('Please, read the conditions.'),
+        '#markup' => $this->t('<strong>Only registered users can send info.</strong>'),
+        '#weight' => 5,
       ];
 
     }else {
-      $form['actions']['submit'] = [
+      $form['email'] = [
+        '#type' => 'email',
+        '#value' => $this->current_user->getEmail(),
+        '#title' => $this->t('Email'),
+        '#description' => $this->t('User email'),
+        '#weight' => '2',
+      ];
+      $form['submit'] = [
         '#type' => 'submit',
         '#value' => $this->t('Submit'),
+        '#weight' => 5,
       ];
     }
 
@@ -666,23 +568,29 @@ class CurriculumForm extends FormBase {
   }
 
   /**
-   * Form submission handler.
-   *
-   * @param array $form
-   *   An associative array containing the structure of the form.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   The current state of the form.
+   * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    // TODO: Implement submitForm() method.
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    // Get the email value from the field.
+    $mail = $form_state->getValue('email');
+
+    // Test the format of the email.
+    if(!$this->email_validator->isValid($mail)) {
+      $form_state->setErrorByName('email', $this->t('The %email is not valid email.',
+        ['%email' => $mail]));
+    }
   }
 
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Display result.
+    foreach ($form_state->getValues() as $key => $value) {
+      \Drupal::messenger()->addMessage($key . ': ' . ($key === 'text_format'?$value['value']:$value));
+    }
   }
 
 }
 ```
+###wq!
