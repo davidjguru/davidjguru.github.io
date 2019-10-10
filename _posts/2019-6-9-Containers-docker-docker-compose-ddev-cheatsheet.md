@@ -203,6 +203,9 @@ docker network inspect name_network
 
 # Delete a network in your Docker Compose system
 docker network rm name_network
+
+# Remove unusued data and clean the Docker System
+docker system prune -f
 ```
 
 
@@ -211,6 +214,9 @@ docker network rm name_network
 ```bash
 # Run a multi-container application with Docker Compose
 docker-compose up -d
+# Turn on the Docker Compose network
+# but building images before starting containers
+docker-compose up --build
 
 # Stop a multi-container application with Docker Compose
 docker-compose stop
@@ -229,6 +235,12 @@ docker-compose exec web ./vendor/bin/drush cr
 
 # Connecting to a Container (called mysql) as root by prompt
 docker-compose exec -u root mysql /bin/bash
+
+# Get the Docker container's log
+docker-compose logs -t ALIAS
+# Get the Docker container's log 
+# with direct connection in real time
+docker-compose logs -t -f ALIAS
 ```
 
 
