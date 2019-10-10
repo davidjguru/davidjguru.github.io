@@ -25,15 +25,15 @@ The first step is to decide what kind of forms we want to build. In Drupal 8, th
 
 1- **Basic Form**: a normal form of general purpose, adaptable. Created from
  the FormBase Class in Drupal API.  
- [https://api.drupal.org/api/drupal/core/FormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21FormBase.php/class/FormBase/8.7.x)  
+ [Class FormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21FormBase.php/class/FormBase/8.7.x)  
  
 2- **Config Form**: a form of specific use to establish an object and
  configuration values.  Created from the ConfigFormBase in Drupal API.
- [https://api.drupal.org/api/drupal/core/ConfigFormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21ConfigFormBase.php/class/ConfigFormBase/8.7.x)  
+ [Class ConfigFormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21ConfigFormBase.php/class/ConfigFormBase/8.7.x)  
  
 3- **Confirm Form**: a form to request confirmation from the user before
  executing an irreversible action. Created from the ConfigFormBase in Drupal
-  API. [https://api.drupal.org/api/drupal/core/ConfigFormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21ConfigFormBase.php/class/ConfigFormBase/8.7.x)
+  API. [Class ConfigFormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21ConfigFormBase.php/class/ConfigFormBase/8.7.x)
 
 In this case, we will opt for a form created as Basic Form, more adaptable and elastic for general purposes. We will create a new custom module for Drupal 8, and in its /src/Form route we will include our test form. 
 For the nex trick, I'll use a new Drupal instance, deployed with the
