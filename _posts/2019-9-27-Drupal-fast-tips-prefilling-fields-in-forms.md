@@ -33,11 +33,10 @@ The first step is to decide what kind of forms we want to build. In Drupal 8, th
  
 3- **Confirm Form**: a form to request confirmation from the user before
  executing an irreversible action. Created from the ConfigFormBase in Drupal
-  API. [Class ConfigFormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21ConfigFormBase.php/class/ConfigFormBase/8.7.x)
+  API. [Class ConfirmFormBase.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21ConfirmFormBase.php/class/ConfirmFormBase/8.7.x)
 
-In this case, we will opt for a form created as Basic Form, more adaptable and elastic for general purposes. We will create a new custom module for Drupal 8, and in its /src/Form route we will include our test form. 
-For the nex trick, I'll use a new Drupal instance, deployed with the
- interesting tool [DDEV](https://ddev.readthedocs.io/en/stable/).  
+In this case, we will opt for **a form created as Basic Form**, more adaptable and elastic for general purposes. We will create a new custom module for Drupal 8, and in its /src/Form route we will include our test form. 
+**For the nex trick, I'll use a new Drupal instance**, deployed with the more-than-interesting tool [DDEV](https://ddev.readthedocs.io/en/stable/).  
  
  ```bash
 mkdir d8deploy8 && cd d8deploy8
@@ -49,7 +48,7 @@ ddev start
 ```
  
  **Note:** If you want to know more about how to use ddev, I recommend you
-  this article about the tool["Development environments for Drupal with DDEV"](https://davidjguru.github.io/blog/creating-development-environments-for-drupal-with-ddev) or this related cheatsheet: ["Docker, Docker
+  this article about the tool: ["Development environments for Drupal with DDEV"](https://davidjguru.github.io/blog/creating-development-environments-for-drupal-with-ddev) or this related cheatsheet: ["Docker, Docker
   -Compose and DDEV - Cheatsheet"](https://davidjguru.github.io/blog/containers-docker-docker-compose-ddev-cheatsheet).  
   
   Okay, now let's look at a little sketch of the form we're planning to build:
@@ -59,8 +58,8 @@ ddev start
 We will see the code in the next section. 
 ## Building our Form
 
-First of all, we have to build a basic module structure for our custom Form
-. We can build the module using Drupal Console from your prompt with the
+First of all, **we have to build a basic module structure** for our custom Form
+. We can build the module using [Drupal Console](https://drupalconsole.com/docs/en) from your prompt with the
  generate:module option [(drupal generate:module)](https://hechoendrupal.gitbooks.io/drupal-console/en/commands/generate-module.html). 
 
 ```bash
@@ -79,10 +78,10 @@ drupal generate:module \
 --module-file \
 --no-interaction
 ```
-Then, we'll need build an initial basic form, and for that we can use (one
+Then, **we'll need build an initial basic form**, and for that we can use (one
  more time) the Drupal Console and its functionalities related to scaffolding
-  generation. In this case we will use the options associated with "generate
-  :form" [(drupal generate:form)](https://hechoendrupal.gitbooks.io/drupal-console/en/commands/generate-form.html).   
+  generation. In this case we will use the options associated with "_generate
+  :form_" [(drupal generate:form)](https://hechoendrupal.gitbooks.io/drupal-console/en/commands/generate-form.html).   
   Taking the former module as reference: 
   
 ```bash
@@ -105,13 +104,13 @@ drupal generate:form  \
 --path="/my_random_module/forms/random_form" \
 --no-interaction
 ```
-We don't worry about the submit, the Drupal Console will process 
- automatically the inputs and it will generate a submit button. Just after a few
+We don't worry about the submit, **the Drupal Console will process 
+ automatically the inputs and it will generate a submit button**. Just after a few
   small adjustments
   in the form at code level -such as assigning a weight to the Submit button
-   ('#weight' => 5,)- we will already have the new module and its form
+   (_'#weight' => 5,_)- we will already have the new module and its form
     available.Install the module and clear cache, accessing the route we
-     have defined and we already have it available.
+     have defined and we have it available.
      
 ```bash
 ddev exec drush en my_random_module
@@ -131,8 +130,8 @@ Et voilá! in:
 
 ### Inyecting services in Drupal 8
 But as we want to play a little with services for filling fields, we'll use
- the options that allow us to load from Drupal Console the different services
-  by injection from the corresponding container, simply by doing this:
+ the options that allow us to load from Drupal Console the different services -[Services and dependency injection in Drupal 8](https://www.drupal.org/docs/8/api/services-and-dependency-injection/services-and-dependency-injection-in-drupal-8)-
+  by injection **from the corresponding Services container**, simply by doing this:
   
 ```bash
 drupal generate:form  \
@@ -364,7 +363,7 @@ $form['number_comments'] = [
 Now, we're going to set the last value in our custom form, using an specific
  query to the database through the standard Drupal API, although we can also
   use a function from the Node module, within the core of Drupal. I'm talking
-   about the [node_type_get_functions](https://api.drupal.org/api/drupal/core%21modules%21node%21node.module/function/node_type_get_names/8.8.x).
+   about the [node_type_get_function](https://api.drupal.org/api/drupal/core%21modules%21node%21node.module/function/node_type_get_names/8.8.x).
  
    We want to set as
   checkboxes options all the available content types in our Drupal site. 
