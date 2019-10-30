@@ -32,14 +32,13 @@
             <a href="{{ site.baseurl }}/topics">topics</a>
             <a href="{{ site.baseurl }}/me">/me</a>
             <a href="{{ site.baseurl }}/projects">projects</a>
-            <a href="{{ site.baseurl }}/search.html">search</a>
-
+              <div class="container">
+                  <div class="well" id="searchbox">
+                      <input id="search-field" placeholder="Search the Site"/>
+                      <ul id="results"></ul>
+                  </div>
+              </div>
           </nav>
-            <form action="{{ site.baseurl }}/search.html" method="get">
-                <label for="search-box">Search</label>
-                <input type="text" id="search-box" name="query">
-                <input type="submit" value="search">
-            </form>
         </header>
       </div>
     </div>
@@ -50,6 +49,14 @@
 
     <div class="wrapper-footer">
       <div class="container">
+          <script src="https://raw.githubusercontent.com/DataMcFly/jquery.camelhunter/master/jquery.camelhunter.min.js"></script>
+          <script type="text/javascript">
+              $("#search-field").camelHunter({
+                  onKeyUp 			: true,
+                  rss: "/search.xml",
+                  results   : "#results"
+              });
+          </script>
         <footer class="footer">
           {% include svg-icons.html %}
         </footer>
