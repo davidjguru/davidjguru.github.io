@@ -7,9 +7,9 @@ date: 2019-10-30
 categories: [Drupal]  
 sitemap: true
 ---
-| ![Picture from Unsplash, by @chadwiq]({{ site.baseurl }}/images/davidjguru_drupal_8_prefilling_fields_in_forms.jpeg) |
+| ![Picture from Unsplash, by @jamie452]({{ site.baseurl }}/images/davidjguru_drupal_8_random_comands_for_your_daily_life_with_drupal.jpeg) |
 |:--:|
-| *Picture from Unsplash, user Chad Walton @chadwiq* |
+| *Picture from Unsplash, user Jamie Street @jamie452* |
 
 
 Recently I returned to the habit of asking myself every morning "What did I do yesterday?" just at the beginning of the day, in time to find the connection with the sequence of tasks of the present day. 
