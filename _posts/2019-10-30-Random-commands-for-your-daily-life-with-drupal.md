@@ -16,6 +16,17 @@ Recently I returned to the habit of asking myself every morning "What did I do y
 Among the questions, to contextualize myself I used the command **history** and **history |grep whatever** again to extract by console the history of instructions of the previous day...and so I have been compiling some commands used daily. 
 <!--more-->
 As the result has been a little chaotic, I have played to order them in some way in blocks, trying to give an internal coherence (or something like that)...... I hope it can be useful to someone who is looking for some help for a specific situation. 
+As it seemed excessive to me to explain each command/utility/tool, I have decided to summarize it in two blocks: first the technological stack on which I usually use these instructions and then a comment of a line on the instruction to better illustrate the case of day-to-day use.
+
+Stack
+---------
+* Ubuntu 18.02.2 virtualized.
+* Git as version control, version 2.17.1.
+* Composer installed globally in my system, version 1.8.5.
+* Apache as webserver for testing purposes, version 2.4.29.
+* Drush per project, version 9.7.1.
+* Drupal Console, version 1.9.3.
+
 
 **Remember:** these are instructions used in a Linux environment, specifically in an Ubuntu 18.04.2. 
 
