@@ -13,19 +13,34 @@ sitemap: true
 
 
 Recently I returned to the habit of asking myself every morning "What did I do yesterday?" just at the beginning of the day, in time to find the connection with the sequence of tasks of the present day. 
-Among the questions, to contextualize myself I used the command "history" again to extract by console the history of instructions of the previous day...and so I have been compiling some commands used daily. 
+Among the questions, to contextualize myself I used the command **history** and **history |grep whatever** again to extract by console the history of instructions of the previous day...and so I have been compiling some commands used daily. 
 <!--more-->
+As the result has been a little chaotic, I have played to order them in some way in blocks, trying to give an internal coherence (or something like that)...... I hope it can be useful to someone who is looking for some help for a specific situation. 
+
+**Remember:** these are instructions used in a Linux environment, specifically in an Ubuntu 18.04.2. 
 
 ## Block One: Apache and Servers
+For some reason that I don't understand well, for local environments built ad-hoc (outside Docker or DDEV), I tend to use Apache...maybe for coming from LAMP environments or for a special affection...for me it is very normal to have several environments with Apache as web server (for other things Nginx). 
+
 
 ```bash
+// Get the current version of Apache.
+apache2 -v
+// Same but with settings
+apache2 -V 
 // Test if Apache is running or not.
 sudo systemctl status apache2
 // Stopping Apache.
 sudo /etc/init.d/apache2 stop
+// - or: -
+sudo service apache2 stop
+//  Review the Syntax from your Apache config.
+sudo apache2ctl -t
+```
+
+```bash
 // Wait a minute...are my ports open?
 nmap localhost
-
 // What is my current DNS Server?
 sudo systemd-resolve --status | grep "DNS Servers"
 
