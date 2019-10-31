@@ -38,6 +38,7 @@ sudo service apache2 stop
 sudo apache2ctl -t
 ```
 
+Like a hotchpotch of commands:
 ```bash
 // Wait a minute...are my ports open?
 nmap localhost
@@ -46,6 +47,10 @@ sudo systemd-resolve --status | grep "DNS Servers"
 
 // Show installed versions vs. available with Composer.
 composer show -lo
+// Increasing the cache size globally in Composer.
+composer config --global cache-files-maxsize "2048MiB"
+// Add the flag --profile to show details in feedback.
+composer require drupal/field_group --profile
 ```
 
 
