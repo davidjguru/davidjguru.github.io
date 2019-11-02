@@ -32,7 +32,12 @@
             <a href="{{ site.baseurl }}/topics">topics</a>
             <a href="{{ site.baseurl }}/me">/me</a>
             <a href="{{ site.baseurl }}/projects">projects</a>
+            <a href="{{ site.baseurl }}/search/">search</a>
           </nav>
+          <form action="/search/" method="get">
+            <input type="text" id="search-box" name="query" placeholder="Search here...">
+            <input type="submit" value="search">
+            </form>
         </header>
       </div>
     </div>
