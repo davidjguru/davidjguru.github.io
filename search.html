@@ -3,7 +3,10 @@ layout: search
 title: Search
 permalink: /search/
 ---
-
+<form action="/search/" method="get">
+    <input type="text" id="search-box" name="query" placeholder="Search here...">
+    <input type="submit" value="search">
+</form>
 <ul id="search-results"></ul>
 
 <script>
@@ -12,7 +15,7 @@ permalink: /search/
     "{{ post.url | slugify }}": {
         "title": "{{ post.title | xml_escape }}",
         "author": "{{ post.author | xml_escape }}",
-        "category": "{{ post.category | xml_escape }}",
+        "category": "{{ post.categories | xml_escape }}",
         "content": {{ post.content | strip_html | strip_newlines | jsonify }},
         "url": "{{ post.url | xml_escape }}"
     }
