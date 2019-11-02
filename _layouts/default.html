@@ -34,9 +34,9 @@
             <a href="{{ site.baseurl }}/projects">projects</a>
           </nav>
         </header>
-           <form action="/search/" method="get">
-               <input type="text" id="search-box" name="query" placeholder="Search here...">
-               <input type="submit" value="search">
+           <form id="lookingfor" action="/search/" method="get">
+               <input type="text" id="search-box" name="query" class="input" placeholder="Search here...">
+               <button type="reset" class="search" id="search-btn"></button>
            </form>
       </div>
     </div>
@@ -54,5 +54,6 @@
     </div>
 
     {% include analytics.html %}
+   <script src="../assets/js/search_animation.js"></script>
   </body>
 </html>
