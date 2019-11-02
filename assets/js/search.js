@@ -6,9 +6,7 @@
             for (var i = 0; i < results.length; i++) {
                 var item = store[results[i].ref];
                 appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3>';
-                appendString += '<p> Author: ' + item.author + '</p>';
-                appendString += '<h4>Written on ' + item.date + '</h4>';
-                appendString += '<p>...' + item.content.substring(60, 250) + '...</p></a></li>';
+                appendString += '<p>...' + item.content.substring(90, 350) + '...</p></a></li>';
             }
             searchResults.innerHTML = appendString;
         } else {
