@@ -4,6 +4,7 @@ title: Three tips working with Drupal
 permalink: /blog/three-tips-working-with-drupal
 published: true
 date: 2017-09-13
+author: davidjguru
 categories: [Drupal]
 sitemap: true
 ---

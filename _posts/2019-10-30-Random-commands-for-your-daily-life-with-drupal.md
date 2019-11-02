@@ -3,7 +3,8 @@ layout: post
 title: Random commands for your daily life with Drupal 
 permalink: /blog/random-commands-for-your-daily-life-with-drupal 
 published: true  
-date: 2019-10-30  
+date: 2019-10-30 
+author: davidjguru
 categories: [Drupal]  
 sitemap: true
 ---

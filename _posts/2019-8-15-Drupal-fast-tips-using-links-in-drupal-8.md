@@ -4,6 +4,7 @@ title: Drupal Fast Tips (I) - Using links in Drupal 8
 permalink: /blog/drupal-fast-tips-using-links-in-drupal-8
 published: true
 date: 2019-08-15
+author: davidjguru
 categories: [Drupal]
 sitemap: true
 ---

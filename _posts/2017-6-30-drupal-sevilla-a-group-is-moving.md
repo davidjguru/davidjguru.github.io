@@ -4,6 +4,7 @@ title: Drupal Sevilla, a group is moving
 permalink: /blog/drupal-sevilla-a-group-is-moving
 published: true
 date: 2017-06-30
+author: davidjguru
 categories: [Community]
 sitemap: true
 ---

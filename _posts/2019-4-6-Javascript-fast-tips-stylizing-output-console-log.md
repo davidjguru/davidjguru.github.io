@@ -4,6 +4,7 @@ title: JavaScript Fast Tips (II) - Styles in console output
 permalink: /blog/javascript-fast-tips-stylizing-output-console-log
 published: true
 date: 2019-04-06
+author: davidjguru
 categories: [JavaScript]
 sitemap: true
 ---

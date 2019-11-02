@@ -3,7 +3,8 @@ layout: post
 title: Drupal Fast Tips (II) - Prefilling fields in forms  
 permalink: /blog/drupal-fast-tips-prefilling-fields-in-forms  
 published: true  
-date: 2019-09-27  
+date: 2019-09-27
+author: davidjguru  
 categories: [Drupal]  
 sitemap: true
 ---

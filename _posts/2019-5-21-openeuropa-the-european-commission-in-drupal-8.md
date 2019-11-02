@@ -4,6 +4,7 @@ title: OpenEuropa - The European Commission in Drupal 8
 permalink: /blog/openeuropa-the-european-commission-in-drupal-8
 published: true
 date: 2019-05-21
+author: davidjguru
 categories: [Drupal]
 sitemap: true
 ---

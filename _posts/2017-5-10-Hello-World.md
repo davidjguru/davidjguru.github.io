@@ -4,6 +4,7 @@ title: Hello World!
 permalink: /blog/Hello-World
 published: true
 date: 2017-05-10
+author: davidjguru
 categories: General
 sitemap: true
 ---

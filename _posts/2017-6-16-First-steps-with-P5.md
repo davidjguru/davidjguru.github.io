@@ -4,6 +4,7 @@ title: First steps with the P5.js library
 permalink: /blog/First-steps-with-P5
 published: true
 date: 2017-06-16
+author: davidjguru
 categories: [JavaScript]
 sitemap: true
 ---
