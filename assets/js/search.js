@@ -7,7 +7,7 @@
                 var item = store[results[i].ref];
                 appendString += '<li><a href="' + item.url + '"><h3>' + item.title + '</h3>';
                 appendString += '<p> Author: ' + item.author + '</p>';
-                appendString += '<h4>Written on ' + {{ item.date | date: "%B %e, %Y" }} + '</h4>';
+                appendString += '<h4>Written on ' + item.date + '</h4>';
                 appendString += '<p>...' + item.content.substring(60, 250) + '...</p></a></li>';
             }
             searchResults.innerHTML = appendString;
