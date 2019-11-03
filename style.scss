@@ -297,7 +297,7 @@ nav {
   transform: translate(-50%, -50%);
 
   @include mobile {
-    top: 48px;
+    top: 48%;
     left: 82%;
   }
 }
@@ -429,6 +429,7 @@ input {
   -webkit-transform: translate(-100%, -50%);
   -ms-transform: translate(-100%, -50%);
   transform: translate(-100%, -50%);
+
   @include mobile {
     width: 184px;
     height: 35px;
