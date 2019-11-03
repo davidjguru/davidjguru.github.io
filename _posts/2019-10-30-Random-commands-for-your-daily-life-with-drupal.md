@@ -53,20 +53,19 @@ sudo apache2ctl -t
 # Rewrite install.php during install to see if mod_rewrite is working
   RewriteRule ^core/install.php core/install.php?rewrite=ok [QSA,L]
 
-##FROM HERE
+##FROM HERE.
 # sites/default/files/ from your site in “pre” or live
  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} (.*)/sites/default/files/(.*)
   RewriteCond %{REQUEST_URI} !=(.*)sites/default/files/(.*).css
   RewriteCond %{REQUEST_URI} !=(.*)sites/default/files/(.*).js
-  RewriteRule   "^(.+)"  "http://pre.estrelladamm.com/$1"  [L,R=302]
-##HASTA AQUÍ
+  RewriteRule   "^(.+)"  "https://yourlivesite.com/$1"  [L,R=302]
+##TO HERE.
 
   # Pass all requests not referring directly to files in the filesystem to
   # index.php.
   RewriteCond %{REQUEST_FILENAME} !-f
-
 ```
 
 Like a hotchpotch of commands:
