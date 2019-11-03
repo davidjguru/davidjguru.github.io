@@ -297,9 +297,10 @@ nav {
   transform: translate(-50%, -50%);
 
   @include mobile {
-    top: 57%;
-    left: 38%;
-    width: 0px;
+    top: 62%;
+    left: 11%;
+    width: fit-content;
+    margin-top: -28px;;
   }
 }
 
