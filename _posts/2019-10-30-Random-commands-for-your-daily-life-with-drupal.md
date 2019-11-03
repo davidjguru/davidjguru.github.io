@@ -38,14 +38,18 @@ For some reason that I don't understand well, for local environments built ad-ho
 ```bash
 // Get the current version of Apache.
 apache2 -v
+
 // Same but with settings
 apache2 -V 
+
 // Test if Apache is running or not.
 sudo systemctl status apache2
+
 // Stopping Apache.
 sudo /etc/init.d/apache2 stop
 // - or: -
 sudo service apache2 stop
+
 //  Review the Syntax from your Apache config.
 sudo apache2ctl -t
 ```
@@ -74,13 +78,16 @@ Now, non-apache related, just some more instructions, like a hotchpotch of comma
 ```bash
 // Wait a minute...are my ports open?
 nmap localhost
+
 // What is my current DNS Server?
 sudo systemd-resolve --status | grep "DNS Servers"
 
 // Show installed versions vs. available with Composer.
 composer show -lo
+
 // Increasing the cache size globally in Composer.
 composer config --global cache-files-maxsize "2048MiB"
+
 // Add the flag --profile to show details in feedback.
 composer require drupal/field_group --profile
 ```
@@ -109,7 +116,6 @@ git diff --summary
 ls -lah config/sync/ | wc -l
 ls -lah config/sync/paragraphs.paragraphs_type.* | wc -l
 ls -lah config/sync/node.type.* | wc -l
-
 
 // Just like drush en // drush pmu -BUT- executing itself drush cr
 drupal module:install my_random_module
