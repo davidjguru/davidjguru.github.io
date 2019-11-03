@@ -56,20 +56,21 @@ Now talking 'bout Apache, I would to share just a simple example to get files no
 
 ##FROM HERE.
 # sites/default/files/ from your site in “pre” or live
- RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} (.*)/sites/default/files/(.*)
-  RewriteCond %{REQUEST_URI} !=(.*)sites/default/files/(.*).css
-  RewriteCond %{REQUEST_URI} !=(.*)sites/default/files/(.*).js
-  RewriteRule   "^(.+)"  "https://yourlivesite.com/$1"  [L,R=302]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.*)/sites/default/files/(.*)
+RewriteCond %{REQUEST_URI} !=(.*)sites/default/files/(.*).css
+RewriteCond %{REQUEST_URI} !=(.*)sites/default/files/(.*).js
+RewriteRule   "^(.+)"  "https://livesite.com/$1"  [L,R=302]
 ##TO HERE.
 
-  # Pass all requests not referring directly to files in the filesystem to
-  # index.php.
-  RewriteCond %{REQUEST_FILENAME} !-f
+  # Pass requests not referring directly to files to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
 ```
+This will integrate the images into your local deployment without the need to move file weight folders in /sites/default/files/ or make slow copies of many files. Use the already live images for your local environment. 
 
-Like a hotchpotch of commands:
+Now, non-apache related, just some more instructions, like a hotchpotch of commands:
+
 ```bash
 // Wait a minute...are my ports open?
 nmap localhost
