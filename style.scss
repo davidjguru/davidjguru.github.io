@@ -297,8 +297,9 @@ nav {
   transform: translate(-50%, -50%);
 
   @include mobile {
-    top: 48%;
-    left: 82%;
+    top: 57%;
+    left: 38%;
+    width: 0px;
   }
 }
 

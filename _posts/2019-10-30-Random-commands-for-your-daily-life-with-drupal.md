@@ -49,6 +49,7 @@ sudo service apache2 stop
 //  Review the Syntax from your Apache config.
 sudo apache2ctl -t
 ```
+Now talking 'bout Apache, I would to share just a simple example to get files not for your local path, but from a live web site. It's a simple way to mapping paths for images (for example) from a local deploy using the images in the live site. 
 ```bash
 # Rewrite install.php during install to see if mod_rewrite is working
   RewriteRule ^core/install.php core/install.php?rewrite=ok [QSA,L]
