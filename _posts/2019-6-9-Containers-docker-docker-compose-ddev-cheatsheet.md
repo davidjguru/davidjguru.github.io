@@ -110,6 +110,14 @@ docker image ls -q
 # Run an image
 docker run hello-world
 
+# Build image from a certain Dockerfile
+docker build -t web-custom-name /path/to/dockerfile/
+
+# Run an instance of the former image
+# and publish port 8080 in container
+# to the port 8282 on host.
+docker run -p 8282:8080 web-custom-name
+
 # If the image isn't downloaded, then pull it from 
 # remote at DockerHub
 docker run centos
@@ -129,9 +137,12 @@ docker image prune
 ### Containers
 
 ```bash
-# Run a container but in detached mode and your will be
+# Run a container but in detached mode and
 # back to your prompt
 docker run -d vendorexample/appexample
+
+# Run a container with  custom name.
+docker run -d --name web-custom-name nginx:1.14-alpine
 
 # Restart a Container
 docker restart IDCONTAINER
@@ -139,6 +150,13 @@ docker restart IDCONTAINER
 # Run a container from the centOS image with bash and
 # login in prompt
 docker run -it centos bash
+
+# Deploy a mysql database using the mysql image and
+# name it mysql-db. Set the database password to 
+# use db_pass123. Lookup the mysql image on 
+# Docker Hub and identify the correct environment
+# variable to use for setting the root password.
+docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db mysql
 
 # Run a container in background with a end of life
 docker run -d centos sleep 100
