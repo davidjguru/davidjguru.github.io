@@ -73,7 +73,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 ```
 This will integrate the images into your local deployment without the need to move file weight folders in /sites/default/files/ or make slow copies of many files. Use the already live images for your local environment. 
 
-Now, non-apache related, just some more instructions, like a hotchpotch of commands:
+Now, stuff non-apache related, just some more instructions, like a hotchpotch of commands:
 
 ```bash
 // Wait a minute...are my ports open?
@@ -105,11 +105,10 @@ git diff --name-status anotherbranch
 
 // Show me a summary of changes in project. 
 git diff --summary
-
-
 ```
 
 ## Block Three: Diagnostic of a Drupal
+Now, I've included some useful commands to extract information quickly and to be able to interpret (or almost) the state of a drupal project. Some things that will be useful to know what is happening in a Drupal, to extract certain markers. 
 
 ```bash
 // Getting quickly info by asking the configuration files in config/sync. 
