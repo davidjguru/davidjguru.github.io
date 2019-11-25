@@ -105,6 +105,10 @@ git diff --name-status anotherbranch
 
 // Show me a summary of changes in project. 
 git diff --summary
+
+// Show me just a brief with all the commits in the current branch.
+git log --pretty=oneline --abbrev-commit
+
 ```
 
 ## Block Three: Diagnostic of a Drupal
@@ -221,6 +225,11 @@ git diff --name-status anotherbranch
 
 // Show me a summary of changes in project. 
 git diff --summary
+
+// Show me just a brief with all the commits in the current branch.
+git log --pretty=oneline --abbrev-commit
+
+
 
 
 // Getting quickly info by asking the configuration files in config/sync. 
