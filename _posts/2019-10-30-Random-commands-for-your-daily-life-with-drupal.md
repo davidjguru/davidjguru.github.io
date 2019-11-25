@@ -54,9 +54,12 @@ sudo service apache2 stop
 sudo apache2ctl -t
 ```
 Now talking 'bout Apache, I would to share just a simple example to get files not for your local path, but from a live web site. It's a simple way to mapping paths for images (for example) from a local deploy using the images in the live site. 
+
+The next snippet will work as the [Stage File Proxy contrib module](https://www.drupal.org/project/stage_file_proxy)
 ```bash
-# Rewrite install.php during install to see if mod_rewrite is working
-  RewriteRule ^core/install.php core/install.php?rewrite=ok [QSA,L]
+# Rewrite install.php during install to see 
+# if mod_rewrite is working
+RewriteRule ^core/install.php core/install.php?rewrite=ok [QSA,L]
 
 ##FROM HERE.
 # sites/default/files/ from your site in “pre” or live
@@ -68,7 +71,8 @@ RewriteCond %{REQUEST_URI} !=(.*)sites/default/files/(.*).js
 RewriteRule   "^(.+)"  "https://livesite.com/$1"  [L,R=302]
 ##TO HERE.
 
-  # Pass requests not referring directly to files to index.php
+  # Pass requests not referring directly 
+  # to files to index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 ```
 This will integrate the images into your local deployment without the need to move file weight folders in /sites/default/files/ or make slow copies of many files. Use the already live images for your local environment. 
@@ -96,7 +100,8 @@ composer require drupal/field_group --profile
 ## Block Two: Version control
 
 ```bash
-// Pulling and merging only a single file from Git remote repo. 
+// Pulling and merging only a single file 
+// from Git remote repo. 
 git fetch 
 git checkout origin/branch --path/to/file
 
@@ -106,7 +111,8 @@ git diff --name-status anotherbranch
 // Show me a summary of changes in project. 
 git diff --summary
 
-// Show me just a brief with all the commits in the current branch.
+// Show me just a brief with all the commits
+// in the current branch.
 git log --pretty=oneline --abbrev-commit
 
 ```
@@ -115,12 +121,14 @@ git log --pretty=oneline --abbrev-commit
 Now, I've included some useful commands to extract information quickly and to be able to interpret (or almost) the state of a drupal project. Some things that will be useful to know what is happening in a Drupal, to extract certain markers. 
 
 ```bash
-// Getting quickly info by asking the configuration files in config/sync. 
+// Getting quickly info by asking the configuration files 
+// in config/sync. 
 ls -lah config/sync/ | wc -l
 ls -lah config/sync/paragraphs.paragraphs_type.* | wc -l
 ls -lah config/sync/node.type.* | wc -l
 
-// Just like drush en // drush pmu -BUT- executing itself drush cr
+// Just like drush en // drush pmu -BUT- executing
+// itself drush cr
 drupal module:install my_random_module
 drupal moi my_random_module
 drupal module:uninstall my_random_module
