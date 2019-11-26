@@ -50,4 +50,84 @@ So as almost no existing solution convinced me for these purposes, I built my ow
 
 ## Characteristics, values and parameters (Config)
 
+### System
+```bash
+SO: Ubuntu 18.04.2 — amd64
+Kernel version: 5.0.0–32-generic
+Hard Disk: 13GB (dinámico)
+RAM: 5'5 GB
+Video Memory: 64MB
+Language: Spanish, es_ES
+Keyboard config: es_ES
+Ubuntu login: user: drupal, password: drupal1$
+Ubuntu machine name: drupal-workshop
+VirtualBox 6.0.6 Guest Additions for Linux
+```
+
+### Environment
+```bash
+Apache web server: Apache/2.4.29 (Ubuntu)
+MySQL server: 5.7
+Access root: sudo mysql (direct access)
+Access user: drupal_workshop, password: drupal1$
+Login by prompt: mysql -udrupal_workshop -pdrupal1$
+Database name: testdatabase
+PHP 7.2.24
+Drupal Core: 8.7.10
+Composer (Global): 1.9.1
+Drush: Drush Commandline Tool 9.7.1
+Drupal Console version 1.9.4
+```
+
+
 ## Tools and resources
+
+### Tools
+```bash
+VSCodium: version 1.39.2
+Firefox — 65.0
+Chrome — 78.0.3904.87
+Docker — version 19.03.5
+Docker-Compose — docker-compose version 1.24.1
+DDEV — ddev version v1.11.2
+Text Editors: Gedit, VIM
+Database client (graphic)  - MySQLWorkbench 6.3.8 (pre-configurated connection)
+Screen Caption / Image edition: Shutter
+```
+### XDebug
+```bash
+zend_extension=xdebug.so
+xdebug.remote_autostart = 1
+xdebug.remote_enable = 1
+xdebug.remote_handler = dbgp
+xdebug.remote_host = 127.0.0.1
+xdebug.remote_log = /tmp/xdebug_remote.log
+xdebug.remote_mode = req
+xdebug.remote_port = 9000
+xdebug.max_nesting_level = 300
+xdebug.idekey = VSCODE
+```
+
+### VSCodium
+```bash
+phpcs - 1.0.7
+Debugger for Chrome - 4.12.1
+PHP DocBlocker - 2.0.1
+empty-indent 0.2.0
+PHP Debug - 1.13.0
+PHP Intelephense - 1.2.3
+Composer 0.7.1
+Twig Language 2 - 0.9.0
+Drupal 8 Snippets - 0.0.2
+Drupal 8 Javascript Snippets - 0.0.2
+Drupal 8 Twig Snippets - 1.0.2
+```
+
+### Drupal Modules
+```bash
+admin_toolbar
+devel
+devel_generate
+kint
+webprofiler
+```
