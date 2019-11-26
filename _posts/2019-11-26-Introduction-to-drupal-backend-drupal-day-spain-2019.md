@@ -45,17 +45,33 @@ So as almost no existing solution convinced me for these purposes, I built my ow
 ## The Drupal.ova 
 
 ## Installing VirtualBox
+You will only need to initially download a suitable version of VirtualBox, the one that matches your operating system. You can go here and see the available list, selecting the one that matches your OS: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads).
+If you already know how it's going, I'll give you links to specific download sections:
+
+* Latest versions of Ubuntu (18.04, 18.10, 19.04): [https://download.virtualbox.org/virtualbox/6.0.14/virtualbox-6.0_6.0.14-133895~Ubuntu~bionic_amd64.deb](https://download.virtualbox.org/virtualbox/6.0.14/virtualbox-6.0_6.0.14-133895~Ubuntu~bionic_amd64.deb)
+* Debian 10: [https://download.virtualbox.org/virtualbox/6.0.14/virtualbox-6.0_6.0.14-133895~Debian~buster_amd64.deb](https://download.virtualbox.org/virtualbox/6.0.14/virtualbox-6.0_6.0.14-133895~Debian~buster_amd64.deb)
+* Debian 9: [https://download.virtualbox.org/virtualbox/6.0.14/virtualbox-6.0_6.0.14-133895~Debian~stretch_amd64.deb](https://download.virtualbox.org/virtualbox/6.0.14/virtualbox-6.0_6.0.14-133895~Debian~stretch_amd64.deb)
+* Windows, in general, in bulk: [https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe](https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe)
+* And if you have a specific problem or need, here you have installation instructions [https://www.virtualbox.org/manual/ch02.html](https://www.virtualbox.org/manual/ch02.html) and here you have a user manual (RTFM!) available: [https://download.virtualbox.org/virtualbox/6.0.14/UserManual.pdf](https://download.virtualbox.org/virtualbox/6.0.14/UserManual.pdf).
 
 ## Importing Drupal.ova
+Next, It's time to install the new virtual machine, a heavy file (about 5GB at the time of writing these lines) with .ova extension that once imported from your VirtualBox installation, will create a complete practice environment.
+You can download it here: [https://drive.google.com/drive/folders/1DWTsw0Amzw2f-muGgK5OKo5HIhZZ0RQK?usp=sharing](https://drive.google.com/drive/folders/1DWTsw0Amzw2f-muGgK5OKo5HIhZZ0RQK?usp=sharing)
+(if at the time of access you see the empty folder, is that must be importing a new version of the virtual machine, wait a little, just a pair of minutes).
+And once downloaded, import it from the VirtualBox interface.
+
+| ![Drupal.OVA wallpaper]({{ site.baseurl }}/images/davidjguru_drupal_8_virtualbox_wallpaper.png) |
+|:--:|
+| *Drupal.ova wallpaper within the Virtual Machine imported from VirtualBox.* |
 
 ## Characteristics, values and parameters (Config)
 
 ### System
-```bash
+```
 SO: Ubuntu 18.04.2 — amd64
 Kernel version: 5.0.0–32-generic
 Hard Disk: 13GB (dinámico)
-RAM: 5'5 GB
+RAM: 5.5 GB
 Video Memory: 64MB
 Language: Spanish, es_ES
 Keyboard config: es_ES
@@ -65,7 +81,7 @@ VirtualBox 6.0.6 Guest Additions for Linux
 ```
 
 ### Environment
-```bash
+```
 Apache web server: Apache/2.4.29 (Ubuntu)
 MySQL server: 5.7
 Access root: sudo mysql (direct access)
@@ -83,7 +99,7 @@ Drupal Console version 1.9.4
 ## Tools and resources
 
 ### Tools
-```bash
+```
 VSCodium: version 1.39.2
 Firefox — 65.0
 Chrome — 78.0.3904.87
@@ -91,11 +107,12 @@ Docker — version 19.03.5
 Docker-Compose — docker-compose version 1.24.1
 DDEV — ddev version v1.11.2
 Text Editors: Gedit, VIM
-Database client (graphic)  - MySQLWorkbench 6.3.8 (pre-configurated connection)
+Database client (graphic)  - MySQLWorkbench 6.3.8
+- with a pre-configurated connection to the database - 
 Screen Caption / Image edition: Shutter
 ```
 ### XDebug
-```bash
+```
 zend_extension=xdebug.so
 xdebug.remote_autostart = 1
 xdebug.remote_enable = 1
@@ -109,7 +126,7 @@ xdebug.idekey = VSCODE
 ```
 
 ### VSCodium
-```bash
+```
 phpcs - 1.0.7
 Debugger for Chrome - 4.12.1
 PHP DocBlocker - 2.0.1
@@ -124,7 +141,7 @@ Drupal 8 Twig Snippets - 1.0.2
 ```
 
 ### Drupal Modules
-```bash
+```
 admin_toolbar
 devel
 devel_generate
