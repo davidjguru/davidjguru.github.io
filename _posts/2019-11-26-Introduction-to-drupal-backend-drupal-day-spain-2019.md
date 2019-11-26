@@ -34,6 +34,13 @@ A very beautiful city that in winter accentuates even more its attractiveness: [
 3- Read the slides from the former folder and follow the steps. 
 
 ## Introduction
+It seems that for a semester and with some continuity, I will be trying to explain how Drupal works in different places and environments. Due to an accumulation of circumstances, opportunities and total absence of sense of danger, between the last quarter of 2019 and the first quarter of 2020 I will be trying to transmit in the best possible way (those laughs) how Drupal works and how we can approach projects based on Drupal 8.
+
+Well, **in my experience one of the main limitations in a workshop is the time devoted to configurations in general and in particular to some basic alignment of environments**, enough so that the fact of giving support in situ eat the time of practice and exercise. So thinking about it I was trying multiplatform solutions, in a pre-configured way and that allowed to assimilate quickly people with little experience in virtualization / containerization, as well as avoid all the tedious parts of common installations - configuration. You've got two hours for a workshop and you don't want to spend them explaining what Docker is and how to use it.
+
+**But without much luck:** what was agile in deploying on the one hand, greatly limited the customization on the other. What ended up with a Drupal deployed in the web browser, then turned out to be a hell of a question of installations and command-line access. I needed something transversal, preconfigured, agile and with all the initial work already done. 
+So as almost no existing solution convinced me for these purposes, I built my own: I decided to set up my own virtual machine for these activities, a drupal.ova ready to import into VirtualBox and start practicing, with everything you need as standard.
+
 
 ## The Drupal.ova 
 
