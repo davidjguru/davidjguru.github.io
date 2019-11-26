@@ -20,7 +20,10 @@ It has been a very enriching meeting and I liked it very much from a technical p
 This year, the event has been organized in the city of Zaragoza, capital of the "autonomous community" (region with self-government in the Spanish state) of Aragon, in the north of the country. 
 A very beautiful city that in winter accentuates even more its attractiveness: [Take a look of Zaragoza in the Flickr albums of the City Council](https://www.flickr.com/photos/zaragozaturismo/albums/72157662195031429).
 
-![Group photo of the meeting Drupal Day Spain 2019]({{ site.baseurl }}/images/davidjguru_drupal_8_group_photo_drupal_day_spain_2019.jpeg)
+
+| ![Group photo of the meeting Drupal Day Spain 2019]({{ site.baseurl }}/images/davidjguru_drupal_8_group_photo_drupal_day_spain_2019.jpeg) |
+|:--:|
+| *Group photo of the meeting Drupal Day Spain 2019 - Zaragoza, 23 November,2019.* |
 
 ## TL;DR 
 
