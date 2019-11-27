@@ -43,7 +43,20 @@ So as almost no existing solution convinced me for these purposes, I built my ow
 
 
 ## The Drupal.ova 
+In advance: 
+- Yes, I know Docker and Docker-Compose.
+- Yes, I know how to use Docker and Docker-Compose. 
+- Yes, I know pre-cooked Docker-based solutions like Lando or DDEV.
+- This workshop is not for you or me.
+- This workshop is free (freedom). 
+- This workshop is for people with different environments (Windows, Linux, Mac), knowledge and experience (including case = zero).
+- This workshop requires no time wasted on system and environment configurations and adjustments. 
+- This workshop is for people not involved with Drupal to practice quickly and be motivated to use Drupal in their daily life.
 
+Therefore, I concluded that it was more optimal to use VirtualBox directly. Even if it seems old or vintage or an ugly solution ¯\_( ツ )_/¯ . But as long as we are not contradicted by the results of the experience, it is the most agile option.
+
+Well, the system chosen to be able to carry out a simple and agile alignment of environments is that of Hardware Virtualization, and specifically VirtualBox (https://www.virtualbox.org+), a virtualization software prepared to run the virtual machine that I have prepared to practice. The deal is as follows: you agree to install this software on his computer and I make sure that from there you will have a Drupal clean and ready to practice with it.
+    
 ## Installing VirtualBox
 You will only need to initially download a suitable version of VirtualBox, the one that matches your operating system. You can go here and see the available list, selecting the one that matches your OS: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads).
 If you already know how it's going, I'll give you links to specific download sections:
@@ -65,6 +78,36 @@ And once downloaded, import it from the VirtualBox interface.
 | *Drupal.ova wallpaper within the Virtual Machine imported from VirtualBox.* |
 
 ## Characteristics, values and parameters (Config)
+It has been built with a minimum structure but enough to practice with Drupal, starting with an Ubuntu operating system on which has been mounted a LAMP environment (Linux, Apache, MySQL and PHP) also configured at the level of Apache modules, VirtualHost, database and the installation of Drupal itself.
+
+Similarly, if you want to include it in the training purposes, has been installed virtualization software based on Docker: Docker, Docker-Composer and DDEV for the generation of pre-cooked environments Drupal - Docker. You will be able to practice with Docker containers in this Virtual Machine.
+
+The operating system consists of an Ubuntu distribution with a limited hardware but able to run it with relative ease. With an allocation of RAM that does not cause too many problems to the host system and that can be assigned in laptops with something of antiquity, as well as the video memory or the hard disk with dynamic reserve. Keyboard and language configured for a target accustomed to Spanish (sorry, the target is people from the spanish state, but you can change this config values) and you'll have the disk of extra features of VirtualBox already installed (you can open a second screen if you have an extra monitor connected, for example).
+
+In the next level we have a classic LAMP environment (selected Apache before Nginx for training purposes), with MySQL as database engine, PHP at 7.2 and the three most frequent tools to work with Drupal on a daily basis: Composer, Drush and Drupal Console).
+You will have access to the project folder called 'drupal.localhost' in the path:
+```/var/www/html/drupal.localhost```
+And from there you can already use the Drush and Drupal Console commands (they are already registered as aliases from the .bashrc of /home).
+Likewise, from the web browser you will be able to access Drupal (Apache rises only as a service when the system boots) directly in the address:
+```drupal.localhost```
+![Drupal 8 Workshop first screen]({{ site.baseurl }}/images/davidjguru_drupal_8_workshop_vm_1.png)
+
+The Drupal 8 website was created through Composer and Drush with the following instructions, **so the access data to Drupal will be: admin / admin**.
+```bash 
+composer create-project drupal-composer/drupal-project:8.x-dev drupal.locahost \
+ - stability dev \
+ - no-interaction \
+&& cd drupal.localhost \
+&& drush site-install standard \
+--db-url='mysql://drupal_workshop:drupal1$@localhost/testdatabase'\
+--site-name='Drupal Workshop' \
+--account-name=admin \
+--account-pass=admin \
+--account-mail=yourmail@mail.com \
+--locale=en \
+--yes
+```
+As tools, I have installed the version of VSCode that is compiled without telemetry (VSCodium does not send your usage data to Microsoft) but at the interface and extension level there are no significant differences with VSCode. Also two web browsers, the whole structure to run Docker and Docker Composer and in a complementary way DDEV to work with pre-cooked containers of fast deployment in local environments. Finally, two text editors (Gedit - visual- and Vim -consola-) and a MySQLWorkbench graphical database client, for the reason of not scaring people who enter Drupal too much- with prompt and commands.
 
 ### System
 ```
@@ -148,3 +191,12 @@ devel_generate
 kint
 webprofiler
 ```
+
+### Extra
+I have given Drupal a "HelloWorld"-style custom module created in ```/web/modules/custom```, with the name *"hello_world"*, already installed, with a routing defined to /hello-world, that is: ```drupal.localhost/hello-world```, where it shows a message **"Hello World First Route"**.
+
+![Drupal 8 Workshop second screen]({{ site.baseurl }}/images/davidjguru_drupal_8_workshop_vm_2.png)
+
+In a complementary way it has a pair of breakpoints already placed in the answer of that controller, to observe directly the mechanics of debugging in Drupal from VSCodium:
+
+![Drupal 8 Workshop third screen]({{ site.baseurl }}/images/davidjguru_drupal_8_workshop_vm_3.png)
