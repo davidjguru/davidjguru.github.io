@@ -84,15 +84,14 @@ Similarly, if you want to include it in the training purposes, has been installe
 
 The operating system consists of an Ubuntu distribution with a limited hardware but able to run it with relative ease. With an allocation of RAM that does not cause too many problems to the host system and that can be assigned in laptops with something of antiquity, as well as the video memory or the hard disk with dynamic reserve. Keyboard and language configured for a target accustomed to Spanish (sorry, the target is people from the spanish state, but you can change this config values) and you'll have the disk of extra features of VirtualBox already installed (you can open a second screen if you have an extra monitor connected, for example).
 
-In the next level we have a classic LAMP environment (selected Apache before Nginx for training purposes), with MySQL as database engine, PHP at 7.2 and the three most frequent tools to work with Drupal on a daily basis: Composer, Drush and Drupal Console).
-You will have access to the project folder called 'drupal.localhost' in the path:
-```/var/www/html/drupal.localhost```
+**In the next level we have a classic LAMP environment** (selected Apache before Nginx for training purposes), with MySQL as database engine, PHP at 7.2 and the three most frequent tools to work with Drupal on a daily basis: Composer, Drush and Drupal Console).
+You will have access to the project folder called 'drupal.localhost' in the path: /var/www/html/drupal.localhost. 
 And from there you can already use the Drush and Drupal Console commands (they are already registered as aliases from the .bashrc of /home).
-Likewise, from the web browser you will be able to access Drupal (Apache rises only as a service when the system boots) directly in the address:
-```drupal.localhost```
+Likewise, from the web browser you will be able to access Drupal (Apache rises only as a service when the system boots) directly in the address: drupal.localhost. 
 ![Drupal 8 Workshop first screen]({{ site.baseurl }}/images/davidjguru_drupal_8_workshop_vm_1.png)
 
 The Drupal 8 website was created through Composer and Drush with the following instructions, **so the access data to Drupal will be: admin / admin**.
+
 ```bash 
 composer create-project drupal-composer/drupal-project:8.x-dev drupal.locahost \
  - stability dev \
@@ -107,7 +106,7 @@ composer create-project drupal-composer/drupal-project:8.x-dev drupal.locahost \
 --locale=en \
 --yes
 ```
-As tools, I have installed the version of VSCode that is compiled without telemetry (VSCodium does not send your usage data to Microsoft) but at the interface and extension level there are no significant differences with VSCode. Also two web browsers, the whole structure to run Docker and Docker Composer and in a complementary way DDEV to work with pre-cooked containers of fast deployment in local environments. Finally, two text editors (Gedit - visual- and Vim -consola-) and a MySQLWorkbench graphical database client, for the reason of not scaring people who enter Drupal too much- with prompt and commands.
+As tools, I have installed the version of VSCode that is compiled without telemetry (VSCodium does not send your usage data to Microsoft) but at the interface and extension level there are no significant differences with VSCode. Also two web browsers, the whole structure to run Docker and Docker Composer and in a complementary way DDEV to work with pre-cooked containers of fast deployment in local environments. Finally, two text editors (Gedit - visual- and Vim -prompt-) and a MySQLWorkbench graphical database client, for the reason of not scaring people who enter Drupal too much- with prompt and commands.
 
 ### System
 ```
@@ -197,6 +196,8 @@ I have given Drupal a "HelloWorld"-style custom module created in ```/web/module
 
 ![Drupal 8 Workshop second screen]({{ site.baseurl }}/images/davidjguru_drupal_8_workshop_vm_2.png)
 
+
 In a complementary way it has a pair of breakpoints already placed in the answer of that controller, to observe directly the mechanics of debugging in Drupal from VSCodium:
+
 
 ![Drupal 8 Workshop third screen]({{ site.baseurl }}/images/davidjguru_drupal_8_workshop_vm_3.png)
