@@ -50,3 +50,13 @@ The Regional Government of the “Autonomous Community” (Well,It’s the origi
 The Regional Government of Andalusia chose Rojomorgan as the favorite agency to design and build the project: to create an online platform for the search of everything related to Flamenco.
 
 **URL:** [https://www.juntadeandalucia.es/cultura/catalogoflamenco/](https://www.juntadeandalucia.es/cultura/catalogoflamenco/){:target="_blank"}
+
+## Year 2011 (my Drupal Year Zero)
+## Site of the President of the Regional Government of Andalusia
+This was the first Drupal project I worked on (I had previously been a Java programmer in GIS -Geographic Information Systems).
+
+ ![Junta de Andalucía Portal del Presidente]({{ site.baseurl }}/images/davidjguru_drupal_project_junta_andalucia_presidente.png)
+
+It was the website of the regional president of Andalusia...someone who after a few years didn't end very well...but at that time I worked through my company on their online platform. It was 2011 and we made a website based on Drupal 7.
+
+**URL (Offline, available through the Wayback Machine):** [https://web.archive.org/web/20111004122540/http://www.juntadeandalucia.es:80/presidente](https://web.archive.org/web/20111004122540/http://www.juntadeandalucia.es:80/presidente){:target="_blank"}
