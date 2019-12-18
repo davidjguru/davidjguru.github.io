@@ -225,6 +225,13 @@ docker network rm name_network
 
 # Remove unusued data and clean the Docker System
 docker system prune -f
+
+# Show stats about the running containers.
+docker stats
+
+# Same but with a formatted output. 
+docker stats --all --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
+
 ```
 
 
