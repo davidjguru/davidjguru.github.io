@@ -232,6 +232,9 @@ docker stats
 # Same but with a formatted output. 
 docker stats --all --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 
+# Fixing results in prompt.
+docker ps -q | xargs  docker stats --no-stream
+
 ```
 
 
