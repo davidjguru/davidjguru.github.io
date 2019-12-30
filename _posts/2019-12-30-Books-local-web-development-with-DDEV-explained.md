@@ -1,6 +1,6 @@
 ---
 layout: post  
-title: Books: Local Web development with DDEV explained
+title: Books - Local Web development with DDEV explained
 permalink: /blog/books-local-web-development-with-ddev-explained
 published: true  
 date: 2019-12-30 
