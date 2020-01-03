@@ -18,54 +18,54 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
 
 ## 1- Book Information
 
-<table>
+<table class="table_books">
   <colgroup>
-    <col width="30%" />
-    <col width="70%" />
+    <col width="20%" />
+    <col width="80%" />
   </colgroup>
   <thead>
     <tr class="header_books_table">
-      <th><strong>Field</strong></th>
-      <th><strong>Description</strong></th>
+      <th class="th_table_books"><strong>Field</strong></th>
+      <th class="th_table_books"><strong>Description</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td markdown="span">Title</td>
-      <td markdown="span">Local web Development with DDEV Explained.</td>
+      <td markdown="span" class="td_table_books">Title</td>
+      <td markdown="span" class="td_table_books">Local web Development with DDEV Explained.</td>
     </tr>
     <tr>
-      <td markdown="span">Author</td>
-      <td markdown="span">Michael Anello.</td>
+      <td markdown="span" class="td_table_books">Author</td>
+      <td markdown="span" class="td_table_books">Michael Anello.</td>
     </tr>
     <tr>
-      <td markdown="span">Publisher</td>
-      <td markdown="span">OSTraining</td>
+      <td markdown="span" class="td_table_books">Publisher</td>
+      <td markdown="span" class="td_table_books">OSTraining</td>
     </tr>
     <tr>
-      <td markdown="span">Date</td>
-      <td markdown="span">July 15, 2019</td>
+      <td markdown="span" class="td_table_books">Date</td>
+      <td markdown="span" class="td_table_books">July 15, 2019</td>
     </tr>
     <tr>
-      <td markdown="span">Pages</td>
-      <td markdown="span">157</td>
+      <td markdown="span" class="td_table_books">Pages</td>
+      <td markdown="span" class="td_table_books">157</td>
     </tr>
     <tr>
-      <td markdown="span">Overview</td>
-      <td markdown="span">DDEV tool installation and use manual.</td>
+      <td markdown="span" class="td_table_books">Overview</td>
+      <td markdown="span" class="td_table_books">DDEV tool installation and use manual.</td>
     </tr>
     <tr>
-      <td markdown="span">Keywords</td>
-      <td markdown="span">DDEV, WordPress, Typo3, Drupal, Docker, Development, Environment.</td>
+      <td markdown="span" class="td_table_books">Keywords</td>
+      <td markdown="span" class="td_table_books">DDEV, WordPress, Typo3, Drupal, Docker, Development, Environment.</td>
     </tr>
     <tr>
-      <td markdown="span">Price</td>
-      <td markdown="span">9.99$ // 8.95€ (aprox)</td>
+      <td markdown="span" class="td_table_books">Price</td>
+      <td markdown="span" class="td_table_books">9.99$ // 8.95€ (aprox)</td>
     </tr>
      <tr>
-      <td markdown="span">Links</td>
-      <td markdown="span">https://www.ostraining.com/books/local/<br>
-      https://www.amazon.es/Local-Development-Explained-Step-Step/dp/1731048858</td>
+      <td markdown="span" class="td_table_books">Links</td>
+      <td markdown="span" class="td_table_books"><a href="https://www.ostraining.com/books/local/"/><br>
+      <a href="https://www.amazon.es/Local-Development-Explained-Step-Step/dp/1731048858"/></td>
     </tr>
     </tbody>
 </table>

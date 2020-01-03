@@ -568,7 +568,7 @@ footer {
 
 // CSS Styling for tables used in Books reviews.
 
-table, th, td{
+.table_books, .th_table_books, .td_table_books{
   border: 1px solid black;
   border-collapse: collapse;
 }
