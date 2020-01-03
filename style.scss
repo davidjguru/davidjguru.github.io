@@ -51,7 +51,7 @@ h1 {
     font-size: 24px;
     font-family: 'Permanent Marker';
     text-shadow: 1px 2px 1px rgb(11, 10, 10);
-    
+
      @include mobile2 {
       color: inherit;
       font-size: 24px;
@@ -169,7 +169,7 @@ img {
 }
 
 .masthead {
-  position: relative;	
+  position: relative;
   border-bottom: 1px solid $lightGray;
   padding: 8px;
   height: 300px;
@@ -190,7 +190,7 @@ img {
    z-index: -1;
    background: linear-gradient(rgba(203, 32, 4, 0.5), rgba(22, 48, 248, 0.29)), url('https://gitlab.com/davidjguru/master-javascript/raw/master/HTML_Folder/WEB/images/davidjguru_github_io_header_image_van.png');
   opacity: 0.7;
-  border-radius: 0 0 85% 85% / 30%; 
+  border-radius: 0 0 85% 85% / 30%;
   box-shadow: 6px 6px 4px rgba(11, 10, 10, 0.7);
 }
 
@@ -566,6 +566,17 @@ footer {
   text-align: center;
 }
 
+// CSS Styling for tables used in Books reviews.
+
+table, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.header_books_table {
+  background-color: #22750a;
+  text-align: left;
+  color:white;
+}
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start

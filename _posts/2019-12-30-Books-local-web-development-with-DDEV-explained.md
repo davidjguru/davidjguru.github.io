@@ -35,7 +35,7 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
     <col width="70%" />
   </colgroup>
   <thead>
-    <tr class="header">
+    <tr class="header_books_table">
       <th>Field</th>
       <th>Description</th>
     </tr>
@@ -48,6 +48,30 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
     <tr>
       <td markdown="span">Author</td>
       <td markdown="span">Michael Anello.</td>
+    </tr>
+    <tr>
+      <td markdown="span">Publisher</td>
+      <td markdown="span">OSTraining</td>
+    </tr>
+    <tr>
+      <td markdown="span">Date</td>
+      <td markdown="span">July 15, 2019</td>
+    </tr>
+    <tr>
+      <td markdown="span">Pages</td>
+      <td markdown="span">157</td>
+    </tr>
+    <tr>
+      <td markdown="span">Overview</td>
+      <td markdown="span">DDEV tool installation and use manual.</td>
+    </tr>
+    <tr>
+      <td markdown="span">Keywords</td>
+      <td markdown="span">DDEV, WordPress, Typo3, Drupal, Docker, Development, Environment.</td>
+    </tr>
+    <tr>
+      <td markdown="span">Price</td>
+      <td markdown="span">9.99$ // 8.95€ (aprox)</td>
     </tr>
     </tbody>
 </table>
