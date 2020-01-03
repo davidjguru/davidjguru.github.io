@@ -18,17 +18,6 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
 
 ## 1- Book Information
 
-| Field     | Data value                                                        |
-| ----------| ----------------------------------------------------------------- |
-| Title     | Local web Development with DDEV Explained.                        |
-| Author    | Michael Anello                                                    |
-| Publisher | OSTraining                                                        |
-| Date      | July 15, 2019                                                     |
-| Pages     | 157                                                               |
-| Overview  | DDEV tool installation and use manual.                            |
-| Keywords  | DDEV, WordPress, Typo3, Drupal, Docker, Development, Environment. |
-
-
 <table>
   <colgroup>
     <col width="30%" />
@@ -36,8 +25,8 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
   </colgroup>
   <thead>
     <tr class="header_books_table">
-      <th>Field</th>
-      <th>Description</th>
+      <th><strong>Field</strong></th>
+      <th><strong>Description</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -72,6 +61,11 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
     <tr>
       <td markdown="span">Price</td>
       <td markdown="span">9.99$ // 8.95€ (aprox)</td>
+    </tr>
+     <tr>
+      <td markdown="span">Links</td>
+      <td markdown="span">https://www.ostraining.com/books/local/<br>
+      https://www.amazon.es/Local-Development-Explained-Step-Step/dp/1731048858</td>
     </tr>
     </tbody>
 </table>
