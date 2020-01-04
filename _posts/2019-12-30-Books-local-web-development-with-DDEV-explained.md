@@ -71,6 +71,60 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
 </table>
 
 ## 2- Fast Review
+<table class="table_books">
+  <colgroup>
+    <col width="100%" />
+  </colgroup>
+  <thead>
+    <tr class="header_books_table">
+      <th class="th_table_books"><strong>Question // Answer</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span" class="td_table_books">1- Is it progressive, Iterative and Incremental?</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">Yes, the book has a simple - complex sequencing.</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">2- Does it offer specific solutions to particular problems or concrete issues?</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">Yes, the book is built in a clear problem-solution scheme.</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">3- Does it explain well the original problems or needs it aims to solve?</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">Yes, exactly the book begins by setting out the premises of a good environment and the related problems.</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">4- Is it rich in examples?</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">Yes, it contains many examples and practical demonstrations. </td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">5- Is it written in plain English, suitable for non-English speakers? </td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">Yes, it's a very comfortable reading, very simple, very pleasant. </td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">6- Is it up to date?</td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">Yes, it is updated frequently. This edition I have is from July 2019 and I know there is a later edition from August 2019. </td>
+    </tr>
+    </tbody>
+</table>
+
 
 ## 3- Ratings
+
+![Table of Book Ratings for DDEV]({{ site.baseurl }}/images/davidjguru_drupal_8_table_book_rating_ddev.png)
+
+
+## wq!
 
