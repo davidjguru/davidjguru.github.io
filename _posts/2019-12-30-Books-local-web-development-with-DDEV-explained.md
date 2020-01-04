@@ -16,8 +16,8 @@ I recently acquired the book "Local web development with DDEV explained" written
 So, Do you develop projects based on Drupal? do you know the DDEV tool for building environments? these may be important motivations, but there are more reasons why Mike Anello's book could be interesting for you...
 <!--more-->
 
-**Table of Contents**
-<!-- TOC -->
+**Table of Contents**  
+<!-- TOC -->  
 [1- Introduction](#1--introduction)  
 [2- The Book](#2--the-book)  
 [3- Recommendations](#3--recommendations)  
@@ -29,11 +29,18 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
 
 ## 1- Introduction
 
-As I have already mentioned on other occasions, I was lucky enough to learn about this tool from a friend. He told me about DDEV and he also told me about Randy Fay, one of the staff behind the development team of the tool. With the first thing (using the tool) I trieda lot and with the second I worked by delegated criteria: if a friend spoke so well about Randy Fay, then I had to pay attention. That's how I started to test DDEV in my environments and projects and I followed Randy.
+As I have already mentioned on other occasions, I was lucky enough to know about DDEV [(https://www.ddev.com)](https://www.ddev.com/) from the advice of a friend. He told me about DDEV and he also told me about Randy Fay [(@randyfay)](https://twitter.com/randyfay), a developer of the staff behind the tool. With the first thing (using the tool) I tried a lot and with the second I worked by delegated criteria: if a friend spoke so well about Randy Fay, then I had to pay attention. That's how I started to test DDEV in my environments and projects and I followed Randy. 
 
-**This is important:** there is no good technology without good people operating behind it and DDEV is a very, very rich project in its community and development. That's why (I guess) the tool and the Human team (here) is very related. Follow them.
+**This is important:** Ain't no good technology without good people operating behind it and DDEV is a very, very rich project in its community and development. That's why (I guess) the tool and the Human team (here) is very related. Follow them.
 
-Since I started using DDEV I have had time to learn some things, writing some articles and even attend some sessions on DDEV (like this one at Drupal Camp Spain 2019). After all this time, I can tell you that using DDEV has made me happy and being able to convince teams to align environments using DDEV has made me even happier. Now I am writing a long article about the tool in Spanish (my primary language) and I have been lucky enough to be able to read the book that Michael Anello has written on the subject.
+Since I started using DDEV I have had time to learn some things, writing some articles:  
+ * [Creating Development Environments for Drupal with DDEV](https://davidjguru.github.io/blog/creating-development-environments-for-drupal-with-ddev)
+ * [Docker, Docker-Compose and DDEV - Cheatsheet](https://davidjguru.github.io/blog/containers-docker-docker-compose-ddev-cheatsheet)  
+ 
+ ...And even attend some sessions about DDEV, like this one at Drupal Camp Spain 2019 by Diego Marrufo [(@dimaro_)](https://twitter.com/dimaro_) -in Spanish-:
+ * [https://2019.drupalcamp.es/sessions/docker-para-todos-los-publicos-ddev.html](https://2019.drupalcamp.es/sessions/docker-para-todos-los-publicos-ddev.html)  
+ 
+ After all this time, I can tell you that using DDEV has made me happy and being able to convince teams to align environments using DDEV has made me even happier. Now I am writing a long article about the tool in Spanish (my primary language) and I have been lucky enough to be able to read the book that Michael Anello [(@ultimike)](https://twitter.com/ultimike) has written about the subject.
 
 As you can see, I have some relationship with the topic and now I'm writing these lines to present and evaluate the book.
 
@@ -48,8 +55,21 @@ I can say -_without fear of being wrong_-, that this is the most consistent hand
 2. **Analysis** of the situation.
 3. **Proposal** (technical solution).
 
-Well, this is the sequence that we normally do not find in the _anti-teaching_ of technology. And this is where the construction of this book shines.
+Well, this is the sequence that we normally do not find in the _anti-teaching_ of technology. And this is where the construction of this book shines. Here and in the background, and the training background is evident in the fact that this scheme is perfectly fulfilled in this book: we obtain, before anything else, a reference model on the configuration of environments with which we can compare the existence of a functional GAP in our day-to-day life: so we can assess in what moment we are and what sense would have the adoption of the proposed technical solution.   
 
+We're tired of running after new libraries, versions, etc. Increasing the tooling of our projects, simply chasing the hype, without having clear ideas about what problem we are trying to solve, and this is a very important thing (in fact, the only important thing).  
+
+It is very gratifying to see that the book devotes an entire chapter to the presentation of the initial problem as a premise (_Chapter 2: Introducing Our web development problem_), and then continues with the ideal process model (_Chapter 3: Professional Development Workflows Explained_). After these initial chapters, we will move on to more specific DDEV issues such as:  
+
+* Basics of DDEV  
+* Installing DDEV (Windows, Mac, Linux)  
+* Installing new sites with DDEV (Drupal, WordPress)  
+* Cloning existing sites with DDEV (Drupal, WordPress)  
+
+And these are only the "_essential_" chapters about the tool...in addition to these, we have other chapters dedicated to equally important issues, such as: DDEV commands, Tips & Tricks, an specific example of Apache Solr-Drupal integration using DDEV containers, sharing the DDEV project with ngrok, or how to configure Xdebug - PHP Storm in order to work with your DDEV projects.   
+
+At the end, bringing all pieces together, you will get a complete map of how to approach the project development process (workflow) using DDEV from start to finish, from local to live.  
+If you have doubts or you only know some sections but you don't know the rest, instead of reading N:M articles about the subject, you can have this whole blueprint reading this book. 
 
 ## 3- Recommendations
 
@@ -60,7 +80,7 @@ The book has a very specific target...
 Well, this book is for you.
 * **Do you think you can convince your team of the importance of aligning environments around an easy, simple, agile and intuitive solution?**  
 This book is also for you.
-* **Do you think you need to provide evidence to an _old-school_ manager to consider more productive the adoption of this kind of tools?**  
+* **Do you think you need to provide evidence to an _old-school_ manager in order to consider more productive the adoption of this kind of tools?**  
   Don't hesitate, this is your book.
 
 You can take it in hand and hold it up in front of your managers as if it were Mao's little red book. For us, it will be like that. I assure you.
@@ -111,7 +131,7 @@ And remember: **"Code flows up, Data flows down"**. Always.
     </tr>
     <tr>
       <td markdown="span" class="td_table_books">Keywords</td>
-      <td markdown="span" class="td_table_books">DDEV, WordPress, Typo3, Drupal, Docker, Development, Environment.</td>
+      <td markdown="span" class="td_table_books">DDEV, WordPress, Drupal, Docker, Development, Environment.</td>
     </tr>
     <tr>
       <td markdown="span" class="td_table_books">Price</td>
