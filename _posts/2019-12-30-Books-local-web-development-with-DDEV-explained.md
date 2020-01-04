@@ -64,8 +64,8 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
     </tr>
      <tr>
       <td markdown="span" class="td_table_books">Links</td>
-      <td markdown="span" class="td_table_books"><a href="https://www.ostraining.com/books/local/"/><br>
-      <a href="https://www.amazon.es/Local-Development-Explained-Step-Step/dp/1731048858"/></td>
+      <td markdown="span" class="td_table_books"><a href="https://www.ostraining.com/books/local/">https://www.ostraining.com/books/local/</a><br>
+      <a href="https://www.amazon.es/Local-Development-Explained-Step-Step/dp/1731048858">https://www.amazon.es/Local-Development-Explained-Step-Step/dp/1731048858</a></td>
     </tr>
     </tbody>
 </table>
