@@ -16,7 +16,16 @@ I recently acquired the book "Local web development with DDEV explained" written
 So, Do you develop projects based on Drupal? do you know the DDEV tool for building environments? these may be important motivations, but there are more reasons why Mike Anello's book could be interesting for you...
 <!--more-->
 
-<!-- TOC -->autoauto- [1- Introduction](#1--introduction)auto- [2- The Book](#2--the-book)auto- [3- Recommendations](#3--recommendations)auto- [4- Book Information](#4--book-information)auto- [5- Fast Review](#5--fast-review)auto- [6- Ratings](#6--ratings)auto- [:wq!](#wq)autoauto<!-- /TOC -->
+**Table of Contents**
+<!-- TOC -->
+[1- Introduction](#1--introduction)  
+[2- The Book](#2--the-book)  
+[3- Recommendations](#3--recommendations)  
+[4- Book Information](#4--book-information)  
+[5- Fast Review](#5--fast-review)  
+[6- Ratings](#6--ratings)  
+[7- :wq!](#wq)  
+<!-- /TOC -->
 
 ## 1- Introduction
 
@@ -47,11 +56,11 @@ Well, this is the sequence that we normally do not find in the _anti-teaching_ o
 ![Tips from DDEV explained]({{ site.baseurl }}/images/davidjguru_drupal_8_books_ddev_explained_two.png)
 
 The book has a very specific target...
-* **Do you feel the irremediable existential void when you are solving configuration problems in the project-environment relationship for several days?**
+* **Do you feel the irremediable existential void when you are solving configuration problems in the project-environment relationship for several days?**  
 Well, this book is for you.
-* **Do you think you can convince your team of the importance of aligning environments around an easy, simple, agile and intuitive solution?**
+* **Do you think you can convince your team of the importance of aligning environments around an easy, simple, agile and intuitive solution?**  
 This book is also for you.
-* **Do you think you need to provide evidence to an _old-school_ manager to consider more productive the adoption of this kind of tools?**
+* **Do you think you need to provide evidence to an _old-school_ manager to consider more productive the adoption of this kind of tools?**  
   Don't hesitate, this is your book.
 
 You can take it in hand and hold it up in front of your managers as if it were Mao's little red book. For us, it will be like that. I assure you.
