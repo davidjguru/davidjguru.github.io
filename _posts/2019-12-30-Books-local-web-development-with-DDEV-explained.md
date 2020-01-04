@@ -29,7 +29,7 @@ So, Do you develop projects based on Drupal? do you know the DDEV tool for build
 
 ## 1- Introduction
 
-As I have already mentioned on other occasions, I was lucky enough to know about DDEV [(https://www.ddev.com)](https://www.ddev.com/) from the advice of a friend. He told me about DDEV and he also told me about Randy Fay [(@randyfay)](https://twitter.com/randyfay), a developer of the staff behind the tool. With the first thing (using the tool) I tried a lot and with the second I worked by delegated criteria: if a friend spoke so well about Randy Fay, then I had to pay attention. That's how I started to test DDEV in my environments and projects and I followed Randy. 
+As I have already mentioned on other occasions, I was lucky enough to know about DDEV [(https://www.ddev.com)](https://www.ddev.com/) from the advice of a friend, Pedro Cambra [(@pcambra)](https://twitter.com/pcambra). He told me about DDEV and he also told me about Randy Fay [(@randyfay)](https://twitter.com/randyfay), a developer of the staff behind the tool. With the first thing (using the tool) I tried a lot and with the second I worked by delegated criteria: if a friend spoke so well about Randy Fay, then I had to pay attention. That's how I started to test DDEV in my environments and projects and I followed Randy. 
 
 **This is important:** Ain't no good technology without good people operating behind it and DDEV is a very, very rich project in its community and development. That's why (I guess) the tool and the Human team (here) is very related. Follow them.
 
