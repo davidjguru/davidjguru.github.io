@@ -16,15 +16,7 @@ I recently acquired the book "Local web development with DDEV explained" written
 So, Do you develop projects based on Drupal? do you know the DDEV tool for building environments? these may be important motivations, but there are more reasons why Mike Anello's book could be interesting for you...
 <!--more-->
 
-<!-- TOC -->
-[1- Introduction](#1--introduction)
-[2- The Book](#2--the-book)
-[3- Recommendations](#3--recommendations)
-[4- Book Information](#4--book-information)
-[5- Fast Review](#5--fast-review)
-[6- Ratings](#6--ratings)
-[7- :wq!](#wq)
-<!-- /TOC -->
+<!-- TOC -->autoauto- [1- Introduction](#1--introduction)auto- [2- The Book](#2--the-book)auto- [3- Recommendations](#3--recommendations)auto- [4- Book Information](#4--book-information)auto- [5- Fast Review](#5--fast-review)auto- [6- Ratings](#6--ratings)auto- [:wq!](#wq)autoauto<!-- /TOC -->
 
 ## 1- Introduction
 
