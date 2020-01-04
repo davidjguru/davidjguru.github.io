@@ -15,6 +15,17 @@ sitemap: true
 I recently acquired the book "Local web development with DDEV explained" written by Mike Anello  and I'd like to share my thoughts on that here.
 So, Do you develop projects based on Drupal? do you know the DDEV tool for building environments? these may be important motivations, but there are more reasons why Mike Anello's book could be interesting for you...
 <!--more-->
+
+<!-- TOC -->
+[1- Introduction](#1--introduction)
+[2- The Book](#2--the-book)
+[3- Recommendations](#3--recommendations)
+[4- Book Information](#4--book-information)
+[5- Fast Review](#5--fast-review)
+[6- Ratings](#6--ratings)
+[7- :wq!](#wq)
+<!-- /TOC -->
+
 ## 1- Introduction
 
 As I have already mentioned on other occasions, I was lucky enough to learn about this tool from a friend. He told me about DDEV and he also told me about Randy Fay, one of the staff behind the development team of the tool. With the first thing (using the tool) I trieda lot and with the second I worked by delegated criteria: if a friend spoke so well about Randy Fay, then I had to pay attention. That's how I started to test DDEV in my environments and projects and I followed Randy.
