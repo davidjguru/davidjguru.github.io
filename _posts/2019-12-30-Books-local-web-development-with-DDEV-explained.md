@@ -72,6 +72,9 @@ At the end, bringing all pieces together, you will get a complete map of how to 
 If you have doubts or you only know some sections but you don't know the rest, instead of reading N:M articles about the subject, you can have this whole blueprint reading this book. 
 
 ## 3- Recommendations
+Mainly, this book is indicated for anyone who wants to get introduced to the construction of working environments for WordPress or Drupal. 
+
+In principle, there are no key prerequisites to enjoy this book, but due to the special emphasis it places on the ideal characteristics of a development environment/team, its reading makes it especially interesting for those people who, due to work circumstances or management conditions, cannot work in the way they might prefer. If you choose to make your team a more productive environment, then it is your book. 
 
 ![Tips from DDEV explained]({{ site.baseurl }}/images/davidjguru_drupal_8_books_ddev_explained_two.png)
 
