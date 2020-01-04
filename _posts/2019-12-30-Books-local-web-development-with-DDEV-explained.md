@@ -28,10 +28,33 @@ As you can see, I have some relationship with the topic and now I'm writing thes
 ## 2- The Book
 ![Image of DDEV explained]({{ site.baseurl }}/images/davidjguru_drupal_8_books_ddev_explained_one.png)
 
+The fact that this book has a lot of experience behind it is something you can see, and a lot. Not in vain it is written by Mike Anello, one of the thinking heads behind Drupal Easy, a company with a lot of experience in training processes in general and Drupal in particular. But it is also edited by OSTraining, another organization strongly focused on training, and this is a quite important plus.
+
+I can say -_without fear of being wrong_-, that this is the most consistent handbook on technology I have read recently, and by this I mean that any technological proposal should consist of an intuitive sequence:
+
+1. **Problem** / Need that comes to solve.
+2. **Analysis** of the situation.
+3. **Proposal** (technical solution).
+
+Well, this is the sequence that we normally do not find in the _anti-teaching_ of technology. And this is where the construction of this book shines.
+
 
 ## 3- Recommendations
 
 ![Tips from DDEV explained]({{ site.baseurl }}/images/davidjguru_drupal_8_books_ddev_explained_two.png)
+
+The book has a very specific target...
+* **Do you feel the irremediable existential void when you are solving configuration problems in the project-environment relationship for several days?**
+Well, this book is for you.
+* **Do you think you can convince your team of the importance of aligning environments around an easy, simple, agile and intuitive solution?**
+This book is also for you.
+* **Do you think you need to provide evidence to an _old-school_ manager to consider more productive the adoption of this kind of tools?**
+  Don't hesitate, this is your book.
+
+You can take it in hand and hold it up in front of your managers as if it were Mao's little red book. For us, it will be like that. I assure you.
+
+And remember: **"Code flows up, Data flows down"**. Always.
+
 
 
 
