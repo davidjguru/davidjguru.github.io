@@ -12,20 +12,13 @@ sitemap: true
 |:--:|
 | *Picture from Unsplash, user Masaaki Komori @gaspanik* |
 
-I recently acquired the book "Local web development with DDEV explained" written by Mike Anello  and I'd like to share my thoughts on that here.
-So, Do you develop projects based on Drupal? do you know the DDEV tool for building environments? these may be important motivations, but there are more reasons why Mike Anello's book could be interesting for you...
+Since a few days ago, I'm preparing a tutorial about the integration of JavaScript in Drupal that will be released soon 
+(it will be written in Spanish in Medium). On the other hand, recently I was preparing some Drupal patches for the 
+portability to Drupal 8 of a small contrib module, the [humans.txt](https://www.drupal.org/project/humanstxt). 
+Okay, but what do the two activities have in common?...
 <!--more-->
 
-**Table of Contents**  
-<!-- TOC -->  
-[1- Introduction](#1--introduction)  
-[2- The Book](#2--the-book)  
-[3- Recommendations](#3--recommendations)  
-[4- Book Information](#4--book-information)  
-[5- Fast Review](#5--fast-review)  
-[6- Ratings](#6--ratings)  
-[7- :wq!](#wq)  
-<!-- /TOC -->
+
 
 ## 1- Introduction
 
