@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Drupal Fast Tips (III) - The Magic of #attached
+title: Drupal Fast Tips (III) - The Magic of '#attached'
 permalink: /blog/drupal-fast-tips-the-magic-of-attached
 published: true
 date: 2020-01-29
