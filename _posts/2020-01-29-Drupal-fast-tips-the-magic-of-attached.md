@@ -103,9 +103,9 @@ JavaScript code.
   **Format:** $render_array[‘#attached’][‘html_response_attachment_placeholders’]  
   
  Here you can see the defined allowed types, from a diff looking for unsupported types:  
- | ![Supported keys for the attached property in Drupal 8]({{ site.baseurl }}/images/davidjguru_drupal_8_keys_for_attached_property.png) |
- |:--:|
- | *Supported keys for the attached property, from the Drupal.org official documentation.* |
+  ![Supported keys for the attached property in Drupal 8]({{ site.baseurl }}/images/davidjguru_drupal_8_keys_for_attached_property.png)
+
+*Supported keys for the attached property, from the Drupal.org official documentation.* |
 
 
 
