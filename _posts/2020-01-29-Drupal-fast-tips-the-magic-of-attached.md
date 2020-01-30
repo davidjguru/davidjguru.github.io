@@ -70,7 +70,7 @@ concepts that centralize everything in a shared way:
 
 **First**, you have to know what's the format for libraries for your modules. [Here you can see a set of examples defining libraries for custom modules](https://gitlab.com/snippets/1929232)
 
-Second, you have to know the property. Using this property, you'll be able to add some stuff, describe in the 
+**Second**, you have to know the property. Using this property, you'll be able to add some stuff, describe in the 
 sub-properties of #attached. Using these sub-properties, you'll can inform to the Render System of Drupal about the
  resources that you wanna use. It could be stuff like libraries, transported values from Server (PHP) to Client 
  (JavaScript) using drupalSettings, and more things like diverse HTML tags. 
