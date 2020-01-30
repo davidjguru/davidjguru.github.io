@@ -72,16 +72,27 @@ concepts that centralize everything in a shared way:
 
 Second, you have to know the property. Using this property, you'll be able to add some stuff, describe in the 
 sub-properties of #attached. Using these sub-properties, you'll can inform to the Render System of Drupal about the
- resources that you wanna use. We're talking about some concepts like:
+ resources that you wanna use. It could be stuff like libraries, transported values from Server (PHP) to Client 
+ (JavaScript) using drupalSettings, and more things like diverse HTML tags. 
+ 
+ We're talking about some concepts like:
 
-* Library -> $render_array[‘#attached’][‘library’]
-* drupalSettings (from PHP to JavaScript) -> $render_array[‘#attached’][‘drupalSettings’]
-* Http_Header -> $render_array[‘#attached’][‘http_header’]
-* HTML Link in Head -> $render_array[‘#attached’][‘html_head_link’]
-* HTML Head -> $render_array[‘#attached’][‘html_head’]
-* Feed -> $render_array[‘#attached’][‘feed’]
-* Placeholders -> $render_array[‘#attached’][‘placeholders’]
-* HTML Response Placeholders -> $render_array[‘#attached’][‘html_response_attachment_placeholders’]
+* Library -> Libraries defined in a name_module.libraries.yml file.  
+ Format: $render_array[‘#attached’][‘library’]  
+* drupalSettings (from PHP to JavaScript) ->  
+ Format: $render_array[‘#attached’][‘drupalSettings’]
+* Http_Header ->  
+ Format: $render_array[‘#attached’][‘http_header’]
+* HTML Link in Head ->  
+ Format: $render_array[‘#attached’][‘html_head_link’]
+* HTML Head ->  
+ Format: $render_array[‘#attached’][‘html_head’]
+* Feed ->  
+ Format: $render_array[‘#attached’][‘feed’]  
+* Placeholders -> 
+ Format: $render_array[‘#attached’][‘placeholders’]
+* HTML Response Placeholders ->  
+Format: $render_array[‘#attached’][‘html_response_attachment_placeholders’]
 
 For More Info, Visit: [https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21HtmlResponseAttachmentsProcessor.php/function/HtmlResponseAttachmentsProcessor%3A%3AprocessAttachments/8.7.x](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21HtmlResponseAttachmentsProcessor.php/function/HtmlResponseAttachmentsProcessor%3A%3AprocessAttachments/8.7.x)
 
