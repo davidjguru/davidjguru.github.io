@@ -22,11 +22,14 @@ Okay, but what do the two activities have in common?...
 The answer is simple: in both cases I had to make use of the #attached property, available for use in Drupal's 
 render arrays. And this made me think of a property available in the Drupal arrays that I still write about a little 
 bit, and it's very interesting. 
-Don't expect a big meditation, just some ideas and advice that I hope will be useful to someone. 
+Don't expect a big meditation, just some ideas and tips that I hope will be useful to someone. 
+But first, let's start at the beginning (or almost). 
 
 
 ## Retrospective
-In Drupal 7, you used to do the next steps using differents procedural functions:
+In some occasions, you may need add some resources to your Drupal project, in order to alter the rendering of some 
+ page, block or some stuff. In this case, you could add your resources in the Drupal 7 way, using some functions.
+ You used to do the next steps using different procedural functions:
 
 
 ### Adding HTML Meta tag: drupal_add_html_head()
