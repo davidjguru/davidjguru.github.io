@@ -65,13 +65,14 @@ In some occasions, you may need add some resources to your Drupal project, in or
 But now in Drupal 8 and onwards, all is centralized in the #attached property. Well, no. It's really based on two 
 concepts that centralize everything in a shared way:  
 
-1.  The definition of "library". 
+1.  The definition of "library".
 2. The use of the property \#attached.
 
-First, you have to know what's the format for libraries for your modules. 
+**First**, you have to know what's the format for libraries for your modules. [Here you can see a set of examples defining libraries for custom modules](https://gitlab.com/snippets/1929232)
 
 Second, you have to know the property. Using this property, you'll be able to add some stuff, describe in the 
-sub-properties of #attached, like:
+sub-properties of #attached. Using these sub-properties, you'll can inform to the Render System of Drupal about the
+ resources that you wanna use. We're talking about some concepts like:
 
 * Library -> $render_array[‘#attached’][‘library’]
 * drupalSettings (from PHP to JavaScript) -> $render_array[‘#attached’][‘drupalSettings’]
