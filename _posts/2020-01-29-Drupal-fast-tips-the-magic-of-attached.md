@@ -116,7 +116,7 @@ How can we modify some sections in our rendered HTML code from Drupal 8?
 For example, insert a new tag link in the <head> section for every rendered page...well, we'll using the magical 
 \#attached property, such a key for our Drupal Render Arrays, ready to add some resources to our code.
 
-### Adding a new \<link> in the \<head> HTML Tag
+### Adding a new \<link> in the \<head> HTML Tag  
 In this case, I was trying to prepare a patch for the contrib module humans.txt and needed to insert a link in the HTML 
 header pointing to the link. 
 
@@ -151,7 +151,7 @@ And here you can [see the patch on its own issue](https://www.drupal.org/project
  [Pedro Cambra](https://www.drupal.org/u/pcambra) from Cambrico [http://cambrico.net/](http://cambrico.net/), a Drupal 
  agency very focused on contributing and mentoring on Drupal.org. 
  
- ### Adding libraries in a render array
+ ### Adding libraries in a render array  
  In the following case, it is only a matter of adding custom libraries of JavaScript resources to a render array 
  returned by a controller method. A controller that ends up "painting" a simple data table through a path, and that is 
  dynamized through custom libraries with Vanilla JavaScript. 
