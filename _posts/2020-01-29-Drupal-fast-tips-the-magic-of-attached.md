@@ -151,7 +151,7 @@ And here you can [see the patch on its own issue](https://www.drupal.org/project
  [Pedro Cambra](https://www.drupal.org/u/pcambra) from Cambrico [http://cambrico.net/](http://cambrico.net/), a Drupal 
  agency very focused on contributing and mentoring on Drupal.org. 
  
- ### Adding libraries in a render array  
+### Adding libraries in a render array    
  In the following case, it is only a matter of adding custom libraries of JavaScript resources to a render array 
  returned by a controller method. A controller that ends up "painting" a simple data table through a path, and that is 
  dynamized through custom libraries with Vanilla JavaScript. 
