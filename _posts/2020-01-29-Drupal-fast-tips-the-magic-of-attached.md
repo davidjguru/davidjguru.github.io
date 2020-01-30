@@ -87,26 +87,25 @@ JavaScript code.
 * **Http_Header** ->  Use this when add HTTP headers or / and status response codes. 
  **Format:** $render_array[‘#attached’][‘http_header’]  
  
-* **HTML Link in Head** ->  Just for write more \<link> tags in the HTML \<head> section. 
+* **HTML Link in Head** ->  Just for write more \<link> tags in the HTML \<head> section.   
  **Format:** $render_array[‘#attached’][‘html_head_link’]  
  
-* **HTML Head** ->  Value to insert in case of tags in the HTML section \<head>. 
+* **HTML Head** ->  Value to insert in case of tags in the HTML section \<head>.   
  **Format:** $render_array[‘#attached’][‘html_head’]  
  
-* **Feed** ->  Only for add classical RSS feeds.
+* **Feed** ->  Only for add classical RSS feeds.  
  **Format:** $render_array[‘#attached’][‘feed’]   
  
-* **Placeholders** -> Playing with placeholders in texts.
+* **Placeholders** -> Playing with placeholders in texts.  
  **Format:** $render_array[‘#attached’][‘placeholders’]  
  
-* **HTML Response Placeholders** ->  Put placeholders in the HTML responses. 
+* **HTML Response Placeholders** ->  Put placeholders in the HTML responses.   
   **Format:** $render_array[‘#attached’][‘html_response_attachment_placeholders’]  
   
- Here you can see the defined allowed types, from a diff looking for unsupported types:
- | ![Supported keys for the attached property in Drupal 8]({{ site.baseurl }}/images/
- davidjguru_drupal_8_keys_for_attached_property.png) |
-    |:--:|
-    | *Supported keys for the attached property, from the Drupal.org official documentation.* |
+ Here you can see the defined allowed types, from a diff looking for unsupported types:  
+ | ![Supported keys for the attached property in Drupal 8]({{ site.baseurl }}/images/davidjguru_drupal_8_keys_for_attached_property.png) |
+ |:--:|
+ | *Supported keys for the attached property, from the Drupal.org official documentation.* |
 
 
 
