@@ -62,7 +62,16 @@ In some occasions, you may need add some resources to your Drupal project, in or
 * [https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_css/7.x](https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_css/7.x)
 
 ## Current Usage
-But now in Drupal 8 and onwards, all is centralized in the #attached property. Using this property, you'll be able to add some stuff, describe in the sub-properties of #attached, like:
+But now in Drupal 8 and onwards, all is centralized in the #attached property. Well, no. It's really based on two 
+concepts that centralize everything in a shared way:  
+
+1.  The definition of "library". 
+2. The use of the property \#attached.
+
+First, you have to know what's the format for libraries for your modules. 
+
+Second, you have to know the property. Using this property, you'll be able to add some stuff, describe in the 
+sub-properties of #attached, like:
 
 * Library -> $render_array[‘#attached’][‘library’]
 * drupalSettings (from PHP to JavaScript) -> $render_array[‘#attached’][‘drupalSettings’]
