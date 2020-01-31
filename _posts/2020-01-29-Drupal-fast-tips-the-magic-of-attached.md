@@ -41,7 +41,7 @@ In some occasions, you may need add some resources to your Drupal project, in or
 * drupal_add_html_head($meta_charset, 'meta_charset');
 
 
-* [https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_html_head/7.x](https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_html_head/7.x)
+* [https://api.drupal.org/api/drupal/drupal_add_html_head/7.x](https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_html_head/7.x)
 
 
 ### Adding JavaScript: drupal_add_js()
@@ -50,7 +50,7 @@ In some occasions, you may need add some resources to your Drupal project, in or
 * drupal_add_js('http://cdn.jquerytools.org/1.2.6/jquery.tools.min.js', 'external');
 
 
-* [https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_js/7.x](https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_js/7.x)
+* [https://api.drupal.org/api/drupal/drupal_add_js/7.x](https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_js/7.x)
 
 
 ### Adding CSS: drupal_add_css()
@@ -59,7 +59,7 @@ In some occasions, you may need add some resources to your Drupal project, in or
 * drupal_add_css('http://fonts.googleapis.com/css?family=News+Cycle', array('type' => 'external'));
 
 
-* [https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_css/7.x](https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_css/7.x)
+* [https://api.drupal.org/api/drupal/drupal_add_css/7.x](https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_add_css/7.x)
 
 ## Current Usage
 But now in Drupal 8 and onwards, all is centralized in the #attached property. Well, no. It's really based on two 
@@ -109,7 +109,7 @@ JavaScript code.
 
 
 
-**For More Info, Visit:** [https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21HtmlResponseAttachmentsProcessor.php/function/HtmlResponseAttachmentsProcessor%3A%3AprocessAttachments/8.7.x](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21HtmlResponseAttachmentsProcessor.php/function/HtmlResponseAttachmentsProcessor%3A%3AprocessAttachments/8.7.x)
+**For More Info, Visit:** [HtmlResponseAttachmentsProcessor](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21HtmlResponseAttachmentsProcessor.php/function/HtmlResponseAttachmentsProcessor%3A%3AprocessAttachments/8.7.x)
 
 ## Examples
 How can we modify some sections in our rendered HTML code from Drupal 8?
