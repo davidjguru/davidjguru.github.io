@@ -24,6 +24,7 @@ thought to publish here some small posts derived from the working notes.
 This way I will be able to give something useful to the complementary notes
 and if the COVID-19 attacks me before seeing the book come out, at least I
 will have shared something before.
+
 Well, what do I want to talk about in this post? I would like to make a list
 of Drupal modules related to migration processes, available as contrib
 modules and that can be used to provide functionality to a migration. This
@@ -31,6 +32,12 @@ article will be only a lightweight set of basic resources (I swear).
 
 ## 1- Introduction
 
+It is not very easy to talk about migrations in general and, of course, it is
+ not easy in the context of Drupal either.  To perform migrations it is
+ necessary to have a good knowledge of the technology, data models (in origin
+  and in destination), experience in ETL processes and a certain know-how
+  about how to implement Drupal Plugins (In migrations there is an extensive
+  use of Drupal-Way Plugins).
 
 
 ## 2- Basic Resources (Core Modules)
