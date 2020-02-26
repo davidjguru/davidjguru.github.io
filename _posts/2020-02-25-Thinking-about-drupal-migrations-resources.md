@@ -36,9 +36,12 @@ article will be only a lightweight set of basic resources (I swear).
 ## 2- Basic Resources (Core Modules)
 
 * **Migrate:** The Mainframe for migrations, the [migrate Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate), that provides the base API for migrating in Drupal.
+
 * **Migrate Drupal:** [migrate_drupal Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal). Focused on
 upgrades from Drupal 6 or Drupal 7. Allow reading of configuration entities in Drupal 8.
+
 * **Migrate Drupal:** Multilingual [migrate_drupal_multilingual Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_multilingual). Experimental module in core (¿?). See: [https://www.drupal.org/node/2959712](https://www.drupal.org/node/2959712).
+
 * **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
 Interface for upgrading.
 
