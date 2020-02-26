@@ -62,11 +62,14 @@ article will be only a lightweight set of basic resources (I swear).
 
 ## 5- Migration Runners - (Contrib Modules Drush-Related)
 
+* **Migrate Scheduler:** [https://www.drupal.org/project/migrate_scheduler](https://www.drupal.org/project/migrate_scheduler). This module offers
+integration with the Drupal Cron API to execute migrations under predefined schedules.
+
 * **Migrate Run:** [https://www.drupal.org/project/migrate_run](https://www.drupal.org/project/migrate_run). Drush commands to running migrations in a
 lightweight mode. More lean than Migrate Tools but not offer support for
 migrations groups. It also doesn't depend on the Migrate Plus module. It's
 just like a little maverick.
 
 
-* **Migrate Devel:** [https://www.drupal.org/project/migrate_devel](https://www.drupal.org/project/migrate_devel). Provides Drush options in order to show debug info while executing migrations. Also provides the ['debug'](https://git.drupalcode.org/project/migrate_devel/blob/8.x-1.x/src/Plugin/migrate/process/Debug.php) process plugin.
-[Here you can see an article about it](https://agaric.coop/blog/how-debug-drupal-migrations-part-2). By the way, the [Drush 9compatibility is still unresolved](https://www.drupal.org/project/migrate_devel/issues/2938677), but [a patch seems to be available](https://www.drupal.org/files/issues/2018-10-08/migrate_devel-drush9-2938677-6.patch).
+* **Migrate Devel:** [https://www.drupal.org/project/migrate_devel]
+(https://www.drupal.org/project/migrate_devel). Provides Drush options in order to show debug info while executing migrations. Also provides the ['debug'](https://git.drupalcode.org/project/migrate_devel/blob/8.x-1.x/src/Plugin/migrate/process/Debug.php) process plugin. [Here you can see an article about it](https://agaric.coop/blog/how-debug-drupal-migrations-part-2). By the way, the [Drush 9 compatibility is still unresolved](https://www.drupal.org/project/migrate_devel/issues/2938677), but [a patch seems to be available](https://www.drupal.org/files/issues/2018-10-08/migrate_devel-drush9-2938677-6.patch).
