@@ -90,14 +90,17 @@ just like a little maverick.
 * **[Mauricio Dinarte](https://twitter.com/dinarcon):** Mauricio is a
 developer, consultant, trainer and owner of his own business [https://agaric.coop](https://agaric.coop), wrote what is probably the mandatory reading guide for all people who want to learn how to migrate on Drupal: 31
 Days of Drupal Migrations, a set of 31 articles published in
-[https://understanddrupal.com/migrations](https://understanddrupal.com/migrations) with the most important aspects...examples, exercises, descriptions...to understand the whole internal world of migrations inside Drupal. An essential training material. In addition, his company's website,
-under the tag "migrate" also hosts many very good articles on migration:
-[https://agaric.coop/tags/migrate](https://agaric.coop/tags/migrate). Some
-examples:
+[https://understanddrupal.com/migrations](https://understanddrupal.com/migrations) with the most important aspects...examples, exercises,
+descriptions...to understand the whole internal world of migrations inside Drupal.
+
+An essential training material. In addition, his company's website,
+under the tag "migrate" also hosts many very good articles about migration
+topics: [https://agaric.coop/tags/migrate](https://agaric.coop/tags/migrate).
+
+ **Some examples from Mauricio Dinarte:**
 
 1. Introduction to paragraphs migrations in Drupal:
-* [https://agaric.coop/blog/introduction-paragraphs-migrations-drupal]
-(https://agaric.coop/blog/introduction-paragraphs-migrations-drupal).
+* [https://agaric.coop/blog/introduction-paragraphs-migrations-drupal](https://agaric.coop/blog/introduction-paragraphs-migrations-drupal).
 
 2. Using migration groups to share configuration among Drupal migrations:
 * [https://agaric.coop/blog/using-migration-groups-share-configuration-among-drupal-migrations](https://agaric.coop/blog/using-migration-groups-share-configuration-among-drupal-migrations)
@@ -114,9 +117,10 @@ His profile in Drupal.org: [https://www.drupal.org/u/dinarcon](https://www.drupa
   a different nature, but above all, a series of very
   interesting articles about migrations under the tag
   "drupal-migration": [https://deninet.com/tag/drupal-migration](https://deninet.com/tag/drupal-migration).
+
   Along the way I also discovered that it has several contrib modules related to Migrations and Processing Plugins.
 
-Some examples:
+**Some examples from Tess Flynn:**
 
 1. Migrate Process URL: Provides Process Plugin to migrate link fields.
 * [https://www.drupal.org/project/migrate_process_url](https://www.drupal.org/project/migrate_process_url).
@@ -133,8 +137,11 @@ Her profile in Drupal.org: [https://www.drupal.org/u/socketwench](https://www.dr
 well-considered Bible of Drupal ([Drupal 8 Module Development, nowadays in its second edition](https://www.amazon.com/Drupal-Module-Development-modules-version/dp/1789612365/) and writing also in his
 website [https://www.webomelette.com/](https://www.webomelette.com/).
 Lecturer, trainer and regular attendee at various international Drupal events,
-has also written some interesting articles about Drupal migrations that you should read.
-Some examples:
+has also written some interesting articles about Drupal migrations that you
+should read.
+
+**Some examples from Danny Sipos:**
+
 1. Your first Drupal 8 Migration:
 * [https://www.sitepoint.com/your-first-drupal-8-migration](https://www.sitepoint.com/your-first-drupal-8-migration/).
 
@@ -145,3 +152,6 @@ Some examples:
 * [https://www.webomelette.com/quickly-generate-headers-csv-migrate-source-plugin-using-drush](https://www.webomelette.com/quickly-generate-headers-csv-migrate-source-plugin-using-drush).
 
 His profile in Drupal.org: [https://www.drupal.org/u/upchuk](https://www.drupal.org/u/upchuk).
+
+
+## wq!
