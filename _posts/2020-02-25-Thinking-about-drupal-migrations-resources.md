@@ -134,8 +134,7 @@ His profile in Drupal.org: [https://www.drupal.org/u/dinarcon](https://www.drupa
 Her profile in Drupal.org: [https://www.drupal.org/u/socketwench](https://www.drupal.org/u/socketwench).
 
 * **[Danny Sipos](https://twitter.com/drupalexp):** Author of a
-well-considered Bible of Drupal ([Drupal 8 Module Development, nowadays in its second edition](https://www.amazon.com/Drupal-Module-Development-modules-version/dp/1789612365/) and writing also in his
-website [https://www.webomelette.com/](https://www.webomelette.com/).
+well-considered Bible of Drupal -[Drupal 8 Module Development, nowadays in its second edition](https://www.amazon.com/Drupal-Module-Development-modules-version/dp/1789612365/)- and writing also in his website [https://www.webomelette.com/](https://www.webomelette.com/).
 Lecturer, trainer and regular attendee at various international Drupal events,
 has also written some interesting articles about Drupal migrations that you
 should read.
