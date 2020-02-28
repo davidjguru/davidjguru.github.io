@@ -35,9 +35,13 @@ article will be only a lightweight set of basic resources (I swear).
 It is not very easy to talk about migrations in general and, of course, it is
  not easy in the context of Drupal either.  To perform migrations it is
  necessary to have a good knowledge of the technology, data models (in origin
-  and in destination), experience in ETL processes and a certain know-how
+  and in destination), experience in [ETL processes](https://en.wikipedia.org/wiki/Extract,_transform,_load) and a certain know-how
   about how to implement Drupal Plugins (In migrations there is an extensive
   use of Drupal-Way Plugins).
+
+  In any case, since the topic is extensive and my time is now short, I
+  thought of this article as a summary catalogue (for quick consumption) of
+  tools and basic resources for working with migrations.
 
 
 ## 2- Basic Resources (Core Modules)
@@ -56,19 +60,78 @@ Interface for upgrading.
 ## 3- Other Basic Resources (Contrib Modules)
 
 
+* **Migrate Status:** [migrate_status](https://www.drupal.org/project/migrate_status).
+This little contrib module allows get a feedback about a migration process.
+Do you need to know if a migration is running? this module gives you a
+service that you can call in order to check the migration.
+
+
+* **Migrate Files:** [migrate_files](https://www.drupal.org/project/migrate_file).
+It's such an interesting set of process plugins that you will want to move
+files and images with it.
+
+
+* **Migrate Commerce:** [commerce_migrate](https://www.drupal.org/project/commerce_migrate).
+General-purpose framework that extends to the main Migrate module from Drupal
+ Core, for moving data in a Drupal Commerce scenario.
+
+
 ## 4- Extra Resources - (Contrib Modules for Plugins)
 
+In the Drupal migration processes, we'll use diverse resources in order to
+processing the [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) migration plan. One of these basic resources (as I
+mentioned in the introduction) are the [Drupal Plugins](https://www.drupal.org/docs/8/api/plugin-api), of which you need to
+have good knowledge and some practice. In a migration scenario, plugins help
+us processing information from the E:source ([Source Plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins)), making
+T:processing([ProcessPlugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins) in order to
+save data at L:destination ([Destination Plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples).  The
+assembly of these three parts (usually) results in a correct migration
+process. Many modules of the core already bring their own Plugins to facilitate migration processes (as the user module). So let's review some migration plugins packaged in contributed modules.
 
 
 ### Source Plugins
 
 
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
 
 ### Processing Plugins
 
 
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
 
 ### Destination Plugins
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+Interface for upgrading.
 
 
 
@@ -77,6 +140,7 @@ Interface for upgrading.
 * **Migrate Scheduler:** [https://www.drupal.org/project/migrate_scheduler](https://www.drupal.org/project/migrate_scheduler). This module offers
 integration with the Drupal Cron API to execute migrations under predefined schedules.
 
+
 * **Migrate Run:** [https://www.drupal.org/project/migrate_run](https://www.drupal.org/project/migrate_run). Drush commands to running migrations in a
 lightweight mode. More lean than Migrate Tools but not offer support for
 migrations groups. It also doesn't depend on the Migrate Plus module. It's
@@ -84,6 +148,7 @@ just like a little maverick.
 
 
 * **Migrate Devel:** [https://www.drupal.org/project/migrate_devel](https://www.drupal.org/project/migrate_devel). Provides Drush options in order to show debug info while executing migrations. Also provides the ['debug'](https://git.drupalcode.org/project/migrate_devel/blob/8.x-1.x/src/Plugin/migrate/process/Debug.php) process plugin. [Here you can see an article about it](https://agaric.coop/blog/how-debug-drupal-migrations-part-2). By the way, the [Drush 9 compatibility is still unresolved](https://www.drupal.org/project/migrate_devel/issues/2938677), but [a patch seems to be available](https://www.drupal.org/files/issues/2018-10-08/migrate_devel-drush9-2938677-6.patch).
+
 
 ## 6- Authors you should know
 
@@ -110,6 +175,8 @@ topics: [https://agaric.coop/tags/migrate](https://agaric.coop/tags/migrate).
 
 His profile in Drupal.org: [https://www.drupal.org/u/dinarcon](https://www.drupal.org/u/dinarcon).
 
+------------------------------------------------------------------------------------
+
 * **[Tess Flynn](https://twitter.com/socketwench):** I heard about Tess Flynn
  reading articles by Mauricio Dinarte.  That's how I met this expert
  developer, speaker and communicator of the Drupal community. On her website
@@ -133,6 +200,8 @@ His profile in Drupal.org: [https://www.drupal.org/u/dinarcon](https://www.drupa
 
 Her profile in Drupal.org: [https://www.drupal.org/u/socketwench](https://www.drupal.org/u/socketwench).
 
+------------------------------------------------------------------------------------
+
 * **[Danny Sipos](https://twitter.com/drupalexp):** Author of a
 well-considered Bible of Drupal -[Drupal 8 Module Development, nowadays in its second edition](https://www.amazon.com/Drupal-Module-Development-modules-version/dp/1789612365/)- and writing also in his website [https://www.webomelette.com/](https://www.webomelette.com/).
 Lecturer, trainer and regular attendee at various international Drupal events,
@@ -152,5 +221,6 @@ should read.
 
 His profile in Drupal.org: [https://www.drupal.org/u/upchuk](https://www.drupal.org/u/upchuk).
 
+--------------------------------------------------------------------------------------
 
 ## wq!
