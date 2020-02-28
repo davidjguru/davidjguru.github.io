@@ -13,7 +13,7 @@ sitemap: true
 |:--:|
 | *Picture from Unsplash, user Inma Lesielle @inmasantiago* |
 
-I am preparing notes for a draft that will be a book about migration processes
+I am working on notes for a draft that will be a book about migration processes
 made with Drupal and its Migrate API. It is expected to be released in June
 2020 and the work of collecting, experimenting and articulating the content
 is being quite extensive.
@@ -32,15 +32,15 @@ article will be only a lightweight set of basic resources (I swear).
 
 --------------------------------------------------------------------------------------
 
-**Table of Contents**
+**Table of Contents**  
 <!-- TOC -->
-[1- Introduction](#1--introduction)
-[2- Basic Resources - Core Modules](#2--basic-resources---core-modules)
-[3- Other Basic Resources - Contrib Modules](#3--other-basic-resources---contrib-modules)
-[4- Extra Resources - Contrib Modules for Plugins](#4--extra-resources---contrib-modules-for-plugins)
-[5- Migration Runners - Contrib Modules Drush-Related](#5--migrations-runners---contrib-modules-drush-related)
-[6- Authors you should know](#6--authors-you-should-know)
-[7- :wq!](#wq)
+[1- Introduction](#1--introduction)  
+[2- Basic Resources - Core Modules](#2--basic-resources---core-modules)  
+[3- Other Basic Resources - Contrib Modules](#3--other-basic-resources---contrib-modules)  
+[4- Extra Resources - Contrib Modules for Plugins](#4--extra-resources---contrib-modules-for-plugins)  
+[5- Migration Runners - Contrib Modules Drush-Related](#5--migrations-runners---contrib-modules-drush-related)  
+[6- Authors you should know](#6--authors-you-should-know)  
+[7- :wq!](#wq)  
 <!-- /TOC -->
 
 -----------------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ article will be only a lightweight set of basic resources (I swear).
 
 ## 1- Introduction
 
-It is not very easy to talk about migrations in general and, of course, it is
+It's not very easy to talk about migrations in general and, of course, it is
  not easy in the context of Drupal either.  To perform migrations it is
  necessary to have a good knowledge of the technology, data models (in origin
   and in destination), experience in [ETL processes](https://en.wikipedia.org/wiki/Extract,_transform,_load) and a certain know-how
@@ -168,7 +168,7 @@ included in its own module for migrating (Source, Process and Destination).
 ![Drupal 8 Migrate Entity Block]({{ site.baseurl }}/images/davidjguru_drupal_8_migrate_entity_block.png)
 
 
-## 5- Migration Runners - Contrib Modules Drush-Related
+## 5- Migrations Runners - Contrib Modules Drush-Related
 
 * **Migrate Scheduler:** [migrate_scheduler](https://www.drupal.org/project/migrate_scheduler). This module offers
 integration with the Drupal Cron API to execute migrations under predefined schedules.
