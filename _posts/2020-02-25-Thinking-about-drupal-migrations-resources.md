@@ -46,18 +46,30 @@ It is not very easy to talk about migrations in general and, of course, it is
 
 ## 2- Basic Resources (Core Modules)
 
-* **Migrate:** The Mainframe for migrations, the [migrate Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate), that provides the base API for migrating in Drupal.
+* **Migrate:** The Mainframe for migrations, the [migrate](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate), that provides the base API for migrating in Drupal.
 
-* **Migrate Drupal:** [migrate_drupal Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal). Focused on
+
+* **Migrate Drupal:** [migrate_drupal](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal). Focused on
 upgrades from Drupal 6 or Drupal 7. Allow reading of configuration entities in Drupal 8.
 
-* **Migrate Drupal:** Multilingual [migrate_drupal_multilingual Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_multilingual). Experimental module in core (¿?). See: [https://www.drupal.org/node/2959712](https://www.drupal.org/node/2959712).
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+* **Migrate Drupal:** Multilingual [migrate_drupal_multilingual](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_multilingual). Experimental module in core (¿?). See: [https://www.drupal.org/node/2959712](https://www.drupal.org/node/2959712).
+
+
+* **Migrate Drupal UI:** [migrate_drupal_ui](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
 Interface for upgrading.
 
 
 ## 3- Other Basic Resources (Contrib Modules)
+
+* **Migrate Plus:** [migrate_plus](https://www.drupal
+.org/project/migrate_plus). Migrate Plus is an essential contrib module wich
+extends the features and capabilities of the Migrate core module with a lot
+of plugins and extensions.
+
+
+* **Migrate Tools:** [migrate_tools](https://www.drupal.org/project/migrate_tools). Another essential resource: provides a lot of
+Drush commands for running and managing Migrations.
 
 
 * **Migrate Status:** [migrate_status](https://www.drupal.org/project/migrate_status).
@@ -92,16 +104,15 @@ process. Many modules of the core already bring their own Plugins to facilitate 
 ### Source Plugins
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate Source CSV:** [migrate_source_csv](https://www.drupal.org/project/migrate_source_csv). Contrib Module for migrating data to Drupal
+ 8 from a classical and simple CSV file.
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate Source SQL:** [custom_sql_migrate_source_plugin](https://www.drupal.org/project/custom_sql_migrate_source_plugin).
+As a peculiarity of the Plugins used for databases, this module allows to integrate in the .yml file describing a migration, directly SQL queries that will be executed against the source database.
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate Source YAML:** [migrate_source_yaml](https://www.drupal.org/project/migrate_source_yaml). It's just a simple tool for migrating content from YAML files.
 
 
 ### Processing Plugins
@@ -122,32 +133,32 @@ Interface for upgrading.
 ### Destination Plugins
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+* **Migrate Drupal UI:** [migrate_drupal_ui](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
 Interface for upgrading.
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+* **Migrate Drupal UI:** [migrate_drupal_ui](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
 Interface for upgrading.
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
+* **Migrate Drupal UI:** [migrate_drupal_ui](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
 Interface for upgrading.
 
 
 
 ## 5- Migration Runners - (Contrib Modules Drush-Related)
 
-* **Migrate Scheduler:** [https://www.drupal.org/project/migrate_scheduler](https://www.drupal.org/project/migrate_scheduler). This module offers
+* **Migrate Scheduler:** [migrate_scheduler](https://www.drupal.org/project/migrate_scheduler). This module offers
 integration with the Drupal Cron API to execute migrations under predefined schedules.
 
 
-* **Migrate Run:** [https://www.drupal.org/project/migrate_run](https://www.drupal.org/project/migrate_run). Drush commands to running migrations in a
+* **Migrate Run:** [migrate_run](https://www.drupal.org/project/migrate_run). Drush commands to running migrations in a
 lightweight mode. More lean than Migrate Tools but not offer support for
 migrations groups. It also doesn't depend on the Migrate Plus module. It's
 just like a little maverick.
 
 
-* **Migrate Devel:** [https://www.drupal.org/project/migrate_devel](https://www.drupal.org/project/migrate_devel). Provides Drush options in order to show debug info while executing migrations. Also provides the ['debug'](https://git.drupalcode.org/project/migrate_devel/blob/8.x-1.x/src/Plugin/migrate/process/Debug.php) process plugin. [Here you can see an article about it](https://agaric.coop/blog/how-debug-drupal-migrations-part-2). By the way, the [Drush 9 compatibility is still unresolved](https://www.drupal.org/project/migrate_devel/issues/2938677), but [a patch seems to be available](https://www.drupal.org/files/issues/2018-10-08/migrate_devel-drush9-2938677-6.patch).
+* **Migrate Devel:** [migrate_devel](https://www.drupal.org/project/migrate_devel). Provides Drush options in order to show debug info while executing migrations. Also provides the ['debug'](https://git.drupalcode.org/project/migrate_devel/blob/8.x-1.x/src/Plugin/migrate/process/Debug.php) process plugin. [Here you can see an article about it](https://agaric.coop/blog/how-debug-drupal-migrations-part-2). By the way, the [Drush 9 compatibility is still unresolved](https://www.drupal.org/project/migrate_devel/issues/2938677), but [a patch seems to be available](https://www.drupal.org/files/issues/2018-10-08/migrate_devel-drush9-2938677-6.patch).
 
 
 ## 6- Authors you should know
