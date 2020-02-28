@@ -43,7 +43,6 @@ article will be only a lightweight set of basic resources (I swear).
 [7- :wq!](#wq)
 <!-- /TOC -->
 
-
 -----------------------------------------------------------------------------------------
 
 
