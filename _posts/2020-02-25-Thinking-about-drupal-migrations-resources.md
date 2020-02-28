@@ -30,16 +30,22 @@ of Drupal modules related to migration processes, available as contrib
 modules and that can be used to provide functionality to a migration. This
 article will be only a lightweight set of basic resources (I swear).
 
+--------------------------------------------------------------------------------------
+
 **Table of Contents**
 <!-- TOC -->
 [1- Introduction](#1--introduction)
-[2- Basic Resources - Core Modules](#2--basic-resources-core-modules)
-[3- Other Basic Resources - Contrib Modules](#3--other-basic-resources-core-modules)
-[4- Extra Resources - Contrib Modules for Plugins](#4--extra-resources-contrib-modules-for-plugins)
-[5- Migration Runners - Contrib Modules Drush-Related](#5--migrations-runners-contrib-modules-drush-related)
+[2- Basic Resources - Core Modules](#2--basic-resources---core-modules)
+[3- Other Basic Resources - Contrib Modules](#3--other-basic-resources---contrib-modules)
+[4- Extra Resources - Contrib Modules for Plugins](#4--extra-resources---contrib-modules-for-plugins)
+[5- Migration Runners - Contrib Modules Drush-Related](#5--migrations-runners---contrib-modules-drush-related)
 [6- Authors you should know](#6--authors-you-should-know)
 [7- :wq!](#wq)
 <!-- /TOC -->
+
+
+-----------------------------------------------------------------------------------------
+
 
 ## 1- Introduction
 
@@ -145,8 +151,7 @@ xvalue.
 migration Source in a Paragraph item (managed by a Destination Plugin).
 
 
-### Destination Plugins: [Migrate Destination Plugins & Examples](https://www
-.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples)
+### Destination Plugins: [Migrate Destination Plugins & Examples](https://www.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples)
 What kind of Drupal entities will be created in the migrating process?
 content entities? configuration entities? Take a look.
 
