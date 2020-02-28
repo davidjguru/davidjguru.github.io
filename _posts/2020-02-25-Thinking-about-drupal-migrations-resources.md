@@ -91,14 +91,17 @@ General-purpose framework that extends to the main Migrate module from Drupal
 ## 4- Extra Resources - (Contrib Modules for Plugins)
 
 In the Drupal migration processes, we'll use diverse resources in order to
-processing the [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) migration plan. One of these basic resources (as I
-mentioned in the introduction) are the [Drupal Plugins](https://www.drupal.org/docs/8/api/plugin-api), of which you need to
+processing the [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) migration plan.
+One of these basic resources (as I mentioned in the introduction) are the
+[Drupal Plugins](https://www.drupal.org/docs/8/api/plugin-api), of which you need to
 have good knowledge and some practice. In a migration scenario, plugins help
-us processing information from the E:source ([Source Plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins)), making
-T:processing([ProcessPlugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins) in order to
-save data at L:destination ([Destination Plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples).  The
+us processing information from the E:Source ([Source Plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins)), making
+T:Processing([ProcessPlugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins)) in order to
+save data at L:Destination ([Destination Plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples)).  The
 assembly of these three parts (usually) results in a correct migration
-process. Many modules of the core already bring their own Plugins to facilitate migration processes (as the user module). So let's review some migration plugins packaged in contributed modules.
+process.
+
+Many modules of the core already bring their own Plugins to facilitate migration processes (as the user module). So let's review some migration plugins packaged in contributed modules.
 
 
 ### Source Plugins
@@ -118,16 +121,17 @@ As a peculiarity of the Plugins used for databases, this module allows to integr
 ### Processing Plugins
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate Process Geofield:** [geofield](https://www.drupal
+.org/project/geofield).
+The contrib Geofield module comes with a custom process plugin for migrations. See [Process Plugin in Geofield](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins/contrib-process-plugin-geofield_latlon).
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate Process XML:** [migrate_process_xml](https://www.drupal.org/project/migrate_process_xml). Provides process plugins for xpath and
+xvalue.
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui Module in Core](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate HTML to Paragraphs:** [migrate_drupal_ui Module in Core](https://www.drupal.org/project/migrate_html_to_paragraphs). Helps to
+transform HTML from a migration Source in a Paragraph item (managed by a Destination Plugin).
 
 
 ### Destination Plugins
