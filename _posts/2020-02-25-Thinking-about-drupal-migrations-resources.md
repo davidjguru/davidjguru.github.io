@@ -130,24 +130,26 @@ The contrib Geofield module comes with a custom process plugin for migrations. S
 xvalue.
 
 
-* **Migrate HTML to Paragraphs:** [migrate_drupal_ui Module in Core](https://www.drupal.org/project/migrate_html_to_paragraphs). Helps to
-transform HTML from a migration Source in a Paragraph item (managed by a Destination Plugin).
+* **Migrate HTML to Paragraphs:** [migrate_html_to_paragraphs](https://www.drupal.org/project/migrate_html_to_paragraphs). Helps to transform HTML from a
+migration Source in a Paragraph item (managed by a Destination Plugin).
 
 
-### Destination Plugins
+### Destination Plugins: [Migrate destination Plugins & Examples](https://www.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples)
+What kind of Drupal entities will be created in the migrating process?
+content entities? configuration entities? Take a look.
+
+* **Migrate Destination CSV:** [d8migrate](https://github.com/jonathanfranks/d8migrate/tree/master/web/modules/custom/migrate_destination_csv). It's a light custom module created by @jonathanfranks.
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate Destination Config:** [Class Config.php](https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21destination%21Config.php/class/Config/8.5.x). Offers a plugin for config migration.
 
 
-* **Migrate Drupal UI:** [migrate_drupal_ui](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
+* **Migrate Destination Block:** [Class EntityBlock.php](https://api.drupal.org/api/drupal/core%21modules%21block%21src%21Plugin%21migrate%21destination%21EntityBlock.php/class/EntityBlock/8.7.x). Just like and example about the
+resources that every element can offers in a migration scene, in case of
+moving Block Entities (are Config Entities), let's see the PHP classes
+included in its own module.
 
-
-* **Migrate Drupal UI:** [migrate_drupal_ui](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate_drupal_ui).
-Interface for upgrading.
-
+![Drupal 8 Migrate Entity Block]({{ site.baseurl }}/images/davidjguru_drupal_8_migrate_entity_block.png)
 
 
 ## 5- Migration Runners - (Contrib Modules Drush-Related)
