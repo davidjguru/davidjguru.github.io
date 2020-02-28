@@ -30,6 +30,17 @@ of Drupal modules related to migration processes, available as contrib
 modules and that can be used to provide functionality to a migration. This
 article will be only a lightweight set of basic resources (I swear).
 
+**Table of Contents**
+<!-- TOC -->
+[1- Introduction](#1--introduction)
+[2- Basic Resources - Core Modules](#2--basic-resources-core-modules)
+[3- Other Basic Resources - Contrib Modules](#3--other-basic-resources-core-modules)
+[4- Extra Resources - Contrib Modules for Plugins](#4--extra-resources-contrib-modules-for-plugins)
+[5- Migration Runners - Contrib Modules Drush-Related](#5--migrations-runners-contrib-modules-drush-related)
+[6- Authors you should know](#6--authors-you-should-know)
+[7- :wq!](#wq)
+<!-- /TOC -->
+
 ## 1- Introduction
 
 It is not very easy to talk about migrations in general and, of course, it is
@@ -44,7 +55,7 @@ It is not very easy to talk about migrations in general and, of course, it is
   tools and basic resources for working with migrations.
 
 
-## 2- Basic Resources (Core Modules)
+## 2- Basic Resources - Core Modules
 
 * **Migrate:** The Mainframe for migrations, the [migrate](https://git.drupalcode.org/project/drupal/tree/8.7.x/core/modules/migrate), that provides the base API for migrating in Drupal.
 
@@ -60,7 +71,7 @@ upgrades from Drupal 6 or Drupal 7. Allow reading of configuration entities in D
 Interface for upgrading.
 
 
-## 3- Other Basic Resources (Contrib Modules)
+## 3- Other Basic Resources - Contrib Modules
 
 * **Migrate Plus:** [migrate_plus](https://www.drupal
 .org/project/migrate_plus). Migrate Plus is an essential contrib module wich
@@ -88,7 +99,7 @@ General-purpose framework that extends to the main Migrate module from Drupal
  Core, for moving data in a Drupal Commerce scenario.
 
 
-## 4- Extra Resources - (Contrib Modules for Plugins)
+## 4- Extra Resources - Contrib Modules for Plugins
 
 In the Drupal migration processes, we'll use diverse resources in order to
 processing the [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) migration plan.
@@ -104,7 +115,7 @@ process.
 Many modules of the core already bring their own Plugins to facilitate migration processes (as the user module). So let's review some migration plugins packaged in contributed modules.
 
 
-### Source Plugins
+### Source Plugins [Migrate Source Plugin](https://www.drupal.org/docs/8/api/migrate-api/migrate-source-plugins)
 
 
 * **Migrate Source CSV:** [migrate_source_csv](https://www.drupal.org/project/migrate_source_csv). Contrib Module for migrating data to Drupal
@@ -118,7 +129,7 @@ As a peculiarity of the Plugins used for databases, this module allows to integr
 * **Migrate Source YAML:** [migrate_source_yaml](https://www.drupal.org/project/migrate_source_yaml). It's just a simple tool for migrating content from YAML files.
 
 
-### Processing Plugins
+### Processing Plugins [Migrate Process Plugins](https://www.drupal.org/docs/8/api/migrate-api/migrate-process-plugins)
 
 
 * **Migrate Process Geofield:** [geofield](https://www.drupal
@@ -134,7 +145,8 @@ xvalue.
 migration Source in a Paragraph item (managed by a Destination Plugin).
 
 
-### Destination Plugins: [Migrate destination Plugins & Examples](https://www.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples)
+### Destination Plugins: [Migrate Destination Plugins & Examples](https://www
+.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples)
 What kind of Drupal entities will be created in the migrating process?
 content entities? configuration entities? Take a look.
 
@@ -146,13 +158,13 @@ content entities? configuration entities? Take a look.
 
 * **Migrate Destination Block:** [Class EntityBlock.php](https://api.drupal.org/api/drupal/core%21modules%21block%21src%21Plugin%21migrate%21destination%21EntityBlock.php/class/EntityBlock/8.7.x). Just like and example about the
 resources that every element can offers in a migration scene, in case of
-moving Block Entities (are Config Entities), let's see the PHP classes
-included in its own module.
+moving Block Entities (are Config Entities) see the PHP classes
+included in its own module for migrating (Source, Process and Destination).
 
 ![Drupal 8 Migrate Entity Block]({{ site.baseurl }}/images/davidjguru_drupal_8_migrate_entity_block.png)
 
 
-## 5- Migration Runners - (Contrib Modules Drush-Related)
+## 5- Migration Runners - Contrib Modules Drush-Related
 
 * **Migrate Scheduler:** [migrate_scheduler](https://www.drupal.org/project/migrate_scheduler). This module offers
 integration with the Drupal Cron API to execute migrations under predefined schedules.
