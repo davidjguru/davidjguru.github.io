@@ -368,5 +368,9 @@ ddev import-files
 
 # Snapshotting your database
 ddev snapshot // Same as in ddev stop --remove-data
+
+# Clean the database and avoid the snapshot
+ddev stop --remove-data --omit-snapshot
+
 ```
 
