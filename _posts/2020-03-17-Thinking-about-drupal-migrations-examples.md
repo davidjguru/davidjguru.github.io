@@ -55,10 +55,50 @@ view based in the look for a tool-box, just a set of basic resources in order to
 
 ## 2- Arrangements
 
+### First case: Migrating embedded data
+
+For our first case we will need, on the one hand, to enable the Migrate module of 
+the Drupal core, and on the other hand, to download and install a contributed 
+module to be able to manage migrations.  
+
+From the different options we have, we are going to choose [migrate_run](https://www.drupal.org/project/migrate_run ),
+ which we have already mentioned in the previous post and could be interpreted 
+ as a light version of migrate_tools (although it's actually a fork of the 
+ project): both of wich provide drush commands to run migrations, so if you have
+  migrate_tools installed you must uninstall it in order to avoid collide with 
+  migrate_run. 
+
+As a curious note, the first lesson here is that for running Drupal migrations, 
+neither migrate_plus nor migrate_tools are "hard" dependencies, that is, we can
+ implement migrations without having these modules enabled in our Drupal 
+ installation. 
+
+By the way you have to say that it's important to know that migrate_run is 
+optimized for Drush 9 and later. If you use Drush 8 you will have to use an 
+adapted version, [like the Alpha 4, which was still prepared for Drush 8](https://www.drupal.org/project/migrate_run/releases/8.x-1.0-alpha4 )
+
+Using Composer and Drush:
+```bash
+composer require drupal/migrate_run
+drush pmu migrate_tools # If you need
+drush en migrate migrate_run -y
+drush cr
+```
+
+Using Drupal Console:
+```bash
+drupal mou migrate_tools # If you need
+drupal moi migrate migrate_run
+```
+And you will see in the path /admin/modules:
+
+![Enabling Migrate and Migrate Run modules]({{ site.baseurl }}/images/davidjguru_drupal_migrations_examples_modules.png)
 
 
+### Second Case: Migrating from a database
 
-## 3- Approach
+
+## 3- Approaches
 
 
 
