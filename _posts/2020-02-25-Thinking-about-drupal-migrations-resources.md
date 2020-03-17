@@ -23,7 +23,7 @@ thought to publish here some small posts derived from the working notes.
 <!--more-->
 This way I will be able to give something useful to the complementary notes
 and if the COVID-19 attacks me before seeing the book come out, at least I
-will have shared something before.
+will have shared something before (I guess).
 
 Well, what do I want to talk about in this post? I would like to make a list
 of Drupal modules related to migration processes, available as contrib
@@ -36,11 +36,17 @@ article will be only a lightweight set of basic resources (I swear).
 
 <!-- TOC -->
 [1- Introduction](#1--introduction)
+
 [2- Basic Resources - Core Modules](#2--basic-resources---core-modules)
+
 [3- Other Basic Resources - Contrib Modules](#3--other-basic-resources---contrib-modules)
+
 [4- Extra Resources - Contrib Modules for Plugins](#4--extra-resources---contrib-modules-for-plugins)
+
 [5- Migration Runners - Contrib Modules Drush-Related](#5--migrations-runners---contrib-modules-drush-related)
+
 [6- Authors you should know](#6--authors-you-should-know)
+
 [7- :wq!](#wq)
 <!-- /TOC -->
 
@@ -49,7 +55,9 @@ article will be only a lightweight set of basic resources (I swear).
 **This article is part of a series of posts about Drupal Migrations**
 <!-- TOC -->
 [1- Thinking about Drupal Migrations (I): Resources](https://davidjguru.github.io/blog/thinking-about-drupal-migrations-resources)
+
 [2- Thinking about Drupal Migrations (II): Examples](https://davidjguru.github.io/blog/thinking-about-drupal-migrations-examples)
+
 <!-- /TOC -->
 
 ---------------------------------------------------------------------------------
