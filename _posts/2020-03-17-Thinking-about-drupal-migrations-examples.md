@@ -219,7 +219,11 @@ Output from console:
 basic_migration_one   Idle     2       2 (100%)   0            2020-03-17 23:19:36  
 ----------------- -------- ------- ---------- ------------- ------------------- 
 ```
+
+And so, going to the path /admin/content you'll see the two new nodes: 
+
 ![Drupal Basic Migration Embedded Data]({{ site.baseurl }}/images/davidjguru_drupal_migrations_basic_migration_embedded.png)
+
 
 #### Rollbacking migrations (undoing)
 
