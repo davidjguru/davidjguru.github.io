@@ -219,10 +219,11 @@ Output from console:
 basic_migration_one   Idle     2       2 (100%)   0            2020-03-17 23:19:36  
 ----------------- -------- ------- ---------- ------------- ------------------- 
 ```
+![Drupal Basic Migration Embedded Data]({{ site.baseurl }}/images/davidjguru_drupal_migrations_basic_migration_embedded.png)
 
 #### Rollbacking migrations (undoing)
 
-```bash
+```text
 drush migrate:rollback basic_migration_one
 drush mr basic_migration_one  
 
@@ -230,6 +231,9 @@ Output from console:
 
 [notice] Rolled back 2 items - done with 'basic_migration_one'
 ```
+
+![Drupal Basic Migration Commands]({{ site.baseurl }}/images/davidjguru_drupal_migrations_basic_migration_command.png)
+
 
 ### Second Case: Migrating from csv files
 
