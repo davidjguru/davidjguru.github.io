@@ -140,8 +140,8 @@ Create the new migration definition file with path: /migration_basic_module/migr
 
 In our new declarative file basic_migration_one.yml, which describes the migration as a list of parameters and values in a static YAML-type file, we will include the embedded data of two nodes for the content type "basic page" to be migrated, loading only two values: 
 
-1- A title (a text string).
-2- A body (A text based on the ChiquitoIpsum generator*, [http://www.chiquitoipsum.com](http://www.chiquitoipsum.com)).  
+1. A title (a text string).  
+2. A body (A text based on the ChiquitoIpsum generator*, [http://www.chiquitoipsum.com](http://www.chiquitoipsum.com)).  
 
 *[Chiquito de La Calzada](https://en.wikipedia.org/wiki/Chiquito_de_la_Calzada) was a national figure in the Spanish state, a legendary comedian.  
 
@@ -174,11 +174,11 @@ destination:
 And this will be the structure of the new custom module for basic migration example:
 
 ```text
-->   /project/web/modules/custom/  
-                             \__migration_basic_module/  
-                                   \__migration_basic_module.info.yml  
-                                    \__migrations/  
-                                          \__basic_migration_one.yml  
+/project/web/modules/custom/  
+                      \__migration_basic_module/  
+                            \__migration_basic_module.info.yml  
+                                  \__migrations/  
+                                      \__basic_migration_one.yml  
 ```
 
 **Enabling all the required modules using Drush:**
@@ -208,7 +208,7 @@ basic_migration_one   Idle     2       0          2
 
 #### Running migrations  
 
-```text
+```bash
 drush migrate:import basic_migration_one
 drush mi basic_migration_one  
 
@@ -216,19 +216,19 @@ Output from console:
 ----------------- -------- ------- ---------- ------------- ------------------- 
   Migration ID      Status   Total   Imported   Unprocessed  Last Imported        
 ----------------- -------- ------- ---------- ------------- ------------------- 
-  basic_migration   Idle     2       2 (100%)   0            2020-03-08 11:19:36  
+basic_migration_one   Idle     2       2 (100%)   0            2020-03-17 23:19:36  
 ----------------- -------- ------- ---------- ------------- ------------------- 
 ```
 
-## Rollbacking migrations (undoing)
+#### Rollbacking migrations (undoing)
 
-```text
+```bash
 drush migrate:rollback basic_migration_one
 drush mr basic_migration_one  
 
 Output from console: 
 
-   [notice] Rolled back 4 items - done with 'basic_migration_one'
+[notice] Rolled back 2 items - done with 'basic_migration_one'
 ```
 
 ### Second Case: Migrating from csv files
