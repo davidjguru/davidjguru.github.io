@@ -51,7 +51,30 @@ view based in the look for a tool-box, just a set of basic resources in order to
 
 ## 1- Introduction
 
+Well, for this article I had proposed to model two different migration processes,
+ under a point of view that could be summarized as **"primum vivere, deinde 
+ philosophari"** (first you experiment, then you theorize). This is why I have 
+ decided to organize it in a particular way: 
 
+* The first thing to say is that the two processes are divided into sections 
+that are common to both and instead of finishing one and starting the next one, 
+both go in parallel (you choose your own adventure). 
+
+* Then, Only at the end of this post you will find some key concepts used in 
+this article. First we gonna to play with the structures, then we'll understand
+them. 
+
+So, in the next steps, we'll working around two certain experiencies:
+
+1. Migrating Data from a embedded format (maybe the most simple example of
+Drupal migrations). 
+
+2. Migration Data from a classical CSV file format (just a little more advanced 
+than the previous example).
+
+Both of the cases are perhaps the most basic scenarios for a migration, so I 
+recommend reading this article for those who want to get started on its own 
+mechanics, as a practical complement to get into Drupal migrations.
 
 ## 2- Arrangements
 
@@ -77,7 +100,7 @@ By the way you have to say that it's important to know that migrate_run is
 optimized for Drush 9 and later. If you use Drush 8 you will have to use an 
 adapted version, [like the Alpha 4, which was still prepared for Drush 8](https://www.drupal.org/project/migrate_run/releases/8.x-1.0-alpha4 )
 
-Using Composer and Drush:
+**Using Composer and Drush:**
 ```bash
 composer require drupal/migrate_run
 drush pmu migrate_tools # If you need
@@ -85,8 +108,9 @@ drush en migrate migrate_run -y
 drush cr
 ```
 
-Using Drupal Console:
+**Using Drupal Console:**
 ```bash
+composer require drupal/migrate_run
 drupal mou migrate_tools # If you need
 drupal moi migrate migrate_run
 ```
@@ -95,7 +119,7 @@ And you will see in the path /admin/modules:
 ![Enabling Migrate and Migrate Run modules]({{ site.baseurl }}/images/davidjguru_drupal_migrations_examples_modules.png)
 
 
-### Second Case: Migrating from a database
+### Second Case: Migrating from csv files
 
 
 ## 3- Approaches
