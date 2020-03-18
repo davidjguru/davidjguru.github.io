@@ -66,10 +66,10 @@ them.
 
 So, in the next steps, we'll working around two certain experiencies:
 
-1. Migrating Data from a embedded format (maybe the most simple example of
+1. **Migrating Data from a embedded format** (maybe the most simple example of
 Drupal migrations). 
 
-2. Migration Data from a classical CSV file format (just a little more advanced 
+2. **Migration Data from a classical CSV file format** (just a little more advanced 
 than the previous example).
 
 Both of the cases are perhaps the most basic scenarios for a migration, so I 
@@ -96,7 +96,7 @@ neither migrate_plus nor migrate_tools are "hard" dependencies, that is, we can
  implement migrations without having these modules enabled in our Drupal 
  installation. 
 
-By the way you have to say that it's important to know that migrate_run is 
+By the way I have to say that it's important to know that migrate_run is 
 optimized for Drush 9 and later. If you use Drush 8 you will have to use an 
 adapted version, [like the Alpha 4, which was still prepared for Drush 8](https://www.drupal.org/project/migrate_run/releases/8.x-1.0-alpha4 )
 
@@ -118,6 +118,118 @@ And you will see in the path /admin/modules:
 
 ![Enabling Migrate and Migrate Run modules]({{ site.baseurl }}/images/davidjguru_drupal_migrations_examples_modules.png)
 
+#### Building the resources
+
+Now, we're going to create a new custom module for our Migrations: 
+```bash
+cd project/web/modules/custom
+mkdir migration_basic_module
+```
+Then, the basic info.yml file with content:
+```bash
+name: 'Migration Basic Module'
+type: module
+description: 'Just a basic example of basic migration process.'
+package: 'Migrations Examples 2000'
+core: 8.x
+dependencies:
+  - drupal:migrate
+```
+
+Create the new migration definition file with path: /migration_basic_module/migrations/basic_migration_one.yml And values:
+
+In our new declarative file basic_migration_one.yml, which describes the migration as a list of parameters and values in a static YAML-type file, we will include the embedded data of two nodes for the content type "basic page" to be migrated, loading only two values: 
+
+1- A title (a text string).
+2- A body (A text based on the ChiquitoIpsum generator*, [http://www.chiquitoipsum.com](http://www.chiquitoipsum.com)).  
+
+*[Chiquito de La Calzada](https://en.wikipedia.org/wiki/Chiquito_de_la_Calzada) was a national figure in the Spanish state, a legendary comedian.  
+
+**basic_migration_one.yml**
+
+```bash
+id: basic_migration_one
+label: 'Custom Basic Migration 2000'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      unique_id: 1
+      creative_title: 'Title for migrated node - One'
+      engaging_content: 'Lorem fistrum mamaar se calle ustée tiene musho pelo.'
+    -
+      unique_id: 2
+      creative_title: 'Title for migrated node - Two'
+      engaging_content: 'Se calle ustée caballo blanco caballo negroorl.'
+  ids:
+    unique_id:
+      type: integer
+process:
+  title: creative_title
+  body: engaging_content
+destination:
+  plugin: 'entity:node'
+  default_bundle: page
+```
+And this will be the structure of the new custom module for basic migration example:
+
+```text
+->   /project/web/modules/custom/  
+                             \__migration_basic_module/  
+                                   \__migration_basic_module.info.yml  
+                                    \__migrations/  
+                                          \__basic_migration_one.yml  
+```
+
+**Enabling all the required modules using Drush:**
+```bash
+drush pm:enable -y migrate migrate_run migration_basic_module
+drush cr
+```
+
+**Or using Drupal Console:**
+```bash
+drupal moi migrate migrate_run migration_basic_module
+```
+
+#### Getting info about the available migrations  
+
+```bash
+drush migrate:status
+drush ms
+
+Output from console:
+----------------- -------- ------- ---------- ------------- --------------------- 
+  Migration ID      Status   Total   Imported   Unprocessed   Last Imported        
+----------------- -------- ------- ---------- ------------- --------------------- 
+basic_migration_one   Idle     2       0          2               
+----------------- -------- ------- ---------- ------------- --------------------- 
+```
+
+#### Running migrations  
+
+```text
+drush migrate:import basic_migration_one
+drush mi basic_migration_one  
+
+Output from console:
+----------------- -------- ------- ---------- ------------- ------------------- 
+  Migration ID      Status   Total   Imported   Unprocessed  Last Imported        
+----------------- -------- ------- ---------- ------------- ------------------- 
+  basic_migration   Idle     2       2 (100%)   0            2020-03-08 11:19:36  
+----------------- -------- ------- ---------- ------------- ------------------- 
+```
+
+## Rollbacking migrations (undoing)
+
+```text
+drush migrate:rollback basic_migration_one
+drush mr basic_migration_one  
+
+Output from console: 
+
+   [notice] Rolled back 4 items - done with 'basic_migration_one'
+```
 
 ### Second Case: Migrating from csv files
 
