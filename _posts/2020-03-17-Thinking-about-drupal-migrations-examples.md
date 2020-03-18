@@ -98,7 +98,7 @@ neither migrate_plus nor migrate_tools are "hard" dependencies, that is, we can
 
 By the way I have to say that it's important to know that migrate_run is 
 optimized for Drush 9 and later. If you use Drush 8 you will have to use an 
-adapted version, [like the Alpha 4, which was still prepared for Drush 8](https://www.drupal.org/project/migrate_run/releases/8.x-1.0-alpha4 )
+adapted version, [like the Alpha 4, which was still prepared for Drush 8](https://www.drupal.org/project/migrate_run/releases/8.x-1.0-alpha4).
 
 **Using Composer and Drush:**
 ```bash
@@ -175,10 +175,10 @@ And this will be the structure of the new custom module for basic migration exam
 
 ```text
 /project/web/modules/custom/  
-                      \__migration_basic_module/  
-                            \__migration_basic_module.info.yml  
-                                  \__migrations/  
-                                      \__basic_migration_one.yml  
+                     \__migration_basic_module/  
+                         \__migration_basic_module.info.yml  
+                             \__migrations/  
+                                 \__basic_migration_one.yml  
 ```
 
 **Enabling all the required modules using Drush:**
