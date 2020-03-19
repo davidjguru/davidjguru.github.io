@@ -269,7 +269,44 @@ Output from console:
 **Migration Plugins**
 
 
-**Migration as code or as configuration**
+### Migration as code or as configuration
+
+As you could see, we have treated each migration process differently. The first process (Embedded Data) has been treated as part of the "code", without any further particularities.  
+ But the second process has been treated as a configuration element of the system itself, making it part of the config/install path, which will create a new configuration object from the installation. 
+ 
+ In both cases you write the migration definition in a YAML format and then you put the migration file in a place or another. But there are more differences...Let's make a little summary of these keys: 
+ 
+ * Migration "as code" is provided out of the box, but the module "Migrate Plus" 
+ allows you treating the file as a configuration entity.
+ 
+ * Depending on which approach you use, the location of the files and the 
+ workflow will differ: 
+ 
+   * As code, in order to make changes to the migration definition you'll need 
+ access to the file system and manage the migration file as a code file, 
+ something developers-oriented.  
+ 
+   * As configuration, you'll can do changes to the migration definition file 
+  using the config sync interface in Drupal, path: ```/admin/config/development/configuration```, in addition to being able to use configuration export/import 
+  tools: ```drush cex```, ```drush cim```, cause now you sync the migration (the migration file will be saved in database). This means that you can write, modify, and execute migrations using the user interface. Big surprise.   
+  
+   * As a cofiguration entity, now your migration file will be create a new 
+  configuration registry in your Drupal Config System, and keep it alive also 
+  when your migrate module will be disabled. To avoid this and delete the config, 
+  put your own custom module as a new dependency of the migration in your migration  description file.yml, so the migration will be deleted from Drupal's Active Config just in this moment:
+
+```yaml 
+  dependencies:
+    enforced:
+      module:
+        - my_own_migration_custom_module
+```
+    
+   * Another change is that now, in a config-way, your migration file needs a UUID,
+  just a global identifier for the Drupal Config Management System. Add at first
+  line an unique and custom UUID for your file, to facilitate the processing of the configuration. Remember: UUID is a string of 32 hexadecimal digits in blocks of 5 groups using the pattern: 8-4-4-4-12. Make your own! ```uuid: cacafuti-1a23-2b45-3c67-4d567890a1b2```.
+ 
+
 
 
 --------------------------------------------------------------------------------------
