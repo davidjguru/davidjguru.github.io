@@ -36,6 +36,7 @@ view based in the look for a tool-box, just a set of basic resources in order to
 [3- Approach](#3--approach)  
 [4- Migrations](#4--migrations)  
 [5- Key Concepts](#5--key-concepts)  
+[6- Resources](#6--resources)
 [7- :wq!](#wq)  
 <!-- /TOC -->  
 
@@ -120,12 +121,13 @@ And you will see in the path /admin/modules:
 
 #### Building the resources
 
-Now, we're going to create a new custom module for our Migrations: 
+Now, we're going to create a new custom module for our first Migration: 
 ```bash
 cd project/web/modules/custom
 mkdir migration_basic_module
 ```
 Then, the basic info.yml file with content:
+
 ```bash
 name: 'Migration Basic Module'
 type: module
@@ -136,9 +138,9 @@ dependencies:
   - drupal:migrate
 ```
 
-Create the new migration definition file with path: /migration_basic_module/migrations/basic_migration_one.yml And values:
+Create the new migration definition file with path: ```/migration_basic_module/migrations/basic_migration_one.yml```.
 
-In our new declarative file basic_migration_one.yml, which describes the migration as a list of parameters and values in a static YAML-type file, we will include the embedded data of two nodes for the content type "basic page" to be migrated, loading only two values: 
+In our new declarative file ```basic_migration_one.yml```, which describes the migration as a list of parameters and values in a static YAML-type file, we will include the embedded data of two nodes for the content type "basic page" to be migrated, loading only two values: 
 
 1. A title (a text string).  
 2. A body (A text based on the ChiquitoIpsum generator*, [http://www.chiquitoipsum.com](http://www.chiquitoipsum.com)).  
@@ -310,6 +312,12 @@ As you could see, we have treated each migration process differently. The first 
 
 
 --------------------------------------------------------------------------------------
+
+## 6- Resources
+
+1. Basic Migration File, [basic_migration_one.yml, available in Github as Gist](https://gist.github.com/davidjguru/8eb16d04535dbe1523bfea0f358acf0f#file-basic_migration_one-yml).
+
+1. CSV Migration File, [](). 
 
 ## :wq!
 
