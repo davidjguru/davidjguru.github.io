@@ -192,6 +192,29 @@ drush cr
 drupal moi migrate migrate_run migration_basic_module
 ```
 
+### Second Case: Migrating from csv files
+
+
+## 3- Approaches
+
+We're going to describe the different approaches that we will apply to our example cases, in order to understand them better. 
+
+### First case: Migrating embedded data
+
+In this first case, we considered making the lightest possible case of migration in Drupal: Only two nodes with two basic fields each under an embedded format: the lightest possible.  
+
+Also, in this example we are going to use for the three ETL phases of the migration (Extract, Transformation and Loading) processing plugins already provided by Drupal (we will not develop any custom plugin). If you don't know anything about the concept of Migration Plugins, please stop by for a moment and [back here to read a little introduction to the topic](https://davidjguru.github.io/blog/thinking-about-drupal-migrations-resources#4--extra-resources---contrib-modules-for-plugins).     
+
+To make things lighter, we will keep the "lite" version of Migration Tools, Migrate Run. Besides, we will only use the basic commands without any other options or complementary parameters, only with the basic argument of the migration file identifier. 
+
+
+### Second Case: Migrating from csv files
+
+## 4- Migrations
+
+
+### First case: Migrating embedded data
+
 #### Getting info about the available migrations  
 
 ```bash
@@ -224,7 +247,6 @@ And so, going to the path /admin/content you'll see the two new nodes:
 
 ![Drupal Basic Migration Embedded Data]({{ site.baseurl }}/images/davidjguru_drupal_migrations_basic_migration_embedded.png)
 
-
 #### Rollbacking migrations (undoing)
 
 ```text
@@ -242,22 +264,12 @@ Output from console:
 ### Second Case: Migrating from csv files
 
 
-## 3- Approaches
-
-
-
-
-## 4- Migrations
-
-
-
-
-
-
-
 ## 5- Key Concepts
 
+**Migration Plugins**
 
+
+**Migration as code or as configuration**
 
 
 --------------------------------------------------------------------------------------
