@@ -118,7 +118,7 @@ composer require drupal/migrate_run
 drupal mou migrate_tools # If you need
 drupal moi migrate migrate_run
 ```
-And you will see in the path /admin/modules:
+And you will see in the path ```/admin/modules```:
 
 ![Enabling Migrate and Migrate Run modules]({{ site.baseurl }}/images/davidjguru_drupal_migrations_examples_modules.png)
 
@@ -131,7 +131,7 @@ Now, we're going to create a new custom module for our first Migration:
 cd project/web/modules/custom
 mkdir migration_basic_module
 ```
-Then, the basic info.yml file with content:
+Then, the ```migration_basic_module.info.yml``` file with content:
 
 ```bash
 name: 'Migration Basic Module'
@@ -200,6 +200,62 @@ drupal moi migrate migrate_run migration_basic_module
 ```
 
 ### Second Case: Migrating from csv files
+
+For this second case we are going to deactivate migrate_run (if applicable) and activate the superset of modules: migrate, migrate_plus and migrate_tools.  Besides, for the treatment of CSV files we are going to use a Source Plugin stored in a contrib module called Migrate Source CSV [migrate_source_csv](https://www.drupal.org/project/migrate_source_csv). This contrib module in its version 3.x is using league/csv for processing CSV files. Ok, let's go. 
+So using Composer + Drush: 
+
+```bash
+composer require migrate_plus migrate_tools migrate_source_csv
+drush pmu migrate_run # If you need 
+drush en migrate migrate_plus migrate_tools migrate_source_csv -y
+drush cr
+```
+So, now in the path ```/admin/modules/```:
+
+![Enabling Migrate and Migrate Plus Migrate Tools]({{ site.baseurl }}/images/davidjguru_drupal_migrations_csv_source_modules.png)
+
+#### Building the resources
+
+We're going to create another new custom module for our second Migration: 
+
+```bash
+cd project/web/modules/custom
+mkdir migration_csv_module
+```
+With a new migration_csv_module.info.yml file: 
+
+```yaml
+name: 'Migration CSV Module'
+type: module
+description: 'Just a basic example of basic migration process with a CSV source.'
+package: 'Migrations Examples 2000'
+core: 8.x
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_tools
+  - drupal:migrate_plus
+```
+In this example we're going to require a declarative file of the migration too (as in the previous case) but with the exception that we're going to locate it in a different place. This will be placed in the  ```/migration_csv_module/config/install/``` path.
+
+The structure will look like this just now:
+
+```text
+/project/web/modules/custom/  
+                     \__migration_csv_module/  
+                         \__migration_csv_module.info.yml
+                          \__csv/
+                               \_migration_csv_articles.csv
+                           \__config/
+                                \__install/
+                                   \__migrate_plus.migration.article_csv_import.yml
+```
+
+So we need a csv with original data to migrate. It's easy to solve this using web tools like [Mockaroo, a pretty good random data generator](https://www.mockaroo.com) a pretty good random data generator. I've created a CSV file with some fields like: 
+id, title, body, tags, image. [Download it from here](https://gist.github.com/davidjguru/07c1f469a48de165b8fc53adec0398d6).
+This file will be our datasource for the Migration process. Ok, by now create the directories for the module and put the new custom CSV in the ```/csv``` path:
+ 
+ ![CSV Migrate module structure]({{ site.baseurl }}/images/davidjguru_drupal_csv_migrate_module.png)
+
 
 
 ## 3- Approaches
