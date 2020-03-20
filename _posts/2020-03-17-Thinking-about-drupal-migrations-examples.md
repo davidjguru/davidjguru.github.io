@@ -247,16 +247,62 @@ The structure will look like this just now:
                                \_migration_csv_articles.csv
                            \__config/
                                 \__install/
-                                   \__migrate_plus.migration.article_csv_import.yml
+                                     \__migrate_plus.migration.article_csv_import.yml
 ```
 
-So we need a csv with original data to migrate. It's easy to solve this using web tools like [Mockaroo, a pretty good random data generator](https://www.mockaroo.com) a pretty good random data generator. I've created a CSV file with some fields like: 
+So we need a csv with original data to migrate. It's easy to solve this using web tools like [Mockaroo, a pretty good random data generator](https://www.mockaroo.com). I've created a CSV file with some fields like: 
 id, title, body, tags, image. [Download it from here](https://gist.github.com/davidjguru/07c1f469a48de165b8fc53adec0398d6).
 This file will be our datasource for the Migration process. Ok, by now create the directories for the module and put the new custom CSV in the ```/csv``` path:
  
  ![CSV Migrate module structure]({{ site.baseurl }}/images/davidjguru_drupal_csv_migrate_module.png)
 
+And now, our ```migrate_plus.migration.article_csv_import.yml``` file (In later sections we will explain its construction and sections): 
 
+
+```yaml
+uuid: 1bcec3e7-0a49-4473-87a2-6dca09b91aba
+langcode: en
+status: true
+dependencies: {  }
+id: article_csv_import
+label: 'Migrating articles'
+source:
+  plugin: csv
+  path: modules/custom/migration_csv_module/csv/migration_csv_articles.csv
+  delimiter: ','
+  enclosure: '"'
+  header_offset: 0
+  ids:
+    - id
+  fields:
+    -
+      name: id
+      label: 'Unique Id'
+    -
+      name: title
+      label: Title
+    -
+      name: body
+      label: 'Post Body'
+    -
+      name: tags
+      label: 'Taxonomy Tag'
+    -
+      name: image
+      label: 'Image Field'
+process:
+  title: title
+  body: body
+  tags: field_tags
+  image: field_image
+  type:
+    plugin: default_value
+    default_value: article
+destination:
+  plugin: 'entity:node'
+```
+
+Okay, we now have all the resources we need to create our new migration. Now let's see how we approach the process. 
 
 ## 3- Approaches
 
@@ -273,11 +319,9 @@ To make things lighter, we will keep the "lite" version of Migration Tools, Migr
 
 ### Second Case: Migrating from csv files
 
-```bash
-composer require drupal/migrate_source_csv
-drush pmu migrate_run
-drush en migrate migrate_plus migrate_source_csv
-```
+For this execution, I would like to play with something pretty interesting...due to we'll running this second migration example as configuration, I was thinking that will be funny do the inverse road...Yes, I propose not to install (activate, drush enable) the new custom module for CSV and leave it...only as storage for the CSV file.  
+
+Let's move and run the migration from somewhere else. Surprise.  Visit the path ```/admin/config/development/configuration/single/import``` into your Drupal installation and we'll see there!. 
 
 ## 4- Migrations
 
@@ -359,7 +403,7 @@ As you could see, we have treated each migration process differently. The first 
   using the config sync interface in Drupal, path: ```/admin/config/development/configuration```, in addition to being able to use configuration export/import 
   tools: ```drush cex```, ```drush cim```, cause now you sync the migration (the migration file will be saved in database). This means that you can write, modify, and execute migrations using the user interface. Big surprise.   
   
-   * As a cofiguration entity, now your migration file will be create a new 
+   * As a configuration entity, now your migration file will be create a new 
   configuration registry in your Drupal Config System, and keep it alive also 
   when your migrate module will be disabled. To avoid this and delete the config, 
   put your own custom module as a new dependency of the migration in your migration  description file.yml, so the migration will be deleted from Drupal's Active Config just in this moment:
@@ -384,7 +428,9 @@ As you could see, we have treated each migration process differently. The first 
 
 1. Basic Migration File, [basic_migration_one.yml, available in Github as Gist](https://gist.github.com/davidjguru/8eb16d04535dbe1523bfea0f358acf0f#file-basic_migration_one-yml).
 
-1. CSV Migration File, [](). 
+1. CSV Migration File, [article_csv import.yml, available in Github as Gist](https://gist.github.com/davidjguru/90705e44ff984f6268374ea37e0db621). 
+
+1. CSV Source File with random data, [Gist in Github](https://gist.github.com/davidjguru/07c1f469a48de165b8fc53adec0398d6).
 
 ## :wq!
 
