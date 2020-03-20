@@ -26,6 +26,7 @@ view based in the look for a tool-box, just a set of basic resources in order to
  I want to write something that allows me play with migrations, maybe more 
  practical than theorical.
 
+
 --------------------------------------------------------------------------------------
 
 **Table of Contents**    
@@ -36,7 +37,7 @@ view based in the look for a tool-box, just a set of basic resources in order to
 [3- Approach](#3--approach)  
 [4- Migrations](#4--migrations)  
 [5- Key Concepts](#5--key-concepts)  
-[6- Resources](#6--resources)
+[6- Resources](#6--resources)  
 [7- :wq!](#wq)  
 <!-- /TOC -->  
 
@@ -51,6 +52,8 @@ view based in the look for a tool-box, just a set of basic resources in order to
 ------------------------------------------------------------------------------------------------
 
 ## 1- Introduction
+
+[The Drupal Migration API](https://www.drupal.org/docs/8/api/migrate-api) can be one of the most interesting, but also one of the most complex, since its activities are often related to classes and methods of other Drupal APIs (so it's especially particular when debugging). In any case, and as the amount of concepts can be overwhelming, I think we could practice migration mechanics through a couple of exercises. 
 
 Well, for this article I had proposed to model two different migration processes,
  under a point of view that could be summarized as **"primum vivere, deinde 
@@ -70,7 +73,7 @@ So, in the next steps, we'll working around two certain experiencies:
 1. **Migrating Data from a embedded format** (maybe the most simple example of
 Drupal migrations). 
 
-2. **Migration Data from a classical CSV file format** (just a little more advanced 
+2. **Migration Data from a classical CSV file format** (just a little more complex
 than the previous example).
 
 Both of the cases are perhaps the most basic scenarios for a migration, so I 
@@ -118,6 +121,8 @@ drupal moi migrate migrate_run
 And you will see in the path /admin/modules:
 
 ![Enabling Migrate and Migrate Run modules]({{ site.baseurl }}/images/davidjguru_drupal_migrations_examples_modules.png)
+
+
 
 #### Building the resources
 
@@ -211,6 +216,12 @@ To make things lighter, we will keep the "lite" version of Migration Tools, Migr
 
 
 ### Second Case: Migrating from csv files
+
+```bash
+composer require drupal/migrate_source_csv
+drush pmu migrate_run
+drush en migrate migrate_plus migrate_source_csv
+```
 
 ## 4- Migrations
 
