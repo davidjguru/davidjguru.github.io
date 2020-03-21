@@ -440,7 +440,7 @@ destination:
   default_bundle: page
 ```
 
-We're using for extract data from the source the Embedded Data Plugin, a PHP class available in ```web/core/modules/migrate/src/Plugin/migrate/source/EmbeddedDataSource.php``` where in its annotations block you can see some configuration keys that you can use in your migrate file: 
+We're using for extract data from the source the Embedded Data Plugin, a PHP class available in ```/web/core/modules/migrate/src/Plugin/migrate/source/EmbeddedDataSource.php``` where in its annotations block you can see some configuration keys that you can use in your migrate file: 
 
 ```text
  *
@@ -453,10 +453,25 @@ We're using for extract data from the source the Embedded Data Plugin, a PHP cla
 And ```data_rows``` and ```ids``` are the keys that we're using in our migration description file. [Read more about the EmbeddedDataSource class in Drupal.org API](https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21source%21EmbeddedDataSource.php/class/EmbeddedDataSource/8.8.x).   
 
 
-Now, watching the process block and looking for...where's the Processing Plugin?
+Now, watching the process block and looking for...**where's the Processing Plugin?** Well I think this might be interesting...usually, all the field mappings in a processing block requires a process plugin for each. Then, with some of "sintactic sugar", the Migrate API offers a way to reduce and simplify this: if no specific treatment is required for each field, then a single Plugin can take care of all the processing.  This "default" Plugin may also be implicit, so that in the absence of a declaration, the Drupal Migrate API will always apply the same Processing Plugin by default.   
 
+This "implicit" and by-default Plugin is the Get class and is provided as the basic solution in processing fields. You can find the Get class in the path ```/web/core/modules/migrate/src/Plugin/migrate/process/Get.php```. [Read more info about the Get.php class in Drupal.org API](https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21process%21Get.php/class/Get). So actually, what we are saying in a complementary way is that is the same thing write: 
+
+```text
+process:
+  title: page_title
+```
+as this other:
+
+```text
+process:
+  title:
+    plugin: get
+    source: page_title
+```
+And so life is a little simpler, isn't it? **Remember: in the absence of a processing plugin declaration for a field, Drupal will apply the "Get" plugin by default**. 
  
-and finally, for destination we're using the Entity General Plugin with param "node", in order to create diverse elements with node type and for bundles "page".
+Ok and finally, for destination we're using the Entity General Plugin with param "node", in order to create diverse elements with node type and for bundles "page". This calls to the  Destinatio Plugin Entity.php, abstract class in path: ```web/core/modules/migrate/src/Plugin/migrate/destination/Entity.php``` and get its own derivative Plugin. [Read more about derivative Plugins in Drupal](https://www.drupal.org/docs/8/api/plugin-api/plugin-derivatives) and [read about the Entity.php destination Plugin](https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21destination%21Entity.php/8.8.x) or [the derivative migration class](https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21Derivative%21MigrateEntity.php/class/MigrateEntity/8.8.x).  
 
 #### CSV datasource Migration
 
@@ -528,7 +543,9 @@ Download, play and test the different resources using along this post. I uploade
 
 1. CSV Source File with random data, [Gist in Github](https://gist.github.com/davidjguru/07c1f469a48de165b8fc53adec0398d6).  
 
-1. Codebase of the two migration modules (basic and csv), [Available in Github](https://github.com/davidjguru/drupal_migrations).  
+1. Codebase of the two migration modules (basic and csv), [Available in Github](https://github.com/davidjguru/drupal_migration_examples).  This will be a central repository for all the modules of this series of posts about Migrations, so get the direct link to these two examples: 
+   * [Basic Migration one with embedded data](https://github.com/davidjguru/drupal_migration_examples/tree/master/migration_basic_module).
+   * [Basic Migration two with CSV file as datasource](https://github.com/davidjguru/drupal_migration_examples/tree/master/migration_csv_module).
 
 
 ## :wq!
