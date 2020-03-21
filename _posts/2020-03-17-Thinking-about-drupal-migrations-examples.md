@@ -550,7 +550,8 @@ Download, play and test the different resources using along this post. I uploade
 1. Codebase of the two migration modules (basic and csv), [Available in Github](https://github.com/davidjguru/drupal_migration_examples).  This will be a central repository for all the modules of this series of posts about Migrations, so get the direct link to these two examples: 
    * [Basic Migration one with embedded data](https://github.com/davidjguru/drupal_migration_examples/tree/master/migration_basic_module).
    * [Basic Migration two with CSV file as datasource](https://github.com/davidjguru/drupal_migration_examples/tree/master/migration_csv_module).
-
+   
+ 1. In parallel to this series of articles I'm also publishing a series of snippets in Gitlab under the topic "Migrations", with a more simplified format, less verbose. Here you can access to the first snippet and get links to the rest of the series. [Drupal Migrations Tips (I): Creating a new basic migration structure](https://gitlab.com/snippets/1916815).  
 
 ## :wq!
 
