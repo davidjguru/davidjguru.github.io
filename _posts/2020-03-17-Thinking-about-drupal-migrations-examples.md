@@ -419,7 +419,9 @@ Thus we have migrated some 102 new nodes using two different approaches and diff
 
 ### Migration Plugins
 
-Ok, It's very important so we have to repeat one more time the same song...You must to know the Plugin Format and the diverse world of the existing Migration Plugins.
+Ok, It's very important so we have to repeat one more time the same song...You must to know the Plugin Format and the diverse world of the existing Migration Plugins. 
+
+Every Plugin points to a specific data type, a specific format or a different source. You should know the main ones very well and also investigate those you may need, since in migrations they are used extensively. Because of this, for example, we have not been able to migrate taxonomy terms or images in the second case from the CSV file as datasource. 
 
 
 ### Migration as code or as configuration
@@ -466,6 +468,8 @@ As you could see, we have treated each migration process differently. The first 
 --------------------------------------------------------------------------------------
 
 ## 6- Resources
+
+Download, play and test the different resources using along this post. I uploaded to Github ready to use. 
 
 1. Basic Migration File, [basic_migration_one.yml, available in Github as Gist](https://gist.github.com/davidjguru/8eb16d04535dbe1523bfea0f358acf0f#file-basic_migration_one-yml).  
 
