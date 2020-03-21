@@ -376,10 +376,50 @@ Output from console:
 
 ### Second Case: Migrating from csv files
 
+Well, now in the path ```/admin/config/development/configuration/single/export``` we have to import our new custom migration definition file, Ok?
+
+#### Loading the migration config data
+
+Just go to Import -> Single Item, select the configuration type as "Migration" and paste the content of the original migration file: 
+
+![Drupal Migration load File by Config]({{ site.baseurl }}/images/davidjguru_drupal_migration_load_file_by_config.png)
+
+Click The "Import" button and the new Config object will be created in the Config System. 
+
+**And now?**
+
+#### Running the migration 
+
+With the Migration file under the Config management, you can run the process with the same tools as in the former case. Now, we have available a new migration that we can run from console: ```drush migrate:status```
+
+![Drush Migrate Status]({{ site.baseurl }}/images/davidjguru_drupal_migration_ask_for_migrations.png)
+
+Now you can execute the migration with: ```drush migrate-import article_csv_import```
+And all the new nodes will be created. The limit? well, tags and image not will be migrated, cause tag is an entity reference and image is not a link, is a file, and both types must use some differents Plugins...but we'll talk about this in future posts.
+
+
+#### Drush cex / Drush cim 
+
+With the migration under the config system, now you can edit, import and export the migration using the basic resources from Drush. For example, testing ```drush cex```:
+
+![Drush Cex]({{ site.baseurl }}/images/davidjguru_drupal_migration_drush_cex.png)
+
+
+As you can see, the Config System has directly put the new migration file under the management of Migrate Plus and It has performed some actions, such as: renamed the file by placing migrate_plus.migration as a prefix in the file name or added a new file for group (only a way to group migration processes). 
+
+Remember the name of the file? It's just the same that we were using in the ```/config/install``` directory, the so-called ```migrate_plus.migration.article_csv_import.yml```.
+We've done exactly the same process, but from a different direction. Are you impressed? No? Do you find it interesting?
+
+Remember also that with this config file, you can use ```drush cim``` and load the migration in any other Drupal (with access to the CSV file as datasource, indeed).
+
+Thus we have migrated some 102 new nodes using two different approaches and different methodologies. Not bad. 
+
 
 ## 5- Key Concepts
 
-**Migration Plugins**
+### Migration Plugins
+
+Ok, It's very important so we have to repeat one more time the same song...You must to know the Plugin Format and the diverse world of the existing Migration Plugins.
 
 
 ### Migration as code or as configuration
@@ -417,7 +457,8 @@ As you could see, we have treated each migration process differently. The first 
     
    * Another change is that now, in a config-way, your migration file needs a UUID,
   just a global identifier for the Drupal Config Management System. Add at first
-  line an unique and custom UUID for your file, to facilitate the processing of the configuration. Remember: UUID is a string of 32 hexadecimal digits in blocks of 5 groups using the pattern: 8-4-4-4-12. Make your own! ```uuid: cacafuti-1a23-2b45-3c67-4d567890a1b2```.
+  line an unique and custom UUID for your file, to facilitate the processing of the configuration. Remember: UUID is a string of 32 hexadecimal digits in blocks of 5 groups using the pattern: 8-4-4-4-12. Make your own!   
+  ```uuid: cacafuti-1a23-2b45-3c67-4d567890a1b2```.
  
 
 
@@ -426,11 +467,14 @@ As you could see, we have treated each migration process differently. The first 
 
 ## 6- Resources
 
-1. Basic Migration File, [basic_migration_one.yml, available in Github as Gist](https://gist.github.com/davidjguru/8eb16d04535dbe1523bfea0f358acf0f#file-basic_migration_one-yml).
+1. Basic Migration File, [basic_migration_one.yml, available in Github as Gist](https://gist.github.com/davidjguru/8eb16d04535dbe1523bfea0f358acf0f#file-basic_migration_one-yml).  
 
-1. CSV Migration File, [article_csv import.yml, available in Github as Gist](https://gist.github.com/davidjguru/90705e44ff984f6268374ea37e0db621). 
+1. CSV Migration File, [article_csv import.yml, available in Github as Gist](https://gist.github.com/davidjguru/90705e44ff984f6268374ea37e0db621).   
 
-1. CSV Source File with random data, [Gist in Github](https://gist.github.com/davidjguru/07c1f469a48de165b8fc53adec0398d6).
+1. CSV Source File with random data, [Gist in Github](https://gist.github.com/davidjguru/07c1f469a48de165b8fc53adec0398d6).  
+
+1. Codebase of the two migration modules (basic and csv), [Available in Github](https://github.com/davidjguru/drupal_migrations).  
+
 
 ## :wq!
 
