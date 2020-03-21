@@ -475,6 +475,8 @@ Ok and finally, for destination we're using the Entity General Plugin with param
 
 #### CSV datasource Migration
 
+I think that the review of the plugins in this case could be easier and more intuitive. 
+
 ```text
 source:
   plugin: csv
@@ -487,7 +489,9 @@ source:
  destination:
    plugin: 'entity:node'
 ```
-
+For the source, the CSV Plugin, from the migrate_source_csv contrib module. 
+For processing, by default is using Get and for type the Default Value Plugin.
+For destination, the same plugin as the previous migration: new entities. 
 
 
 ### Migration as code or as configuration
