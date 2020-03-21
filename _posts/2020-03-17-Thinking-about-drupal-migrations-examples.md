@@ -162,18 +162,18 @@ source:
   data_rows:
     -
       unique_id: 1
-      creative_title: 'Title for migrated node - One'
-      engaging_content: 'Lorem fistrum mamaar se calle ustée tiene musho pelo.'
+      page_title: 'Title for migrated node - One'
+      page_content: 'Lorem fistrum mamaar se calle ustée tiene musho pelo.'
     -
       unique_id: 2
-      creative_title: 'Title for migrated node - Two'
-      engaging_content: 'Se calle ustée caballo blanco caballo negroorl.'
+      page_title: 'Title for migrated node - Two'
+      page_content: 'Se calle ustée caballo blanco caballo negroorl.'
   ids:
     unique_id:
       type: integer
 process:
-  title: creative_title
-  body: engaging_content
+  title: article_title
+  body: article_content
 destination:
   plugin: 'entity:node'
   default_bundle: page
@@ -422,6 +422,57 @@ Thus we have migrated some 102 new nodes using two different approaches and diff
 Ok, It's very important so we have to repeat one more time the same song...You must to know the Plugin Format and the diverse world of the existing Migration Plugins. 
 
 Every Plugin points to a specific data type, a specific format or a different source. You should know the main ones very well and also investigate those you may need, since in migrations they are used extensively. Because of this, for example, we have not been able to migrate taxonomy terms or images in the second case from the CSV file as datasource. 
+
+Let's see the Plugins involved in these two migrations, watching its descriptive files: 
+
+#### Basic Embedded Migration 
+
+```text
+source:
+  plugin: embedded_data
+  data_rows:
+         ...
+process:
+  title: creative_title
+  body: engaging_content
+destination:
+  plugin: 'entity:node'
+  default_bundle: page
+```
+
+We're using for extract data from the source the Embedded Data Plugin, a PHP class available in ```web/core/modules/migrate/src/Plugin/migrate/source/EmbeddedDataSource.php``` where in its annotations block you can see some configuration keys that you can use in your migrate file: 
+
+```text
+ *
+ * Available configuration keys
+ * - data_rows: The source data array.
+ * - ids: The unique ID field of the data.
+ *
+```
+
+And ```data_rows``` and ```ids``` are the keys that we're using in our migration description file. [Read more about the EmbeddedDataSource class in Drupal.org API](https://api.drupal.org/api/drupal/core%21modules%21migrate%21src%21Plugin%21migrate%21source%21EmbeddedDataSource.php/class/EmbeddedDataSource/8.8.x).   
+
+
+Now, watching the process block and looking for...where's the Processing Plugin?
+
+ 
+and finally, for destination we're using the Entity General Plugin with param "node", in order to create diverse elements with node type and for bundles "page".
+
+#### CSV datasource Migration
+
+```text
+source:
+  plugin: csv
+ ...
+ process:
+ ...
+   type:
+     plugin: default_value
+     default_value: article
+ destination:
+   plugin: 'entity:node'
+```
+
 
 
 ### Migration as code or as configuration
