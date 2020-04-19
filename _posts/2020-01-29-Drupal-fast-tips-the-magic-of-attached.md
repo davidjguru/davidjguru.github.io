@@ -22,6 +22,7 @@ Okay, but what do the two activities have in common?...
 <!-- /TOC -->
 **This article is part of a series of posts about quick Drupal Tips.  
 (Random, partial and brief -or almost-):**  
+
 [1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
 [2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
 [3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
