@@ -38,21 +38,31 @@ In this article I would like to offer a simple scheme to prepare the configurati
 
 **Ingredients:**
 
-1. xdebug (the classical extension for PHP for debugging)  
-2. PHPStorm (Well, or you opensourcered IDE)  
-3. DDEV  
+1. Xdebug (the classical extension for PHP for debugging).  
+2. PHPStorm (Well, or you opensourcered IDE).  
+3. DDEV (The containerising system Docker-based for PHP projects).  
 4. Drupal and some contrib modules (but not many, actually)  
-5. Postman or Postwoman, as you wish.  
+5. Postman or Postwoman, as you wish (for API REST testing).  
 
 
 **Recipe:**
 [Xdebug](https://xdebug.org/)
 
+[PHPSTORM]()
+
+[DDEV](https://ddev.readthedocs.io)
 **Did I already say that working with DDEV means reaching the Satori?** If you haven't read me about this topic, I recommend you get to [know the tool](https://ddev.readthedocs.io/en/stable/) or visit some of the articles I have already published, here or at my other website [https://www.therussianlullaby.com](https://www.therussianlullaby.com):
 
 * [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/).  
 * [Docker, Docker-Compose and DDEV - Cheatsheet](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
 * [Books/ Local Web development with DDEV](https://www.therussianlullaby.com/blog/books-local-web-development-with-ddev-explained/).  
+
+You need to install the Docker Engine for DDEV, so [review the installing process for DDEV](https://ddev.readthedocs.io/en/stable/#installation) and put it running in your machine. 
+
+[Drupal Modules]()
+
+[Postman](https://www.postman.com/)
+
 
 ## Xdebug on DDEV and true happiness
 With the DDEV-based Drupal installation, you will have Xdebug installed by default, just make sure you have the extension enabled in your DDEV installation's own configuration for the project, through the config.yaml file, by setting the ``xdebug_enabled`` configuration variable to true:
