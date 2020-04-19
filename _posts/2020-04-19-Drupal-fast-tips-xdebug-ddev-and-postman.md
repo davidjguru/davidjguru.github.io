@@ -13,9 +13,11 @@ sitemap: true
 |:--:|
 | *Picture from Unsplash, user [Timothy Dykes, @timothycdykes](https://unsplash.com/@timothycdykes)* |
 
-Last Friday I had to perform several code debugging to review several use cases based on the interconnections between a data bus and a Drupal installation. It has been a long time since I debugged REST and in this time, I have gone from using Drupal in a custom LAMP / Docker environment to working only and exclusively with DDEV based Drupal environments. 
+Last Friday I had to perform several code debugging to review several use cases based on the interconnections between a data bus and a Drupal installation. It has been a long time since I debugged REST and in this time, I have gone from using Drupal in a custom LAMP / Docker environment to working only and exclusively with DDEV based Drupal environments.  
 <!--more-->
-So "remodeling" at that level the work stack has made me want to take some notes, for the joy of using something as easy as DDEV for the development in a local environment.  This will be an article about configurations for testing REST queries from Postman while debugging requests from the Drupal side connecting Xdebug between PHPStorm and DDEV.  
+So "remodeling" at that level the work stack has made me want to take some notes, for the joy of using something as easy as DDEV for the development in a local environment.  
+
+This will be an article about configurations for testing REST queries from Postman while debugging requests from the Drupal side connecting Xdebug between PHPStorm and DDEV.  
 
 ---------------------------------------------------------------------------------------
 <!-- /TOC -->
@@ -35,6 +37,8 @@ So "remodeling" at that level the work stack has made me want to take some notes
 
 
 ## Xdebug on DDEV and true happiness
+
+![Enabling Xdebug in a DDEV installation for Drupal]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_config.png)
 
 
 ## Config PHPStorm
