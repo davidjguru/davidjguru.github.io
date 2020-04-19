@@ -21,6 +21,17 @@ Today I would like to play a little with the forms in Drupal 8
     8 forms, the services and the Database API, read on...
 <!--more-->
 
+---------------------------------------------------------------------------------------
+<!-- /TOC -->
+**This article is part of a series of posts about quick Drupal Tips. Random, partial and brief (or almost):**
+[1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)
+[2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)
+[3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)
+[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)
+<!-- /TOC -->
+
+------------------------------------------------------------------------------------------------
+
 ## Introduction 
 The first step is to decide what kind of forms we want to build. In Drupal 8, there are -basically- three types of forms that, in turn, are constructed from three specific classes: 
 

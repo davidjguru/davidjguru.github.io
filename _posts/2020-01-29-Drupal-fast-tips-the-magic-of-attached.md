@@ -18,6 +18,16 @@ portability to Drupal 8 of a small contrib module, the [humans.txt](https://www.
 Okay, but what do the two activities have in common?...
 <!--more-->
 
+---------------------------------------------------------------------------------------
+<!-- /TOC -->
+**This article is part of a series of posts about quick Drupal Tips. Random, partial and brief (or almost):**
+[1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)
+[2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)
+[3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)
+[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)
+<!-- /TOC -->
+
+------------------------------------------------------------------------------------------------
 
 The answer is simple: in both cases I had to make use of the #attached property, available for use in Drupal's 
 render arrays. And this made me think of a property available in the Drupal arrays that I still write about a little 

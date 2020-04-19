@@ -22,6 +22,17 @@ So keep reading if you want to know how to build links programmatically in Drupa
 Do you follow me?...
 <!--more-->
 
+---------------------------------------------------------------------------------------
+<!-- /TOC -->
+**This article is part of a series of posts about quick Drupal Tips. Random, partial and brief (or almost):**
+[1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)
+[2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)
+[3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)
+[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)
+<!-- /TOC -->
+
+------------------------------------------------------------------------------------------------
+
 ## Introduction
 In the context of the Internet, any web application has many, thousands of
  links. Knowing how to operate with links (and above all how they work) within Drupal is a fundamental tool to build projects programmatically. We know how to do it through sitebuilding...but what about code? We can start by imagining it as a small two-step process for which we will need to meet two new friends from the Drupal API. 
