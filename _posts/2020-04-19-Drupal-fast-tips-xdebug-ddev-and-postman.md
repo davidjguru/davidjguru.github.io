@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Drupal Fast Tips (IV) - Xdebug, DDEV and Postman
-permalink: /blog/xdebug-ddev-and-postman
+permalink: /blog/drupal-fast-tips-xdebug-ddev-and-postman
 published: true
 date: 2020-04-19
 author: davidjguru
