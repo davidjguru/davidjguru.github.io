@@ -34,14 +34,36 @@ This will be an article about configurations for testing REST queries from Postm
 
 ## Introduction 
 
+In this article I would like to offer a simple scheme to prepare the configuration of a sufficient test environment to test REST to Drupal connections. Just a quick recipe for the tools needed to build the test environment. 
 
+**Ingredients:**
+
+1. xdebug (the classical extension for PHP for debugging)  
+2. PHPStorm (Well, or you opensourcered IDE)  
+3. DDEV  
+4. Drupal and some contrib modules (but not many, actually)  
+5. Postman or Postwoman, as you wish.  
+
+
+**Recipe:**
+[Xdebug](https://xdebug.org/)
+
+**Did I already say that working with DDEV means reaching the Satori?** If you haven't read me about this topic, I recommend you get to [know the tool](https://ddev.readthedocs.io/en/stable/) or visit some of the articles I have already published, here or at my other website [https://www.therussianlullaby.com](https://www.therussianlullaby.com):
+
+* [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/).  
+* [Docker, Docker-Compose and DDEV - Cheatsheet](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
+* [Books/ Local Web development with DDEV](https://www.therussianlullaby.com/blog/books-local-web-development-with-ddev-explained/).  
 
 ## Xdebug on DDEV and true happiness
+With the DDEV-based Drupal installation, you will have Xdebug installed by default, just make sure you have the extension enabled in your DDEV installation's own configuration for the project, through the config.yaml file, by setting the ``xdebug_enabled`` configuration variable to true:
 
 ![Enabling Xdebug in a DDEV installation for Drupal]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_config.png)
 
+After changing this, you will only have to restart the web container to take the new value and have Xdebug available. 
+
 
 ## Config PHPStorm
+
 
 
 ## From Postman to your Drupal installation 
