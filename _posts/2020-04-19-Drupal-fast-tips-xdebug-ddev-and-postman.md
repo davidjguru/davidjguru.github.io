@@ -62,17 +62,19 @@ PHPStorm is not [OpenSource software](https://en.wikipedia.org/wiki/Open-source_
 * [Docker, Docker-Compose and DDEV - Cheatsheet](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
 * [Books/ Local Web development with DDEV](https://www.therussianlullaby.com/blog/books-local-web-development-with-ddev-explained/).  
 
-You need to install the Docker Engine for DDEV, so [review the installing process for DDEV](https://ddev.readthedocs.io/en/stable/#installation) and put it running in your machine. Or execute all the steps from the next Gist as a fast recipe:  
-{% gist 0659a2b3c9e9d92370410480c0fd99cd %}  
 
 [Drupal Module REST UI](https://www.drupal.org/project/restui)  
 Some people are using Drupal Console commands to enable REST resources in a Drupal installation, while others are using the interface.  Specifically, after [some compatibility issues with Symfony in Drupal Console for latest versions of Drupal](https://github.com/hechoendrupal/drupal-console/issues/4230#issuecomment-592991462), it may be more stable to use the interface. So install this module to enable REST resources in Drupal. 
 
 [Postman](https://www.postman.com/)  
-Another classic tool for testing API REST clients in your projects. 
+Another classic tool for testing API REST clients in your projects. You can use Postman or [Postwoman](https://github.com/liyasthomas/postwoman) as an alternative web (and opensource) to Postman. Here Postman is used as a client for testing REST services. Just [download the application](https://www.postman.com/downloads/) and install it in your system.
 
 
 ## Xdebug on DDEV and true happiness  
+
+First of all, you need to install the Docker Engine for DDEV, so [review the installing process for DDEV](https://ddev.readthedocs.io/en/stable/#installation) and put it running in your machine. Or execute all the steps from the next Gist as a fast recipe:  
+{% gist 0659a2b3c9e9d92370410480c0fd99cd %}  
+
 With the DDEV-based Drupal installation, you will have Xdebug installed by default, just make sure you have the extension enabled in your DDEV installation's own configuration for the project, through the config.yaml file, by setting the ``xdebug_enabled`` configuration variable to true:  
 
 ![Enabling Xdebug in a DDEV installation for Drupal]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_config.png)  
@@ -87,9 +89,17 @@ ddev exec disable_xdebug
 
 ## Config PHPStorm
 
+Now we're gonna enable Xdebug in our PHPStorm installation, by clicking in Edit Configuration / Run, clicking in the '+' symbol and then add a new configuration as 'PHP Web Page' and load a new Server, mapping paths between your local folder route and the internal in the DDEV web container, all summarized in the following screenshot:
+
+![XDebug in PHPStorm]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_phpstorm.png)  
+
+Now you can use Xdebug for your debugging...in a on-browser debugging scenario, you would have to install an extension [Xdebug helper for Chrome](https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc) or [Xdebug Helper for Firefox](https://addons.mozilla.org/es/firefox/addon/xdebug-helper-for-firefox/). We have already our IDE listening, but now we want to test for REST services. 
+
 
 
 ## From Postman to your Drupal installation 
+
+Well, tipically we rely on a browser extension to trigger Xdebug, ok. But now we're using Postman and this is its own scenario....We can't use browser extensions, so we'll need a key, a token wich launch the application. We're going to use a parameter adding it to the GET petitions, just use ```XDEBUG_SESSION_START=PHPSTORM```. 
 
 ![Configure Xdebug in Postman]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_postman_config.png)
 
