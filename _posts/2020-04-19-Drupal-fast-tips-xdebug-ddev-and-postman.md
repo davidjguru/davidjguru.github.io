@@ -78,5 +78,8 @@ After changing this, you will only have to restart the web container to take the
 
 ## From Postman to your Drupal installation 
 
+![Configure Xdebug in Postman]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_postman_config.png)
+
+
 
 ## :wq!
