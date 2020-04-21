@@ -6,7 +6,7 @@
 name: '@davidjguru'
 
 # Short bio or description (displayed in the header)
-description: I used to live in a room full of mirrors
+description: Personal Page of David Rodriguez, @davidjguru talking about Drupal and related stuff.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://www.drupal.org/files/styles/grid-2/public/user-pictures/picture-1024022-1493308895.png
@@ -17,9 +17,10 @@ avatar: https://www.drupal.org/files/styles/grid-2/public/user-pictures/picture-
 
 # Includes an icon in the footer for each username you enter
 footer-links:
+  web: https://www.therussianlullaby.com
   dribbble:
   email: davidjguru@gmail.com
-  facebook: yo.davidjguru
+  facebook: davidjguru
   flickr:
   github: davidjguru
   instagram: davidjguru
