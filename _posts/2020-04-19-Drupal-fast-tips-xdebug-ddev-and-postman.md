@@ -89,9 +89,21 @@ ddev exec disable_xdebug
 
 ## Config PHPStorm
 
-Now we're gonna enable Xdebug in our PHPStorm installation, by clicking in Edit Configuration / Run, clicking in the '+' symbol and then add a new configuration as 'PHP Web Page' and load a new Server, mapping paths between your local folder route and the internal in the DDEV web container, all summarized in the following screenshot:
+Now we're gonna enable Xdebug in our PHPStorm installation, by clicking in Edit Configuration / Run, clicking in the '+' symbol and then add a new configuration as 'PHP Web Page' and load a new Server, mapping paths between your local folder route and the internal in the DDEV web container, all summarized in the following screenshot. Take a fast view:  
 
 ![XDebug in PHPStorm]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_phpstorm.png)  
+
+Or if you want step-by-step, then open your PHPStorm an follow the next dots:  
+* Go to your main navigation menu
+* Go to File / Settings
+* Languages & Frameworks -> PHP 
+* Servers -> + 
+
+And configure your server connection to the DDEV web container (that will have xDebug enabled):
+
+![XDebug as Server configuration in PHPStorm]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_server_phpstorm.png)  
+
+
 
 Now you can use Xdebug for your debugging...in a on-browser debugging scenario, you would have to install an extension [Xdebug helper for Chrome](https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc) or [Xdebug Helper for Firefox](https://addons.mozilla.org/es/firefox/addon/xdebug-helper-for-firefox/). We have already our IDE listening, but now we want to test for REST services. 
 
@@ -103,6 +115,6 @@ Well, tipically we rely on a browser extension to trigger Xdebug, ok. But now we
 
 ![Configure Xdebug in Postman]({{ site.baseurl }}/images/davidjguru_drupal_fast_tips_IV_xdebug_postman_config.png)
 
-
+Now you can set your breakpoints ready to follow the flow of your code. 
 
 ## :wq!
