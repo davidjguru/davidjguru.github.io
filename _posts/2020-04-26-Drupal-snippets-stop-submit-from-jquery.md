@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Drupal Snippets (I): Stop submit from jQuery
+title: Drupal Snippets (I) - Stop submit from jQuery
 permalink: /blog/drupal-snippets-stop-submit-from-jquery
 published: true
 date: 2020-04-26
