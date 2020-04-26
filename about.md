@@ -4,8 +4,9 @@ title: /me
 permalink: /me/
 sitemap: true
 ---
-![Yeah. It's me]({{ site.baseurl }}/images/davidjguru_child_its_me_300x409.jpg) My name is David and I was born in Seville, Andalusia, many years ago. **TL;DR: ** This is my little personal site, just for fast and short content related with Drupal. You can read more extensive content on my other website [The Russian Lullaby](https://www.therussianlullaby.com) -I would like to leave this github page only for snippets and short tips-.  
-**MORE: ** My primary spoken language is Western - Andalusian, a mixed variant of Spanish (Castilian) and ancient Arabic sounds of Al-Andalus (the old name of Andalusia). 
+![Yeah. It's me]({{ site.baseurl }}/images/davidjguru_child_its_me_300x409.jpg) My name is David and I was born in Seville, Andalusia, many years ago. **TL;DR:** This is my little personal site, just for fast and short content related with Drupal. You can read more extensive articles on my other website [The Russian Lullaby](https://www.therussianlullaby.com) -I would like to leave this github page only for snippets and short tips-.  
+
+**MORE:** My primary spoken language is Western - Andalusian, a mixed variant of Spanish (Castilian) and ancient Arabic sounds of Al-Andalus (the old name of Andalusia). 
 How is this possible?...I recommend you see / enjoy this video with English subtitles to understand it better: [The keys of the memory](https://www.youtube.com/watch?v=zeUEQWhLgtg){:target="_blank"}.
 
 
