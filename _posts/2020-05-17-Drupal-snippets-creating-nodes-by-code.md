@@ -164,27 +164,26 @@ Ok, the node goes well, but I think I need load a custom path, so let's go to cr
 Okay, I got some surprises here. As I remembered, to create paths I can use some like this: 
 
 ```php
-  // \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/newsletter", "en");
+\Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/newsletter", "en");
 ```
 
-But doesn't work...why? well, seems some deprecated...
-**See:*  
+But doesn't work...why? well, seems some deprecated...  
+*See:*  
 * [Deprecate the custom path alias storage](https://www.drupal.org/project/drupal/issues/2233595).
 * ['Path aliases have been converted to revisionable entities'](https://www.drupal.org/node/3013865). 
 
 So I did it with two options: 
 
-1. Using pathauto module:  
+1. Using pathauto module: You have patterns for the content type already defined, so you can load directly the node using functions of the pathauto internal API: 
 ```php
-pathauto_entity_insert($node);
+pathauto_entity_insert($node_article);
 ```
 2. Without pathauto:  
 ```php
 $path_alias = \Drupal\path_alias\Entity\PathAlias::create([
-  'path' => '/node/' . $node->id(),
+  'path' => '/node/' . $node_article->id(),
   'alias' => '/newsletter/kplan',
   ]);
-
 $path_alias->save();
 ```
 
