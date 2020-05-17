@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Drupal Snippets (II) - Creating nodes programmatically
-permalink: /blog/drupal-snippets-creating-nodes-programatically
+title: Drupal Snippets (II) - Creating nodes by code
+permalink: /blog/drupal-snippets-creating-nodes-by-code
 published: true
 date: 2020-05-17
 author: davidjguru
@@ -57,3 +57,11 @@ Now, enabling the module by Drush using  `drush en creating_nodes` you can see i
 
 
 
+**Extra:**
+Remember that you can create nodes for testing using Drupal Console -for example- or Drush using the Devel Generate module from the [Devel family](https://www.drupal.org/project/devel). 
+Creating nodes in Drupal 8 with Drupal Console (Module Devel Generate style):
+
+```
+drupal create:nodes article --limit="6" --title-words="2" --time-range="10" --language="en"
+# It will ask about add revisions by prompt
+```
