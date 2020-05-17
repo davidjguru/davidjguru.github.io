@@ -15,6 +15,7 @@ sitemap: true
 Last week I needed to develop some functionality for a project and I did something I hadn't implemented for a long time: I had to create nodes through programming and so I realized some things that had been deprecated at this point, So I take this opportunity to publish a simple snippet about this.
 <!--more-->
 
+## Creating a custom module
 First of all I've created a new custom module to gather these snippets, called: `creating_nodes` using drupal console:
 
 ```
@@ -28,6 +29,8 @@ drupal generate:module \
 --module-file \
 --no-interaction
 ```
+
+## Creating a basic scaffolding for a node
 Well, then I've created a .install file in order to use the hook_install() for testing the node creation, just like this: 
 
 ```php
@@ -55,7 +58,7 @@ Now, enabling the module by Drush using:  `drush en creating_nodes` you can see 
 
 ![New node article just created]({{ site.baseurl }}/images/davidjguru_drupal_snippets_creating_nodes_programmatically_two.png)  
 
-
+## Creating taxonomy terms for the node
 But then I wanted some taxonomy terms, so I did:  
 
 ```php
@@ -109,7 +112,55 @@ Now, $terms is a just an array of partial objects (not the whole Entity, very he
     ],
   ]);
 ```
+## Creating an image for the node
+Following with the example case, now I have to add an image to the node. First a need an available image inside my public path for files, within my Drupal installation, so I'll put an image on my /files folder:  
 
+![Adding an image file to the node]({{ site.baseurl }}/images/davidjguru_drupal_snippets_creating_nodes_programmatically_files.png)  
+
+Existing now the referenced image, I can build a file using the resource:
+
+```php
+// Create a file.
+  $file = File::create([
+    'uid' => 1,
+    'filename' => 'drupalea.png',
+    'uri' => 'public://creating_nodes_files/drupalea.png',
+    'status' => 1,
+  ]);
+
+  // Save the file item.
+  $file->save();
+```
+
+So now my node is being well-formed: 
+
+```php
+// Building the new node.
+  $node_article = Node::create([
+    'type' => 'article',
+    'langcode' => 'en',
+    'created' => $requested_time,
+    'changed' => $requested_time,
+    'uid' => 1,
+    'title' => 'Article number one',
+    'field_tags' => $terms[1]->tid,
+    'body' => [
+      'summary' => 'Summary for the node created programmatically.',
+      'value' => "This is the body of the node <br> allows HTML tags if needed.",
+      'format' => 'full_html',
+    ],
+    'field_image' => [
+      [
+        'target_id' => $file->id(),
+        'alt' => 'Alt text for the image',
+        'title' => 'Title for the image',
+      ],
+    ],
+  ]);
+```
+Ok, the node goes well, but I think I need load a custom path, so let's go to create it.
+
+## Creating paths for the node
 
 **Extra:**
 Remember that you can create nodes for testing using Drupal Console -for example- or Drush using the Devel Generate module from the [Devel family](https://www.drupal.org/project/devel). 
