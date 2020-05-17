@@ -15,7 +15,7 @@ sitemap: true
 Last week I needed to develop some functionality for a project and I did something I hadn't implemented for a long time: I had to create nodes through programming and so I realized some things that had been deprecated at this point, So I take this opportunity to publish a simple snippet about this.
 <!--more-->
 
-First of all I've created a new custom module to gather these snippets, called `creating_nodes` using drupal console:
+First of all I've created a new custom module to gather these snippets, called: `creating_nodes` using drupal console:
 
 ```
 drupal generate:module \
@@ -51,10 +51,64 @@ function creating_nodes_install() {
 }
 ```
 
-Now, enabling the module by Drush using  `drush en creating_nodes` you can see in path `/admin/content' the new created node in your Drupal installation: 
+Now, enabling the module by Drush using:  `drush en creating_nodes` you can see in path: `/admin/content` the new created node in your Drupal installation: 
 
 ![New node article just created]({{ site.baseurl }}/images/davidjguru_drupal_snippets_creating_nodes_programmatically_two.png)  
 
+
+But then I wanted some taxonomy terms, so I did:  
+
+```php
+// Create two taxonomy terms.
+  $term_one = Term::create([
+    'vid' => 'tags',
+    'langcode' => 'en',
+    'name' => 'T_1',
+    'description' => [
+      'value' => '<p>Term number one.</p>',
+      'format' => 'full_html',
+    ],
+    'weight' => -1,
+    'parent' => [0],
+  ]);
+  $term_two = Term::create([
+    'vid' => 'tags',
+    'langcode' => 'en',
+    'name' => 'T_2',
+    'description' => [
+      'value' => '<p>Term number two.</p>',
+      'format' => 'full_html',
+    ],
+    'weight' => 1,
+    'parent' => [0],
+  ]);
+
+  // Saving the taxonomy terms.
+  $term_one->save();
+  $term_two->save();
+
+  // Get all the terms from a taxonomy.
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('tags', 0, NULL, FALSE);
+```
+Now, $terms is a just an array of partial objects (not the whole Entity, very heavy-weight for testing) based in Taxonomy Term Entity model. See [TermStorage::loadTree](https://api.drupal.org/api/drupal/core%21modules%21taxonomy%21src%21TermStorage.php/function/TermStorage%3A%3AloadTree/8.8.x). And so, I can load a term as a tag in my testing node. I will add also a text for the body: 
+
+```php
+// Building the new node.
+  $node_article = Node::create([
+    'type' => 'article',
+    'langcode' => 'en',
+    'created' => $requested_time,
+    'changed' => $requested_time,
+    'uid' => 1,
+    'title' => 'Article number one',
+    'field_tags' => $terms[1]->tid,
+    'body' => [
+      'summary' => 'Summary for the node created programmatically.',
+      'value' => "This is the body of the node <br> allows HTML tags if needed.",
+      'format' => 'full_html',
+    ],
+  ]);
+```
 
 
 **Extra:**
