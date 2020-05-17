@@ -170,6 +170,8 @@ Okay, I got some surprises here. As I remembered, to create paths I can use some
 * [Deprecate the custom path alias storage](https://www.drupal.org/project/drupal/issues/2233595).
 * ['Path aliases have been converted to revisionable entities'](https://www.drupal.org/node/3013865). 
 
+You can see this custom module example in [my Gitlab repository here](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/creating_nodes), and download with more resources from [the main repository in Gitlab](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/).
+
 **Extra:**
 Remember that you can create nodes for testing using Drupal Console -for example- or Drush using the Devel Generate module from the [Devel family](https://www.drupal.org/project/devel). 
 Creating nodes in Drupal 8 with Drupal Console (Module Devel Generate style):
@@ -178,3 +180,5 @@ Creating nodes in Drupal 8 with Drupal Console (Module Devel Generate style):
 drupal create:nodes article --limit="6" --title-words="2" --time-range="10" --language="en"
 # It will ask about add revisions by prompt
 ```
+
+## :wq! 
