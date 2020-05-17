@@ -161,6 +161,14 @@ So now my node is being well-formed:
 Ok, the node goes well, but I think I need load a custom path, so let's go to create it.
 
 ## Creating paths for the node
+Okay, I got some surprises here. As I remembered, to create paths I can use some like this: 
+
+```php
+  // \Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/newsletter", "en");
+```
+**See:*  
+* [Deprecate the custom path alias storage](https://www.drupal.org/project/drupal/issues/2233595).
+* ['Path aliases have been converted to revisionable entities'](https://www.drupal.org/node/3013865). 
 
 **Extra:**
 Remember that you can create nodes for testing using Drupal Console -for example- or Drush using the Devel Generate module from the [Devel family](https://www.drupal.org/project/devel). 
