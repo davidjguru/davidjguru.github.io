@@ -189,9 +189,62 @@ $path_alias = PathAlias::create([
   ]);
 $path_alias->save();
 ```
+## Adding a Paragraph
+
+Maybe you have some paragraphs available in your Drupal installation. You can load some paragraph in your content type and fill the values by code. 
+
+In this case we're using a simple paragraph with a text field that allows full HTML.   
+
+**First:** Creating a text for the paragraph.  
+
+```
+$text = '<h2 class="h2-my-paragraph">See the last info in this paragraph.</h2>';
+```
+**Second:** Creating a new paragraph using the type already created in your Drupal installation.
+```
+  $paragraph = Paragraph::create([
+    'type' => 'paragraph_custom',   
+    'pc_text' => [  
+      'value' => $text,                  
+      'format' => 'full_html', 
+    ],
+  ]);
+  $paragraph->save();
+```
+
+**Third:** Add the paragraph element to the main node. 
+```
+$node_article = Node::create([
+    'type' => 'article',
+    'langcode' => 'en',
+    'created' => $requested_time,
+    'changed' => $requested_time,
+    'uid' => 1,
+    'title' => 'Article number one',
+    'field_tags' => $terms[1]->tid,
+    'body' => [
+      'summary' => 'Summary for the node created programmatically.',
+      'value' => "This is the body of the node <br> allows HTML tags if needed.",
+      'format' => 'full_html',
+    ],
+    'field_image' => [
+      [
+        'target_id' => $file->id(),
+        'alt' => 'Alt text for the image',
+        'title' => 'Title for the image',
+      ],
+    ],
+    'field_paragraph' => [
+      [
+        'target_id' => $paragraph->id(),
+        'target_revision_id' => $paragraph->getRevisionId(),
+       ],
+     ],
+  ]);
+```
 
 ## Adding fields for the Content Type
-If you need add more fields to the content type by code, you can use the nex code and put it in a .install file or in a hook_update_N().  
+If you need add more fields to the content type by code, you can use the next code and put it in a .install file or in a hook_update_N().  
 
 The next snippet will add a basic text field to the Content Type "Article", creating its own tables (node__field_*, node_revision__field_*) in database:  
 
