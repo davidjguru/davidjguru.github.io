@@ -181,7 +181,6 @@ pathauto_entity_insert($node_article);
 2. Without pathauto:  
 ```php
 use Drupal\path_alias\Entity\PathAlias;
-[...]
 
 $path_alias = PathAlias::create([
   'path' => '/node/' . $node_article->id(),
@@ -190,13 +189,14 @@ $path_alias = PathAlias::create([
 $path_alias->save();
 ```
 ## Adding fields for the Content Type
-If you need add more fields to the content type by code, you can use the nex code and put it in a .install file or in a hook_update_N():
+If you need add more fields to the content type by code, you can use the nex code and put it in a .install file or in a hook_update_N().  
 
-The nex snippet will add a basic text field in the Content Type "Article", creating its own tables (node__field_*, node_revision__field_*) in database:  
+The next snippet will add a basic text field to the Content Type "Article", creating its own tables (node__field_*, node_revision__field_*) in database:  
+
 ```php
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
-[...]
+
 $field_storage = FieldStorageConfig::create([
     'field_name' => 'field_calasparra', // Using machine_name
     'entity_type' => 'node',
