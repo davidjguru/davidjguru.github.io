@@ -180,7 +180,10 @@ pathauto_entity_insert($node_article);
 ```
 2. Without pathauto:  
 ```php
-$path_alias = \Drupal\path_alias\Entity\PathAlias::create([
+use Drupal\path_alias\Entity\PathAlias;
+[...]
+
+$path_alias = PathAlias::create([
   'path' => '/node/' . $node_article->id(),
   'alias' => '/newsletter/kplan',
   ]);
