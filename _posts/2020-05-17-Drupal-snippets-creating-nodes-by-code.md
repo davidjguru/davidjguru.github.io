@@ -111,6 +111,9 @@ Now, $terms is a just an array of partial objects (not the whole Entity, very he
       'format' => 'full_html',
     ],
   ]);
+
+  // Save the node.
+  $node_article->save();
 ```
 ## Creating an image for the node
 Following with the example case, now I have to add an image to the node. First a need an available image inside my public path for files, within my Drupal installation, so I'll put an image on my /files folder:  
@@ -157,6 +160,9 @@ So now my node is being well-formed:
       ],
     ],
   ]);
+
+  // Save the node.
+  $node_article->save();
 ```
 Ok, the node goes well, but I think I need load a custom path, so let's go to create it.
 
@@ -202,6 +208,8 @@ $text = '<h2 class="h2-my-paragraph">See the last info in this paragraph.</h2>';
 ```
 **Second:** Creating a new paragraph using the type already created in your Drupal installation.
 ```
+use Drupal\paragraphs\Entity\Paragraph;
+...
   $paragraph = Paragraph::create([
     'type' => 'paragraph_custom',   
     'pc_text' => [  
@@ -214,6 +222,13 @@ $text = '<h2 class="h2-my-paragraph">See the last info in this paragraph.</h2>';
 
 **Third:** Add the paragraph element to the main node. 
 ```
+use Drupal\file\Entity\File;
+use Drupal\node\Entity\Node;
+use Drupal\path_alias\Entity\PathAlias;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\paragraphs\Entity\Paragraph;
+...
+
 $node_article = Node::create([
     'type' => 'article',
     'langcode' => 'en',
@@ -241,6 +256,9 @@ $node_article = Node::create([
        ],
      ],
   ]);
+
+  // Save the node.
+  $node_article->save();
 ```
 
 ## Adding fields for the Content Type
