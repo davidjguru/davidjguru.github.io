@@ -175,11 +175,12 @@ But doesn't work...why? well, seems some deprecated...
 So I did it with two options: 
 
 1. Using pathauto module: You have patterns for the content type already defined, so you can load directly the node using functions of the pathauto internal API: 
+
 ```php
 pathauto_entity_insert($node_article);
 ```
 2. Without pathauto:  
-```php
+```php  
 use Drupal\path_alias\Entity\PathAlias;
 
 $path_alias = PathAlias::create([
@@ -188,12 +189,13 @@ $path_alias = PathAlias::create([
   ]);
 $path_alias->save();
 ```
+
 ## Adding fields for the Content Type
 If you need add more fields to the content type by code, you can use the nex code and put it in a .install file or in a hook_update_N().  
 
 The next snippet will add a basic text field to the Content Type "Article", creating its own tables (node__field_*, node_revision__field_*) in database:  
 
-```php
+```
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 
