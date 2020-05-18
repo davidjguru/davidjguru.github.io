@@ -174,13 +174,13 @@ But doesn't work...why? well, seems some deprecated...
 
 So I did it with two options: 
 
-1. Using pathauto module: You have patterns for the content type already defined, so you can load directly the node using functions of the pathauto internal API: 
+1-Using pathauto module: You have patterns for the content type already defined, so you can load directly the node using functions of the pathauto internal API: 
 
 ```php
 pathauto_entity_insert($node_article);
 ```
-2. Without pathauto:  
-```php  
+2-Without pathauto:  
+```
 use Drupal\path_alias\Entity\PathAlias;
 
 $path_alias = PathAlias::create([
