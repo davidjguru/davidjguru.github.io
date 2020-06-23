@@ -70,4 +70,45 @@ Well, preventDefault() stops the default action of a selected element. Does not 
 
 See the documentation in [the jQuery docs](https://api.jquery.com/event.preventDefault/).
 
+Okay, but then... How do I launch the form? (we've made a form that should theoretically solve an action, right?) Well, after executing the corresponding actions you need on the form (sanitizing data, queries, settings, etc), you can submit it again by making it click using a trigger(click) event for itself, including a small boolean variable to recognize when it is on the first load and when the treatment has been solved. 
+
+```
+(function ($) {
+  'use strict';
+  $(document).ready(function() {
+    let finally_full_filled = false;
+
+  $("#register_form_submit").click(function (e) {
+        if(!finally_full_filled) {
+              e.preventDefault();
+
+            if($('#edit-managing-activities-register-name').val() != '') {
+                if( $('#warning_name').length ) {
+                    $( "#warning_name" ).remove();
+                } 
+            } else {
+                    if ($("#warning_name").length === 0) {
+                    $("#register_form_name").append('<p id="warning_name" style="color:red">Sorry but the name can\'t be empty.</p>');
+                }
+             }
+           
+            if ($('#edit-managing-activities-register-lastname').val() != '') {
+                if( $('#warning_lastname').length ) {
+                    $( "#warning_lastname" ).remove();
+                }  
+            } else { 
+                    if ($("#warning_lastname").length === 0) {
+                    $("#register_form_lastname").append('<p id="warning_lastname" style="color:red">Sorry but the lastname can\'t be empty.</p>');
+                }
+            }
+               
+            window.alert("Thanks for show your interest!.");
+            finally_full_filled = true;
+            $("#edit-submit").trigger('click');
+           }
+```
+
+So you can stop the form submit and re-launch the same submit.
+See [https://api.jquery.com/trigger/](https://api.jquery.com/trigger/) for more information. 
+
 ## :wq!
