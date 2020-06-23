@@ -22,7 +22,9 @@ The context of this post is that I was practicing with modules that at the time 
 
 In the mechanics I'm thinking, I have modifiable values in configuration files... and I also have a form based on Form API, a new Plugin for a visual block, and everything inside a new custom module. **How can I make the configuration and the code relate right at the time of installation of my module?**
 
-This can be done as Drupal when installing a module, first loads the provisioning configuration it provides and only then executes the actions that are contained in a hook_install(), so when installing we can create resources by code like creating nodes, new entities, taxonomies and from the hook_install() we can populate it with some terms. Then we'll remove the created items from hook_uninstall(), both hooks within the .install file of the module. You can see this processing within the code of the install() method from the ModuleInstaller class of Drupal:
+This can be done as Drupal when installing a module, first loads the provisioning configuration it provides and only then executes the actions that are contained in a hook_install(), so when installing we can create resources by code like creating nodes, new entities, taxonomies and from the hook_install() we can populate it with some terms. Then we'll remove the created items from hook_uninstall(), both hooks within the .install file of the module.  
+
+You can see this processing within the code of the install() method from the ModuleInstaller class of Drupal:
 [https://api.drupal.org/ModuleInstaller.php/9.0.x](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Extension%21ModuleInstaller.php/function/ModuleInstaller%3A%3Ainstall/9.0.x).  
 Where You can see first:  
 
@@ -44,9 +46,29 @@ And then:
 $this->moduleHandler
    ->invoke($module, 'install');
 ```
-So you can think of actions from hook_install() that can use configuration objects installed from your configuration files folder, all on-the-fly. 
+So you can think of actions from hook_install() that can use configuration objects installed from your configuration files folder, all on-the-fly. Ok, so I have some config files and as settings.yml I'm loading this (short version):
 
-
+**File:** managing_activities.settings.yml  
+**Path:** managing_activities/config/install/  
+```yaml
+module_name: 'managing_activities'
+region_for_block: 'sidebar_first'
+```
+Where the values are described in a schema file:
+**File:** managing_activities.schema.yml  
+**Path:** managing_activities/config/schema/  
+```yaml
+managing_activities.settings:
+  type: config_object
+  label: 'Managing Activities Settings'
+  mapping:
+    module_name:
+      type: string
+      label: 'Module Name for references in Hooks.'
+    region_for_block:
+      type: string
+      label: 'Visual Region of your current Theme.'
+```
 
 ```php
 // Getting info about the current active Theme in the Drupal Installation.
