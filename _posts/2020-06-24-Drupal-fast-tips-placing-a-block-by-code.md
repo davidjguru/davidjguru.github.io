@@ -55,6 +55,7 @@ module_name: 'managing_activities'
 region_for_block: 'sidebar_first'
 ```
 Where the values are described in a schema file:  
+
 **File:** managing_activities.schema.yml  
 **Path:** managing_activities/config/schema/  
 ```yaml
@@ -107,7 +108,7 @@ class ManagingActivitiesRegisterForm extends FormBase {
 
     $form['managing_activities_register_about'] = [
       '#type' => 'item',
-      '#markup' => $this->t('We will process your request and respond by mail as soon as possible.'),
+      '#markup' => $this->t('We will process your request.'),
       '#prefix' => '<div id="register_form_about">',
       '#sufix' => '</div>',
     ];
@@ -118,6 +119,7 @@ class ManagingActivitiesRegisterForm extends FormBase {
   }
 ```
 
+So we can get the machine name of the active Theme in our Drupal instalation using the theme.manager service [https://api.drupal.org/class/ThemeManager.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Theme%21ThemeManager.php/class/ThemeManager/8.2.x)
 ```php
 // Getting info about the current active Theme in the Drupal Installation.
   $theme_name = \Drupal::service('theme.manager')->getActiveTheme()->getName();
