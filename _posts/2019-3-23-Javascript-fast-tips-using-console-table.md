@@ -5,7 +5,7 @@ permalink: /blog/javascript-fast-tips-using-console-table
 published: true
 date: 2019-03-23
 author: davidjguru
-categories: [JavaScript]
+categories: [Drupal & JavaScript]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @denisolvr]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash.jpeg) |

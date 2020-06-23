@@ -5,7 +5,7 @@ permalink: /blog/openeuropa-the-european-commission-in-drupal-8
 published: true
 date: 2019-05-21
 author: davidjguru
-categories: [Drupal]
+categories: [Drupal Resources]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @peterlaster]({{ site.baseurl }}/images/davidjguru_drupal_8_openeuropa_from_unsplash_gargoyle.jpeg) |

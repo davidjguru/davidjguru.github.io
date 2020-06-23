@@ -5,7 +5,7 @@ permalink: /blog/Hello-World
 published: true
 date: 2017-05-10
 author: davidjguru
-categories: General
+categories: [General]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @slavab]({{ site.baseurl }}/images/davidjguru_drupal_8_hello_world.png) |

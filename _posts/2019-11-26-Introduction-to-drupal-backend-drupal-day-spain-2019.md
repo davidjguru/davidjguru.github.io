@@ -5,7 +5,7 @@ permalink: /blog/drupal-backend-workshop-in-drupal-day-spain-2019
 published: true  
 date: 2019-11-26 
 author: davidjguru
-categories: [Drupal]  
+categories: [Drupal Community]  
 sitemap: true
 ---
 | ![Picture from Unsplash, by @ryanhafey]({{ site.baseurl }}/images/davidjguru_drupal_8_drupal_day_spain_2019_zaragoza_main.jpeg) |

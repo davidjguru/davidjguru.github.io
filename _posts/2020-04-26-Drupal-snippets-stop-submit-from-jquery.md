@@ -5,7 +5,7 @@ permalink: /blog/drupal-snippets-stop-submit-from-jquery
 published: true
 date: 2020-04-26
 author: davidjguru
-categories: [Snippets]
+categories: [Drupal & JavaScript]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @jodaarba]({{ site.baseurl }}/images/davidjguru_drupal_snippets_stop_submit_jquery.jpg) |
@@ -74,7 +74,7 @@ Okay, but then... How do I launch the form? (we've made a form that should theor
 
 In the following example stopping the submission of a Drupal form, I check two fields (name and lastname) and relaunch the submit: 
 
-```
+```javascript
 (function ($) {
   'use strict';
   $(document).ready(function() {

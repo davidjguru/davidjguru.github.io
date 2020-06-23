@@ -5,7 +5,7 @@ permalink: /blog/javascript-fast-tips-stylizing-output-console-log
 published: true
 date: 2019-04-06
 author: davidjguru
-categories: [JavaScript]
+categories: [Drupal & JavaScript]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @danielwatsondesign]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash_colours.jpeg) |

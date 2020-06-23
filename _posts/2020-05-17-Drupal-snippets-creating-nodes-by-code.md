@@ -5,7 +5,7 @@ permalink: /blog/drupal-snippets-creating-nodes-by-code
 published: true
 date: 2020-05-17
 author: davidjguru
-categories: [Snippets]
+categories: [Drupal Coding]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @manuelsardo]({{ site.baseurl }}/images/davidjguru_drupal_snippets_creating_nodes_programmatically.jpg) |

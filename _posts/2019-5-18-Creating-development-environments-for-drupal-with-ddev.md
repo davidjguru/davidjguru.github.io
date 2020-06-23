@@ -5,7 +5,7 @@ permalink: /blog/creating-development-environments-for-drupal-with-ddev
 published: true
 date: 2019-05-18
 author: davidjguru
-categories: [Drupal]
+categories: [Drupal Resources]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @heapdump]({{ site.baseurl }}/images/davidjguru_drupal_8_ddev_image_from_unsplash_harddrive.jpg) |

@@ -5,7 +5,7 @@ permalink: /blog/First-steps-with-P5
 published: true
 date: 2017-06-16
 author: davidjguru
-categories: [JavaScript]
+categories: [Drupal & JavaScript]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @davideragusa]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_p5_library_steps.png) |
