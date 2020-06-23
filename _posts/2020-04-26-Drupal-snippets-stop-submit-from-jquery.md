@@ -72,6 +72,8 @@ See the documentation in [the jQuery docs](https://api.jquery.com/event.preventD
 
 Okay, but then... How do I launch the form? (we've made a form that should theoretically solve an action, right?) Well, after executing the corresponding actions you need on the form (sanitizing data, queries, settings, etc), you can submit it again by making it click using a trigger(click) event for itself, including a small boolean variable to recognize when it is on the first load and when the treatment has been solved. 
 
+In the following example stopping the submission of a Drupal form, I check two fields (name and lastname) and relaunch the submit: 
+
 ```
 (function ($) {
   'use strict';
