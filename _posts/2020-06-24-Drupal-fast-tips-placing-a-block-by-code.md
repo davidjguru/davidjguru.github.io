@@ -118,9 +118,63 @@ class ManagingActivitiesRegisterForm extends FormBase {
     
   }
 ```
+On the other hand, I have a custom Block created from code, from I can send the former Form to the render system:
 
-So we can get the machine name of the active Theme in our Drupal instalation using the theme.manager service [https://api.drupal.org/class/ThemeManager.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Theme%21ThemeManager.php/class/ThemeManager/8.2.x)
+{% gist ab6c43b02ef3b14b305c538a5175c52e %}
+
+By using the form_builder service, implemented by [the FormBuilder class](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Form%21FormBuilder.php/class/FormBuilder/8.2.x) from the container:  
+
+**File:**  ManagingActivitiesRegisterBlock.php   
+**Path:** managing_activities/src/Plugin/Block/  
+
+```php
+/**
+ * @inheritDoc
+ */
+  public function build() {
+    $form = $this->formBuilder->getForm('Drupal\managing_activities\Form\ManagingActivitiesRegisterForm');
+    return $form;
+  }
+```
+
+Also we can get the machine name of the active Theme in our Drupal installation using the theme.manager service: [https://api.drupal.org/class/ThemeManager.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Theme%21ThemeManager.php/class/ThemeManager/8.2.x).
 ```php
 // Getting info about the current active Theme in the Drupal Installation.
   $theme_name = \Drupal::service('theme.manager')->getActiveTheme()->getName();
 ```
+
+**What can I do with this key?**, well We can use it inside the hook_install() from a .install file in our custom module. 
+Thus, we can create a block with all its parameters from the configuration, activate it and load it in one of the visual regions of the active theme. 
+```php
+  // Builds a new visual block for the Register Form in the current active Theme.
+  $theme_name = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+  $region = \Drupal::config('managing_activities.settings')->get('region_for_block');
+  $values = [
+    'id' => 'managingactivitiesregisterblock',
+    'plugin' => 'managing_activities_register_block',
+    'region' => $region,
+    'settings' => [
+      'label' => 'Managing Activities Register Block',
+      'id' => 'managing_activities_register_block',
+      'provider' => 'managing_activities',
+      'label_display' => 'visible',
+    ],
+    'theme' => $theme_name,
+    'visibility' => [],
+    'weight' => -7,
+
+  ];
+
+  $block = Block::create($values);
+  $block->save();
+```
+
+And in the next installation process of your custom module (**drush en managing_activities -y**), you will be able to see the form rendered inside the new active block (you only have to worry that the visual region registered in configuration exists in your active theme):
+
+![New Block placed by code showing a Drupal Form]({{ site.baseurl }}/images/davidjguru_drupal_tips_block_by_code_second.png)   
+
+Greetings!  
+
+
+
+## :wq! 
