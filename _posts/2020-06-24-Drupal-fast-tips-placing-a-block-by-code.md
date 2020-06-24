@@ -173,6 +173,8 @@ And in the next installation process of your custom module (**drush en managing_
 
 ![New Block placed by code showing a Drupal Form]({{ site.baseurl }}/images/davidjguru_drupal_tips_block_by_code_second.png)   
 
+You can download / clone the custom module as an example from my own Drupal custom modules repository:
+[https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/managing_activities](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/managing_activities)
 Greetings!  
 
 
