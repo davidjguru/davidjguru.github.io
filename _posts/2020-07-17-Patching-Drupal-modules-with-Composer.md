@@ -12,289 +12,85 @@ sitemap: true
 |:--:|
 | *Picture from Unsplash, user [Tony Wan, @tony_wanli](https://unsplash.com/@tony_wanli)* |
 
-I was thinking about I could write my as my little monthly post in this sketchbook just when I saw a new comment coming -through email notifications- to my main website, [The Russian Lullaby](https://www.therussianlullaby.com/) in one of my last articles about migration debugging in Drupal. Specifically, the comment is a query about patching a Drupal module, since the article includes a section where the module has to be patched in order to work fine (at least earlier, for certain versions prior to the last one). So I thought I'd publish a little post about Drupal patches applied from Composer. 
+I was thinking about I could write my as my little monthly post in this sketchbook just when I saw a new comment coming -through email notifications- to my main website, [The Russian Lullaby](https://www.therussianlullaby.com/) in one of my last articles about migration debugging in Drupal. Specifically, the comment is a query about patching a Drupal module, since the article includes a section where the module has to be patched in order to work fine (at least earlier, for certain versions prior to the last one). So I thought I'd publish a little post about Drupal patches applied from Composer.  
 <!--more-->
+Two years ago, I wrote my first article about Composer and Drush for Drupal here in my medium profile: (Well, in spanish / castilian, my primary language). Since then I had also been thinking of writing about Composer in english too, but the self-imposed pace of at least one article per-month along with contributions and training (for myself) prevented me from doing so. Now is the time!  
 
-## Creating a custom module
-First of all I've created a new custom module to gather these snippets, called: `creating_nodes` using drupal console:
+## Composer for Drupal 101 
+Just now I have an debate/conversation with Matt Abrams, my Digital Ocean editor, about the use of Composer for Drupal projects. Essentially, I couldn't imagine working with Drupal now without using Composer. Well, I can imagine because sometimes I work on Drupal 8 legacy projects without being composerized platforms Ouch >< !.  
+
+[Composer](https://getcomposer.org) is a command line application built with PHP, launched in March 2012 and focused on the management of dependencies in projects based on the PHP language. It's based on previous ideas from other dependency managers already available for NodeJS (npm+ ) or Ruby (bundler+ ) and tries to bring the same concept to PHP language based environments.  
+
+Basically, dependency handlers exist to make our life easier around two concepts:  
+1. **Automation:** launching processes that work by themselves.
+2. **Standardization:** having those processes operate in the same unified way, especially in the context of the third party libraries we usually use in our projects.
+
+Ok, Composer is a dependency manager and deals with packages, libraries and resources of different types. But in addition, it is possible to interpret an initial installation as an initial unresolved dependency, so it can also be used as an initial Drupal installation tool.  
+We can say that Composer consists of two key pieces: on the one hand a command line tool to manage these dependencies and interact from the terminal console and on the other hand a repository where the packages are stored called [**Packagist.org**](https://packagist.org/).  
+
+In between, there's an element that usually connects them both: a **composer.json** file that records the needs of each project to respond as a command tool log, which relies on these annotations to request packages and dependencies from the repository. In addition to this .json file there is another file called **composer.lock**. What is the latter? It's a log file, like a notebook where Composer notes the exact version that has been installed of each library. This is Composer's way of stabilizing a project in a series of specific versions of its dependencies. Thus, any person or system that downloads the project will have the same version as the rest.  
+
+Once installed on a system, Composer allows through the use of its commands to locate, download and install the necessary dependencies with their required versions through a connection to an external repository for PHP resources called [Packagist](https://packagist.org) that we commented before and from where it extracts all the resources it needs. And for all this it relies on the file composer.json, whose minimum registration unit is the following:
 
 ```
-drupal generate:module \
---module="Creating Nodes
---machine-name="creating_nodes
---module-path="modules/custom" \
---description="Creating nodes in Drupal 8|9 programmatically" \
---core="8.x" \
---package="Workshop Drupal"
---module-file \
---no-interaction
-```
-
-## Creating a basic scaffolding for a node
-Well, then I've created a .install file in order to use the hook_install() for testing the node creation, just like this: 
-
-```php
-function creating_nodes_install() {
-
-  // Ask for the current time.
-  $requested_time = \Drupal::time()->getRequestTime();
-
- // Define basic values for the new node.
-  $node_article = Node::create([
-    'type' => 'article',
-    'langcode' => 'en',
-    'created' => $requested_time,
-    'changed' => $requested_time,
-    'uid' => 1,
-    'title' => 'Article number one',
-  ]);
-
-  // Save the node.
-  $node_article->save();
+{
+    "require": {
+        "vendor/project": "1.0.*"
+    }
 }
 ```
 
-Now, enabling the module by Drush using:  `drush en creating_nodes` you can see in path: `/admin/content` the new created node in your Drupal installation: 
 
-![New node article just created]({{ site.baseurl }}/images/davidjguru_drupal_snippets_creating_nodes_programmatically_two.png)  
 
-## Creating taxonomy terms for the node
-But then I wanted some taxonomy terms, so I did:  
+## Installing Composer 
 
-```php
-// Create two taxonomy terms.
-  $term_one = Term::create([
-    'vid' => 'tags',
-    'langcode' => 'en',
-    'name' => 'T_1',
-    'description' => [
-      'value' => '<p>Term number one.</p>',
-      'format' => 'full_html',
-    ],
-    'weight' => -1,
-    'parent' => [0],
-  ]);
-  $term_two = Term::create([
-    'vid' => 'tags',
-    'langcode' => 'en',
-    'name' => 'T_2',
-    'description' => [
-      'value' => '<p>Term number two.</p>',
-      'format' => 'full_html',
-    ],
-    'weight' => 1,
-    'parent' => [0],
-  ]);
+Something like this, and old message from a Composer installation in one of my laptops (from 2018):
+![Composer initial message]({{ site.baseurl }}/images/davidjguru_drupal_composer_2018.png)  
 
-  // Saving the taxonomy terms.
-  $term_one->save();
-  $term_two->save();
 
-  // Get all the terms from a taxonomy.
-  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('tags', 0, NULL, FALSE);
+In order to update Composer, you can run: 
 ```
-Now, $terms is a just an array of partial objects (not the whole Entity, very heavy-weight for testing) based in Taxonomy Term Entity model. See [TermStorage::loadTree](https://api.drupal.org/api/drupal/core%21modules%21taxonomy%21src%21TermStorage.php/function/TermStorage%3A%3AloadTree/8.8.x). And so, I can load a term as a tag in my testing node. I will add also a text for the body: 
-
-```php
-// Building the new node.
-  $node_article = Node::create([
-    'type' => 'article',
-    'langcode' => 'en',
-    'created' => $requested_time,
-    'changed' => $requested_time,
-    'uid' => 1,
-    'title' => 'Article number one',
-    'field_tags' => $terms[1]->tid,
-    'body' => [
-      'summary' => 'Summary for the node created programmatically.',
-      'value' => "This is the body of the node <br> allows HTML tags if needed.",
-      'format' => 'full_html',
-    ],
-  ]);
-
-  // Save the node.
-  $node_article->save();
+composer self-update
 ```
-## Creating an image for the node
-Following with the example case, now I have to add an image to the node. First a need an available image inside my public path for files, within my Drupal installation, so I'll put an image on my /files folder:  
+And it will replace the composer.phar with the latest available version: 
 
-![Adding an image file to the node]({{ site.baseurl }}/images/davidjguru_drupal_snippets_creating_nodes_programmatically_files.png)  
+![Composer message after update]({{ site.baseurl }}/images/davidjguru_drupal_composer_2020.png)  
 
-Existing now the referenced image, I can build a file using the resource:
 
-```php
-// Create a file.
-  $file = File::create([
-    'uid' => 1,
-    'filename' => 'drupalea.png',
-    'uri' => 'public://creating_nodes_files/drupalea.png',
-    'status' => 1,
-  ]);
+## Composer for patching
 
-  // Save the file item.
-  $file->save();
-```
+https://github.com/cweagans/composer-patches
 
-So now my node is being well-formed: 
-
-```php
-// Building the new node.
-  $node_article = Node::create([
-    'type' => 'article',
-    'langcode' => 'en',
-    'created' => $requested_time,
-    'changed' => $requested_time,
-    'uid' => 1,
-    'title' => 'Article number one',
-    'field_tags' => $terms[1]->tid,
-    'body' => [
-      'summary' => 'Summary for the node created programmatically.',
-      'value' => "This is the body of the node <br> allows HTML tags if needed.",
-      'format' => 'full_html',
-    ],
-    'field_image' => [
-      [
-        'target_id' => $file->id(),
-        'alt' => 'Alt text for the image',
-        'title' => 'Title for the image',
-      ],
-    ],
-  ]);
-
-  // Save the node.
-  $node_article->save();
-```
-Ok, the node goes well, but I think I need load a custom path, so let's go to create it.
-
-## Creating paths for the node
-Okay, I got some surprises here. As I remembered, to create paths I can use some like this: 
-
-```php
-\Drupal::service('path.alias_storage')->save("/node/" . $node->id(), "/newsletter", "en");
-```
-
-But doesn't work...why? well, seems some deprecated...  
-*See:*  
-* [Deprecate the custom path alias storage](https://www.drupal.org/project/drupal/issues/2233595).
-* ['Path aliases have been converted to revisionable entities'](https://www.drupal.org/node/3013865). 
-
-So I did it with two options: 
-
-1-Using pathauto module: You have patterns for the content type already defined, so you can load directly the node using functions of the pathauto internal API: 
-
-```php
-pathauto_entity_insert($node_article);
-```
-2-Without pathauto:  
-```
-use Drupal\path_alias\Entity\PathAlias;
-
-$path_alias = PathAlias::create([
-  'path' => '/node/' . $node_article->id(),
-  'alias' => '/newsletter/kplan',
-  ]);
-$path_alias->save();
-```
-## Adding a Paragraph
-
-Maybe you have some paragraphs available in your Drupal installation. You can load some paragraph in your content type and fill the values by code. 
-
-In this case we're using a simple paragraph with a text field that allows full HTML.   
-
-**First:** Creating a text for the paragraph.  
 
 ```
-$text = '<h2 class="h2-my-paragraph">See the last info in this paragraph.</h2>';
-```
-**Second:** Creating a new paragraph using the type already created in your Drupal installation.
-```
-use Drupal\paragraphs\Entity\Paragraph;
-...
-  $paragraph = Paragraph::create([
-    'type' => 'paragraph_custom',   
-    'pc_text' => [  
-      'value' => $text,                  
-      'format' => 'full_html', 
-    ],
-  ]);
-  $paragraph->save();
+"extra": {
+    "patches": {
+        "drupal/MODULE_NAME": {
+            "ANY_STRING_TO_DESCRIBE_THE_APPLYING_PATCH": "PATCH URL"
+        }
+    },
+    "enable-patching": true
+}
 ```
 
-**Third:** Add the paragraph element to the main node. 
 ```
-use Drupal\file\Entity\File;
-use Drupal\node\Entity\Node;
-use Drupal\path_alias\Entity\PathAlias;
-use Drupal\taxonomy\Entity\Term;
-use Drupal\paragraphs\Entity\Paragraph;
-...
-
-$node_article = Node::create([
-    'type' => 'article',
-    'langcode' => 'en',
-    'created' => $requested_time,
-    'changed' => $requested_time,
-    'uid' => 1,
-    'title' => 'Article number one',
-    'field_tags' => $terms[1]->tid,
-    'body' => [
-      'summary' => 'Summary for the node created programmatically.',
-      'value' => "This is the body of the node <br> allows HTML tags if needed.",
-      'format' => 'full_html',
-    ],
-    'field_image' => [
-      [
-        'target_id' => $file->id(),
-        'alt' => 'Alt text for the image',
-        'title' => 'Title for the image',
-      ],
-    ],
-    'field_paragraph' => [
-      [
-        'target_id' => $paragraph->id(),
-        'target_revision_id' => $paragraph->getRevisionId(),
-       ],
-     ],
-  ]);
-
-  // Save the node.
-  $node_article->save();
+"patches": {
+   "drupal/MODULE_NAME": {
+          "Patch name 1 Text": "Patch 1 Url", 
+          "Patch name 2 Text": "Patch 2 Url" 
+        }
+    },
 ```
 
-## Adding fields for the Content Type
-If you need add more fields to the content type by code, you can use the next code and put it in a .install file or in a hook_update_N().  
+git -C 'web/modules/contrib/config_installer' apply '-p1' '/path/to/project/patches/my_own_patch.patch'
 
-The next snippet will add a basic text field to the Content Type "Article", creating its own tables (node__field_*, node_revision__field_*) in database:  
+## Read More
 
-```
-use Drupal\field\Entity\FieldConfig;
-use Drupal\field\Entity\FieldStorageConfig;
+* Drupal 8 Composer Best Practices, from [James Sansbury, @q0rban](https://twitter.com/q0rban) in Lullabot's website: [https://www.lullabot.com/articles/drupal-8-composer-best-practices](https://www.lullabot.com/articles/drupal-8-composer-best-practices).
 
-$field_storage = FieldStorageConfig::create([
-    'field_name' => 'field_calasparra', // Using machine_name
-    'entity_type' => 'node',
-    'type' => 'text',
-  ]);
-  $field_storage->save();
+* Using packages.drupal.org as repository, from Drupal.org documentation: [https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg). 
 
-  $field = FieldConfig::create([
-    'field_name' => 'field_calasparra',
-    'entity_type' => 'node',
-    'bundle' => 'article',
-    'label' => 'Testing field creation by code', // Extended name.
-  ]);
-  $field->save();
-```
 
-You can see this custom module example in [my Gitlab repository here](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/creating_nodes), and download with more resources from [the main repository in Gitlab](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/).
 
-**Extra:**
-Remember that you can create nodes for testing using Drupal Console -for example- or Drush using the Devel Generate module from the [Devel family](https://www.drupal.org/project/devel). 
-Creating nodes in Drupal 8 with Drupal Console (Module Devel Generate style):
-
-```
-drupal create:nodes article --limit="6" --title-words="2" --time-range="10" --language="en"
-# It will ask about add revisions by prompt
-```
 
 ## :wq! 
