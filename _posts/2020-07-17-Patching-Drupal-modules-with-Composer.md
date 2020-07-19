@@ -225,7 +225,9 @@ Ok, are you sure about you composer.json file? Check if it's valid and well-form
 
 ## Composer for patching
 
-https://github.com/cweagans/composer-patches
+In addition to using Composer to install / update dependencies, you can use Composer to apply repairs in a "patch" format, applied as resources and managed by Composer through its Plugins.  
+
+In Composer, plugins are functional extensions that can be added to increase your options. You add new extensions to Composer as you add new dependencies. For example, in order to use patching, you can add the next Composer Plugin: [github.com/cweagans/composer-patches](https://github.com/cweagans/composer-patches).
 
 
 ```
@@ -266,7 +268,9 @@ $checked = $this->executeCommand(
 
 protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path, $patch_url)
 
+### Common pitfalls
 
+1. 
 
 ## Read More
 
