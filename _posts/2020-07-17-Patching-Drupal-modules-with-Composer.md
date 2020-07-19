@@ -2,7 +2,7 @@
 layout: post
 title: Patching Drupal modules with Composer
 permalink: /blog/patching-drupal-modules-with-composer
-published: false
+published: true
 date: 2020-07-17
 author: davidjguru
 categories: [Drupal Tips]
@@ -40,11 +40,63 @@ Once installed on a system, Composer allows through the use of its commands to l
 }
 ```
 
+Composer is in [its branch / version 1.10 in Github](https://github.com/composer/composer/tree/1.10) but there is a 2.x version of Composer in progress and performance tests seem to give it [an incredible improvement in RAM consumption](https://github.com/composer/composer/pull/8850#issuecomment-660306196).
 
 
 ## Installing Composer 
 
-Something like this, and old message from a Composer installation in one of my laptops (from 2018):
+In orde to use Composer & Drupal, you have two main options: You can download an install it in your Operating System or You can use it from a containerized solution with Composer installed: solutions like DDEV have already Composer in its web container and ready-to-work[1](#note-1). 
+
+But if you want to run Composer in your system, you can install the tool. In this step we're going to install some resources like curl (to download and get info from remote scripts) and git (for the section where we'll applying patching to Drupal using Composer).
+
+Follow these steps if you are in Ubuntu / Debian (my main scenarios) or adapt the instructions to your system[2](#note-2): 
+
+**1- Update, install dependencies and get the installer**
+```
+sudo apt update
+sudo apt install php-cli unzip curl git 
+cd ~
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+```
+
+**2- Review the security of the installer using the hash value**
+```
+HASH=`curl -sS https://composer.github.io/installer.sig`
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+
+```
+**3- Check the output for the installer**
+
+```
+-Output-
+Installer verified
+```
+
+Check the former output by prompt: if the output says **Installer corrupt**, then you’ll need to download the installation script again and check that you’re using the correct hash. Then repeat the verification process.
+
+**4- Install Composer globally**
+
+To install composer globally you have to use the following command which will download and install Composer as a system-wide command named composer in /usr/local/bin:
+
+```
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+```
+And get an output like this: 
+```
+- Output-
+All settings correct for using Composer
+Downloading...
+
+Composer (version 1.10.5) successfully installed to: /usr/local/bin/composer
+Use it: php /usr/local/bin/composer
+
+To test your installation, run:
+     composer
+```
+
+**5. Finally, run Composer**
+
+Ok, now just launch ```composer``` and get the initial screen of Composer by prompt. Something like this, and old message from a Composer installation in one of my laptops (from 2018):  
 ![Composer initial message]({{ site.baseurl }}/images/davidjguru_drupal_composer_2018.png)  
 
 
@@ -55,6 +107,66 @@ composer self-update
 And it will replace the composer.phar with the latest available version: 
 
 ![Composer message after update]({{ site.baseurl }}/images/davidjguru_drupal_composer_2020.png)  
+
+
+
+## Ten basics commands for Composer 
+
+In this section I have tried to gather the ten most common commands in the day-to-day working with Composer & Drupal.  
+
+### 1. composer create-project
+
+The first command will create a new project in your current location, getting the requested template from Packagist.org (downloading a composer.json file model) and then executing composer install in order to run all the dependencies annotated in the former composer.json file.  
+
+**Remember:** You always request a resource from a vendor/provider using the form: **vendor/resource:version**, although the version can be implicit or explicit (annotated or not). Let's see.
+
+So when you run something like this: 
+```
+drupal@drupal-workshop:~/workspace$ composer create-project drupal/recommended-project drusal
+```
+Composer go to Packagist, using this web interface like a proxy, connecting to: [packagist.org/packages/drupal/recommended-project](https://packagist.org/packages/drupal/recommended-project), now in 9.0.2 version (this template will install Drupal 9.0.2 in your folder). Then download the template originally in its Github repository: [github.com/drupal/recommended-project](https://github.com/drupal/recommended-project/tree/9.0.x) and it will run the composer.json included there: [github.com/drupal/recommended-project/composer.json](https://github.com/drupal/recommended-project/blob/9.0.x/composer.json).  
+
+```
+- Output-
+  - Installing drupal/core (9.0.2): Downloading (100%)         
+  - Installing drupal/core-recommended (9.0.2)
+```
+Now you have a Drupal codebase in your local system (that you need to install).  
+
+https://getcomposer.org/doc/03-cli.md#create-project
+
+
+### 2. composer show
+
+
+### 4. composer outdated
+
+
+
+### 5. composer diagnose 
+
+
+
+### 6. composer update
+
+
+
+### 7. composer self-update
+
+
+
+### 8. composer search
+
+
+
+### 9. composer clearcache
+
+
+
+### 10.
+
+
+
 
 
 ## Composer for patching
@@ -84,13 +196,42 @@ https://github.com/cweagans/composer-patches
 
 git -C 'web/modules/contrib/config_installer' apply '-p1' '/path/to/project/patches/my_own_patch.patch'
 
+
+
+
+protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path, $patch_url)
+
+```
+$checked = $this->executeCommand(
+                'git -C %s apply --check -v %s %s',
+                $install_path,
+                $patch_level,
+                $filename
+            );
+```
+
+protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path, $patch_url)
+
+
+
 ## Read More
 
-* Drupal 8 Composer Best Practices, from [James Sansbury, @q0rban](https://twitter.com/q0rban) in Lullabot's website: [https://www.lullabot.com/articles/drupal-8-composer-best-practices](https://www.lullabot.com/articles/drupal-8-composer-best-practices).
+* Drupal 8 Composer Best Practices, from [James Sansbury, @q0rban](https://twitter.com/q0rban) in Lullabot's website: [lullabot.com/drupal-8-composer-best-practices](https://www.lullabot.com/articles/drupal-8-composer-best-practices).
 
-* Using packages.drupal.org as repository, from Drupal.org documentation: [https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg). 
+* Using packages.drupal.org as repository, from Drupal.org documentation: [drupal.org/docs/using-packagesdrupalorg](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg).  
+
+* Using Composer to Install Drupal and Manage Dependencies, from Drupal.org documentation: [drupal.org/docs/using-composer-to-install-drupal-and-manage-dependencies](https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies).  
 
 
+#### <a name="note-1">1</a>.  
+Please, consider using DDEV for your local deployments.  
+* [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/).
+* [Docker, Docker-Compose and DDEV - Cheatsheet](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
+* [Books/ Local Web development with DDEV](https://www.therussianlullaby.com/blog/books-local-web-development-with-ddev-explained/).  
 
+
+#### <a name="note-2">2</a>.  
+Review the tutorial series about how to install Composer in diverse Ubuntu / Debian versions, from Digital Ocean.  
+* [How to Install and use Composer, Digital Ocean](https://www.digitalocean.com/community/tutorial_collections/how-to-install-and-use-composer).
 
 ## :wq! 
