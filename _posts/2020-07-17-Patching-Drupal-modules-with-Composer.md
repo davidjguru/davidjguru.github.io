@@ -21,14 +21,14 @@ I was thinking about I could write my as my little monthly post in this sketchbo
   
   **Table of Contents**  
   <!-- TOC -->  
-  [1- Composer for Drupal 101](##1--composer-for-drupal-101)  
-  [2- Installing Composer](##2--installing-composer)  
-  [3- Ten basics commands for Composer ](##3--ten-basics-commands-for-composer)  
-  [4- Composer for patching](##4--composer-for-patching)  
-  [5- Common Pitfalls](##5--common-pitfalls)  
-  [6- Read More](##6--read-more)  
-  [7- Notes](##7--notes)  
-  [8- :wq!](##8--wq)    
+  [1- Composer for Drupal 101](#1--composer-for-drupal-101)  
+  [2- Installing Composer](#2--installing-composer)  
+  [3- Ten basics commands for Composer ](#3--ten-basics-commands-for-composer)  
+  [4- Composer for patching](#4--composer-for-patching)  
+  [5- Common Pitfalls](#5--common-pitfalls)  
+  [6- Read More](#6--read-more)  
+  [7- Notes](#7--notes)  
+  [8- :wq!](#8--wq)    
   <!-- /TOC -->
   
   -------------------------------------------------------------------------------
