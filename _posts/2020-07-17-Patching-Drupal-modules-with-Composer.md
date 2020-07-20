@@ -202,6 +202,12 @@ Get more updated versions of resources, and is aliased as ```composer upgrade```
 
 Update Composer to its latest version.
 
+![Composer Self Update]({{ site.baseurl }}/images/davidjguru_drupal_composer_self_update.png)  
+
+
+
+(It's me updating Composer in the web container from a DDEV installation).
+
 ### 8. composer search
 
 Search for a name in the remote repository. 
@@ -229,6 +235,13 @@ In addition to using Composer to install / update dependencies, you can use Comp
 
 In Composer, plugins are functional extensions that can be added to increase your options. You add new extensions to Composer as you add new dependencies. For example, in order to use patching, you can add the next Composer Plugin: [github.com/cweagans/composer-patches](https://github.com/cweagans/composer-patches).
 
+**First**, install the patching Plugin requesting it like a new dependency:  
+
+```
+composer require cweagans/composer-patches
+```
+
+**Second**, add a new section in the ```"extra"``` section in your composer.json file, writing the new piece using the form:  
 
 ```
 "extra": {
@@ -237,18 +250,47 @@ In Composer, plugins are functional extensions that can be added to increase you
             "ANY_STRING_TO_DESCRIBE_THE_APPLYING_PATCH": "PATCH URL"
         }
     },
-    "enable-patching": true
 }
 ```
+Where "ANY_STRING_TO_DESCRIBE_THE_APPLYING_PATCH" will be the output from prompt when Composer execute the patching.  
+
+**Third** You can add many patches as you need, apply:  
 
 ```
 "patches": {
-   "drupal/MODULE_NAME": {
+   "drupal/MODULE_NAME_ONE": {
           "Patch name 1 Text": "Patch 1 Url", 
           "Patch name 2 Text": "Patch 2 Url" 
+        },
+   "drupal/MODULE_NAME_TWO": {
+          "Patch name 3 Text": "Patch 3 Url"
         }
     },
 ```
+
+**Fourth** You can put your patches in a separate file, just doing:  
+
+```
+ "extra": {
+    "patches-file": "local/path/to/my/composer.patches.json"
+  }
+```
+And then creating my own external patches file ```composer.patches.json```:
+
+```
+{
+  "patches": {
+    "drupal/MODULE_NAME_THREE": {
+      "Patch name 4 Text": "Patch 4 Url"
+    }
+  }
+}
+
+```
+
+**How it works:** Well, wen you add a new patching piece, the Composer Plugin take actions and goes to processing the patch and apply it over the named module or resource. 
+
+You can see the actions from the repository of the plugin, starting in line 373, just here [github.com/cweagans/composer-patches/#373](https://github.com/cweagans/composer-patches/blob/master/src/Plugin/Patches.php#L373). 
 
 git -C 'web/modules/contrib/config_installer' apply '-p1' '/path/to/project/patches/my_own_patch.patch'
 
@@ -270,7 +312,15 @@ protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path,
 
 ### Common pitfalls
 
-1. 
+1. Install some basic resources
+
+2. Grant permissions
+
+3. Error handling 
+
+4. Getting patches from HTTP 
+
+
 
 ## Read More
 
