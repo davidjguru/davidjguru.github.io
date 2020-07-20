@@ -16,8 +16,24 @@ I was thinking about I could write my as my little monthly post in this sketchbo
 <!--more-->
   
   Two years ago, I wrote my first article about Composer and Drush for Drupal here in my medium profile: [Composer and Drush in a Drupal context](https://medium.com/drupal-y-yo/composer-y-drush-en-el-contexto-de-drupal-9883d2cfb007) (Well, in spanish / castilian, my primary language). Since then I had also been thinking of writing about Composer in english too, but the self-imposed pace of at least one article per-month along with contributions and training (for myself) prevented me from doing so. **Now is the time!**  
+  
+  ---------------------------------------------------------------------------------
+  
+  **Table of Contents**  
+  <!-- TOC -->  
+  [1- Composer for Drupal 101](#1--composer-for-drupal-101)  
+  [2- Installing Composer](#2--installing-composer)  
+  [3- Ten basics commands for Composer ](#3--ten-basics-commands-for-composer)  
+  [4- Composer for patching](#4--composer-for-patching)  
+  [5- Common Pitfalls](#5--common-pitfalls)  
+  [6- Read More](#6--read-more)  
+  [7- Notes](#7--notes)  
+  [8- :wq!](#8--wq)    
+  <!-- /TOC -->
+  
+  -------------------------------------------------------------------------------
 
-## Composer for Drupal 101 
+##1- Composer for Drupal 101 
 Just now I have an debate/conversation with Matt Abrams, my Digital Ocean editor, about the use of Composer for Drupal projects. Essentially, I couldn't imagine working with Drupal now without using Composer. Well, I can imagine because sometimes I work on Drupal 8 legacy projects without being composerized platforms -and it's something that hurts too much- **Ouch >< !**.  
 
 [Composer](https://getcomposer.org) is a command line application built with PHP, launched in March 2012 and focused on the management of dependencies in projects based on the PHP language. It's based on previous ideas from other dependency managers already available for NodeJS (npm+ ) or Ruby (bundler+ ) and tries to bring the same concept to PHP language based environments.  
@@ -44,7 +60,7 @@ Once installed on a system, Composer allows through the use of its commands to l
 Composer is in [its branch / version 1.10 in Github](https://github.com/composer/composer/tree/1.10) but there is a 2.x version of Composer in progress and performance tests seem to give it [an incredible improvement in RAM consumption](https://github.com/composer/composer/pull/8850#issuecomment-660306196). And these are very very good news -I'm pretty sure-. 
 
 
-## Installing Composer 
+##2- Installing Composer 
 
 In orde to use Composer & Drupal, you have two main options: You can download an install it in your Operating System or You can use it from a containerized solution with Composer installed: solutions like DDEV have already Composer in its web container and ready-to-work[[1](#note-1)]. 
 
@@ -111,7 +127,7 @@ And it will replace the composer.phar with the latest available version:
 
 
 
-## Ten basics commands for Composer 
+##3- Ten basics commands for Composer 
 
 In this section I have tried to gather the ten most common commands in the day-to-day working with Composer & Drupal.  
 
@@ -185,7 +201,8 @@ green (=): Dependency is in the latest version.
 yellow (~): Dependency has a new version available, upgrade when you can but it may involve work.
 red (!): Dependency has a new version that is semver-compatible and you should upgrade it.
 ```
-(Yes, for some reason the yellow color is marking a more dangerous status than red  ¯\\_(ツ)_/¯ )  
+- Yes, for some reason the yellow color is marking a more dangerous status than red -  
+¯\\_(ツ)_/¯  
 
 
 
@@ -229,7 +246,7 @@ Ok, are you sure about you composer.json file? Check if it's valid and well-form
 )  
 
 
-## Composer for patching
+##4- Composer for patching
 
 In addition to using Composer to install / update dependencies, you can use Composer to apply repairs in a "patch" format, applied as resources and managed by Composer through its Plugins.  
 
@@ -292,12 +309,10 @@ And then creating my own external patches file ```composer.patches.json```:
 
 You can see the actions from the repository of the plugin, starting in line 373, just here [github.com/cweagans/composer-patches/#373](https://github.com/cweagans/composer-patches/blob/master/src/Plugin/Patches.php#L373). 
 
-git -C 'web/modules/contrib/config_installer' apply '-p1' '/path/to/project/patches/my_own_patch.patch'
+Here you can see the function:  
+**protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path, $patch_url)**
 
-
-
-
-protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path, $patch_url)
+Where at one point: 
 
 ```
 $checked = $this->executeCommand(
@@ -308,21 +323,107 @@ $checked = $this->executeCommand(
             );
 ```
 
-protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path, $patch_url)
+This is, in practise, like launch a git instruction like this: 
+```
+git -C 'web/modules/contrib/config_installer' apply '-p1' '/path/to/project/patches/my_own_patch.patch'
+```
+We're launching:
+ 1. A git instruction (git apply)   
+ 2. In not the current folder (-C 'path/folder' as context)  
+ 3. Removing -pN elements from the beginning (-p1, deletes '/path' in route)
+ 
+Or if git apply fails, then will launch the ```patch``` command, see [line 432](https://github.com/cweagans/composer-patches/blob/a18d1ca38ae09d16aa21846f60649d99d6775639/src/Plugin/Patches.php#L432): 
 
-### Common pitfalls
+```
+// In some rare cases, git will fail to apply a patch, fallback to using
+// the 'patch' command.
+if (!$patched) {
+  foreach ($patch_levels as $patch_level) {
+  // --no-backup-if-mismatch here is a hack that fixes some
+  // differences between how patch works on windows and unix.
+    if ($patched = $this->executeCommand(
+      "patch %s --no-backup-if-mismatch -d %s < %s",
+        $patch_level,
+        $install_path,
+        $filename
+        )
+[...]
+```
 
-1. Install some basic resources
-
-2. Grant permissions
-
-3. Error handling 
-
-4. Getting patches from HTTP 
+And all will be executed the next time you run ```composer install```.
 
 
+##5- Common pitfalls
 
-## Read More
+In this section I would like to gather some mistakes I have made / observed working with Composer and Drupal when applying patches. 
+
+###1. Install some basic resources
+Sometimes in contexts where we have not participated in their installation (external systems, already built Docker containers, etcetera), application errors occur just without feedback.  
+Simply compose runs but the resource is not patched, it stays the same.  
+
+Please, review some basic resources. For example, when using composer patching, we're doing a sequence
+
+1. Getting the remote patching file (or local from another folder). Here you're using [the copy() method from the RemoteFileSystem Class of the Composer API](https://getcomposer.org/apidoc/master/Composer/Util/RemoteFilesystem.html#method_copy).
+2. Applying the patch using git apply (or trying).
+
+So, ensure you have installed some related tools like: 
+
+```
+sudo apt install -y build-essential apt-transport-https ca-certificates jq curl software-properties-common file git
+
+```
+To download external resources from your machine, supporting https, with curl (if need) some extra resources like git. Is git installed and configured on your sistem?...
+
+
+###2. Grant permissions
+Sometimes git can't apply the patch because of a specific permission setting on the resource's destination folder where it can't write. 
+
+###3. Error handling 
+If a patch cannot be applied (due to diverse reasons) the patch will be skipped and the process continues. If you want stop the processing just after the error, then you can add one specific instruction ```composer-exit-on-patch-failure": true``` inside the ```extra``` section of the composer.json file: 
+
+```
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        },
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+          "drupal/migrate_devel": {
+          "Updates Drush for Migrate Devel Commands": "https://www.drupal.org/files/issues/2018-10-08/migrate_devel-drush9-2938677-6.patch"
+        }
+      }
+    }
+```
+
+
+
+###4. Getting patches from HTTP 
+Sometimes Composer blocks you from downloading anything from HTTP URLs, but you can disable this adding a ```secure-http``` setting parameter in the config section of composer.json.  
+```
+{
+  "config": {
+    "preferred-install": "source"
+    "secure-http": false
+  }
+}
+```
+This occurs (for example) when your patches are located in an external directory but within your corporate network, accessible from uncertified HTTP. 
+
+ 
+
+##6- Read More
 
 * **Drupal 8 Composer Best Practices**, from [James Sansbury, @q0rban](https://twitter.com/q0rban) in Lullabot's website: [lullabot.com/drupal-8-composer-best-practices](https://www.lullabot.com/articles/drupal-8-composer-best-practices).
 
@@ -330,7 +431,7 @@ protected function getAndApplyPatch(RemoteFilesystem $downloader, $install_path,
 
 * **Using Composer to Install Drupal and Manage Dependencies**, from Drupal.org documentation: [drupal.org/docs/using-composer-to-install-drupal-and-manage-dependencies](https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies).  
 
-## Notes
+##7- Notes
 
 ### <a name="note-1">1</a>.  
 Please, consider using DDEV for your local deployments.  
@@ -343,4 +444,4 @@ Please, consider using DDEV for your local deployments.
 Review the tutorial series about how to install Composer in diverse Ubuntu / Debian versions, from Digital Ocean.  
 * [How to Install and use Composer, Digital Ocean](https://www.digitalocean.com/community/tutorial_collections/how-to-install-and-use-composer).
 
-## :wq! 
+##8- :wq! 
