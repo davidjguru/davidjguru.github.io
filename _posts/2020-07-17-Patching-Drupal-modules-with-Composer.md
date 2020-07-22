@@ -57,7 +57,7 @@ Once installed on a system, Composer allows through the use of its commands to l
 }
 ```
 
-Composer is in [its branch / version 1.10 in Github](https://github.com/composer/composer/tree/1.10) but there is a 2.x version of Composer in progress and performance tests seem to give it [an incredible improvement in RAM consumption](https://github.com/composer/composer/pull/8850#issuecomment-660306196). And these are very very good news -I'm pretty sure-. 
+Composer is in [its branch / version 1.10 in Github](https://github.com/composer/composer/tree/1.10) but there is a 2.x version of Composer in progress and performance tests seem to give it [an incredible improvement in RAM consumption](https://github.com/composer/composer/pull/8850#issuecomment-660306196). And these are very very good news -I'm pretty sure-. Mike Anello [@ultimike](https://twitter.com/ultimike) has also published an article reviewing the performance of Composer 2 on his drupaleasy blog: [Composer 2.0-alpha2 performance comparison (speed and memory)](https://www.drupaleasy.com/blogs/ultimike/2020/07/composer-20-alpha2-performance-comparison-speed-and-memory). 
 
 
 ## 2- Installing Composer 
