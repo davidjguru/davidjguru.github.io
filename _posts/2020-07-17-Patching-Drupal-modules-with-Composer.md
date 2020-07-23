@@ -24,11 +24,12 @@ I was thinking about I could write my as my little monthly post in this sketchbo
   [1- Composer for Drupal 101](#1--composer-for-drupal-101)  
   [2- Installing Composer](#2--installing-composer)  
   [3- Ten +1 basics commands for Composer ](#3--ten-1-basics-commands-for-composer)  
-  [4- Composer for patching](#4--composer-for-patching)  
-  [5- Common Pitfalls](#5--common-pitfalls)  
-  [6- Read More](#6--read-more)  
-  [7- Notes](#7--notes)  
-  [8- :wq!](#8--wq)    
+  [4- Creating patches for Drupal](#4--creating-patches-for-drupal)  
+  [5- Composer for patching](#5--composer-for-patching)  
+  [6- Common Pitfalls](#6--common-pitfalls)  
+  [7- Read More](#7--read-more)  
+  [8- Notes](#8--notes)  
+  [9- :wq!](#9--wq)    
   <!-- /TOC -->
   
   -------------------------------------------------------------------------------
@@ -251,7 +252,32 @@ Ok, are you sure about you composer.json file? Check if it's valid and well-form
 )  
 
 
-## 4- Composer for patching
+### 4- Creating patches for Drupal
+
+
+```
+git diff [branch-name]
+```
+
+So, basically, a patch is just a git diff dumped into a plain text file:   
+```
+git diff [branch-name] > [file-name].patch
+```
+But when we're in a Drupal context and the module for patching is a contrib module, you have to respect some guidelines when you create the patch file, naming so:   
+```
+git diff [branch-name] > [project-name]-[short-description]-[issue-number]-[comment-number]-[drupal-version].patch
+```
+Or:  
+```
+git diff [branch-name] > [issue_title]_[issue-number]_[comment-number].patch
+```
+The last is the form I'm using in some Issues, e.g in the Drupal 8|9 migration of the Humans.txt contrib module: 
+* [https://www.drupal.org/project/humanstxt/issues/3123126](https://www.drupal.org/project/humanstxt/issues/3123126).
+* [https://www.drupal.org/project/humanstxt/issues/3107513](https://www.drupal.org/project/humanstxt/issues/3107513).
+* [https://www.drupal.org/project/humanstxt/issues/3102514](https://www.drupal.org/project/humanstxt/issues/3102514).
+
+
+## 5- Composer for patching
 
 In addition to using Composer to install / update dependencies, you can use Composer to apply repairs in a "patch" format, applied as resources and managed by Composer through its Plugins.  
 
@@ -358,7 +384,7 @@ if (!$patched) {
 And all will be executed the next time you run ```composer install```.
 
 
-## 5- Common pitfalls
+## 6- Common pitfalls
 
 In this section I would like to gather some mistakes I have made / observed working with Composer and Drupal when applying patches. 
 
@@ -428,7 +454,7 @@ This occurs (for example) when your patches are located in an external directory
 
  
 
-## 6- Read More
+## 7- Read More
 
 * **Drupal 8 Composer Best Practices**, from [James Sansbury, @q0rban](https://twitter.com/q0rban) in Lullabot's website: [lullabot.com/drupal-8-composer-best-practices](https://www.lullabot.com/articles/drupal-8-composer-best-practices).
 
@@ -436,7 +462,7 @@ This occurs (for example) when your patches are located in an external directory
 
 * **Using Composer to Install Drupal and Manage Dependencies**, from Drupal.org documentation: [drupal.org/docs/using-composer-to-install-drupal-and-manage-dependencies](https://www.drupal.org/docs/develop/using-composer/using-composer-to-install-drupal-and-manage-dependencies).  
 
-## 7- Notes
+## 8- Notes
 
 ### <a name="note-1">1</a>.  
 Please, consider using DDEV for your local deployments.  
@@ -449,4 +475,4 @@ Please, consider using DDEV for your local deployments.
 Review the tutorial series about how to install Composer in diverse Ubuntu / Debian versions, from Digital Ocean.  
 * [How to Install and use Composer, Digital Ocean](https://www.digitalocean.com/community/tutorial_collections/how-to-install-and-use-composer).
 
-## 8- :wq! 
+## 9- :wq! 
