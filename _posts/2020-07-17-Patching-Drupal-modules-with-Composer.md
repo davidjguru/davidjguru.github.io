@@ -23,7 +23,7 @@ I was thinking about I could write my as my little monthly post in this sketchbo
   <!-- TOC -->  
   [1- Composer for Drupal 101](#1--composer-for-drupal-101)  
   [2- Installing Composer](#2--installing-composer)  
-  [3- Ten basics commands for Composer ](#3--ten-basics-commands-for-composer)  
+  [3- Ten +1 basics commands for Composer ](#3--ten-1-basics-commands-for-composer)  
   [4- Composer for patching](#4--composer-for-patching)  
   [5- Common Pitfalls](#5--common-pitfalls)  
   [6- Read More](#6--read-more)  
@@ -127,7 +127,7 @@ And it will replace the composer.phar with the latest available version:
 
 
 
-## 3- Ten basics commands for Composer 
+## 3- Ten +1 basics commands for Composer 
 
 In this section I have tried to gather the ten most common commands in the day-to-day working with Composer & Drupal.  
 
@@ -234,11 +234,16 @@ Search for a name in the remote repository.
 This command will delete all the cache directories of your Composer installation. 
 
 
-### 10. compose depends
+### 10. composer depends
 
-Show the dependencies of a certain resources.
+Show wich packages depend on a certain resource.
 
-### 11. compose validate
+![Composer Depends]({{ site.baseurl }}/images/davidjguru_drupal_composer_depends.png)  
+
+
+
+
+### 11. composer validate
 
 Ok, are you sure about you composer.json file? Check if it's valid and well-formed executing this command, returning fails and format errors. Don't check line-to-line with your eyes, use validate.  
 
