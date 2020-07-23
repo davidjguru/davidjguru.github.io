@@ -252,7 +252,7 @@ Ok, are you sure about you composer.json file? Check if it's valid and well-form
 )  
 
 
-### 4- Creating patches for Drupal
+## 4- Creating patches for Drupal
 
 
 ```
