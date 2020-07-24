@@ -257,9 +257,9 @@ Ok, are you sure about you composer.json file? Check if it's valid and well-form
 For many years and against the omnipresent mechanics of Git-based graphic platforms (Github, Gitlab, Gitea, etc) with merge-requests and pull-requests, advances in Drupal have always been determined by the generation of patches.  
 This can be seen in each Issue of each module, core, theme... in each of them there is a conversational thread with code contributions in a specific format that if valid, will be added later to each project. 
 
-Every patch uploaded to a project is a version of changes on an original code file that brings changes on the current state of the file. From a version control point of view, it's a diff, a difference of some recent changes from the current state.
+Every patch uploaded to a project is a version of changes on an original code file that brings changes on the current state of the file. From a version control point of view, it's a diff, a difference of some recent changes from the current state.  
 
-And a diff is easily obtained from git like this: 
+And a diff is easily obtained from git like this:  
 ```
 cd drupal-project
 
