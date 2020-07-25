@@ -312,7 +312,7 @@ The last is the form I'm using in some Issues, e.g in the Drupal 8|9 migration o
 
 In addition to using Composer to install / update dependencies, you can use Composer to apply repairs in a "patch" format, applied as resources and managed by Composer through its Plugins.  
 
-In Composer, plugins are functional extensions that can be added to increase your options. You add new extensions to Composer as you add new dependencies. For example, in order to use patching, you can add the next Composer Plugin: [github.com/cweagans/composer-patches](https://github.com/cweagans/composer-patches).
+In Composer, plugins are functional extensions that can be added to increase your options. You add new extensions to Composer as you add new dependencies. For example, in order to use patching, you can add the next Composer Plugin: [github.com/cweagans/composer-patches](https://github.com/cweagans/composer-patches) created and maintained by [Cameron Eagans](https://www.drupal.org/u/cweagans), [@cweagans](https://twitter.com/cweagans).  
 
 **First**, install the patching Plugin requesting it like a new dependency:  
 
