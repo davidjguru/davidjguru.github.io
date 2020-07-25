@@ -23,7 +23,7 @@ I was thinking about I could write my as my little monthly post in this sketchbo
   <!-- TOC -->  
   [1- Composer for Drupal 101](#1--composer-for-drupal-101)  
   [2- Installing Composer](#2--installing-composer)  
-  [3- Ten +1 basics commands for Composer ](#3--ten-1-basics-commands-for-composer)  
+  [3- Ten +1 basic commands for Composer ](#3--ten-1-basic-commands-for-composer)  
   [4- Creating patches for Drupal](#4--creating-patches-for-drupal)  
   [5- Composer for patching](#5--composer-for-patching)  
   [6- Common Pitfalls](#6--common-pitfalls)  
@@ -128,7 +128,7 @@ And it will replace the composer.phar with the latest available version:
 
 
 
-## 3- Ten +1 basics commands for Composer 
+## 3- Ten +1 basic commands for Composer 
 
 In this section I have tried to gather the ten most common commands in the day-to-day working with Composer & Drupal.  
 
@@ -210,6 +210,28 @@ red (!): Dependency has a new version that is semver-compatible and you should u
 ### 5. composer diagnose 
 
 Check the current status of your Composer installation.
+
+When I run the ```composer diagnose``` command, I can see the values of:  
+
+```bash
+drupal@drupal-workshop:~$ composer diagnose
+Checking platform settings: OK
+Checking git settings: OK
+Checking http connectivity to packagist: OK
+Checking https connectivity to packagist: OK
+Checking github.com rate limit: OK
+Checking disk free space: OK
+Checking pubkeys: 
+Tags Public Key Fingerprint: [...]
+Dev Public Key Fingerprint: [...]
+OK
+Checking composer version: OK
+Composer version: 1.10.9
+PHP version: 7.3.20
+PHP binary path: /usr/bin/php7.3
+OpenSSL version: OpenSSL 1.1.1g  21 Apr 2020
+drupal@drupal-workshop:~$ 
+```
 
 ### 6. composer update
 
@@ -367,10 +389,14 @@ This is, in practise, like launch a git instruction like this:
 ```
 git -C 'web/modules/contrib/config_installer' apply '-p1' '/path/to/project/patches/my_own_patch.patch'
 ```
-We're launching:
- 1. A git instruction (git apply)   
- 2. In not the current folder (-C 'path/folder' as context)  
- 3. Removing -pN elements from the beginning (-p1, deletes '/path' in route)
+
+But there is another key in the instruction, the use of the option ```--check``` for Git. This option prevents the application of the patch if it detects errors in advance, so your patch may not be finally applied (this is especially important for patches created locally and managed from another folder, more prone to failure).  
+
+Ok, reviewing -> we're launching:
+ 1. An initial check, testing if the patch doesn't apply.
+ 2. A git instruction (git apply)   
+ 3. But not in the current folder (-C 'path/folder' as context)  
+ 4. Removing -pN elements from the beginning (-p1, deletes '/path' in route)
  
 Or if git apply fails, then will launch the ```patch``` command, see [line 432](https://github.com/cweagans/composer-patches/blob/a18d1ca38ae09d16aa21846f60649d99d6775639/src/Plugin/Patches.php#L432): 
 
@@ -401,7 +427,9 @@ In this section I would like to gather some mistakes I have made / observed work
 Sometimes in contexts where we have not participated in their installation (external systems, already built Docker containers, etcetera), application errors occur just without feedback.  
 Simply compose runs but the resource is not patched, it stays the same.  
 
-Please, review some basic resources. For example, when using composer patching, we're doing a sequence
+In order to avoid this fail, Is important run the command ```composer diagnose```: this instruction review all the required resources, versions and current status of each, giving you a detailed feedback from your prompt (See the example in the former section [3- Ten + 1 basic commands for Composer / Composer Diagnose](#5-composer-diagnose)).  
+
+Please, after the feedback from ```composer diagnose```, review some basic resources. For example, when using composer patching, we're doing a sequence
 
 1. Getting the remote patching file (or local from another folder). Here you're using [the copy() method from the RemoteFileSystem Class of the Composer API](https://getcomposer.org/apidoc/master/Composer/Util/RemoteFilesystem.html#method_copy).
 2. Applying the patch using git apply (or trying).
