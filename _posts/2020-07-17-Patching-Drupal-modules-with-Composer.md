@@ -331,7 +331,13 @@ composer require cweagans/composer-patches
     },
 }
 ```
+
 Where "ANY_STRING_TO_DESCRIBE_THE_APPLYING_PATCH" will be the output from prompt when Composer execute the patching.  
+
+
+![Composer adding patches]({{ site.baseurl }}/images/davidjguru_drupal_migrations_debugging_three.png)  
+
+
 
 **Third** You can add many patches as you need, apply:  
 
