@@ -512,6 +512,7 @@ Please, consider using DDEV for your local deployments.
 * [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/).
 * [Docker, Docker-Compose and DDEV - Cheatsheet](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
 * [Books/ Local Web development with DDEV](https://www.therussianlullaby.com/blog/books-local-web-development-with-ddev-explained/).  
+* [Awesome DDEV, the Drud index of content DDEV-Related](https://github.com/drud/awesome-ddev).  
 
 
 ### <a name="note-2">2</a>.  
