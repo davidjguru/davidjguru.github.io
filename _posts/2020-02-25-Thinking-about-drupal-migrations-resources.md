@@ -5,7 +5,7 @@ permalink: /blog/thinking-about-drupal-migrations-resources
 published: true
 date: 2020-02-25
 author: davidjguru
-categories: [Drupal Migrations]
+categories: [Drupal & Migrations]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @inmasantiago]({{ site.baseurl

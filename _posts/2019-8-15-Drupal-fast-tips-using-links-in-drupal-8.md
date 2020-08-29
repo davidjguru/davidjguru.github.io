@@ -5,7 +5,7 @@ permalink: /blog/drupal-fast-tips-using-links-in-drupal-8
 published: true
 date: 2019-08-15
 author: davidjguru
-categories: [Drupal Coding]
+categories: [Drupal & Coding]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @osmanrana]({{ site.baseurl }}/images/davidjguru_drupal_8_using_links_from_unsplash_1.jpeg) |

@@ -5,7 +5,7 @@ permalink: /blog/drupal-sevilla-a-group-is-moving
 published: true
 date: 2017-06-30
 author: davidjguru
-categories: [Drupal Community]
+categories: [Drupal & Community]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @tegan]({{ site.baseurl }}/images/davidjguru_drupal_8_drupal_sevilla_moving_group.png) |

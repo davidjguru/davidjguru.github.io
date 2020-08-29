@@ -5,7 +5,7 @@ permalink: /blog/random-commands-for-your-daily-life-with-drupal
 published: true  
 date: 2019-10-30 
 author: davidjguru
-categories: [Drupal Commands]  
+categories: [Drupal & Commands]  
 sitemap: true
 ---
 | ![Picture from Unsplash, by @jamie452]({{ site.baseurl }}/images/davidjguru_drupal_8_random_comands_for_your_daily_life_with_drupal.jpeg) |

@@ -5,12 +5,12 @@ permalink: /blog/the-untold-story-of-php-arrays
 published: false
 date: 2020-08-15
 author: davidjguru
-categories: [Drupal Coding]
+categories: [Drupal & Coding]
 sitemap: true
 ---
-| ![Picture from Unsplash, by @tony_wanli]({{ site.baseurl }}/images/davidjguru_drupal_8_patching_drupal_modules_with_composer_main.png) |
+| ![Picture from Unsplash, by @nathantrampe]({{ site.baseurl }}/images/davidjguru_drupal_untold_stories_of_php_arrays.jpg) |
 |:--:|
-| *Picture from Unsplash, user [Tony Wan, @tony_wanli](https://unsplash.com/@tony_wanli)* |
+| *Picture from Unsplash, user [Nathan Trampe, @nathantrampe](https://unsplash.com/@nathantrampe)* |
 
 I was thinking about I could write my as my little monthly post in this sketchbook just when I saw a new comment coming -through email notifications- to my main website, [The Russian Lullaby](https://www.therussianlullaby.com/) in one of my last articles about migration debugging in Drupal. Specifically, the comment is a query about patching a Drupal module, since the article includes a section where the module has to be patched in order to work fine (at least earlier, for certain versions prior to the last one). So I thought I'd publish a little post about Drupal patches applied from Composer.  
 <!--more-->

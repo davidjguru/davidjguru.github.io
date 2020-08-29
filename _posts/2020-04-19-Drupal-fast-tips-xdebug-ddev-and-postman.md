@@ -5,7 +5,7 @@ permalink: /blog/drupal-fast-tips-xdebug-ddev-and-postman
 published: true
 date: 2020-04-19
 author: davidjguru
-categories: [Drupal Tips]
+categories: [Drupal & Tips]
 sitemap: true
 ---
 

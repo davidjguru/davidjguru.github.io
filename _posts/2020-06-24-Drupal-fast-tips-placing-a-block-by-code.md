@@ -5,7 +5,7 @@ permalink: /blog/drupal-fast-tips-placing-a-block-by-code
 published: true
 date: 2020-06-24
 author: davidjguru
-categories: [Drupal Coding]
+categories: [Drupal & Coding]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @xavi_cabrera]({{ site.baseurl }}/images/davidjguru_drupal_placing_a_block_by_code_main_1.jpg) |

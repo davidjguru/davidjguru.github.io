@@ -5,7 +5,7 @@ permalink: /blog/containers-docker-docker-compose-ddev-cheatsheet
 published: true
 date: 2019-06-09
 author: davidjguru
-categories: [Drupal Resources]
+categories: [Drupal & DevOps]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @markusspiske]({{ site.baseurl }}/images/davidjguru_docker_docker_compose_ddev_tools_1.jpg) |

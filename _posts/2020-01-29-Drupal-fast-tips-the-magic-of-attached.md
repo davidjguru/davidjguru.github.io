@@ -5,7 +5,7 @@ permalink: /blog/drupal-fast-tips-the-magic-of-attached
 published: true
 date: 2020-01-29
 author: davidjguru
-categories: [Drupal Coding]
+categories: [Drupal & Coding]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @gaspanik]({{ site.baseurl }}/images/davidjguru_drupal_8_magik_of_attached_1.jpg) |

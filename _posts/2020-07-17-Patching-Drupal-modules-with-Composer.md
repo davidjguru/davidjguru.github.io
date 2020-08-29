@@ -5,7 +5,7 @@ permalink: /blog/patching-drupal-modules-with-composer
 published: true
 date: 2020-07-17
 author: davidjguru
-categories: [Drupal Tips]
+categories: [Drupal & Tips]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @tony_wanli]({{ site.baseurl }}/images/davidjguru_drupal_8_patching_drupal_modules_with_composer_main.png) |
