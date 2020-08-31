@@ -233,10 +233,52 @@ So first, we'll create a new Terraform file, called as my project: "new-drupal-d
 ```bash
 vim new-drupal-droplet.tf  
 ```
+And we will start by defining the first block: resource. Here we can describre the characteristics of my new droplet, using some basic data as the image / OS for the system, the name of the droplet and the size. For this last data ("s-1vcpu-1gb"), we're using the parameters defining by Digital Ocean in its own documentation.  
+```
+resource "digitalocean_droplet" "new-drupal-droplet" {
+    image = "ubuntu-20-04-x64"
+    name = "new-drupal-droplet"
+    region = "nyc1"
+    size = "s-1vcpu-1gb"
+    private_networking = true
+    ssh_keys = [
+      data.digitalocean_ssh_key.davidjguru.id
+    ]
+```
+You can see the most common slugs for definition of size in resources in this zone of the Digital Ocean API documentation, here: [developers.digitalocean.com/new-size-slugs-for-droplet-plan-changes](https://developers.digitalocean.com/documentation/changelog/api-v2/new-size-slugs-for-droplet-plan-changes/).  
 
-You can see the most common slugs for definition of resources in this zone of the Digital Ocean API documentation, here: [developers.digitalocean.com/new-size-slugs-for-droplet-plan-changes](https://developers.digitalocean.com/documentation/changelog/api-v2/new-size-slugs-for-droplet-plan-changes/).  
+The next step inside the resource definition (the former block wasn't closed) is to define the connection to the new droplet: 
 
-Launching from console the next instruction: 
+```
+connection {
+   host = self.ipv4_address
+   user = "root"
+   type = "ssh"
+   private_key = file(var.pvt_key)
+   timeout = "2m"
+  }
+
+```
+As you can see, both in the first and the second description blocks we are not using specific data as keys or tokens. We're using variables, doing transparent all the management of values and avoiding the hardcoding of personal sensible information. So our files can travel by VCS and be executed by more people without exposing personal data.  
+
+For the third block, we're going to use the provisioner "remote-exec", a set of instructions to execute in a remote way from the prompt of the new droplet.  
+In this iteration, we'll ask some basic instructions like update the list of packages of the distro and install some resources. We're describing something like this:  
+
+```
+provisioner "remote-exec" {
+    inline = [
+      "export PATH=$PATH:/usr/bin",
+      # update list of packages
+      "sudo apt-get update",
+      # install some basic resources
+      "sudo apt install build-essential apt-transport-https ca-certificates software-properties-common curl"
+    ]
+  }
+}
+                         
+```
+
+Now we're going to launch the building of the execution plan from our local console using the next instruction: 
 ```bash
 $ terraform plan -var "do_token=${DO_PAT}" -var "pvt_key=$HOME/.ssh/id_rsa"
 ```
