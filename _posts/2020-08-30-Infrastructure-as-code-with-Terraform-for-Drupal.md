@@ -53,10 +53,18 @@ When I think of Terraform I can see some interesting advantages:
 * **Graphical Resources Chart:** Terraform creates a graphic with all the resources, giving info about dependencies, version.  
 * **Automatization of changes:** By relating the graphs of previous resources and the implementation plans, it is possible to describe and order changes with very controlled and easily reversible impacts.  
 
+It also has a very extensive list of suppliers with which it can operate, halfway between the "official" ones ([terraform.io/providers/index](https://www.terraform.io/docs/providers/index.html)) and those created by the community ([terraform.io/providers/type/community](https://www.terraform.io/docs/providers/type/community-index.html)), differentiated in various categories:
+
+| Major Cloud        | Cloud           | SaaS / PaaS  |
+| ------------- |:-------------:| -----:|
+| [AWS](https://www.terraform.io/docs/providers/aws/index.html) | [Digital Ocean](https://www.terraform.io/docs/providers/do/index.html) | [Heroku](https://www.terraform.io/docs/providers/heroku/index.html) |
+| [Azure](https://www.terraform.io/docs/providers/azurerm/index.html) | [Linode](https://www.terraform.io/docs/providers/linode/index.html) | [Kubernetes](https://www.terraform.io/docs/providers/kubernetes/index.html) |
+| [Google Cloud Platform](https://www.terraform.io/docs/providers/google/index.html) | [OVH](https://www.terraform.io/docs/providers/ovh/index.html) | [Gitlab](https://www.terraform.io/docs/providers/gitlab/index.html) |
+
 
 In this article I have set out to show the process of building a provisioning plan for an external provider Digital Ocean, creating Droplets to deploy Drupal sites (It's not a very real approach to equip an external/remote machine with an initial blank Drupal deployment, but it will serve as a small example of use).  
 
-See:  
+**See:**  
  * "Why we use Terraform and not Chef, Puppet, Ansible, SaltStack, or CloudFormation", by Yevgeniy Brikman: [gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation](https://blog.gruntwork.io/why-we-use-terraform-and-not-chef-puppet-ansible-saltstack-or-cloudformation-7989dad2865c).  
  * Infrastructure as Code (IaC): [ibm.com/infrastructure-as-code](https://www.ibm.com/cloud/learn/infrastructure-as-code).  
  
@@ -154,7 +162,10 @@ YOUR_ACCESS_TOKEN
 ```
 ## 4- Preparing the Provider
 
-Create a directory for storing the configuration files of this test project and change your position to the newly created folder:  
+Well, Terraform uses text files to describe the infrastructure, orders, commands and set variables. The language of the Terraform configuration files is called "HashiCorp Configuration Language" or HCL (which we mentioned earlier)and is written in files created with a ".tf" extension.  
+For this example we will build several .tf files, so our first step will be to create a directory associated with the project that will contain all of them.  
+
+So first, we'll create a folder for storing the configuration files of this test project and change your position to the newly created folder:  
 ```
 $ mkdir ~/terraform_test
 $ cd ~/terraform_test
@@ -174,7 +185,7 @@ terraform {
 }
 ```
 
-Also we'll add some more data about required variables and values used for the future connection to the provider. We'll need the API token and your personal private key in your local environment, I mean a string value (the token) and a file path (to the private key):  
+Also we'll add some more data about required variables and values used for the future connection to the provider. We'll need the API token and your personal private key in your local environment, I mean a string value (the token) and a file path (to the private key), two resources that we'll charge when we're running the execution plan. Now, we only have to declare the variables:  
 
 ```
 variable "do_token" {}
@@ -203,6 +214,9 @@ And you will get all the provider resources ready-to-work in your local installa
 Get [the file for the provider from here](https://gitlab.com/-/snippets/2009971).  
 
 ## 5- Defining the execution goals 
+Ok, we come to the most interesting part of this process...**What do we really want to achieve with our machines?**...**What do we need to install?**...It's time to define what goals our Terraform implementation plan will have.  
+
+
 
 vim new-drupal-droplet.tf  
 
