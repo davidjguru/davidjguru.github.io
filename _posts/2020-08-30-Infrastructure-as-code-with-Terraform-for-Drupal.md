@@ -90,29 +90,29 @@ The first step is to install Terraform as a new resource in my local environment
 
 ### Getting Terraform  
 Add the GPG key from HashiCorp:  
-```
+```bash
 $ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 ```
 
 Now we're adding the official Linux repository:  
-```
+```bash
 $ sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 ```
 
 At last, update the info and install Terraform from the repository:  
-```
+```bash
 $ sudo apt-get update
 $ sudo apt-get install terraform
 ```
 
 Verifying the installation: In order to check your Terraform installation, you can use these commands:  
-```
+```bash
 $ terraform
 $ terraform -help
 $ terraform -version
 ```
 And you will get some king of feedback from your prompt, something like:  
-```
+```bash
 drupal@drupal-workshop:~$ terraform -version
 Terraform v0.13.1
 ```
@@ -143,12 +143,12 @@ And generates the new token, giving write permissions:
 ### Loading the token in an environment variable
 
 You can set the token to a environment variable just for the current session with the command:  
-```
+```bash
 export DO_PAT="YOUR_ACCESS_TOKEN"
 ```
  Or maybe you want load the value in a more persistent way in your system, so you can set the token in your bashrc config file: 
  
-```
+```bash
 $ cd ~ 
 $ vim .bashrc
 export DO_PAT="YOUR_ACCESS_TOKEN"
@@ -156,7 +156,7 @@ export DO_PAT="YOUR_ACCESS_TOKEN"
 ```
 
 Confirm the value using "echo $DO_PAT":  
-```
+```bash
 drupal@drupal-workshop:~$ echo $DO_PAT
 YOUR_ACCESS_TOKEN
 ```
@@ -165,16 +165,29 @@ YOUR_ACCESS_TOKEN
 Well, Terraform uses text files to describe the infrastructure, orders, commands and set variables. The language of the Terraform configuration files is called "HashiCorp Configuration Language" or HCL (which we mentioned earlier)and is written in files created with a ".tf" extension.  
 For this example we will build several .tf files, so our first step will be to create a directory associated with the project that will contain all of them.  
 
-So first, we'll create a folder for storing the configuration files of this test project and change your position to the newly created folder:  
+
+Most providers for Terraform require some sort of values for configuration to provide authentication information like tokens, user data, paths to SSH keys, URLs, etc. When explicit configuration is required, a provider block is used within the configuration, as illustrated below, something like this:  
+
 ```
+# Configuring an AWS Provider
+provider "aws" {
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
+  region     = "us-west-1"
+}
+```
+
+So first, we'll create a folder for storing the configuration files of this test project and change your position to the newly created folder:  
+```bash
 $ mkdir ~/terraform_test
 $ cd ~/terraform_test
 ```
+
 Now, we're going to define the provider declaration file, which will be the register for data related to the external hosting provider (Digital Ocean in this example).  
 
 First, creating a new file called provider.tf with the required plugin and its version: 
 
-```
+```bash
 terraform {
   required_providers {
     digitalocean = {
@@ -187,7 +200,7 @@ terraform {
 
 Also we'll add some more data about required variables and values used for the future connection to the provider. We'll need the API token and your personal private key in your local environment, I mean a string value (the token) and a file path (to the private key), two resources that we'll charge when we're running the execution plan. Now, we only have to declare the variables:  
 
-```
+```bash
 variable "do_token" {}
 variable "pvt_key" {}
 
@@ -204,10 +217,10 @@ Ok, in the last block, I'm using the name applied to my public SSH key in my Dig
 ![Align the ssh public key name]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_five.png)  
 
 And now we have to save the new provider definition file (:wq!) and run the initialization order for Terraform, just running:
-```
+```bash
 $ terraform init
 ```
-And you will get all the provider resources ready-to-work in your local installation:  
+Each time a new provider is added to the configuration, it's necessary to initialize that provider before using it. This initialization process ensures the download and install of the provider related plugin, preparing it for use. And you will get all the provider resources ready-to-work in your local installation:  
 
 ![Running the Terraform init provider]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_four.png)  
 
@@ -216,14 +229,15 @@ Get [the file for the provider from here](https://gitlab.com/-/snippets/2009971)
 ## 5- Defining the execution goals 
 Ok, we come to the most interesting part of this process...**What do we really want to achieve with our machines?**...**What do we need to install?**...It's time to define what goals our Terraform implementation plan will have.  
 
-
-
+So first, we'll create a new Terraform file, called as my project: "new-drupal-droplet.tf" where I can add all the information about my needs. So using my usual editor:  
+```bash
 vim new-drupal-droplet.tf  
+```
 
 You can see the most common slugs for definition of resources in this zone of the Digital Ocean API documentation, here: [developers.digitalocean.com/new-size-slugs-for-droplet-plan-changes](https://developers.digitalocean.com/documentation/changelog/api-v2/new-size-slugs-for-droplet-plan-changes/).  
 
 Launching from console the next instruction: 
-```
+```bash
 $ terraform plan -var "do_token=${DO_PAT}" -var "pvt_key=$HOME/.ssh/id_rsa"
 ```
 
