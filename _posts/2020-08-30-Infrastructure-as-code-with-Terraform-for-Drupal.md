@@ -26,18 +26,42 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
   
   **Table of Contents**  
   <!-- TOC -->  
-  [1- Installing Terraform](#1--installing-terraform)  
-  [2- Configuring Terraform](#2--configuring-terraform)  
-  [3- Preparing the Provider](#3--preparing-the-provider)  
-  [4- Defining the Execution Goals](#4--defining-the-execution-goals)  
-  [5- Destroying resources](#5--destroying-resources)  
-  [6- :wq!](#7--wq)  
+  [1- Talkin'bout Terraform](#1--talkin-bout-terraform)
+  [2- Installing Terraform](#2--installing-terraform)  
+  [3- Configuring Terraform](#3--configuring-terraform)  
+  [4- Preparing the Provider](#4--preparing-the-provider)  
+  [5- Defining the Execution Goals](#5--defining-the-execution-goals)  
+  [6- Destroying resources](#6--destroying-resources)  
+  [7- :wq!](#7--wq)  
   <!-- /TOC -->
   
   -------------------------------------------------------------------------------
+## 1- Talkin' bout Terraform  
 
-## 1- Installing Terraform 
+Today, it seems clear that Terraform is constituted as a de-facto standard. To know it on a theoretical level and to have some experience is almost obligatory, almost as much as to know Docker and to have experience containerizing projects. When I used to note the concept of "Infrastructure as code", I actually meant the enormous ease of building files with declarative language (Terraform uses a proprietary language format called HCL) that can be versioned and replicated without any problem.  
 
+**What is the key to Terraform?** as they say on their website([terraform.io/intro](https://www.terraform.io/intro/vs/chef-puppet.html)):  
+> "Configuration management tools install and manage software on a machine that already exists. Terraform is not a configuration management tool, and it allows existing tooling to focus on their strengths: bootstrapping and initializing resources."
+
+### More about the HCL config language
+
+* Concept: [terraform.io/glossary/hcl](https://www.terraform.io/docs/glossary.html#hcl)  
+* Examples: [terraform.io/configuration](https://www.terraform.io/docs/configuration/index.html)  
+* Sintax Guide and resources: [github.com/hashicorp/hcl](https://github.com/hashicorp/hcl)   
+
+## 2- Installing Terraform 
+
+The first step is to install Terraform as a new resource in my local environment. In this article I'm using as Operating System an Ubuntu 18.04 (bionic, LTS), due to this, all my steps will have the shape of Ubuntu / Debian commands. You can find related information about others OS like Windows or macOS in the following subsection.  
+
+
+### More about install Terraform in Windows or macOs
+
+* About Configuring Terraform on Windows Systems: [docs.oracle.com/ebs-configuring-terraform-windows-systems](https://docs.oracle.com/en/solutions/infrastructure-components-siebel/ebs-configuring-terraform-windows-systems.html#GUID-6DD1EC34-3052-45C1-8196-7F07C47ACD74)  
+* Getting Started with Terraform on Windows: Install, Setup and Demo: [adamtheautomator.com/terraform-windows/](https://adamtheautomator.com/terraform-windows/)  
+* Install Terraform on MAC machine: [medium.com/@krishsoftware1991/install-terraform-on-mac-machine](https://medium.com/@krishsoftware1991/install-terraform-on-mac-machine-38eefd798555)  
+* How to install Terraform on macOS: [medium.com/@akkireddy/how-to-install-terraform-on-macos](https://medium.com/@akkireddy/how-to-install-terraform-on-macos-3e09d6a536b1)  
+
+### Getting Terraform  
 Add the GPG key from HashiCorp:  
 ```
 $ curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
@@ -65,16 +89,17 @@ And you will get some king of feedback from your prompt, something like:
 drupal@drupal-workshop:~$ terraform -version
 Terraform v0.13.1
 ```
-## 2- Configuring Terraform
+## 3- Configuring Terraform
+Now let's look at some of the steps needed to correctly configure Terraform for the connection to the external provider (in my case Digital Ocean).  
 
 ### Getting an access token
-Get an access token from Digital Ocean for your connections: 
+Get an access token from Digital Ocean for your external connections: 
 
-![Getting access token from Digital Ocean]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_two.jpg)  
+![Getting access token from Digital Ocean]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_two.png)  
 
 And generates the new token, giving write permissions:  
 
-![Ask for a token from Digital Ocean]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_three.jpg)
+![Ask for a token from Digital Ocean]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_three.png)
 
 ### Loading the token in an environment variable
 
@@ -96,7 +121,7 @@ Confirm the value using "echo $DO_PAT":
 drupal@drupal-workshop:~$ echo $DO_PAT
 YOUR_ACCESS_TOKEN
 ```
-## 3- Preparing the Provider
+## 4- Preparing the Provider
 
 Create a directory for storing the configuration files of this test project and change your position to the newly created folder:  
 ```
@@ -142,7 +167,7 @@ And you will get all the provider resources ready-to-work in your local installa
 
 Get [the file for the provider from here](https://gitlab.com/-/snippets/2009971).  
 
-## 4- Defining the execution goals 
+## 5- Defining the execution goals 
 
 vim new-drupal-droplet.tf  
 
@@ -218,7 +243,7 @@ This will create the new droplet:
 More info  
 https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet  
 
-## 5- Destroying resources 
+## 6- Destroying resources 
 
 ```
 $ terraform plan -destroy -out=new-drupal-droplet-destroy.tfplan -var "do_token=${DO_PAT}" -var "pvt_key=$HOME/.ssh/id_rsa"
@@ -245,4 +270,4 @@ $ terraform apply new-drupal-droplet-destroy.tfplan
 Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
 ```
 
-## 9- :wq! 
+## 7- :wq! 
