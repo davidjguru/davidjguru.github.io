@@ -109,7 +109,19 @@ drupal@drupal-workshop:~$ terraform -version
 Terraform v0.13.1
 ```
 ## 3- Configuring Terraform
-Now let's look at some of the steps needed to correctly configure Terraform for the connection to the external provider (in my case Digital Ocean).  
+Now let's look at some of the steps needed to correctly configure Terraform for the connection to the external provider (in my case Digital Ocean). For this case, I'll need two different thing from Digital Ocean:  
+
+* **API Access Token:** In order to connect remotly from my local environment.  
+* **SSH Public key:** I need to load in my Digital Ocean account the public key (id_rsa.pub) from my SSH local configuration, in order to manage the connection when I'm using my private key.  
+
+If you don't know how generate the SSH keys on Ubuntu or it's you first time, you can read this tutorial:
+* How To Set Up SSH Keys on Ubuntu: [digitalocean.com/how-to-set-up-ssh-keys-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-20-04).  
+
+Then, load the SSH key in the right section of your Digital Ocean profile, just like this:  
+
+![Ask for a token from Digital Ocean]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_seven.png)
+
+
 
 ### Getting an access token
 Get an access token from Digital Ocean for your external connections: 
@@ -147,7 +159,7 @@ Create a directory for storing the configuration files of this test project and 
 $ mkdir ~/terraform_test
 $ cd ~/terraform_test
 ```
-Now, we're going to define the provider declaration file, wich will be the register for data related to the external hosting provider (Digital Ocean in this example).  
+Now, we're going to define the provider declaration file, which will be the register for data related to the external hosting provider (Digital Ocean in this example).  
 
 First, creating a new file called provider.tf with the required plugin and its version: 
 
