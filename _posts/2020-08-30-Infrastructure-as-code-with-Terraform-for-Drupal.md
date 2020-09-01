@@ -271,7 +271,7 @@ provisioner "remote-exec" {
       # update list of packages
       "sudo apt-get update",
       # install some basic resources
-      "sudo apt install build-essential apt-transport-https ca-certificates software-properties-common curl"
+      "sudo apt install -y build-essential apt-transport-https ca-certificates software-properties-common curl"
     ]
   }
 }
@@ -282,8 +282,9 @@ Now we're going to launch the building of the execution plan from our local cons
 ```bash
 $ terraform plan -var "do_token=${DO_PAT}" -var "pvt_key=$HOME/.ssh/id_rsa"
 ```
+**Note:**  This command admits an option -out with a path to a file for saving all the execution plan, but the file will save all the personal data as the private ssh key value, so can be not too much secure. Be careful if the file is shared across a team or through a VCS.  
 
-Getting the feedback: 
+Now after ask for the plan's creation, we're getting the feedback:  
 ```
 data.digitalocean_ssh_key.davidjguru: Refreshing state...
 
@@ -362,8 +363,11 @@ Resource actions are indicated with the following symbols:
 Terraform will perform the following actions:
 
   # digitalocean_droplet.new-drupal-droplet will be destroyed
+ [...]
+
+This plan was saved to: new-drupal-droplet-destroy.tfplan
 ```
-And then, apply the new destroy plan:  
+And a new file with .tfplan extension will be created within the project's folder. This file contains all the plan for destroying the droplet. So then, we'll apply the new destroy plan:  
 
 ```
 $ terraform apply new-drupal-droplet-destroy.tfplan
