@@ -233,7 +233,7 @@ So first, we'll create a new Terraform file, called as my project: "new-drupal-d
 ```bash
 vim new-drupal-droplet.tf  
 ```
-And we will start by defining the first block: resource. Here we can describre the characteristics of my new droplet, using some basic data as the image / OS for the system, the name of the droplet and the size. For this last data ("s-1vcpu-1gb"), we're using the parameters defining by Digital Ocean in its own documentation.  
+And we will start by defining the first block: resource. Here we can describe the characteristics of my new droplet, using some basic data as the image / OS for the system, the name of the droplet and the size. For this last data ("s-1vcpu-1gb"), we're using the parameters defining by Digital Ocean in its own documentation.  
 ```
 resource "digitalocean_droplet" "new-drupal-droplet" {
     image = "ubuntu-20-04-x64"
@@ -274,9 +274,37 @@ provisioner "remote-exec" {
       "sudo apt install -y build-essential apt-transport-https ca-certificates software-properties-common curl"
     ]
   }
-}
-                         
+}  
 ```
+We can then progressively expand our needs under the remote-exec provisioner of Terraform, for example, asking for a Docker and Docker Compose installation in the machine, adding some more orders and including asking for feedback about the process by prompt:  
+```
+ provisioner "remote-exec" {
+    inline = [
+      "export PATH=$PATH:/usr/bin",
+      # update list of packages
+      "sudo apt-get update",
+      # install some basic resources
+      "sudo apt install -y build-essential apt-transport-https ca-certificates software-properties-common curl",
+      # install docker and docker-compose
+      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
+      "sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable'",
+      "sudo apt update",
+      "apt-cache policy docker-ce",
+      "sudo apt install -y docker-ce",
+      "sudo systemctl status docker --no-pager",
+      "sudo curl -L https://github.com/docker/compose/releases/download/1.27.0-rc2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose",
+      "sudo chmod +x /usr/local/bin/docker-compose",
+      "docker-compose --version",
+```
+In this second iteration, we're asking for the docker status after install, using:  
+ ```
+sudo systemctl status docker --no-pager 
+```
+Where the option '--no-pager' avoids blockage of the output from prompt, closing the feedback and returning to the console, allowing you to advance to the next commands:  
+
+![Execution of the Terraform Plan]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_eight.png) 
+
+**See:** Read more about the remote-exec Provisioner in the Terraform Official Documentation: [terraform.io/provisioners/remote-exec](https://www.terraform.io/docs/provisioners/remote-exec.html).  
 
 Now we're going to launch the building of the execution plan from our local console using the next instruction: 
 ```bash
@@ -344,8 +372,7 @@ This will create the new droplet:
 
 
 
-More info  
-https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet  
+ 
 
 ## 6- Destroying resources 
 
@@ -379,5 +406,6 @@ Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
 ## 7- Read more
 
 * A Comprehensive Guide to Terraform (Series), by Yevgeniy Brikman: [gruntwork.io/a-comprehensive-guide-to-terraform](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca).  
+* Terraform Offical Documentation about creation of Digital Ocean's Droplets: [terraform.io/providers/digitalocean/digitalocean/droplet](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet ).
 
 ## 8- :wq! 
