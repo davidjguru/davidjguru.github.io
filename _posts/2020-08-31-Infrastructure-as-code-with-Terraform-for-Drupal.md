@@ -3,7 +3,7 @@ layout: post
 title: Infrastructure as code with Terraform for Drupal
 permalink: /blog/infrastructure-as-code-with-terraform-for-drupal
 published: true
-date: 2020-08-30
+date: 2020-08-31
 author: davidjguru
 categories: [Drupal & DevOps]
 sitemap: true
