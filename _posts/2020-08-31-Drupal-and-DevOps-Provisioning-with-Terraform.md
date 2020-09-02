@@ -31,9 +31,10 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
   [3- Configuring Terraform](#3--configuring-terraform)  
   [4- Preparing the Provider](#4--preparing-the-provider)  
   [5- Defining the Execution Goals](#5--defining-the-execution-goals)  
-  [6- Destroying resources](#6--destroying-resources)  
-  [7- Read more](#7--read-more)  
-  [8- :wq!](#7--wq)  
+  [6- Getting a graphical review](#6--getting-a-graphical-review)  
+  [7- Destroying resources](#7--destroying-resources)  
+  [8- Read more](#8--read-more)  
+  [9- :wq!](#9--wq)  
   <!-- /TOC -->
   
   -------------------------------------------------------------------------------
@@ -372,11 +373,25 @@ This will create the new droplet:
 ![Execution of the Terraform Plan]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_six.png) 
 
 
+## 6- Getting a graphical review
+
+Terraform has a graphical option to export a configuration in a visual way. This uses the command: 
+
+```
+$ terraform graph
+```
+And generates an output based in the [DOT format](https://en.wikipedia.org/wiki/DOT_\(graph_description_language\)). This file can be managed using [GraphViz, a Open Source Tool for graphic visualization](https://graphviz.gitlab.io/download/). For my distro I can install the software doing so:  
+
+```
+$ sudo apt install -y graphviz
+$ terraform graph | dot -Tsvg > graph.svg
+```
+Ok, and this will give me a file in .svg format with the general map of my project:  
+
+![Getting a graphic file from Terraform]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_nine.png)  
 
 
- 
-
-## 6- Destroying resources 
+## 7- Destroying resources 
 
 Terraform allows operations to undo what was previously executed, creating an inverse plan for destroy the resources. You can call to generating the destroy plan using the next command:  
 ```
@@ -409,10 +424,10 @@ Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
 
 The remote droplet has been erased of the provider. 
 
-## 7- Read more
+## 8- Read more
 
 * A Comprehensive Guide to Terraform (Series), by Yevgeniy Brikman: [gruntwork.io/a-comprehensive-guide-to-terraform](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca).  
 * Terraform Offical Documentation about creation of Digital Ocean's Droplets: [terraform.io/providers/digitalocean/digitalocean/droplet](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet ).  
 * Linode, a beginner's guide to Terraform: [linode.com/docs/beginners-guide-to-terraform/](https://www.linode.com/docs/applications/configuration-management/terraform/beginners-guide-to-terraform/).  
 
-## 8- :wq! 
+## 9- :wq! 
