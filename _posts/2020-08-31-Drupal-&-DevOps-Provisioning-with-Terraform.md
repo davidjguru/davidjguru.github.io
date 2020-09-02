@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Infrastructure as code with Terraform for Drupal
-permalink: /blog/infrastructure-as-code-with-terraform-for-drupal
+title: Drupal & DevOps(I): Provisioning with Terraform
+permalink: /blog/drupal-&-devops-provisioning-with-terraform
 published: true
 date: 2020-08-31
 author: davidjguru
@@ -229,6 +229,8 @@ Get [the file for the provider from here](https://gitlab.com/-/snippets/2009971)
 ## 5- Defining the execution goals 
 Ok, we come to the most interesting part of this process...**What do we really want to achieve with our machines?**...**What do we need to install?**...It's time to define what goals our Terraform implementation plan will have.  
 
+The scope of this test will be simply left installed in the remote environment Docker and Docker Compose, for later, in subsequent posts, connect this point from Ansible playbooks and continue the process.  
+
 So first, we'll create a new Terraform file, called as my project: "new-drupal-droplet.tf" where I can add all the information about my needs. So using my usual editor:  
 ```bash
 vim new-drupal-droplet.tf  
@@ -245,7 +247,7 @@ resource "digitalocean_droplet" "new-drupal-droplet" {
       data.digitalocean_ssh_key.davidjguru.id
     ]
 ```
-You can see the most common slugs for definition of size in resources in this zone of the Digital Ocean API documentation, here: [developers.digitalocean.com/new-size-slugs-for-droplet-plan-changes](https://developers.digitalocean.com/documentation/changelog/api-v2/new-size-slugs-for-droplet-plan-changes/).  
+You can see the most common slugs for definitions of size in resources in this zone of the Digital Ocean API documentation, here: [developers.digitalocean.com/new-size-slugs-for-droplet-plan-changes](https://developers.digitalocean.com/documentation/changelog/api-v2/new-size-slugs-for-droplet-plan-changes/).  
 
 The next step inside the resource definition (the former block wasn't closed) is to define the connection to the new droplet: 
 
@@ -376,6 +378,7 @@ This will create the new droplet:
 
 ## 6- Destroying resources 
 
+Terraform allows operations to undo what was previously executed, creating an inverse plan for destroy the resources. You can call to generating the destroy plan using the next command:  
 ```
 $ terraform plan -destroy -out=new-drupal-droplet-destroy.tfplan -var "do_token=${DO_PAT}" -var "pvt_key=$HOME/.ssh/id_rsa"
 ```
@@ -403,9 +406,13 @@ $ terraform apply new-drupal-droplet-destroy.tfplan
 ```
 Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
 ```
+
+The remote droplet has been erased of the provider. 
+
 ## 7- Read more
 
 * A Comprehensive Guide to Terraform (Series), by Yevgeniy Brikman: [gruntwork.io/a-comprehensive-guide-to-terraform](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca).  
-* Terraform Offical Documentation about creation of Digital Ocean's Droplets: [terraform.io/providers/digitalocean/digitalocean/droplet](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet ).
+* Terraform Offical Documentation about creation of Digital Ocean's Droplets: [terraform.io/providers/digitalocean/digitalocean/droplet](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/droplet ).  
+* Linode, a beginner's guide to Terraform: [linode.com/docs/beginners-guide-to-terraform/](https://www.linode.com/docs/applications/configuration-management/terraform/beginners-guide-to-terraform/).  
 
 ## 8- :wq! 
