@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Drupal & DevOps(I): Provisioning with Terraform
-permalink: /blog/drupal-&-devops-provisioning-with-terraform
+permalink: /blog/drupal-and-devops-provisioning-with-terraform
 published: true
 date: 2020-08-31
 author: davidjguru
