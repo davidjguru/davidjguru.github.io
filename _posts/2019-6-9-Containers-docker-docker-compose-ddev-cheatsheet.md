@@ -166,11 +166,14 @@ docker run -d centos sleep 100
 docker run -p 80:8080 -v /locahost/folder:/container/folder \
 -u root jenkins/jenkins
 
-# Get a list of existing containers
+# Get a list of existing active containers
 docker ps
 
-# List all containers showing it by its ID
+# List all the active containers showing it by its ID
 docker ps -q
+
+# Get a list of all the containers, actives or not.
+docker container ls -all
 
 # Kill all containers running selected by ID
 docker kill $(docker ps -q)
