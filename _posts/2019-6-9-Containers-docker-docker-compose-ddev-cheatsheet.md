@@ -277,12 +277,16 @@ docker-compose logs -t -f ALIAS
 
 ```bash
 # Docker Swarm: Deploy instances of application 
-# across docker host
+# across docker host.
 docker stack deploy -c docker-compose.yml
 
 # Remove ALL: stopped containers, all networks 
-# not used and all dangling images
+# not used and all dangling images.
 docker system prune
+
+# Getting a full summary about the Docker resources
+# in your system, ordered by type.
+docker system df
 ```
 
 
