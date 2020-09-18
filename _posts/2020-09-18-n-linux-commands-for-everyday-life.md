@@ -35,13 +35,19 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
   + [2.2- Moving between directories (12 examples)](#22--moving-between-directories-12-examples)  
   + [2.3- Looking for resources (6 examples)](#23--looking-for-resources-6-examples)  
   + [2.4- Making copies and compressed files (17 examples)](#24--making-copies-and-compressed-files-17-examples)  
-  [3- Configuring Terraform](#3--configuring-terraform)  
-  [4- Preparing the Provider](#4--preparing-the-provider)  
-  [5- Defining the Execution Goals](#5--defining-the-execution-goals)  
-  [6- Getting a graphical review](#6--getting-a-graphical-review)  
-  [7- Destroying resources](#7--destroying-resources)  
-  [8- Read more](#8--read-more)  
-  [9- :wq!](#9--wq)  
+  [3- Groups, users and permissions](#3--groups-users-and-permissions)  
+  [4- Managing packages (26 examples)](#4--managing-packages-26-examples)  
+  + [4.1- .DEB -Debian, Ubuntu, Mint, and other derivatives- (4 examples)](#41--deb--debian-ubuntu-mint-and-other-derivatives--4-examples)  
+  + [4.2- Using APT (8 examples)](#42--using-apt-8-examples)  
+  + [4.3- .RPM -Red Hat, Fedora, SUSE, etc- (10 examples)](#43--rpm--red-hat-fedora-suse-etc--10-examples)  
+  + [4.4- YUM -Red Hat, Fedora and others- (4 examples)](#44--yum--red-hat-fedora-and-others--4-examples)  
+  [5- Working in projects (29 examples)](#5--working-in-projects-29-examples)  
+  + [5.1- Applying style reviews with phpcs (6 examples)](#51--applying-style-reviews-with-phpcs-6-examples)  
+  + [5.2- Version Control with Git (15 examples)](#52--version-control-with-git-15-examples)  
+  + [5.3- Docker Engine Related (Docker, Compose, Swarm)]()  
+  + [5.4- Building projects using [DDEV](https://ddev.readthedocs.io/en/stable/) (8 examples)](#54--building-projects-using-ddevhttpsddevreadthedocsioenstable-8-examples)  
+  + [5.5- Drupal CLI using Drush or Drupal Console](#55--drupal-cli-using-drush-or-drupal-console)
+  [6- :wq!](#6--wq)  
   <!-- /TOC -->
   
   -------------------------------------------------------------------------------
@@ -212,18 +218,7 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** phpcs --report=diff /path/to/code **# Will generate a patch file from a style diff.**  
 1. **:~$** phpcbf /path/to/code **# Will repair the file.**   
 
-## 5.2- Building projects using [DDEV](https://ddev.readthedocs.io/en/stable/) (8 examples)  
-1. **:~$** ddev version **# Check your DDEV installed version.**  
-1. **:~$** ddev launch  **# Launch in browser your Drupal site.**  
-1. **:~$** ddev logs **# Show logs mixing nginx and php-fpm. Works in a stopped container.**  
-1. **:~$** ddev logs -f **# Same as former, but following logs in real-time.**  
-1. **:~$** ddev ssh **# Connecting to the web container with ssh.**  
-1. **:~$** ddev ssh -s db **# Connecting to the database container using ssh.**  
-1. **:~$** ddev export-db --gzip=false > /temp/db.sql **# Returns a dump file in the selected folder.**  
-1. **:~$** ddev import-db --src=./backups/dump_02062020.sql.gz **# Load a compressed dump file in the default DDEV database called 'db'.**
-
-
-## 5.3- Version Control with Git (15 examples)  
+## 5.2- Version Control with Git (15 examples)  
 1. **:~$** git remote show origin **#Returns the data from the remote repository named 'origin'.**  
 1. **:~$** git pull origin your_branch --allow-unrelated-histories **# Repairs fatal: refusing to merge unrelated histories.**  
 1. **:~$** git diff stash@{0} your_branch > getting_your_patch.txt **# Getting a patch between recent stashed code and last status of your_branch.**  
@@ -238,8 +233,23 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** git -C /path/your/project/ status **# Execute some git commands also without being in it.**     
 1. **:~$** git checkout develop README.md **# Execute merge over changes in the same file from different branches.**   
 1. **:~$** git diff master develop README.md **# Show all the diff between the same file from two different branches.**  
-1. **:~$** git push origin ccccc:master **# With commits a, b, c, d. Will push c, b a to remote.**  
+1. **:~$** git push origin ccccc:master **# With commits a, b, c, d. Will push c, b, a, to remote.**  
 
-## 5.4- Drupal CLI using Drush or Drupal Console (Drupal Console seems to be closed)  
+## 5.3- Docker Engine Related (Docker, Compose, Swarm)
+
+## 5.4- Building projects using [DDEV](https://ddev.readthedocs.io/en/stable/) (8 examples)  
+1. **:~$** ddev version **# Check your DDEV installed version.**  
+1. **:~$** ddev launch  **# Launch in browser your Drupal site.**  
+1. **:~$** ddev logs **# Show logs mixing nginx and php-fpm. Works in a stopped container.**  
+1. **:~$** ddev logs -f **# Same as former, but following logs in real-time.**  
+1. **:~$** ddev ssh **# Connecting to the web container with ssh.**  
+1. **:~$** ddev ssh -s db **# Connecting to the database container using ssh.**  
+1. **:~$** ddev export-db --gzip=false > /temp/db.sql **# Returns a dump file in the selected folder.**  
+1. **:~$** ddev import-db --src=./backups/dump_02062020.sql.gz **# Load a compressed dump file in the default DDEV database called 'db'.**
+
+
+
+
+## 5.5- Drupal CLI using Drush or Drupal Console
 1. **:~$** drupal cect application --module="managing_activities" --optional-config --remove-uuid --remove-config-hash **# Export the config of an specific content type as optional.**  
 1. **:~$** drush -l sitename cr **#Clear cache only for a site in a multisite Drupal installation.**  
