@@ -30,23 +30,29 @@ I have thought of this grouping as a collection to get to know your system bette
   + [1.1- Getting information from the system (19 examples)](#11--getting-information-from-the-system-19-examples)  
   + [1.2- Shutting down the system (7 examples)](#12--shutting-down-the-system-7-examples)  
   + [1.3-  Managing networks (16 examples)](#13---managing-networks-16-examples)  
+  
   [2- Using files and folders (50 examples)](#2--using-files-and-folders-50-examples)  
   + [2.1- Basic usage (15 examples)](#21--basic-usage-15-examples)  
   + [2.2- Moving between directories (12 examples)](#22--moving-between-directories-12-examples)  
   + [2.3- Looking for resources (6 examples)](#23--looking-for-resources-6-examples)  
   + [2.4- Making copies and compressed files (17 examples)](#24--making-copies-and-compressed-files-17-examples)  
-  [3- Groups, users and permissions](#3--groups-users-and-permissions)  
+  
+  [3- Groups, users and permissions (15 examples)](#3--groups-users-and-permissions-15-examples)  
+  + [3.1- Users and Groups (8 examples)](#31--users-and-groups-8-examples)  
+  + [3.2-Permissions and ownership (7 examples)](#32--permissions-and-ownership-7-examples)  
+  
   [4- Managing packages (26 examples)](#4--managing-packages-26-examples)  
-  + [4.1- .DEB -Debian, Ubuntu, Mint, and other derivatives- (4 examples)](#41--deb--debian-ubuntu-mint-and-other-derivatives--4-examples)  
+  + [4.1- .DEB -Debian, Ubuntu, Mint, and others- (4 examples)](#41--deb--debian-ubuntu-mint-and-other-derivatives--4-examples)  
   + [4.2- Using APT (8 examples)](#42--using-apt-8-examples)  
   + [4.3- .RPM -Red Hat, Fedora, SUSE, etc- (10 examples)](#43--rpm--red-hat-fedora-suse-etc--10-examples)  
   + [4.4- YUM -Red Hat, Fedora and others- (4 examples)](#44--yum--red-hat-fedora-and-others--4-examples)  
-  [5- Working in projects (29 examples)](#5--working-in-projects-29-examples)  
+  
+  [5- Working in projects (54 examples)](#5--working-in-projects-29-examples)  
   + [5.1- Applying style reviews with phpcs (6 examples)](#51--applying-style-reviews-with-phpcs-6-examples)  
   + [5.2- Version Control with Git (15 examples)](#52--version-control-with-git-15-examples)  
-  + [5.3- Docker Engine Related (Docker, Compose, Swarm)]()  
-  + [5.4- Building projects using [DDEV](https://ddev.readthedocs.io/en/stable/) (8 examples)](#54--building-projects-using-ddevhttpsddevreadthedocsioenstable-8-examples)  
-  + [5.5- Drupal CLI using Drush or Drupal Console](#55--drupal-cli-using-drush-or-drupal-console)
+  + [5.3- Docker Engine Related (Docker, Compose, Swarm) (15 examples)](#53--docker-engine-related-docker-compose-swarm-15-examples)  
+  + [5.4- Building projects using DDEV (8 examples)](#54--building-projects-using-ddevhttpsddevreadthedocsioenstable-8-examples)  
+  + [5.5- Drupal CLI using Drush or Drupal Console (10 examples)](#55--drupal-cli-using-drush-or-drupal-console-10-examples)  
   [6- :wq!](#6--wq)  
   <!-- /TOC -->
   
@@ -57,52 +63,94 @@ I have thought of this grouping as a collection to get to know your system bette
 **Note:** Commands to getting information about your own Linux system. 
 
 ## 1.1- Getting information from the system (19 examples)
-1. **:~$** cat /etc/*release **# How to know what Linux distro is.**
-1. **:~$** arch **#​ Will show your system hardware architecture.**   
-1. **:~$** uname -r **# Will show the kernel version in use.**     
-1. **:~$** dmidecode -q **# Will show all the hardware elements present in your system.**  
-1. **:~$** hdparm -i /dev/hda **#​ Will show the features of the selected hard disk.**   
-1. **:~$** cat /proc/cpuinfo **# ​Will show information about your CPU.**   
-1. **:~$** cat /proc/meminfo **# Will verify the RAM memory comsuption in your system.**        
-1. **:~$** free -m **# Will show the current status and the use of RAM memory in your sistem.**       
-1. **:~$** cat /proc/net/dev **#​ Will show the network adapters and its statistics.**       
-1. **:~$** cat /proc/mounts **#​ Will show the mounted filesystem in your system.**     
-1. **:~$** lspci -tv **#​ Will show all the present PCI devices in your system.**    
-1. **:~$** lsusb -tv **# ​ Will show all the connected USB devices to your system.**        
-1. **:~$** top **#​ Will show the Linux Task using the max value of CPU.**    
-1. **:~$** date **# Will show the current date in your system.**  
-1. **:~$** cal 2020 **#​ Will show the whole calendar for the introduced year.**     
-1. **:~$** cal 03 2020 **#​ Like the previous, but only will show the month of the selected year.**    
-1. **:~$** man ping **# Will show pages from the help manual for a command, ping in this example.**  
-1. **:~$** vmstat -s **# Get a report about the memory comsuption in your system.**  
-1. **:~$** free -m **# Get a short report about memory comsuption.**  
+1. **:~$** cat /etc/*release  
+**# How to know what Linux distro is.**
+1. **:~$** arch  
+**#​ Will show your system hardware architecture.**   
+1. **:~$** uname -r  
+**# Will show the kernel version in use.**     
+1. **:~$** dmidecode -q  
+**# Will show all the hardware elements present in your system.**  
+1. **:~$** hdparm -i /dev/hda  
+**#​ Will show the features of the selected hard disk.**   
+1. **:~$** cat /proc/cpuinfo  
+**# ​Will show information about your CPU.**   
+1. **:~$** cat /proc/meminfo  
+**# Will verify the RAM memory comsuption in your system.**        
+1. **:~$** free -m  
+**# Will show the current status and the use of RAM memory in your sistem.**       
+1. **:~$** cat /proc/net/dev  
+**#​ Will show the network adapters and its statistics.**       
+1. **:~$** cat /proc/mounts  
+**#​ Will show the mounted filesystem in your system.**     
+1. **:~$** lspci -tv  
+ **#​ Will show all the present PCI devices in your system.**    
+1. **:~$** lsusb -tv  
+**# ​ Will show all the connected USB devices to your system.**        
+1. **:~$** top  
+**#​ Will show the Linux Task using the max value of CPU.**    
+1. **:~$** date  
+**# Will show the current date in your system.**  
+1. **:~$** cal 2020  
+**#​ Will show the whole calendar for the introduced year.**     
+1. **:~$** cal 03 2020  
+**#​ Like the previous, but only will show the month of the selected year.**    
+1. **:~$** man ping  
+**# Will show pages from the help manual for a command, ping in this example.**  
+1. **:~$** vmstat -s  
+**# Get a report about the memory comsuption in your system.**  
+1. **:~$** free -m  
+**# Get a short report about memory comsuption.**  
 
 ## 1.2- Shutting down the system (7 examples)
-1. **:~$** reboot **# Just another command to restart your system by prompt.**        
-1. **:~$** last reboot **#​ Show a list with the last restarts.**        
-1. **:~$** logout **# It will close your current sesion.**         
-1. **:~$** halt **# Just other way for shutdown your system by prompt.**        
-1. **:~$** shutdown -h 18:55 & **#​ It will planificate the shutdown in the marked time.**          
-1. **:~$** shutdown -c **# Stops a planified shutdown of the system.**         
-1. **:~$** shutdown -r now **# It will restart your system just now.**          
+1. **:~$** reboot  
+**# Just another command to restart your system by prompt.**        
+1. **:~$** last reboot  
+**#​ Show a list with the last restarts.**        
+1. **:~$** logout  
+**# It will close your current sesion.**         
+1. **:~$** halt  
+**# Just other way for shutdown your system by prompt.**        
+1. **:~$** shutdown -h 18:55 &  
+**#​ It will planificate the shutdown in the marked time.**          
+1. **:~$** shutdown -c  
+**# Stops a planified shutdown of the system.**         
+1. **:~$** shutdown -r now  
+**# It will restart your system just now.**          
 
 ## 1.3-  Managing networks (16 examples)
-1. **:~$** ifconfig eth0​ **# Will show an Ethernet network card configuration.**    
-1. **:~$** ifup eth0​ **# Will enable an eth0 interface.**   
-1. **:~$** ifdown eth0​ **# Will disable an eth0 interface.**    
-1. **:~$** ifconfig eth0 192.168.0.1 netmask 255.255.255.0​ **# Will config an IP direction.**      
-1. **:~$** dhclient eth0​ **# Will enable an eth0 interface with dhcp mode.**      
-1. **:~$** route -n​ **# Will show a route table.**      
-1. **:~$** route add -net 0/0 gw I ​ GATE_NAME​ **# Will config an access gate.**       
-1. **:~$** route del 0/0 gw ​ IP_ADRESS **# Will disable an static IP.**    
-1. **:~$** hostname​ **# Will show the system hostname.**       
-1. **:~$** ip link show​ **# Will show the current status of the interfaces.**    
-1. **:~$** mii-tool eth0​ **# Will show the link status of 'eth0'.**    
-1. **:~$** ethtool eth0​ **# Will show statistics from the eth0 network card.**    
-1. **:~$** netstat -tup​ **# Will show all active network connections.**    
-1. **:~$** netstat -tupl​ **# Will show all the listening services in networking and their PIDs.**    
-1. **:~$** iwlist scan​ **# Will show all the wireless networks.**   
-1. **:~$** iwconfig eth1​ **# Will show the configuration of a wireless network card.**     
+1. **:~$** ifconfig eth0​  
+**# Will show an Ethernet network card configuration.**    
+1. **:~$** ifup eth0​  
+**# Will enable an eth0 interface.**   
+1. **:~$** ifdown eth0​  
+**# Will disable an eth0 interface.**    
+1. **:~$** ifconfig eth0 192.168.0.1 netmask 255.255.255.0​  
+**# Will config an IP direction.**      
+1. **:~$** dhclient eth0​  
+**# Will enable an eth0 interface with dhcp mode.**      
+1. **:~$** route -n​  
+**# Will show a route table.**      
+1. **:~$** route add -net 0/0 gw I ​ GATE_NAME​  
+**# Will config an access gate.**       
+1. **:~$** route del 0/0 gw ​ IP_ADRESS  
+**# Will disable an static IP.**    
+1. **:~$** hostname​  
+**# Will show the system hostname.**       
+1. **:~$** ip link show​  
+**# Will show the current status of the interfaces.**    
+1. **:~$** mii-tool eth0​  
+**# Will show the link status of 'eth0'.**    
+1. **:~$** ethtool eth0​  
+**# Will show statistics from the eth0 network card.**    
+1. **:~$** netstat -tup​  
+**# Will show all active network connections.**    
+1. **:~$** netstat -tupl​  
+**# Will show all the listening services in networking and their PIDs.**    
+1. **:~$** iwlist scan​  
+**# Will show all the wireless networks.**   
+1. **:~$** iwconfig eth1​  
+**# Will show the configuration of a wireless network card.**     
 
 
 # 2- Using files and folders (53 examples)  
