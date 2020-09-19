@@ -1,9 +1,9 @@
 ---
 layout: post
-title: N Linux commands for everyday life
-permalink: /blog/n-linux-commands-for-everyday-life
-published: false
-date: 2020-09-18
+title: 200 Linux commands for everyday life
+permalink: /blog/200-linux-commands-for-everyday-life
+published: true
+date: 2020-09-19
 author: davidjguru
 categories: [Drupal & Commands]
 sitemap: true
@@ -12,12 +12,10 @@ sitemap: true
 |:--:|
 | *Picture from Unsplash, user [Michael Dziedzic, @lazycreekimages](https://unsplash.com/@lazycreekimages)* |
 
-During this summer holiday, strange and so different, I tried to keep myself entertained with a thousand technical things (in addition to the daily needs of home and family) that I had on the TO*DO list. For example, I've been testing the Julia programming language to familiarize myself with the syntax and its approach. Or I've been studying the internal architecture of arrays built in C language within PHP, and I have also used tools I wanted to know, like in this case: Terraform.
+For a long time I had the idea of gathering somewhere centrally the most common Linux commands in these years of technology work. Looking back, I see that my relationship with the software in a professional way (I was previously a trainee) began in 2007, about thirteen years ago. Since then, I have always been within Linux environments and above all, in Ubuntu / Debian in particular. In some moments I have had to manage CentOS / RHEL and in some laptops I still have Fedora. But Debian / Ubuntu / L-Ubuntu were always my options (and still are).  
 <!--more-->
 
-Terraform ([https://www.terraform.io](https://www.terraform.io/)) is an open-source "infrastructure as code" software tool I had on my list to use since one year ago, but multiple reasons and other tools came ahead and until this summer I couldn't get started. Essentially, Terraform allows the remote provisioning of infrastructure through the configuration of specific files adapted to each supplier (AWS, Google, Digital Ocean, Azure, etc) and each provisioning need. Ok.  
-
-In this case I would like to perform provisioning tests on Digital Ocean droplets from a local Ubuntu-based environment to prepare tests in possible remote development environments. Let's see.
+So I have compiled several files exported from the history command, some interesting utilities and I have tried to gather them all in this post, mainly those that can be a useful, fast and simple solution in the day to day. 
  
 
 
@@ -171,14 +169,17 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** zip file.zip /folder **# Will compress a folder using zip format.**  
 1. **:~$** unzip file.zip **# Unzip a compressed file with zip format.**  
 
-# 3- Groups, users and permissions.  
+# 3- Groups, users and permissions (15 examples)
 
-## 3.1- Users and Groups
+## 3.1- Users and Groups (8 examples)
 1. **:~$** whoami **# Return what is your current user.**  
 1. **:~$** groupadd new_group_name **# Creates a new user group in the system.**  
 1. **:~$** useradd new_user_name **#Creates a new user in the system.**  
 1. **:~$** useradd -c “Comment to ​new_user_name” -g group_name -d /path/to/new/home -s /bin/bash​ new_user **# Creates new user with more data.**  
-1. **:~$** DD **# **
+1. **:~$** cat /etc/passwd **# Show all the users created in the system.**
+1. **:~$** cat /etc/group​ **# Show all the groups from the system.**
+1. **:~$** passwd ​ user_name **# Allows change the password for the user.**
+1. **:~$** chage -E ​ 2020-12-31 user_name **# Set expiration date for a user's password.**
 
 ## 3.2- Permissions and ownership (7 examples)
 1. **:~$** chown user filename **# Will change the owner of the file.**  
@@ -229,7 +230,7 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 
 
 
-# 5- Working in projects (29 examples)  
+# 5- Working in projects (54 examples)  
 
 ## 5.1- Applying style reviews with phpcs (6 examples)  
 1. **:~$** phpcs -i **# Will show all the installed coding standards.**  
@@ -239,7 +240,7 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** phpcs --report=diff /path/to/code **# Will generate a patch file from a style diff.**  
 1. **:~$** phpcbf /path/to/code **# Will repair the file.**   
 
-## 5.2- Version Control with Git (15 examples)  
+## 5.2- Version Control with Git (20 examples)  
 1. **:~$** git remote show origin **#Returns the data from the remote repository named 'origin'.**  
 1. **:~$** git pull origin your_branch --allow-unrelated-histories **# Repairs fatal: refusing to merge unrelated histories.**  
 1. **:~$** git diff stash@{0} your_branch > getting_your_patch.txt **# Getting a patch between recent stashed code and last status of your_branch.**  
@@ -256,8 +257,25 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** git diff master develop README.md **# Show all the diff between the same file from two different branches.**  
 1. **:~$** git push origin ccccc:master **# With commits a, b, c, d. Will push c, b, a, to remote.**  
 
-## 5.3- Docker Engine Related (Docker, Compose, Swarm)
+## 5.3- Docker Engine Related: Docker, Compose, Swarm (15 examples)
+See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheatsheet/](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
+1. **:~$** systemctl is-active docker **# Checks if Docker is active or not.**  
+1. **:~$** docker version **# Gets a whole report about your Docker Engine installation.**  
+1. **:~$** docker image ls **# Gets a list of all the images.**  
+1. **:~$** docker rmi $(docker image ls -q)  **# Deletes images by its ID.**  
+1. **:~$** docker image prune **# Removes unusued images.**  
+1. **:~$** docker exec idcontainer unixcommand  **# Executes a command inside a running container.**   
+1. **:~$** docker exec -it IDCONTAINER /bin/bash **# Connect to the Prompt of a Container.**  
+1. **:~$** docker cp db/dump.sql IDCONTAINER:/tmp/dump.sql **# Copying files from Local to Remote Docker Container.**  
+1. **:~$** docker cp IDCONTAINER:/tmp/dump_test.sql ./db **# Copying files from Docker Container to local.**  
+1. **:~$** docker system prune -f **# Remove unusued data and clean the Docker System.**  
+1. **:~$** docker stats --all --format "table \t\t" **# Show stats about the running containers with formatted output.**  
+1. **:~$** docker-compose logs -t -f ALIAS **# Get the Docker container log with direct connection.**  
+1. **:~$** docker-compose stop && docker-compose up --build --force-recreate **# Stops, rebuilds and relaunchs.**  
+1. **:~$** docker service create --replicas 3 --name my-service -p 8080:80 --network net-end my-app **# Swarm: Creates new service with params.** 
+1. **:~$** docker service scale my-service=6 **# Swarm: updating service up to six nodes.** 
 
+ 
 ## 5.4- Building projects using [DDEV](https://ddev.readthedocs.io/en/stable/) (8 examples)  
 1. **:~$** ddev version **# Check your DDEV installed version.**  
 1. **:~$** ddev launch  **# Launch in browser your Drupal site.**  
@@ -269,8 +287,11 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** ddev import-db --src=./backups/dump_02062020.sql.gz **# Load a compressed dump file in the default DDEV database called 'db'.**
 
 
-
-
-## 5.5- Drupal CLI using Drush or Drupal Console
+## 5.5- Drupal CLI using Drush or Drupal Console (10 examples)
 1. **:~$** drupal cect application --module="managing_activities" --optional-config --remove-uuid --remove-config-hash **# Export the config of an specific content type as optional.**  
-1. **:~$** drush -l sitename cr **#Clear cache only for a site in a multisite Drupal installation.**  
+1. **:~$** drush -l sitename cr **# Clear cache only for a site in a multisite Drupal installation.**  
+1. **:~$** drush migrate-fields-source your_migration_file **# Show the available fields in Drupal Migrations.**  
+1. **:~$** drush migrate-import your_migration_file --limit="50 items" --feedback="5 items" **# Executes a migration process but only transferring 50 items with info every 5 items.**  
+1. **:~$** drush config-delete 'module.config_settings' **# Deletes Configuration Objects.**  
+1. **:~$** drush cim --partial --source=only-few-configs/ **# Importing partial configuration files.**  
+1. **:~$** drush watchdog:show --count=20 **# Getting the last 20 problems from a Drupal site.**  
