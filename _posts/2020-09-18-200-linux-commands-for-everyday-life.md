@@ -154,10 +154,10 @@ I have thought of this grouping as a collection to get to know your system bette
 **# Will show the configuration of a wireless network card.**     
 
 
-# 2- Using files and folders (53 examples)  
+# 2- Using files and folders (54 examples)  
 **Note:** Basic commands when you're working with files and folders. 
 
-## 2.1- Basic usage (15 examples)  
+## 2.1- Basic usage (16 examples)  
 1. **:~$** mkdir name_folder  
 **# Will create a new folder with name.** 
 1. **:~$** mkdir folder1 folder2  
@@ -188,6 +188,9 @@ I have thought of this grouping as a collection to get to know your system bette
 **# Copy recursive with timestamps and verbose**  
 1. **:~$** rsync -avzh --progress --stats /home/drupal/ABCD/ /home/drupal/EFGH/  
 **# Copy recursive with links and symbolic links, compressing, verbose, with human info and reporting progress.**
+1. **:~$** find /var/backups/backups_drupal/ -type f -name '*.tar.gz' -mtime +10 -exec rm -f {} \;  
+**# Delete files older than 10 days** 
+
 
 
 ## 2.2- Moving between directories (12 examples)
