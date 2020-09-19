@@ -15,7 +15,9 @@ sitemap: true
 For a long time I had the idea of gathering somewhere centrally the most common Linux commands in these years of technology work. Looking back, I see that my relationship with the software in a professional way (I was previously a trainee) began in 2007, about thirteen years ago. Since then, I have always been within Linux environments and above all, in Ubuntu / Debian in particular. In some moments I have had to manage CentOS / RHEL and in some laptops I still have Fedora. But Debian / Ubuntu / L-Ubuntu were always my options (and still are).  
 <!--more-->
 
-So I have compiled several files exported from the history command, some interesting utilities and I have tried to gather them all in this post, mainly those that can be a useful, fast and simple solution in the day to day. 
+So I have compiled several files exported from the history command, some interesting utilities and I have tried to gather them all in this post, mainly those that can be a useful, fast and simple solution in the day to day.  
+
+I have thought of this grouping as a collection to get to know your system better and to be able to work better on a daily basis, losing the fear of the "Linux console". With these instructions and the flexibility they provide (the commands have many more options than I summarize here) you can perform your daily work with comfort and reliability.  
  
 
 
