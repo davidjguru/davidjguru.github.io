@@ -8,7 +8,7 @@ author: davidjguru
 categories: [Drupal & Commands]
 sitemap: true
 ---
-| ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_main.jpg) |
+| ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_drupal_n_linux_commands_main.jpg) |
 |:--:|
 | *Picture from Unsplash, user [Michael Dziedzic, @lazycreekimages](https://unsplash.com/@lazycreekimages)* |
 
@@ -105,7 +105,7 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** iwconfig eth1​ **# Will show the configuration of a wireless network card.**     
 
 
-# 2- Using files and folders (50 examples)  
+# 2- Using files and folders (53 examples)  
 **Note:** Basic commands when you're working with files and folders. 
 
 ## 2.1- Basic usage (15 examples)  
@@ -140,7 +140,10 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** ls -la // ll **# Get a complete list of resources including hidden with all the data.**
 1. **~$** tree **# Show all content in a folder in a recursive way. Requires sudo apt-get install tree .**
 
-## 2.3- Looking for resources (6 examples)
+## 2.3- Looking for resources (9 examples)
+1. **:~$** grep -i "string_to_search" filename **# Search a specific string in a single file in case insensitive.**  
+1. **:~$** grep "beginning*end" filename **# Search string with RegExp over a single file.**  
+1. **:~$** grep  -iw "word" filename **# Now we're looking for a word in case insensitive.**
 1. **:~$** find / -name filename **# Will search the file or folder starting by the root of system.**  
 1. **:~$** find / -user username **# Will look for files and folders owned by the username​.**  
 1. **:~$** find /home/user -name \*.bin **# Will search all files with .bin extension in the folder.** 
@@ -169,6 +172,24 @@ In this case I would like to perform provisioning tests on Digital Ocean droplet
 1. **:~$** unzip file.zip **# Unzip a compressed file with zip format.**  
 
 # 3- Groups, users and permissions.  
+
+## 3.1- Users and Groups
+1. **:~$** whoami **# Return what is your current user.**  
+1. **:~$** groupadd new_group_name **# Creates a new user group in the system.**  
+1. **:~$** useradd new_user_name **#Creates a new user in the system.**  
+1. **:~$** useradd -c “Comment to ​new_user_name” -g group_name -d /path/to/new/home -s /bin/bash​ new_user **# Creates new user with more data.**  
+1. **:~$** DD **# **
+
+## 3.2- Permissions and ownership (7 examples)
+1. **:~$** chown user filename **# Will change the owner of the file.**  
+1. **:~$** chown -R user:group foldername **# Changes user and group for a whole folder in recursive mode.**  
+1. **:~$** chmod -R 775 foldername **# Gives permissions 775 to a folder, recursive.**  
+1. **:~$** ls -la / ll **# Shows a list with all the content in a location, with permissions.**  
+1. **:~$** lsattr **# Will show all the special attributes of the content.**
+1. **:~$** chattr +i filename **# Convert the file as inmutable. Can't be deleted o altered.**
+1. **:~$** chattr +s filename **# Allows a file can be deleted in a safe way.**
+
+
 
 # 4- Managing packages (26 examples)  
 
