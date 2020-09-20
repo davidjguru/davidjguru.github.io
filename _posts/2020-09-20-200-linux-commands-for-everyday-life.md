@@ -3,7 +3,7 @@ layout: post
 title: 200 Linux commands for everyday life
 permalink: /blog/200-linux-commands-for-everyday-life
 published: true
-date: 2020-09-19
+date: 2020-09-20
 author: davidjguru
 categories: [Drupal & Commands]
 sitemap: true
@@ -19,7 +19,8 @@ So I have compiled several files exported from the history command, some interes
 
 I have thought of this grouping as a collection to get to know your system better and to be able to work better on a daily basis, losing the fear of the "Linux console". With these instructions and the flexibility they provide (the commands have many more options than I summarize here) you can perform your daily work with comfort and reliability.  
  
- I thought of this little compilation as a list to quickly locate an option, understand how it works and apply it directly by copy/paste for testing. That's why I have taken directly specific cases already parameterized with options and values. I think that somehow - and although it's a bit simplistic - with these commands you can survive quite well on a day-to-day basis. You can get to know them better by running the command 'man' ìn prompt -> ```man grep```, which gives you more information about each command line tool. For my part, I only wish that I can be useful to you. In rereading the post I have seen the painting of a trajectory of more than ten years in the industry. It has been very beautiful.  :_-) 
+ I thought of this little compilation as a list to quickly locate an option, understand how it works and apply it directly by copy/paste for testing. That's why I have taken directly specific cases already parameterized with options and values. I think that somehow - and although it's a bit simplistic - with these commands you can survive quite well on a day-to-day basis. You can get to know them better by running the command 'man' ìn prompt -> ```man grep```, which gives you more information about each command line tool. I preferred to start from the general use or maybe more transversal and finish with the more specific, more related to the world of Drupal (Drush and Drupal Console commands).  
+ For my part, I only wish that I can be useful to you. In rereading the post I have seen the painting of a trajectory of more than ten years in the industry. It has been very beautiful.  :_-) 
   
   ---------------------------------------------------------------------------------
   
@@ -30,11 +31,11 @@ I have thought of this grouping as a collection to get to know your system bette
   + [1.2- Shutting down the system (7 examples)](#12--shutting-down-the-system-7-examples)  
   + [1.3-  Managing networks (16 examples)](#13---managing-networks-16-examples)  
   
-  [2- Using files and folders (53 examples)](#2--using-files-and-folders-53-examples)  
-  + [2.1- Basic usage (15 examples)](#21--basic-usage-15-examples)  
+  [2- Using files and folders (55 examples)](#2--using-files-and-folders-53-examples)  
+  + [2.1- Basic usage (16 examples)](#21--basic-usage-16-examples)  
   + [2.2- Moving between directories (12 examples)](#22--moving-between-directories-12-examples)  
   + [2.3- Looking for resources (9 examples)](#23--looking-for-resources-9-examples)  
-  + [2.4- Making copies and compressed files (17 examples)](#24--making-copies-and-compressed-files-17-examples)  
+  + [2.4- Making copies and compressed files (18 examples)](#24--making-copies-and-compressed-files-18-examples)  
   
   [3- Groups, users and permissions (15 examples)](#3--groups-users-and-permissions-15-examples)  
   + [3.1- Users and Groups (8 examples)](#31--users-and-groups-8-examples)  
@@ -46,12 +47,13 @@ I have thought of this grouping as a collection to get to know your system bette
   + [4.3- .RPM -Red Hat, Fedora, SUSE, etc- (10 examples)](#43--rpm--red-hat-fedora-suse-etc--10-examples)  
   + [4.4- YUM -Red Hat, Fedora and others- (4 examples)](#44--yum--red-hat-fedora-and-others--4-examples)  
   
-  [5- Working in projects (54 examples)](#5--working-in-projects-29-examples)  
-  + [5.1- Applying style reviews with phpcs (6 examples)](#51--applying-style-reviews-with-phpcs-6-examples)  
-  + [5.2- Version Control with Git (15 examples)](#52--version-control-with-git-15-examples)  
-  + [5.3- Docker Engine Related (Docker, Compose, Swarm) (15 examples)](#53--docker-engine-related-docker-compose-swarm-15-examples)  
-  + [5.4- Building projects using DDEV (8 examples)](#54--building-projects-using-ddevhttpsddevreadthedocsioenstable-8-examples)  
-  + [5.5- Drupal CLI using Drush or Drupal Console (10 examples)](#55--drupal-cli-using-drush-or-drupal-console-10-examples)  
+  [5- Working in projects (57 examples)](#5--working-in-projects-57-examples)  
+  + [5.1- Reviewing history in prompt (3 examples)](#51--reviewing-history-in-prompt-3-examples)  
+  + [5.2- Applying style reviews with phpcs (6 examples)](#52--applying-style-reviews-with-phpcs-6-examples)  
+  + [5.3- Version Control with Git (17 examples)](#53--version-control-with-git-17-examples)  
+  + [5.4- Docker Engine Related (Docker, Compose, Swarm) (15 examples)](#54--docker-engine-related-docker-compose-swarm-15-examples)  
+  + [5.5- Building projects using DDEV (8 examples)](#55--building-projects-using-ddev-8-examples)  
+  + [5.6- Drupal CLI using Drush or Drupal Console (13 examples)](#56--drupal-cli-using-drush-or-drupal-console-13-examples)  
   
   [6- :wq!](#6--wq)  
   <!-- /TOC -->
@@ -154,7 +156,7 @@ I think that the important thing at the beginning is to be able to know better h
 **# Will show the configuration of a wireless network card.**     
 
 
-# 2- Using files and folders (54 examples)  
+# 2- Using files and folders (55 examples)  
 Then I think that on a daily basis, perhaps managing files (in Linux almost everything is a file) and directories is the next most important part. We are always moving from one folder to another and we are handling files, so it is important to familiarize yourself with these instructions.  
 **Note:** Basic commands when you're working with files and folders. 
 
@@ -240,7 +242,7 @@ Then I think that on a daily basis, perhaps managing files (in Linux almost ever
 1. **:~$** which firefox  
 **# Will show the whole path to the marked binary / executable file.**  
 
-## 2.4- Making copies and compressed files (17 examples)  
+## 2.4- Making copies and compressed files (18 examples)  
 1. **:~$** rsync -rtv /modules/custom/hello_world /workspace/drupal/hello_world  
 **# Sync folders.**  
 1. **:~$** dump -0aj -f /tmp/home0.bak ​ /home​  
@@ -275,6 +277,9 @@ Then I think that on a daily basis, perhaps managing files (in Linux almost ever
 **# Will compress a folder using zip format.**  
 1. **:~$** unzip file.zip  
 **# Unzip a compressed file with zip format.**  
+1. **:~$** mysqldump --user=$user --password=$password --host=$host $db_name > /var/backups/mysql_dumps/$version-$db_name-$date.sql  
+**# Gets a dump database file with .sql extension.**  
+
 
 # 3- Groups, users and permissions (15 examples)
 
@@ -315,6 +320,7 @@ Then I think that on a daily basis, perhaps managing files (in Linux almost ever
 
 
 # 4- Managing packages (26 examples)  
+Packages are the basic resource in order to install apps and other tools.  
 
 ## 4.1- .DEB -Debian, Ubuntu, Mint, and other derivatives- (4 examples)  
 1. **:~$** dpkg -i ​ package.deb​  
@@ -378,9 +384,21 @@ Then I think that on a daily basis, perhaps managing files (in Linux almost ever
 
 
 
-# 5- Working in projects (54 examples)  
+# 5- Working in projects (57 examples)  
+We are in the most specific section related to Drupal and the thousand daily tasks. These commands will make it much easier for you (in addition to all the previous ones) to perform the usual tasks in Drupal-based projects.  
 
-## 5.1- Applying style reviews with phpcs (6 examples)  
+## 5.1- Reviewing history in prompt (3 examples)
+1. **:~$** history 7  
+**# Will show the marked amount of the most recent commands.**  
+1. **:~$** !!  
+**# Executes the most recent command, the last one.**  
+1. **:~$** history |grep ping  
+**# Get the output from history command and piping it as an input to grep command for locating a specific command.**  
+
+
+## 5.2- Applying style reviews with phpcs (6 examples)  
+PHPCS is a Code Sniffer, ready for review coding standards in your code. [github.com/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer).  
+
 1. **:~$** phpcs -i  
 **# Will show all the installed coding standards.**  
 1. **:~$** phpcs --standard=Drupal -e  
@@ -394,7 +412,10 @@ Then I think that on a daily basis, perhaps managing files (in Linux almost ever
 1. **:~$** phpcbf /path/to/code  
 **# Will repair the file.**   
 
-## 5.2- Version Control with Git (20 examples)  
+## 5.3- Version Control with Git (17 examples)  
+Git is the most important tool for version control in software, so you have to learn the basics of git.  
+Learn Git here: [git-scm.com/docs](https://git-scm.com/docs) and here: [git-scm.com/book](https://git-scm.com/book/en/v2).  
+
 1. **:~$** git remote show origin  
 **#Returns the data from the remote repository named 'origin'.**  
 1. **:~$** git pull origin your_branch --allow-unrelated-histories  
@@ -430,7 +451,8 @@ Then I think that on a daily basis, perhaps managing files (in Linux almost ever
 1. **:~$** git cherry-pick af0w30b --no-commit  
 **# Same as former, will apply but don't commit changes from another location/branch.**  
 
-## 5.3- Docker Engine Related: Docker, Compose, Swarm (15 examples)
+## 5.4- Docker Engine Related: Docker, Compose, Swarm (15 examples)
+Docker Engine is the de-facto standard for containers. 
 See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheatsheet/](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
 
 1. **:~$** systemctl is-active docker  
@@ -465,9 +487,9 @@ See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheat
 **# Swarm: updating service up to six nodes.** 
 
  
-## 5.4- Building projects using DDEV (8 examples)  
+## 5.5- Building projects using DDEV (8 examples)  
 DDEV is a Containerization based tool, nowadays in the basic stack for Drupal projects. With DDEV-Local you can deploy fast Drupal projects.  
-**See more information about DDEV:** 
+**See more information about DDEV:**  
 * [Develop a Drupal 9 Website on Your Local Machine Using Docker and DDEV](https://www.digitalocean.com/community/tutorials/how-to-develop-a-drupal-9-website-on-your-local-machine-using-docker-and-ddev).   
 * [ddev.readthedocs.io](https://ddev.readthedocs.io/en/stable/)  
 * [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/).  
@@ -490,7 +512,7 @@ DDEV is a Containerization based tool, nowadays in the basic stack for Drupal pr
 **# Load a compressed dump file in the default DDEV database called 'db'.**
 
 
-## 5.5- Drupal CLI using Drush or Drupal Console (10 examples)
+## 5.6- Drupal CLI using Drush or Drupal Console (13 examples)
 ### Drush
 Drush (Drupal Shell) is the so called "Swiss army knife", a command-line tool (CLI) for Drupal. You can use Drush from your prompt and executing thousands of options, you'll be able to work with  Drupal in a very interactive way.  
 **See more information about Drush:**  
@@ -524,3 +546,13 @@ Drupal Console is a CLI tool to generate boilerplate code, making scaffolding an
 
 1. **:~$** drupal cect application --module="managing_activities" --optional-config --remove-uuid --remove-config-hash  
 **# Export the config of an specific content type as optional.**  
+
+1. **:~$** drupal debug:container  
+**# Gets a list of available services in a Drupal installation.**  
+
+1. **:~$** drupal debug:event  
+**# Gets a list of available events in your Drupal installation.**  
+
+1. **:~$** drupal generate:module --module="modulename" --machine-name="modulename" --module-path="/modules/custom"
+**# Generates a new Drupal custom module.**  
+
