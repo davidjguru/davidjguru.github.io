@@ -517,7 +517,7 @@ Drush (Drupal Shell) is the so called "Swiss army knife", a command-line tool (C
 **# Gets the total account of Views and its status..**  
 
 ### Drupal Console
-Drupal Console is a CLI tool to generate boilerplate code, making scaffolding and interact with a Drupal installation. Now, seems to have a new updated version ready for Drupal a suitable with Symfony 4.4
+Drupal Console is a CLI tool to generate boilerplate code, making scaffolding and interact with a Drupal installation. Now, seems to have [a new updated version ready for Drupal 9 and suitable with Symfony 4.4](https://github.com/hechoendrupal/drupal-console/releases/tag/1.9.5).  
 **See more information about Drupal Console:**  
 * [drupalconsole.com/docs](https://drupalconsole.com/docs/en/)  
 * [github.com/drupal-console](https://github.com/hechoendrupal/drupal-console)  
