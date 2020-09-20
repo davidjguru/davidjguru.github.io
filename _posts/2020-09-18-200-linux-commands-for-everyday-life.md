@@ -19,8 +19,7 @@ So I have compiled several files exported from the history command, some interes
 
 I have thought of this grouping as a collection to get to know your system better and to be able to work better on a daily basis, losing the fear of the "Linux console". With these instructions and the flexibility they provide (the commands have many more options than I summarize here) you can perform your daily work with comfort and reliability.  
  
-
-
+ I thought of this little compilation as a list to quickly locate an option, understand how it works and apply it directly by copy/paste for testing. That's why I have taken directly specific cases already parameterized with options and values. I think that somehow - and although it's a bit simplistic - with these commands you can survive quite well on a day-to-day basis. You can get to know them better by running the command 'man' ìn prompt -> ```man grep```, which gives you more information about each command line tool. For my part, I only wish that I can be useful to you. In rereading the post I have seen the painting of a trajectory of more than ten years in the industry. It has been very beautiful.  :_-) 
   
   ---------------------------------------------------------------------------------
   
@@ -61,6 +60,7 @@ I have thought of this grouping as a collection to get to know your system bette
 
 
 # 1- Know your system (42 examples)
+I think that the important thing at the beginning is to be able to know better how to interact with the operating system, practicing with commands, so I have put this list of instructions in first place to get information.  
 **Note:** Commands to getting information about your own Linux system. 
 
 ## 1.1- Getting information from the system (19 examples)
@@ -155,6 +155,7 @@ I have thought of this grouping as a collection to get to know your system bette
 
 
 # 2- Using files and folders (54 examples)  
+Then I think that on a daily basis, perhaps managing files (in Linux almost everything is a file) and directories is the next most important part. We are always moving from one folder to another and we are handling files, so it is important to familiarize yourself with these instructions.  
 **Note:** Basic commands when you're working with files and folders. 
 
 ## 2.1- Basic usage (16 examples)  
@@ -424,9 +425,14 @@ I have thought of this grouping as a collection to get to know your system bette
 **# Show all the diff between the same file from two different branches.**  
 1. **:~$** git push origin ccccc:master  
 **# With commits a, b, c, d. Will push c, b, a, to remote.**  
+1. **:~$** git cherry-pick af0w30b  
+**# Will apply and commit changes from another location/branch.**  
+1. **:~$** git cherry-pick af0w30b --no-commit  
+**# Same as former, will apply but don't commit changes from another location/branch.**  
 
 ## 5.3- Docker Engine Related: Docker, Compose, Swarm (15 examples)
 See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheatsheet/](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).  
+
 1. **:~$** systemctl is-active docker  
 **# Checks if Docker is active or not.**  
 1. **:~$** docker version  
@@ -459,7 +465,13 @@ See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheat
 **# Swarm: updating service up to six nodes.** 
 
  
-## 5.4- Building projects using [DDEV](https://ddev.readthedocs.io/en/stable/) (8 examples)  
+## 5.4- Building projects using DDEV (8 examples)  
+DDEV is a Containerization based tool, nowadays in the basic stack for Drupal projects. With DDEV-Local you can deploy fast Drupal projects.  
+**See more information about DDEV:** 
+* [Develop a Drupal 9 Website on Your Local Machine Using Docker and DDEV](https://www.digitalocean.com/community/tutorials/how-to-develop-a-drupal-9-website-on-your-local-machine-using-docker-and-ddev).   
+* [ddev.readthedocs.io](https://ddev.readthedocs.io/en/stable/)  
+* [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/)..  
+
 1. **:~$** ddev version  
 **# Check your DDEV installed version.**  
 1. **:~$** ddev launch  
@@ -479,8 +491,14 @@ See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheat
 
 
 ## 5.5- Drupal CLI using Drush or Drupal Console (10 examples)
-1. **:~$** drupal cect application --module="managing_activities" --optional-config --remove-uuid --remove-config-hash  
-**# Export the config of an specific content type as optional.**  
+### Drush
+Drush (Drupal Shell) is the so called "Swiss army knife", a command-line tool (CLI) for Drupal. You can use Drush from your prompt and executing thousands of options, you'll be able to work with  Drupal in a very interactive way.  
+**See more information about Drush:**  
+* [www.drush.org](https://www.drush.org/)  
+* [drushcommands.com](https://drushcommands.com/)  
+
+1. **:~$** drush si --site-name=Example-Drupal --account-name=admin --account-pass=admin -y  
+**# Executes the installation process of a downloaded (and unzipped) Drupal codebase.**  
 1. **:~$** drush -l sitename cr  
 **# Clear cache only for a site in a multisite Drupal installation.**  
 1. **:~$** drush migrate-fields-source your_migration_file  
@@ -493,3 +511,16 @@ See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheat
 **# Importing partial configuration files.**  
 1. **:~$** drush watchdog:show --count=20  
 **# Getting the last 20 problems from a Drupal site.**  
+1. **:~$** drush sql-query "SELECT CONVERT(value USING utf8) FROM key_value WHERE name = 'the_module_name'"  
+**# Gets the info about the current version of a module.**  
+1. **:~$** drush views:analyze  
+**# Gets the total account of Views and its status..**  
+
+### Drupal Console
+Drupal Console is a CLI tool to generate boilerplate code, making scaffolding and interact with a Drupal installation. Now, seems to have a new updated version ready for Drupal a suitable with Symfony 4.4
+**See more information about Drupal Console:**  
+* [drupalconsole.com/docs](https://drupalconsole.com/docs/en/)  
+* [github.com/drupal-console](https://github.com/hechoendrupal/drupal-console)  
+
+1. **:~$** drupal cect application --module="managing_activities" --optional-config --remove-uuid --remove-config-hash  
+**# Export the config of an specific content type as optional.**  
