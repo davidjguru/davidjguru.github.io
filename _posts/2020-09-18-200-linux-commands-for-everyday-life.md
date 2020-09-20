@@ -38,7 +38,7 @@ I have thought of this grouping as a collection to get to know your system bette
   
   [3- Groups, users and permissions (15 examples)](#3--groups-users-and-permissions-15-examples)  
   + [3.1- Users and Groups (8 examples)](#31--users-and-groups-8-examples)  
-  + [3.2-Permissions and ownership (7 examples)](#32--permissions-and-ownership-7-examples)  
+  + [3.2- Permissions and ownership (7 examples)](#32--permissions-and-ownership-7-examples)  
   
   [4- Managing packages (26 examples)](#4--managing-packages-26-examples)  
   + [4.1- .DEB -Debian, Ubuntu, Mint, and others- (4 examples)](#41--deb--debian-ubuntu-mint-and-other-derivatives--4-examples)  
@@ -470,7 +470,7 @@ DDEV is a Containerization based tool, nowadays in the basic stack for Drupal pr
 **See more information about DDEV:** 
 * [Develop a Drupal 9 Website on Your Local Machine Using Docker and DDEV](https://www.digitalocean.com/community/tutorials/how-to-develop-a-drupal-9-website-on-your-local-machine-using-docker-and-ddev).   
 * [ddev.readthedocs.io](https://ddev.readthedocs.io/en/stable/)  
-* [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/)..  
+* [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/).  
 
 1. **:~$** ddev version  
 **# Check your DDEV installed version.**  
