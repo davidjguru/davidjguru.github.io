@@ -29,7 +29,7 @@ I have thought of this grouping as a collection to get to know your system bette
 
   ---------------------------------------------------------------------------------
 
-  **Table of Contents**
+  **Table of Contents**  
   <!-- TOC -->
   [1- Know your system (42 examples)](#1--know-your-system-42-examples)
   + [1.1- Getting information from the system (19 examples)](#11--getting-information-from-the-system-19-examples)
