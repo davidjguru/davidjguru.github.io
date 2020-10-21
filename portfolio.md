@@ -6,6 +6,12 @@ sitemap: true
 ---
 This is a placeholder page for some Drupal-based Projects I've worked on.
 
+## Year 2020 
+
+## Year 2019
+
+## Year 2018 
+
 ## Year 2017
 ### Andalusian network of support for the Palestinian population
 ![Andalusian network of support for the Palestinian population]({{ site.baseurl }}/images/davidjguru_drupal_project_palestina.png)

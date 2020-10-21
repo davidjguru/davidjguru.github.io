@@ -17,9 +17,10 @@ Because of this I try to learn a bit of Catalan or Euskara, the language of the 
 ![Years after, at school]({{ site.baseurl }}/images/davidjguru_at_school_720x430.jpg)
 
 
-I am currently Technical Director at Everis (they call it 'Centers Leader Specialist' or so) for the development of projects based on Drupal, involved with a team of 20 people working from Seville. I design training plans, I trace the on-boarding processes for PHP-Drupal developers, supervising projects, and I do software architecture and development. I'm a [facilitator](https://dictionary.cambridge.org/es/diccionario/ingles/facilitator){:target="_blank"} whose main concern is how to advance the people who are part of my team: that is my [leitmotiv](https://dictionary.cambridge.org/es/diccionario/ingles/leitmotiv){:target="_blank"}.
+I'm working as Drupal Senior Developer in [Solucionex // SLX](https://www.solucionex.com/){:target="_blank"}, a agency very focused on Software Development using Symfony and Drupal. In Solucionex // SLX all the workmates we're working in a remote way, so this let me working from different cities and places. And this makes me very, very happy  :-)  
+The previous year I was working as Technical Director at Everis (they called it 'Centers Leader Specialist' or so) for the development of projects based on Drupal, involved with a team of 20 people working from Seville. I design training plans, I trace the on-boarding processes for PHP-Drupal developers, supervising projects, and I'm doing software architecture and development. I'm a [facilitator](https://dictionary.cambridge.org/es/diccionario/ingles/facilitator){:target="_blank"} whose main concern is how to advance the people who are part of my team: that is my [leitmotiv](https://dictionary.cambridge.org/es/diccionario/ingles/leitmotiv){:target="_blank"}.
 
-I have been linked to Drupal since 2011 (approximately). I've always had the same nickname - [@davidjguru](https://twitter.com/davidjguru){:target="_blank"} and I'm  working at Everis, doing digital consulting for Drupal - based projects. PHP, MySQL(MariaDB), Apache, NGINX, Composer, Drush, Drupal Console, Drupal Code Generator, Docker, DDEV... some CSS, some javascript ... sitebuilding ... and so on and so on ...
+I have been linked to Drupal since 2011 (approximately). I've always had the same nickname - [@davidjguru](https://twitter.com/davidjguru){:target="_blank"} and you can see here my own Drupal.org profile: [https://www.drupal.org/u/davidjguru](https://www.drupal.org/u/davidjguru){:target="_blank"}. Now I'm doing digital consulting for Drupal - based projects. PHP, MySQL(MariaDB), Apache, NGINX, Composer, Drush, Drupal Console, Drupal Code Generator, Docker, DDEV... some CSS, some JavaScript ... sitebuilding ... and so on and so on ...
 
 ![Playing with friends]({{ site.baseurl }}/images/davidjguru_playing_with_friends_720x540.jpg)
 
@@ -27,10 +28,19 @@ I have been linked to Drupal since 2011 (approximately). I've always had the sam
 This is my own sketchbook for the things that I'm testing in my environments. I hope you like it and there is something that might interest you.
 
 ### Articles about Drupal
+Well, there's a lot of content out there written by me, but you can read some articles in certain sites and directions. I have selected some references to link from here.  
 
-* **Menos NIH, más PFE: Demoliendo mitos sobre Drupal (Spanish)**: [http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal](http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal){:target="_blank"}
+In English, you can read:
 
 * **Less NIH, more PFE: Demolishing myths about Drupal (Slides, English)**: [https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337](https://www.slideshare.net/davidjguru/less-nih-more-pfe-demolishing-myths-about-drupal-76709337){:target="_blank"}
+
+
+Or all the Drupal Migration series published in my site: 
+[https://www.therussianlullaby.com/categories/migrations](https://www.therussianlullaby.com/categories/migrations/){:target="_blank"}.  
+
+And in Spanish, You can read some content: 
+
+* **Menos NIH, más PFE: Demoliendo mitos sobre Drupal (Spanish)**: [http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal](http://rojomorgan.com/es/blog/menos-nih-mas-pfe-demoliendo-mitos-sobre-drupal){:target="_blank"}
 
 * **Reviewing the local community of Drupal Sevilla (Retrospective, Spanish)**: [https://groups.drupal.org/node/517058](https://groups.drupal.org/node/517058){:target="_blank"}
 
@@ -46,7 +56,7 @@ This is my own sketchbook for the things that I'm testing in my environments. I 
 
 ### More Information
 
-It's Me on my [Drupal.org profile](https://www.drupal.org/u/davidjguru){:target="_blank"}. You can see also my [Gist profile](https://gist.github.com/davidjguru){:target="_blank"}, my [Github](https://github.com/davidjguru){:target="_blank"}, my [Linkedin profile](https://www.linkedin.com/in/davidjguru){:target="_blank"}.
+It's Me on my [Drupal.org profile](https://www.drupal.org/u/davidjguru){:target="_blank"}. You can see also my [Gist profile](https://gist.github.com/davidjguru){:target="_blank"}, my [Github](https://github.com/davidjguru){:target="_blank"}, and connecting with my [Linkedin profile](https://www.linkedin.com/in/davidjguru){:target="_blank"}.
 
 ### Contact me
 
