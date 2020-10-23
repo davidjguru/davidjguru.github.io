@@ -30,6 +30,8 @@ layout: default
       {% if category[0] = categorized %}
          <h3>The Current Category is: {{category[0]}}</h3>
          {% endif %}
+         {% unless forloop.last %}&nbsp;{% endunless %}
+         {% endfor %}
     </div>
 {% endfor %}
 </div>
