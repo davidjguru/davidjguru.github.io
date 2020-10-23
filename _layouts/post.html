@@ -21,10 +21,10 @@ layout: default
   </div>
   <div class="related-articles">
   {% for tag in site.categories %}
-    {% capture tag_name %}{{ tag| first }}{% endcapture %}
+    {% capture tag_name %}{{ tag | first }}{% endcapture %}
     <em>{{tag_name}}</em>
       {% for category in post.categories %}
-      {% capture category_name %}{{ category[0] | first }}{% endcapture %}
+      {% capture category_name %}{{ category[1] | first }}{% endcapture %}
       <strong>{{category_name}}</strong>
       {% endfor %}
     {% if tag_name == category_name %}
