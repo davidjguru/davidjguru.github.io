@@ -22,11 +22,13 @@ layout: default
   <div class="port">
     {% if post %}
       {% assign categories = post.categories %}
+      {% endif %}
   {% for category in site.categories %}
     <div class="related-posts">
       <h2>{{category[0]}}</h2>
       {% if category[0] = categories[0] %}
          <h3>The Current Category is: {{category[0]}}</h3>
+         {% endif %}
     </div>
 {% endfor %}
 </div>
