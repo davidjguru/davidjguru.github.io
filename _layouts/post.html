@@ -23,8 +23,9 @@ layout: default
   {% for category in site.categories %}
     {% capture category_name %}{{ category | first }}{% endcapture %}
     {% assign tags = post.categories %}
-    {% for tag_value in tags %}
-    {% assign tag =  tag_value %}
+      {% for tag_value in tags %}
+        {% assign tag =  tag_value %}
+      {% endfor %}
     {% if tag = category %}
      {% for post in site.categories[category_name] %}
       <article class="archive-item">
