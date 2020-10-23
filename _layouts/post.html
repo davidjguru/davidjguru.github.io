@@ -20,7 +20,8 @@ layout: default
     {{ content }}
   </div>
   {% for category in site.categories %}
-  {% if category[0] == post.categories %}
+    {% for categor in post.categories %}
+       {% if category == categor %}
     <div class="related-posts">
       <h2>Related Posts</h2>
       <ul>
@@ -29,7 +30,8 @@ layout: default
         {% endfor %}
       </ul>
     </div>
-  {% endif %}
+    {% endif %}
+  {% endfor %}
 {% endfor %}
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
