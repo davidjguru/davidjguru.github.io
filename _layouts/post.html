@@ -20,14 +20,14 @@ layout: default
     {{ content }}
   </div>
   <div class="related-articles">
-  {% for category in site.categories %}
-    {% capture category_name %}{{ category | first }}{% endcapture %}
-    <em>{{category_name}}</em>
-    {% assign tags = post.categories %}
-      {% for tag_value in tags %}
-        {% assign tag =  tag_value %}
+  {% for tag in site.categories %}
+    {% capture tag_name %}{{ tag| first }}{% endcapture %}
+    <em>{{tag_name}}</em>
+      {% for category in post.categories %}
+      {% capture category_name %}{{ category | first }}{% endcapture %}
+      <strong>{{category_name}}</strong>
       {% endfor %}
-    {% if tag == category %}
+    {% if tag_name == category_name %}
      {% for post in site.categories[category_name] %}
       <article class="archive-item">
 	    <p><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a> - ({{ post.date | date_to_long_string }}) </p>
