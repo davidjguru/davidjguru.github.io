@@ -20,13 +20,13 @@ layout: default
     {{ content }}
   </div>
   <div class="related-articles">
-    {% if post %}
-      {% assign segments = post.categories %}
-    {% endif %}
   {% for category in site.categories %}
     {% capture category_name %}{{ category | first }}{% endcapture %}
-    {% if segments = category %}
-     {% for post in site.categories[segment_name] %}
+    {% assign tags = post.categories %}
+    {% for tag_value in tags %}
+    {% assign tag =  tag_value %}
+    {% if tag = category %}
+     {% for post in site.categories[category_name] %}
       <article class="archive-item">
 	    <p><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a> - ({{ post.date | date_to_long_string }}) </p>
       </article>
