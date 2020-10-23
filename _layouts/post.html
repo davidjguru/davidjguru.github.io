@@ -21,7 +21,6 @@ layout: default
   </div>
   <div class="related-articles">
   {% for category in site.categories %}
-  <em>{{category}}</em>
     {% capture category_name %}{{ category | first }}{% endcapture %}
     <em>{{category_name}}</em>
     {% assign tags = post.categories %}
