@@ -19,6 +19,7 @@ layout: default
   <div class="entry">
     {{ content }}
   </div>
+  <div class="port">
   {% for category in site.categories %}
     {% for categor in post.categories %}
        {% if category == categor %}
@@ -33,6 +34,7 @@ layout: default
     {% endif %}
   {% endfor %}
 {% endfor %}
+</div>
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
