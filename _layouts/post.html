@@ -23,16 +23,16 @@ layout: default
     {% if post %}
       {% assign cacafuti = post.categories %}
     {% endif %}
-  {% for category in site.categories %}
-    <div class="related-posts">
-      <h2>{{category[0]}}</h2>
-    </div>
-    {% endfor %} 
-  {% for categorized in cacafuti %}
+    {% for categorized in cacafuti %}
   <div class="post-categories">
     <h2>{{categorized}}</h2>
   </div>
   {% endfor %}
+  {% for category in site.categories %}
+    <div class="related-posts">
+      <h2>{{category[0]}}</h2>
+    </div>
+    {% endfor %}
 </div>
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
