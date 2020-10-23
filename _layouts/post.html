@@ -22,19 +22,21 @@ layout: default
   <div class="related-articles">
   {% for tag in site.categories %}
     {% capture tag_name %}{{ tag | first }}{% endcapture %}
-    <em>{{tag_name}}</em>
-      {% for category in post.categories %}
-      {% capture category_name %}{{ category[1] | first }}{% endcapture %}
-      <strong>{{category_name}}</strong>
-      {% endfor %}
-    {% if tag_name == category_name %}
-     {% for post in site.categories[category_name] %}
+    <div class="tag-item"><em>{{tag_name}}</em></div>
+  {% endfor %}
+  {% for segment in post.categories %}
+      {% capture segment_name %}{{ segment | first }}{% endcapture %}
+      <div class="segment-item"> <h3>{{segment_name}}</h3></div>
+  % endfor %}
+    {% if segment_name == tag_name %}
+    <div class="help_item"> <h3>HURRAY</h3></div>
+     {% for post in site.categories[segment_name] %}
       <article class="archive-item">
 	    <p><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a> - ({{ post.date | date_to_long_string }}) </p>
       </article>
      {% endfor %}
     {% endif %}
-  {% endfor %}
+
 </div>
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
