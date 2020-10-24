@@ -11,6 +11,7 @@ layout: default
       {% assign title = post.title %}
     {% else %}
       {% assign categories = page.categories %}
+      {% assign title = page.title %}
     {% endif %}
     {% for category in categories %}
     {% assign segment = category %}
