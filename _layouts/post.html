@@ -12,6 +12,7 @@ layout: default
       {% assign categories = page.categories %}
     {% endif %}
     {% for category in categories %}
+    {% assign segment = category %}
     <p>Category: <a href="{{site.baseurl}}/topics/#{{category|slugize}}">{{category}}</a></p>
     {% unless forloop.last %}&nbsp;{% endunless %}
     {% endfor %}
@@ -20,7 +21,7 @@ layout: default
     {{ content }}
   </div>
   <div class="related-articles">
-    <h2>Related content: {{category}}</h2>
+    <h2>Related content: {{segment}}</h2>
     {% for tag in site.categories %}
     {% capture tag_name %}{{ tag | first }}{% endcapture %}
     <h3>{{tag_name}}</h3>
