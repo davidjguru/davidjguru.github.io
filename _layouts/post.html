@@ -8,6 +8,7 @@ layout: default
   <div class="post-categories">
     {% if post %}
       {% assign categories = post.categories %}
+      {% assign title = post.title %}
     {% else %}
       {% assign categories = page.categories %}
     {% endif %}
@@ -23,9 +24,11 @@ layout: default
   <div class="related-articles">
     <h2>Related content: {{segment}}</h2>
      {% for post in site.categories[segment] %}
+     {% unless title == post.title%}
       <article class="archive-item">
 	    <p><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a> - ({{ post.date | date_to_long_string }}) </p>
       </article>
+      {% endunless %}
      {% endfor %}
 </div>
   <div class="date">
