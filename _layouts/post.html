@@ -20,10 +20,10 @@ layout: default
     {{ content }}
   </div>
   <div class="related-articles">
-    <h2>Related content: </h2>
+    <h2>Related content: {{category}}</h2>
     {% for tag in site.categories %}
     {% capture tag_name %}{{ tag | first }}{% endcapture %}
-    <h3>{{tag_name}</h3>
+    <h3>{{tag_name}}</h3>
      {% for post in site.categories[tag_name] %}
       <article class="archive-item">
 	    <p><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a> - ({{ post.date | date_to_long_string }}) </p>
