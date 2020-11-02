@@ -458,7 +458,7 @@ Learn Git here: [git-scm.com/docs](https://git-scm.com/docs) and here: [git-scm.
 
 ## 5.4- Docker Engine Related: Docker, Compose, Swarm (15 examples)
 Docker Engine is the de-facto standard for containers.
-See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheatsheet/](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).
+See more commands about Docker Engine and DDEV at [www.therussianlullaby.com/docker-cheatsheet/](https://www.therussianlullaby.com/blog/docker-docker-compose-and-ddev-cheatsheet/).
 
 1. **:~$** systemctl is-active docker
 **# Checks if Docker is active or not.**
@@ -493,7 +493,7 @@ See more commands about Docker Engine at [www.therussianlullaby.com/docker-cheat
 
 
 ## 5.5- Building projects using DDEV (8 examples)
-DDEV is a Containerization based tool, nowadays in the basic stack for Drupal projects. With DDEV-Local you can deploy fast Drupal projects.
+DDEV is a Containerization based tool, nowadays in the basic stack for Drupal projects. With DDEV-Local you can deploy fast Drupal projects.  
 **See more information about DDEV:**
 * [Develop a Drupal 9 Website on Your Local Machine Using Docker and DDEV](https://www.digitalocean.com/community/tutorials/how-to-develop-a-drupal-9-website-on-your-local-machine-using-docker-and-ddev).
 * [ddev.readthedocs.io](https://ddev.readthedocs.io/en/stable/)
@@ -519,7 +519,7 @@ DDEV is a Containerization based tool, nowadays in the basic stack for Drupal pr
 
 ## 5.6- Drupal CLI using Drush or Drupal Console (13 examples)
 ### Drush
-Drush (Drupal Shell) is the so called "Swiss army knife", a command-line tool (CLI) for Drupal. You can use Drush from your prompt and executing thousands of options, you'll be able to work with  Drupal in a very interactive way.
+Drush (Drupal Shell) is the so called "Swiss army knife", a command-line tool (CLI) for Drupal. You can use Drush from your prompt and executing thousands of options, you'll be able to work with  Drupal in a very interactive way.  
 **See more information about Drush:**
 * [www.drush.org](https://www.drush.org/)
 * [drushcommands.com](https://drushcommands.com/)
@@ -544,7 +544,7 @@ Drush (Drupal Shell) is the so called "Swiss army knife", a command-line tool (C
 **# Gets the total account of Views and its status..**
 
 ### Drupal Console
-Drupal Console is a CLI tool to generate boilerplate code, making scaffolding and interact with a Drupal installation. Now, seems to have [a new updated version ready for Drupal 9 and suitable with Symfony 4.4](https://github.com/hechoendrupal/drupal-console/releases/tag/1.9.5).
+Drupal Console is a CLI tool to generate boilerplate code, making scaffolding and interact with a Drupal installation. Now, seems to have [a new updated version ready for Drupal 9 and suitable with Symfony 4.4](https://github.com/hechoendrupal/drupal-console/releases/tag/1.9.5).  
 **See more information about Drupal Console:**
 * [drupalconsole.com/docs](https://drupalconsole.com/docs/en/)
 * [github.com/drupal-console](https://github.com/hechoendrupal/drupal-console)
