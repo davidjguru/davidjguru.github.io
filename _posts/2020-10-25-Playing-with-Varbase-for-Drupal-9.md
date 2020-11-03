@@ -12,7 +12,7 @@ sitemap: true
 |:--:|
 | *Picture from Unsplash, user [Vanessa Bucceri](https://unsplash.com/@vbcreative)* |
 
-For a long time I had the idea of gathering somewhere centrally the most common Linux commands in these years of technology work. Looking back, I see that my relationship with the software in a professional way (I was previously a trainee) began in 2007, about thirteen years ago. Since then, I have always been within Linux environments and above all, in Ubuntu / Debian in particular. In some moments I have had to manage CentOS / RHEL and in some laptops I still have Fedora. But Debian / Ubuntu / L-Ubuntu were always my options (and still are).
+Some time ago, I wrote and entry in this sketchbook about a Drupal installation profile or the so called "Distro", the Open Europa Platform for Drupal. 
 <!--more-->
 
 So I have compiled several files exported from the history command, some interesting utilities and I have tried to gather them all in this post, mainly those that can be a useful, fast and simple solution in the day to day.
