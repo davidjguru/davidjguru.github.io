@@ -28,6 +28,7 @@ The latest version of PHP ([PHP 8](https://www.php.net/releases/8.0/en.php)) was
     * [4.2- Garbage Collector](#42--garbage-collector)  
     * [4.3- Some related functions](#43--some-related-functions)  
   [5- Observations](#5--observations)  
+  [:wq!](#wq)  
   <!-- /TOC -->
   
   -------------------------------------------------------------------------------
@@ -330,3 +331,6 @@ Here I'm using just a basic PHP class with a single property, and then creating 
 ![Memory Consumption in objects]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_three.png)  
 
 Finally, after comparing in the three previous sections the memory consumption in the three versions of PHP, it seems that the last one available (PHP 8) is similar in this dimension to the operations in memory of PHP 7 (in most tests the graphs of 8 and 7 overlap with the same values), and also moves away from the memory management of PHP 5.  
+
+
+## :wq! 
