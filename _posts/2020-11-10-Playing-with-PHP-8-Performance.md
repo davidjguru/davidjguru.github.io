@@ -305,13 +305,21 @@ And here are the results:
 Ok. Here we're measuring some paradoxes from the PHP Arrays. Arrays in PHP are not - strictly speaking - fixed-length array structures (as in other languages). In fact is more like a HashMap, with a lot of data structure.
 In this script we see what size a 100K element array occupies in memory within a 64-bit architecture system and we compare it with the use of a fixed and determined length array.  For the fixed-legth array, I'm using the [SPL Extension for PHP](https://www.php.net/manual/en/book.spl.php), and [the SplFixedArray Class](https://www.php.net/manual/en/class.splfixedarray.php) for building this kind of arrays.  
 
-Let's think about an idea: In 64b - Architecture, one integer in format "long" is build using 8 bytes*, so theoretically for an 100K array, we'll use 800.000 bytes (0.8 MB). But the results are returning differents values (due to the implementation of arrays in PHP showed in the former section).  
+Let's think about an idea: In 64b - Architecture, one integer in format "long" is build using 8 bytes*, so theoretically for an 100K items array, we'll use 800.000 bytes (0.8 MB). But the results are returning differents values (due to the implementation of arrays in PHP showed in the former section).  
 
 *[docs.oracle.com/index.html](https://docs.oracle.com/cd/E19253-01/817-6223/chp-typeopexpr-2/index.html).  
 
 
 
 ![Memory Consumption in arrays]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_one.png)  
+
+Here we can see the direct effects of the changes in the implementation of the zval structures from PHP 5.x to PHP 7.x: Now the arrays are more lights. let's remember a previous calculation: Just for an array with 100K integer items = 0,8MB. But in PHP:  
+
+```bash
+Memory Usage in PHP 5.6.40: 13,97 MB  
+Memory Usage in PHP 7.3.24: 4 MB
+Memory Usage in PHP 8.0.0: 4 MB
+```
 
 
 
