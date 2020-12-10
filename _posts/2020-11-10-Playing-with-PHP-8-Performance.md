@@ -111,7 +111,7 @@ router_http_port: "80"
 router_https_port: "443"
 ```
 
-So, after the restar, connect to the main container and get the PHP version:  
+So, after the restart, connect to the main container and get the PHP version:  
 
 ```bash
 $ ddev ssh
@@ -121,17 +121,132 @@ PHP 8.0.0RC3 (cli)
 
 ## Key Concepts
 
+Let's review some key issues of this little home experiment, some important ideas to know about the PĤP context.  
+
+### PHP Under the hood
+
+For many people PHP is just like an interpreted C that you can use in HTML documents. It's a big simplification, but somewhat controversial: there are aspects that are directly related and others that are not. PHP is a high-level programming language built in C to facilitate the development of web resources, which still maintains elements of the low-level C.  
+
+Some of this basic elements from C are an importante key in the way we understand PHP and its performance. Let's see just a pair of items:  
+
+* **Variables:** variables in PHP are really data structures called 'zval'(Zend Value) and implemented in C. It's a 'struct', it means, composite data types. It represents any PHP value (number, string, array...).  
+  
+  This is a register for a PHP variable, initially (PHP5 or so):  
+  ```php
+typedef struct _zval_struct {
+    zvalue_value value; /* variable value */
+    zend_uint refcount__gc; /* reference counter */
+    zend_uchar type; /* value type */
+    zend_uchar is_ref__gc; /* reference flag */
+} zval;
+  ``` 
+
+Now evolved to:  
+
+```php
+typedef struct _zval_struct {
+    union {
+        zend_long lval;
+        double dval;
+        zend_refcounted *counted;
+        zend_string *str;
+        zend_array *arr;
+        zend_object *obj;
+        zend_resource *res;
+        zend_reference *ref;
+    …
+    } value;
+    zend_uchar type;
+    zend_uchar type_flags;
+    uint16_t extra;
+    uint32_t reserved;
+} zval;
+```
+
+As you know well, PHP is a dynamically-typed language, and the zval is ready to storage different types. In memory, zval is using two 64bit words, in this order:  
+
+```txt
+|  **Value**             |         Space                |
+| ----------------------:|:-----------------------------|
+| Type                   | 0 - 7                        |
+| Type_flags             | 8 -                          |
+| Extra                  | - 31                         |
+| Reserved               | 32 - 63                      |
+```
+
+Get more info about zval:  
+* [zend.com/basic-php-structures](https://www.zend.com/basic-php-structures)  
+* [nikic.github.io/Internal-value-representation-in-PHP-7](https://nikic.github.io/2015/05/05/Internal-value-representation-in-PHP-7-part-1.html)  
+
+* **Arrays:**  arrays in PHP are a special data structure, too. In fact in PHP doesn't exists as we know in other languages. In PHP are like maps, or maybe like ordered dictionaries: key/value pairs while the key/value mapping is implemented using hashtables. Structures with a very special treatment, according to the values it contains and the types of data.  
+  
+In this image you can see the model from the book [PHP 7 Data Structures and Algorithms, by Mizanur Rahman](https://www.packtpub.com/product/php-7-data-structures-and-algorithms/9781786463890):  
+
+![Structure of Arrays in PHP]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_five.png) 
+
+Get more info about arrays:  
+* [zend.com/php-arrays](https://www.zend.com/php-arrays)
+* [nikic.github.io/PHPs-new-hashtable-implementation.html](https://nikic.github.io/2014/12/22/PHPs-new-hashtable-implementation.html)
+
+
+
 
 ### Garbage Collector
 
-https://www.php.net/manual/en/session.configuration.php
+This is a system that allows PHP cleaning the memory. You can enable or disable the funcions using some parameters from the code or from internal config files.  
 
+
+
+https://www.php.net/manual/en/features.gc.collecting-cycles.php
+
+https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf
+
+Params available in php.ini: [php.net/session.configuration.php](https://www.php.net/manual/en/session.configuration.php)   
+
+In general terms, we're configuring this in the php.ini file:  
+
+```php
+session.gc_maxlifetime = 3600
+session.gc_probability = 1
+session.gc_divisor = 1000
+```
+
+But in the Drupal context, we can change these values from a Drupal installation, inside the file 'services.yml' in docroot/sites/default/:  
+
+```yml
+parameters:
+  session.storage.options:
+    gc_probability: 1
+    gc_divisor: 100
+    gc_maxlifetime: 200000
+    cookie_lifetime: 2000000
+```
+
+
+### Some related functions  
+
+There's a set of PHP functions linked to the memory consumption ready-to-play.  
+
+
+* **memory_get_usage():** Return the amount of memory in bytes, from the allocated for a whole PHP script. [php.net/function.memory-get-usage.php](https://www.php.net/manual/en/function.memory-get-usage.php). In the current exercises for this post, I'm using this function in order to calculate memory usage. Is not an exact measure (is not measuring exactly memory consumption in variables, arrays or objects, but for the executed script). So, is only a relative evaluation, very basic and only for only for general assessments.  
+
+* **memory_get_peak_usage():** Return the peak of memory allocated by PHP. [php.net/function.memory-get-peak-usage.php](https://www.php.net/manual/en/function.memory-get-peak-usage.php).  
+
+* **debug_zval_dump():**  Dumps zend value. [php.net/function.debug-zval-dump.php](https://www.php.net/manual/en/function.debug-zval-dump.php).  
 
 
 
 ## Observations  
 
-Variables:
+
+### Scripting  
+
+
+I commited the related scripting here in my Github repository:  
+* [github.com/davidjguru/php_performance](https://github.com/davidjguru/custom_resources/tree/main/php_performance)  
+
+### Memory consumption by creating variables  
+
 
 ![Memory Consumption in variables]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_two.png)  
 
@@ -139,7 +254,7 @@ Variables:
 
 
 
-Arrays:
+### Memory consumption by creating variables  
 
 ![Memory Consumption in arrays]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_one.png)  
 
@@ -147,7 +262,7 @@ Arrays:
 
 
 
-Objects:
+### Memory consumption by creating objects
 
 ![Memory Consumption in objects]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_three.png)  
 
