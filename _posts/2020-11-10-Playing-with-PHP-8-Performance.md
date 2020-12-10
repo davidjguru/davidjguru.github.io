@@ -16,7 +16,23 @@ sitemap: true
 The latest version of PHP ([PHP 8](https://www.php.net/releases/8.0/en.php)) was released recently, maybe at the end of November 2020 (almost a month ago) and a lot of articles has been dedicated to its new features, changes and advanced updates of the most popular programming language for web. I would like to write about this new version, but instead of talkin' bout features, I have been thinking about performance.  
 <!--more-->
 
-## Introduction   
+---------------------------------------------------------------------------------
+  
+  **Table of Contents**  
+  <!-- TOC -->  
+  [1- Introduction](#1--introduction)  
+  [2- Environtment](#2--environment)  
+  [3- Scenarios](#3--scenarios)  
+  [4- Key Concepts](#4--key-concepts)  
+    * [4.1- PHP under the hood](#41--php-under-the-hood)  
+    * [4.2- Garbage Collector](#42--garbage-collector)  
+    * [4.3- Some related functions](#43--some-related-functions)  
+  [5- Observations](#5--observations)  
+  <!-- /TOC -->
+  
+  -------------------------------------------------------------------------------
+
+## 1- Introduction   
 
 I was gathering some notes, writing down texts about Drupal performance for my site [therussianlullaby.com](https://www.therussianlullaby.com/), when suddenly I realized that I didn't know if there had been any progress on perfomance issues. What could I do? Well, between continuing to prepare materials for my next article in English, some new tutorial in Spanish that will be published soon and the daily hours of work itself...I had very little time to take a deep look at it. I needed something fast, direct and that would allow me to evaluate results with simplicity. So I started to play a little with .php scripts.  
 
@@ -28,7 +44,7 @@ I have written down here the tasks carried out these moments, in case you want t
 * [Quick Deploy of Drupal 9 using DDEV (6 steps) - Gist in Github](https://gist.github.com/davidjguru/a95329e0ec5b084ac0852ad958da2a14).  
   
 
-## Environment
+## 2- Environment
 
 This is the summary of my test environment and the sum of hardware and software virtualization I'm performing:   
 
@@ -65,7 +81,7 @@ This is the summary of my test environment and the sum of hardware and software 
 
 ```
 
-## Scenarios
+## 3- Scenarios
 
 Let's get to work! First, You'll need some diverse environments for your comparative study. As my idea is to establish a comparison, I will need several tools: different versions of PHP and scripts to create resources and be able to make measurements about Memory Consumption, my first key indicator for this testing. For the different PHP versions, I rely on the immense facility provided by DDEV as a tool to build base projects in the PHP version we request, with which I will create three different projects with their associated container networks and their PHP versions installed at three milestones: PHP5.x, PHP7.x and PHP8.x.  
 
@@ -119,11 +135,11 @@ drupal@next-drupal-web-web:/var/www/html/web$ php -v
 PHP 8.0.0RC3 (cli)
 ```
 
-## Key Concepts
+## 4- Key Concepts
 
 Let's review some key issues of this little home experiment, some important ideas to know about the PĤP context.  
 
-### PHP Under the hood
+### 4.1- PHP Under the hood
 
 For many people PHP is just like an interpreted C that you can use in HTML documents. It's a big simplification, but somewhat controversial: there are aspects that are directly related and others that are not. PHP is a high-level programming language built in C to facilitate the development of web resources, which still maintains elements of the low-level C.  
 
@@ -191,7 +207,7 @@ Get more info about arrays:
 
 
 
-### Garbage Collector
+### 4.2- Garbage Collector
 
 This is a system that allows PHP cleaning the memory. You can enable or disable the funcions using some parameters from the code or from internal config files. **How it works?** Well, we already know that a variable in PHP es stored in a container called zval, from C language. Here we're storing the type of variable, value and some pieces of info:  
 
@@ -224,7 +240,7 @@ parameters:
 ```
 
 
-### Some related functions  
+### 4.3- Some related functions  
 
 There's a set of PHP functions linked to the memory consumption ready-to-play.  
 
@@ -238,7 +254,7 @@ There's a set of PHP functions linked to the memory consumption ready-to-play.
 * **gc_enable():** Enables the reference collector. [php.net/function.gc-enable.php](https://www.php.net/manual/en/function.gc-enable.php).  
 
 
-## Observations  
+## 5- Observations  
 
 
 ### Scripting  
@@ -249,6 +265,34 @@ I commited the related scripting here in my Github repository:
 
 ### Memory consumption by creating variables  
 
+For this case, I'm creating an unique variable with a string value taken from [chiquitoipsum.com/](http://www.chiquitoipsum.com/), in a loop from the first to 100000 iterations (100K variables created) over the memory system.  
+
+```php
+// Unique variable.
+   $memory_first = memory_get_usage();
+   $var = 'Lorem fistrum por la gloria de mi madre por la gloria de mi madre apetecan jarl.';
+   echo 'Length of the string contained in the initial variable: ' . strlen($var), "\n";
+   echo 'Initial Memory consumption, non-real in bytes:  ' . (memory_get_usage() - $memory_first) , "\n";
+   echo 'Initial Memory consumption, non-real in bits: ' . ((memory_get_usage() - $memory_first) * 8), "\n"; 
+   echo 'Initial variable size, STRLEN in bytes: ' . strlen($var) , "\n";
+   echo 'Initial variable size, using bits: ' . (strlen($var) * 8) , "\n";
+```
+
+In this block, I'm watching the real memory consumption, comparing memory_get_usage() (for the whole script) and the allocation only for the variable. In this case I'm using strlen, that returns number of bytes (in the character set, number of bytes = number of characters, due to the asignation of 1 byte = 1 char). So I'm getting the values:  
+
+```bash
+Initial Memory consumption, non-real in bytes:  32
+Initial Memory consumption, non-real in bits: 256
+Initial variable size, STRLEN in bytes: 80
+Initial variable size, using bits: 640
+```
+
+As you can see, the values differ.  
+
+
+This is my testing script: [github.com/davidjguru/show_memory_usage_using_variables.php](https://github.com/davidjguru/custom_resources/blob/main/php_performance/show_memory_usage_using_variables.php).  
+
+And here are the results:  
 
 ![Memory Consumption in variables]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_two.png)  
 
@@ -256,23 +300,24 @@ I commited the related scripting here in my Github repository:
 
 
 
-### Memory consumption by creating variables  
+### Memory consumption by creating arrays  
+
+Ok. Here we're measuring some paradoxes from the PHP Arrays. Arrays in PHP are not - strictly speaking - fixed-length array structures (as in other languages). In fact is more like a HashMap, with a lot of data structure.
+In this script we see what size a 100K element array occupies in memory within a 64-bit architecture system and we compare it with the use of a fixed and determined length array.  For the fixed-legth array, I'm using the [SPL Extension for PHP](https://www.php.net/manual/en/book.spl.php), and [the SplFixedArray Class](https://www.php.net/manual/en/class.splfixedarray.php) for building this kind of arrays.  
+
+Let's think about an idea: In 64b - Architecture, one integer in format "long" is build using 8 bytes*, so theoretically for an 100K array, we'll use 800.000 bytes (0.8 MB). But the results are returning differents values (due to the implementation of arrays in PHP showed in the former section).  
+
+*[docs.oracle.com/index.html](https://docs.oracle.com/cd/E19253-01/817-6223/chp-typeopexpr-2/index.html).  
+
+
 
 ![Memory Consumption in arrays]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_one.png)  
 
 
 
-
-
 ### Memory consumption by creating objects
+
+Here I'm using just a basic PHP class with a single property, and then creating by 100K PHP objects.  
 
 ![Memory Consumption in objects]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_three.png)  
 
-
-
-
-
-
-
-
-  
