@@ -193,15 +193,16 @@ Get more info about arrays:
 
 ### Garbage Collector
 
-This is a system that allows PHP cleaning the memory. You can enable or disable the funcions using some parameters from the code or from internal config files.  
+This is a system that allows PHP cleaning the memory. You can enable or disable the funcions using some parameters from the code or from internal config files. **How it works?** Well, we already know that a variable in PHP es stored in a container called zval, from C language. Here we're storing the type of variable, value and some pieces of info:  
 
+* If the variable is part of the reference set.  
+* If the variable is referenced from another places.  
+  
+So, periodically, some algorithms are reviewing the variables and resources, deleting the unusued registers.  
 
+For cases of cyclical references, then PHP is using the algorithm created by Bacon and Rajan, present here: [researcher.watson.ibm.com/Bacon01Concurrent.pdf](https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf). And here is a short version: [php.net/features.gc.collecting-cycles.php](https://www.php.net/manual/en/features.gc.collecting-cycles.php).  
 
-https://www.php.net/manual/en/features.gc.collecting-cycles.php
-
-https://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf
-
-Params available in php.ini: [php.net/session.configuration.php](https://www.php.net/manual/en/session.configuration.php)   
+For Garbage Collection, we have some params available in php.ini: [php.net/session.configuration.php](https://www.php.net/manual/en/session.configuration.php)   
 
 In general terms, we're configuring this in the php.ini file:  
 
@@ -234,6 +235,7 @@ There's a set of PHP functions linked to the memory consumption ready-to-play.
 
 * **debug_zval_dump():**  Dumps zend value. [php.net/function.debug-zval-dump.php](https://www.php.net/manual/en/function.debug-zval-dump.php).  
 
+* **gc_enable():** Enables the reference collector. [php.net/function.gc-enable.php](https://www.php.net/manual/en/function.gc-enable.php).  
 
 
 ## Observations  
