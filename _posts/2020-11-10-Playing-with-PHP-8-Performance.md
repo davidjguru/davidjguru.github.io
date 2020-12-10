@@ -298,7 +298,7 @@ And here are the results:
 ![Memory Consumption in variables]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_two.png)  
 
 
-
+Showing the size in bytes, from zero up to 15MB (y-axis).  
 
 
 ### Memory consumption by creating arrays  
@@ -322,6 +322,7 @@ Memory Usage in PHP 7.3.24: 4 MB
 Memory Usage in PHP 8.0.0: 4 MB
 ```
 
+There is almost 10 MB difference from PHP 5.x, but it remains the same in the latest versions.  
 
 
 ### Memory consumption by creating objects
@@ -330,7 +331,11 @@ Here I'm using just a basic PHP class with a single property, and then creating 
 
 ![Memory Consumption in objects]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_three.png)  
 
-Finally, after comparing in the three previous sections the memory consumption in the three versions of PHP, it seems that the last one available (PHP 8) is similar in this dimension to the operations in memory of PHP 7 (in most tests the graphs of 8 and 7 overlap with the same values), and also moves away from the memory management of PHP 5.  
+We can see the memory consumption peaks, just before the launch of the PHP garbage collector (explained in a previous section to give context), which releases memory and periodically lowers the consumption values. 
+
+It's quite interesting see that the garbage collector is launched in PHP 5.6.40 later than PHP 7.3.24 and PHP 8.0.0, allowing reach peaks 5,695264 MB of memory consumption.  
 
 
 ## :wq! 
+
+Finally, after comparing in the three previous sections the memory consumption in the three versions of PHP, it seems that the last one available (PHP 8) is similar in this dimension to the operations in memory of PHP 7 (in most tests the graphs of 8 and 7 overlap with the same values), and also moves away from the memory management of PHP 5.  
