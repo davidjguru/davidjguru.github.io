@@ -92,7 +92,11 @@ Creating specific environments using DDEV is quite easy, you only have to instal
 
 As you can see you can pick diverse technologies as WordPress, Typo3, Laravel and the latest versions of Drupal. You can also choose PHP basic config, installing PHP 7.3.24 as default.  
 
-Choosing Drupal 6, 8 and 9 you'll have a PHP setup with different versions:  
+Choosing Drupal 6, 8 and 9 you'll have a PHP setup with different versions. In fact the web main container in DDEV has available different versions for PHP cli (I'm *interesting* only in CLI for this case):  
+
+![PHP versions available in DDEV web container]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_six.png)
+
+
 
 ### PHP 5 // Drupal 6  
 
