@@ -69,7 +69,13 @@ This is the summary of my test environment and the sum of hardware and software 
 
 Let's get to work! First, You'll need some diverse environments for your comparative study. As my idea is to establish a comparison, I will need several tools: different versions of PHP and scripts to create resources and be able to make measurements about Memory Consumption, my first key indicator for this testing. For the different PHP versions, I rely on the immense facility provided by DDEV as a tool to build base projects in the PHP version we request, with which I will create three different projects with their associated container networks and their PHP versions installed at three milestones: PHP5.x, PHP7.x and PHP8.x.  
 
+Creating specific environments using DDEV is quite easy, you only have to install DDEV in your system and ask for a new build. Just select a config option in the response by prompt:  
 
+![Select config option using DDEV]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_four.png)
+
+As you can see you can pick diverse technologies as WordPress, Typo3, Laravel and the latest versions of Drupal. You can also choose PHP basic config, installing PHP 7.3.24 as default.  
+
+Choosing Drupal 6, 8 and 9 you'll have a PHP setup with different versions:  
 
 ### PHP 5 // Drupal 6  
 
@@ -87,7 +93,13 @@ PHP 7.3.24-3+0~20201103.72+debian10~1.gbp945915 (cli)
 
 ### PHP 8 // Drupal 9  
 
-In `.ddev/config.yml`:
+In this case, the default implementation of the DDEV-related containers for Drupal 9 is using PHP7, but whith a little change you can enable PHP8. Just stop your container network doing:  
+
+```bash
+$ ddev stop
+```
+
+After that, change the php_version param in `.ddev/config.yml` and then restart the containers:  
 
 ```bash
 name: next-drupal-web
@@ -99,11 +111,21 @@ router_http_port: "80"
 router_https_port: "443"
 ```
 
+So, after the restar, connect to the main container and get the PHP version:  
+
 ```bash
 $ ddev ssh
 drupal@next-drupal-web-web:/var/www/html/web$ php -v
 PHP 8.0.0RC3 (cli)
 ```
+
+## Key Concepts
+
+
+### Garbage Collector
+
+https://www.php.net/manual/en/session.configuration.php
+
 
 
 
