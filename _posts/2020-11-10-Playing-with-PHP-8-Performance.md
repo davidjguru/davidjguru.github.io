@@ -49,7 +49,7 @@ I have written down here the tasks carried out these moments, in case you want t
 
 This is the summary of my test environment and the sum of hardware and software virtualization I'm performing:   
 
-```txt
+```bash
 
 |  **Host**           |                                 |
 | -------------------:|:--------------------------------|
@@ -79,7 +79,6 @@ This is the summary of my test environment and the sum of hardware and software 
 | Docker-Compose         | 1.24.1                       |
 | DDEV                   | 1.16.0                       |
 
-
 ```
 
 ## 3- Scenarios
@@ -97,6 +96,11 @@ Choosing Drupal 6, 8 and 9 you'll have a PHP setup with different versions. In f
 ![PHP versions available in DDEV web container]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_six.png)
 
 
+You can ask for an specific version of PHP in the same initial line of the DDEV config order, in this point:  
+
+```bash
+ddev config --project-name="config-test" ---php-version="5.6"  
+```
 
 ### PHP 5 // Drupal 6  
 
