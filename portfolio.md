@@ -29,7 +29,8 @@ This year we (me and the Drupal team) built several tools to help in the managem
 
 This small gif that I add below (and of poor quality) is a video capture taken with [Peek](https://github.com/phw/peek) is about the latter tool, in the section where we recorded data from social agents to assess levels of need in a disadvantaged area. 
 
-![Taking data from disadvantaged areas]({{ site.baseurl }}/images/davidjguru_drupal_demo_zonas_20190117.gif)
+![Taking data from disadvantaged areas]({{ site.baseurl }}/images/davidjguru_drupal_demo_zonas_20190117.gif)  
+
 
 
 ## Year 2017
