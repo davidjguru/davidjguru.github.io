@@ -96,7 +96,7 @@ Choosing Drupal 6, 8 and 9 you'll have a PHP setup with different versions. In f
 ![PHP versions available in DDEV web container]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_six.png)
 
 
-You can ask for an specific version of PHP in the same initial line of the DDEV config order, in this point:  
+You can ask for a specific version of PHP in the same initial line of the DDEV config order, in this point:  
 
 ```bash
 ddev config --project-name="config-test" ---php-version="5.6"  
@@ -190,7 +190,7 @@ typedef struct _zval_struct {
 
 As you know well, PHP is a dynamically-typed language, and the zval is ready to storage different types. In memory, zval is using two 64bit words, in this order:  
 
-```txt
+```bash
 |  **Value**             |         Space                |
 | ----------------------:|:-----------------------------|
 | Type                   | 0 - 7                        |
