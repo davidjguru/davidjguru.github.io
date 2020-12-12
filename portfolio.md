@@ -29,8 +29,13 @@ This year we (me and the Drupal team) built several tools to help in the managem
 
 This small gif that I add below (and of poor quality) is a video capture taken with [Peek](https://github.com/phw/peek) is about the latter tool, in the section where we recorded data from social agents to assess levels of need in a disadvantaged area. 
 
-![Taking data from disadvantaged areas]({{ site.baseurl }}/images/davidjguru_drupal_demo_zonas_20190117.gif)  
 
+| ![Taking data from disadvantaged areas]({{ site.baseurl }}/images/davidjguru_drupal_demo_zonas_20190117.gif) |
+|:--:|
+| *Deploying Forms for data reception using JavaScript- Drupal 8* |  
+
+
+The best thing about this year, besides combining Drupal & social needs, was meeting such important workmates as [Samuel García](https://www.linkedin.com/in/samuel-garc%C3%ADa-navarro/), [Alfonso Terrones](https://www.linkedin.com/in/alfonso-terrones-moreno-251977146/) o [Ricardo López](https://www.linkedin.com/in/ricardo-l%C3%B3pez-toro-515314ba/).  
 
 
 ## Year 2017
