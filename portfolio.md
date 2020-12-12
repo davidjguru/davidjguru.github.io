@@ -8,12 +8,33 @@ This is a placeholder page for some Drupal-based Projects I've worked on.
 
 ## Year 2020 
 
+
+
 ## Year 2019
+
+
 
 ## Year 2018 
 
+2018 was a very special year for me. After using Drupal to build website projects, this year I was working in a large global consultancy firm, within a "social-health" division, which in my case, developed technological projects for the regional government of Andalusia.  
+
+[Andalusia](https://en.wikipedia.org/wiki/Andalusia) is my region, my motherland. It's one of the largest regions in Spain, with high levels of poverty and serious structural problems. For me, it was a great pride to be able to unite Drupal and social projects, during a year in which I was developing internal tools to manage poverty rates and economic aids built with Drupal 8.  
+
+This year we (me and the Drupal team) built several tools to help in the management of the Andalusian needs: a platform for the management of universal basic income in Andalusia, another tool for the management of disadvantaged areas, intranets and one on the design of local development plans in disadvantaged areas. And all with Drupal 8.  
+
+| ![Drupal 8 web cau Regional Government]({{ site.baseurl }}/images/davidjguru_drupal_8_web_cau.png) |
+|:--:|
+| *Web Site / Intranet of the User Support Center (CAU, in Spanish) in Social Affairs, Andalucia - Drupal 8* |
+
+
+This small gif that I add below (and of poor quality) is a video capture taken with [Peek](https://github.com/phw/peek) is about the latter tool, in the section where we recorded data from social agents to assess levels of need in a disadvantaged area. 
+
+![Taking data from disadvantaged areas]({{ site.baseurl }}/images/davidjguru_drupal_demo_zonas_20190117.gif)
+
+
 ## Year 2017
 ### Andalusian network of support for the Palestinian population
+
 ![Andalusian network of support for the Palestinian population]({{ site.baseurl }}/images/davidjguru_drupal_project_palestina.png)
 
 
