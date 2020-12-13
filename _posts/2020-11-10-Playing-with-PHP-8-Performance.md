@@ -37,7 +37,7 @@ The latest version of PHP ([PHP 8](https://www.php.net/releases/8.0/en.php)) was
 
 I was gathering some notes, writing down texts about Drupal performance for my site [therussianlullaby.com](https://www.therussianlullaby.com/), when suddenly I realized that I didn't know if there had been any progress on perfomance issues. What could I do? Well, between continuing to prepare materials for my next article in English, some new tutorial in Spanish that will be published soon and the daily hours of work itself...I had very little time to take a deep look at it. I needed something fast, direct and that would allow me to evaluate results with simplicity. So I started to play a little with .php scripts.  
 
-I have written down here the tasks carried out these moments, in case you want to explore and reproduce them in your surroundings. My main goal here has been to make some observations about the performance of certain actions in a PHP context over several versions of the language and its engine. All these small exercises have been executed in a context based on [DDEV-Local](https://ddev.readthedocs.io/en/stable/), the tool for the implementation of development environments based on Docker and Docker-Container. If you don't know the tool (you should, I recommend it), you'd better read this before about what it is and how to install it:  
+I have written down here the tasks carried out these moments, in case you want to explore and reproduce it in your environment. My main goal here has been to make some observations about the performance of certain actions in a PHP context over several versions of the language and its engine. All these small exercises have been executed in a context based on [DDEV-Local](https://ddev.readthedocs.io/en/stable/), the tool for the implementation of development environments based on Docker and Docker-Composer. If you don't know the tool (you should, I recommend it), you'd better read this before. Some links about what it is and how to install it:  
 
 * [How to develop a Drupal 9 Site on your local machine using Docker and DDEV](https://www.digitalocean.com/community/tutorials/how-to-develop-a-drupal-9-website-on-your-local-machine-using-docker-and-ddev).  
 * [Creating development environments for Drupal with DDEV](https://www.therussianlullaby.com/blog/creating-development-environments-for-drupal-with-ddev/).  
@@ -47,7 +47,7 @@ I have written down here the tasks carried out these moments, in case you want t
 
 ## 2- Environment
 
-This is the summary of my test environment and the sum of hardware and software virtualization I'm performing:   
+This is the summary of my test environment and the sum of hardware and software virtualization that I'm performing:   
 
 ```bash
 
@@ -83,7 +83,7 @@ This is the summary of my test environment and the sum of hardware and software 
 
 ## 3- Scenarios
 
-Let's get to work! First, You'll need some diverse environments for your comparative study. As my idea is to establish a comparison, I will need several tools: different versions of PHP and scripts to create resources and be able to make measurements about Memory Consumption, my first key indicator for this testing. For the different PHP versions, I rely on the immense facility provided by DDEV as a tool to build base projects in the PHP version we request, with which I will create three different projects with their associated container networks and their PHP versions installed at three milestones: PHP5.x, PHP7.x and PHP8.x.  
+Let's get to work! First, You'll need some diverse environments for your comparative study. As my idea is to establish a comparison, I will need several tools: different versions of PHP and scripts to create resources and be able to make measurements about Memory Consumption, my first key indicator for this testing. For the different PHP versions, I rely on the immense facility provided by DDEV as a tool to deploy projects in the PHP version we request. Using it I will create three different projects with its associated containers networks and its PHP versions installed at three milestones: PHP5.x, PHP7.x and PHP8.x.  
 
 Creating specific environments using DDEV is quite easy, you only have to install DDEV in your system and ask for a new build. Just select a config option in the response by prompt:  
 
@@ -96,7 +96,7 @@ Choosing Drupal 6, 8 and 9 you'll have a PHP setup with different versions. In f
 ![PHP versions available in DDEV web container]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_six.png)
 
 
-You can ask for a specific version of PHP in the same initial line of the DDEV config order, in this point:  
+You can request a specific version of PHP in the same initial line of the DDEV config command, in this point:  
 
 ```bash
 ddev config --project-name="config-test" ---php-version="5.6"  
@@ -118,7 +118,7 @@ PHP 7.3.24-3+0~20201103.72+debian10~1.gbp945915 (cli)
 
 ### PHP 8 // Drupal 9  
 
-In this case, the default implementation of the DDEV-related containers for Drupal 9 is using PHP7, but whith a little change you can enable PHP8. Just stop your container network doing:  
+In this case, the default implementation of the DDEV-related containers for Drupal 9 is build with PHP7, but with a little change you can enable PHP8. Just stop your container network doing:  
 
 ```bash
 $ ddev stop
@@ -136,7 +136,7 @@ router_http_port: "80"
 router_https_port: "443"
 ```
 
-So, after the restart, connect to the main container and get the PHP version:  
+So, after restart, You'll be able to connect to the main container and get the PHP version:  
 
 ```bash
 $ ddev ssh
@@ -146,7 +146,7 @@ PHP 8.0.0RC3 (cli)
 
 ## 4- Key Concepts
 
-Let's review some key issues of this little home experiment, some important ideas to know about the PĤP context.  
+Let's review some key issues for this little home experiment, some important ideas to know about the PHP context.  
 
 ### 4.1- PHP Under the hood
 
@@ -258,7 +258,7 @@ There's a set of PHP functions linked to the memory consumption ready-to-play.
 
 * **memory_get_peak_usage():** Return the peak of memory allocated by PHP. [php.net/function.memory-get-peak-usage.php](https://www.php.net/manual/en/function.memory-get-peak-usage.php).  
 
-* **debug_zval_dump():**  Dumps zend value. [php.net/function.debug-zval-dump.php](https://www.php.net/manual/en/function.debug-zval-dump.php).  
+* **debug_zval_dump():**  Dumps the zval value. [php.net/function.debug-zval-dump.php](https://www.php.net/manual/en/function.debug-zval-dump.php).  
 
 * **gc_enable():** Enables the reference collector. [php.net/function.gc-enable.php](https://www.php.net/manual/en/function.gc-enable.php).  
 
@@ -296,7 +296,7 @@ Initial variable size, STRLEN in bytes: 80
 Initial variable size, using bits: 640
 ```
 
-As you can see, the values differ.  
+As you can see, the values differs.  
 
 
 This is my testing script: [github.com/davidjguru/show_memory_usage_using_variables.php](https://github.com/davidjguru/custom_resources/blob/main/php_performance/show_memory_usage_using_variables.php).  
