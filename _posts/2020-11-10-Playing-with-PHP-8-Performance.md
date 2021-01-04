@@ -27,6 +27,7 @@ The latest version of PHP ([PHP 8](https://www.php.net/releases/8.0/en.php)) was
   + [4.1- PHP under the hood](#41--php-under-the-hood)  
   + [4.2- Garbage Collector](#42--garbage-collector)  
   + [4.3- Some related functions](#43--some-related-functions)  
+  
   [5- Observations](#5--observations)  
   [:wq!](#wq)  
   <!-- /TOC -->
