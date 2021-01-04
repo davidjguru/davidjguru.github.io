@@ -92,9 +92,9 @@ sub-properties of #attached. Using these sub-properties, you'll can inform to th
 * **Library** -> Libraries defined in a name_module.libraries.yml file, for CSS or/and JavaScript resources.  
  **Format:** $render_array[‘#attached’][‘library’]  
  
-* **drupalSettings** -> It's an internal tool in order to transport values from a multidimensional array in PHP to the
-JavaScript code.   
+* **drupalSettings** -> It's an internal tool oriented to transport values from a multidimensional array in PHP to the JavaScript code.   
  **Format:** $render_array[‘#attached’][‘drupalSettings’]  
+  + **Read more about the integration between JavaScript and Drupal in the related guide:** [How to integrate JavaScript in Drupal 8 || 9](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/).  
  
 * **Http_Header** ->  Use this when add HTTP headers or / and status response codes. 
  **Format:** $render_array[‘#attached’][‘http_header’]  
@@ -185,6 +185,45 @@ $final_array['welcome_message'] = [
   ],
 ];
 ```
+### Passing values from PHP to JavaScript: drupalSettings  
+
+Other important use of the `#attached` property is passing values from PHP code to JavaScript in a standarized and formal way within a Drupal installation.  
+
+**First, you will set the values from PHP**
+In this case, we wanna load some special values from the current user account in order to transfer it and getting from the JavaScript side:  
+
+```php
+// We're adding the new resources to the same welcome element.
+
+$final_array['welcome_message']['#attached']['drupalSettings']['data']['name'] = $this->current_user->getDisplayName();
+
+$final_array['welcome_message']['#attached']['drupalSettings']['data']['mail'] = $this->current_user->getEmail();
+```
+
+**Second, you will recover the values from JavaScript**
+Now, we'll get the values from the JavaScript side, using it for show an alert (for example):  
+
+
+```javascript
+(function () {
+  'use strict';
+
+  // Recovering the user name and mail from drupalSettings.
+  let element = document.getElementById("salute");
+  let user_name = drupalSettings.data.name;
+  let user_mail = drupalSettings.data.mail;
+
+  // Add to the HTML the new strings.
+  element.innerHTML += "Update-> You are the user: " + user_name +
+                       " with mail: " + user_mail;
+
+})();
+```
+
+
++ Read more about the topic in reffered guide for integration of JavaScript in Drupal: [www.therussianlullaby.com/how-to-integrate-javascript-in-drupal-8-9/](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/).  
+  
+
 As we can see, we can use the property at the same time of building the renders arrays or later, through some hook to 
 modify elements. **What do you think?**...***Interesting?*** The truth is that despite its simplicity and discretion, 
 it's something I almost use in all Drupal-based projects. 
