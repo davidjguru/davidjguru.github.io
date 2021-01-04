@@ -94,7 +94,7 @@ sub-properties of #attached. Using these sub-properties, you'll can inform to th
  
 * **drupalSettings** -> It's an internal tool oriented to transport values from a multidimensional array in PHP to the JavaScript code.   
  **Format:** $render_array[‘#attached’][‘drupalSettings’]  
-  + **Read more about the integration between JavaScript and Drupal in the related guide:** [How to integrate JavaScript in Drupal 8 || 9](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/).  
+  + **Read more about the integration between JavaScript and Drupal in the related guide:**  [How to integrate JavaScript in Drupal 8 - 9](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/).  
  
 * **Http_Header** ->  Use this when add HTTP headers or / and status response codes. 
  **Format:** $render_array[‘#attached’][‘http_header’]  
@@ -221,7 +221,9 @@ Now, we'll get the values from the JavaScript side, using it for show an alert (
 ```
 
 
-+ Read more about the topic in reffered guide for integration of JavaScript in Drupal: [www.therussianlullaby.com/how-to-integrate-javascript-in-drupal-8-9/](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/).  
++ Read more about the topic in the reffered guide for integration of JavaScript in Drupal: [www.therussianlullaby.com/how-to-integrate-javascript-in-drupal-8-9/](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/).  
++ Read more about the Render system in Drupal in the official documentation from Drupal.org: [api.drupal.org/theme.api/group/theme_render](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/group/theme_render/9.2.x).  
+  
   
 
 As we can see, we can use the property at the same time of building the renders arrays or later, through some hook to 
