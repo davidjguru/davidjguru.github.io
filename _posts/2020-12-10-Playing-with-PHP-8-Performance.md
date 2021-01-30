@@ -8,7 +8,7 @@ author: davidjguru
 categories: [General]
 sitemap: true
 ---
-| ![Picture from Unsplash, by @@thefredyjacob]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_main.png) |
+| ![Picture from Unsplash, by @thefredyjacob]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_main.png) |
 |:--:|
 | *Picture from Unsplash, user [Fredy Jacob](https://unsplash.com/@thefredyjacob)* |
 
