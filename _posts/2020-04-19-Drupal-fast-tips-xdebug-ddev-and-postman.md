@@ -21,13 +21,14 @@ This will be an article about configurations for testing REST queries from Postm
 
 ---------------------------------------------------------------------------------------
 <!-- /TOC -->
-**This article is part of a series of posts about quick Drupal Tips.
-(Random, partial and brief -or almost-):**  
+**This article is part of a series of posts about Drupal Tips.**
 
 [1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
 [2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
 [3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
 [4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)  
+[5- Drupal Fast Tips (V) - Placing a block by code](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
+[6- Drupal Fast Tips (VI) - From Arrays to HTML](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
 <!-- /TOC -->
 
 ------------------------------------------------------------------------------------------------
