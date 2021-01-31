@@ -157,9 +157,15 @@ And I'll have a renderer object ready to execute transformations. What can we do
 
 ## Testing the array 
 
+Ok, Now I'll enable the debugging from my IDE, currently VSCode. In order to enable this, just copy and paste the launch.json file in a .vscode folder inside the root of my project's folder. Get here this snippet with the file for DDEV-Local deploying from VSCode:   
 
+{% gist 4db4815c96d5ac836a794baf51529c15 %}
 
+Then, enable Xdebug in DDEV ($ ddev xdebug on) and pulse F5 for enabling the debugging. We can set a new breakpoint in the hook_form_alter() in order to see the values returned from the render service.  I'll continue using the basic hook_form_alter() from the former step, adding a switch to capture the form_id wich I'm interested on and I'll get the transformation from the Debug console of VSCode:  
 
+![Getting the transformed value from array to the HTML markup]({{ site.baseurl }}/images/davidjguru_drupal_8_9_from_arrays_to_HTML_three.png)  
+
+And the values are setted in this variable called by me `$HTML_conversion`. 
 
 ## Get more info
 
