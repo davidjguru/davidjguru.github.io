@@ -120,18 +120,44 @@ $form['actions']['submit'] = [
 $form['#attached']['library'][] = 'managing_activities/getting_feedback';
 ```
 
-As we can see it's a very normal render array, with a classical definition for a custom form. Almost a standar in the daily work, isn't it?  
+As we can see it's a very normal render array, with a classical definition for a custom form. Plenty of pairs key/values using the properties defined by the Drupal Render API. Almost a standar in the daily work, isn't it?  This custom module creates a new form for registering in some king of activities and create new registers. The form will be show inside a block that is placed by config and code if you're using the Bartik basic theme. In this case, you will show the new block placed at left side:   
 
-Now we're going to talking'bout the next resource: the renderer service.  
+![Showing the new form in a block from the left sidebar]({{ site.baseurl }}/images/davidjguru_drupal_8_9_from_arrays_to_HTML_two.png)  
+
+
+Also you can use an internal path defined in routing: `/register-form` and see the form like a internal page, defined from the classical routing.yml file:  
+
+```yaml
+managing_activities.register_form:
+  path: '/register-form'
+  defaults:
+    _form: '\Drupal\managing_activities\Form\ManagingActivitiesRegisterForm'
+    _title: 'Register Form for activities and events'
+  requirements:
+    _permission: 'access content'
+```
+
+Just enable the module and all will work fine. Now we're going to talking'bout the next resource: the renderer service.  
 
 
 ## The Renderer service 
 
-In the Drupal world, "rendering" means something like this: take an render array and turning it to HTML code in a single piece of code, ready to sent to the client browser in a Drupal response context.  
+In the Drupal world, "rendering" means something like this: take a render array and turning it to HTML in a single piece of code, ready to sent to the client browser in a Drupal response context. In order to execute this step, we can use the main class oriented to rendering: [the Renderer Class](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/class/Renderer/8.2.x). This class is provided for internal using well from OOP context (classes, methods, objects) or from procedural context (hooks). Is offered like a "service", available from any point and ready to executing transformations.  
+
+In the procedural context can be more easy to test, so I can call directly to the service using the form:  
+
+```php
+$renderer = \Drupal::service('renderer');
+```
+And I'll have a renderer object ready to execute transformations. What can we do? Well, for example, from the custom module I'm using, I can write a basic hook_form_alter() for changes in my main register form. I must to know the id of the targeted form (And I know cause was created by me) but if you don't know, you can get the id with a simple call to kint() or dpm() if you're using [the Drupal's module Devel](https://www.drupal.org/project/devel):  
+
+![Getting the form ID from hook_form_alter()]({{ site.baseurl }}/images/davidjguru_drupal_8_9_from_arrays_to_HTML_one.png)  
 
 
 
 ## Testing the array 
+
+
 
 
 
