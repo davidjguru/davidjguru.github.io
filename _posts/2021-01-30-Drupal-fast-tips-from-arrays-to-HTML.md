@@ -61,7 +61,68 @@ As we already know, the so called "Render arrays" in Drupal are just multidimens
 
 The so called "Render Arrays" or "Rendered Arrays" in Drupal are like blocks in order to build Drupal sites. Are only associative arrays with structured data based in relationships key/value, from its properties defined in the Drupal API specifications.
 
-[**Read more about the Render Arrays properties** in Drupal, here.**](https://www.drupal.org/docs/drupal-apis/render-api/render-arrays#properties)  
+[**Read more about the Render Arrays properties** in Drupal, here.**](https://www.drupal.org/docs/drupal-apis/render-api/render-arrays#properties) 
+
+For this case, I'll use a render array from my custom module. I'm gonna take as base file [this one](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/blob/master/managing_activities/src/Form/ManagingActivitiesRegisterForm.php), the ManagingActivitiesRegisterForm class, that extends FormBase in order to create a Drupal form using the rules of the Form API, building and delivering a render array returned by its method [buildForm()]().  
+
+In this class, we're building a render array just like this: [see link to code lines](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/blob/master/managing_activities/src/Form/ManagingActivitiesRegisterForm.php#L135).  Some steps are:  
+
+I'm adding a div wrapper to the form:  
+
+```php
+   // Building the form.
+    $form['#prefix'] = '<div id="register_form_wrapper">';
+    $form['#suffix'] = '</div>';
+```
+
+Putting some elements:  
+
+```php
+$form['managing_activities_register_identification'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Indentification Number'),
+      '#attributes' => [
+        'placeholder' => t('12345678A'),
+      ],
+      '#description' => $this->t('Set your Identification Number or DNI for the Spanish State.'),
+      '#maxlength' => 30,
+      '#size' => 30,
+      '#weight' => '4',
+      '#required' => TRUE,
+      '#prefix' => '<div id="register_form_identification">',
+      '#suffix' => '</div>',
+    ];
+
+$form['managing_activities_register_date'] = [
+      '#type' => 'date',
+      '#title' => $this->t('Date of birth'),
+      '#description' => $this->t('Set your date of birth.'),
+      '#weight' => '5',
+      '#required' => TRUE,
+      '#prefix' => '<div id="register_form_date">',
+      '#suffix' => '</div>',
+    ];
+```
+And at last, some actions and a custom JavaScript library using the property "attached".  
+**See the post:** [Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)   
+
+```php
+
+$form['actions']['submit'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Request'),
+      '#button_type' => 'primary',
+      '#prefix' => '<div id="register_form_submit">',
+      '#suffix' => '</div>',
+    ];
+
+// We're going to add the custom JavaScript related library.
+$form['#attached']['library'][] = 'managing_activities/getting_feedback';
+```
+
+As we can see it's a very normal render array, with a classical definition for a custom form. Almost a standar in the daily work, isn't it?  
+
+Now we're going to talking'bout the next resource: the renderer service.  
 
 ## The Renderer service 
 
