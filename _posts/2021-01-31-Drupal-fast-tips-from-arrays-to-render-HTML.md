@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Drupal Fast Tips (VI) - From arrays to HTML
-permalink: /blog/drupal-fast-tips-from-array-to-html
+title: Drupal Fast Tips (VI) - From arrays to render HTML
+permalink: /blog/drupal-fast-tips-from-array-to-render-html
 published: true
-date: 2021-01-30
+date: 2021-01-31
 author: davidjguru
 categories: [Drupal & Coding]
 sitemap: true
