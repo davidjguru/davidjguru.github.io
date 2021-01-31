@@ -137,15 +137,15 @@ In the Drupal world, "rendering" means something like this: take an render array
 
 ## Get more info
 
-* [Renderer Service in core.services.yml for Drupal 9](https://api.drupal.org/api/drupal/core%21core.services.yml/service/renderer/9.2.x)
+* [Renderer Service in core.services.yml for Drupal 9](https://api.drupal.org/api/drupal/core%21core.services.yml/service/renderer/9.2.x).
 
-* [Drupal's render() replaced with Renderer service in Drupal 8 || 9](https://www.drupal.org/node/2939099)
+* [Drupal's render() replaced with Renderer service in Drupal 8-9](https://www.drupal.org/node/2939099).
 
-* [The Render Plain function for Drupal 8.x](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3ArenderPlain/8.2.x)
+* [The Render Plain function for Drupal 8.x](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3ArenderPlain/8.2.x).
 
-* [The Drupal 8 || 9 Render pipeline](https://www.drupal.org/docs/8/api/render-api/the-drupal-8-render-pipeline) 
+* [The Drupal 8-9 Render pipeline](https://www.drupal.org/docs/8/api/render-api/the-drupal-8-render-pipeline). 
 
-* [The Drupal 8 || 9 Render API](https://www.drupal.org/docs/drupal-apis/render-api) 
+* [The Drupal 8-9 Render API](https://www.drupal.org/docs/drupal-apis/render-api). 
 
 ## 6- :wq!
 
