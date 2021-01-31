@@ -147,8 +147,8 @@ In the Drupal world, "rendering" means something like this: take an render array
 
 * [The Drupal 8-9 Render API](https://www.drupal.org/docs/drupal-apis/render-api). 
 
-## 6- :wq!
+## :wq!
 
-### Recommended song
+### Recommended song: So Broken - Björk & Raimundo Amador
 
 {% include youtubePlayer.html id=page.youtubeId %}
