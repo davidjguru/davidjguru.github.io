@@ -165,7 +165,31 @@ Then, enable Xdebug in DDEV ($ ddev xdebug on) and pulse F5 for enabling the deb
 
 ![Getting the transformed value from array to the HTML markup]({{ site.baseurl }}/images/davidjguru_drupal_8_9_from_arrays_to_HTML_three.png)  
 
-And the values are setted in this variable called by me `$HTML_conversion`. 
+The Render Service will do [the doRender() method](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3AdoRender/9.2.x), processing all the properties, values and children in the nested array, returning a Markup object, from [the class Markup.php](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Markup.php/class/Markup/9.2.x).  
+
+And the values are setted in this variable called by me `$HTML_conversion`. You can get some more info about the returned array from the Renderer service, using the string formatted to locate some items o directly ask for the length of the returned piece of code: 
+
+```php
+
+/**
+ * Implements hook_form_alter().
+ */
+function managing_activities_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  kint($form_id);
+
+  switch($form_id) {
+    case 'managing_activities_register':
+      $renderer = \Drupal::service('renderer');
+      $HTML_conversion = $renderer->render($form);
+      $HTML_string = $HTML_conversion->__toString();
+      $HTML_length = $HTML_conversion->count();
+      break;
+  }
+}
+
+```
+
+It is not very usual to have to resort to decrypting the HTML generated from a render array programmatically, it is true. But for a didactical purpose, maybe quite interesting you have a way to show what's happening from a render array to a HTML page in the internal Drupal processing.  
 
 ## Get more info
 
