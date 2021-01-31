@@ -35,12 +35,15 @@ I'm going to play with an array, passing it by a render service and getting the 
 
 ## Introduction   
 
-I will use a single Drupal local installation from myself. In my local environtment I have a Drupal 9 deploy for testing, using DDEV-local as deploying tool. See more about [DDEV-Local](https://ddev.readthedocs.io/en/stable/) and know how deploy Drupal installations in some steps from a single snippet in my gitlab profile: [Drupal 9 in six steps using DDEV: Quick Deploy](https://gitlab.com/-/snippets/2012512).   
+**I will use a single Drupal local installation** from myself. In my local environtment I have a Drupal 9 deploy for testing, using DDEV-local as deploying tool. See more about [DDEV-Local](https://ddev.readthedocs.io/en/stable/) and know how deploy Drupal installations in some steps from a single snippet in my gitlab profile: [Drupal 9 in six steps using DDEV: Quick Deploy](https://gitlab.com/-/snippets/2012512).   
 
-I will use a single custom module available in my gitlab profile: 'Managing Activities', in order to get some structured arrays and testing the main idea. Use, downloading or cloning the code from here: [gitlab.com/davidjguru/custom-modules/managing_activities)](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/managing_activities) or from the main folder here: [gitlab.com/davidjguru/custom-modules](https://gitlab.com/davidjguru/drupal-custom-modules-examples). **Please:** These module aren't for Stage or Live / Prod. Modules only for dev, testing and fun.  
+**I will use a single custom module available in my gitlab profile**: 'Managing Activities', in order to get some structured arrays and testing the main idea. Use, downloading or cloning the code from here: [gitlab.com/davidjguru/custom-modules/managing_activities)](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/managing_activities) or from the main folder here: [gitlab.com/davidjguru/custom-modules](https://gitlab.com/davidjguru/drupal-custom-modules-examples).   
 
-I will use Xdebug in order to get internal info from some variables and follow the processing of the original Render Array, step by step. Cause I'm using DDEV-Local in all my local deploys, for me is very easy using and enabling Xdebug in Drupal projects. It's quite fast, only go to your Drupal installation by prompt and ask:  
-```
+**Please:** These module aren't for Stage or Live / Prod. Modules only for dev, testing and fun.  
+
+**I will use Xdebug in order to get internal info from some variables** and follow the processing of the original Render Array, step by step. Cause I'm using DDEV-Local in all my local deploys, for me is very easy using and enabling Xdebug in Drupal projects. It's quite fast, only go to your Drupal installation by prompt and ask:  
+
+```bash
 local-project$ ddev xdebug on
 ```
 And so Xdebug is enabled and ready to use. If you don't know DDEV, please read these related articles and resources from here, my main website [www.therussianlullaby.com](https://www.therussianlullaby.com) and my repositories:  
@@ -56,10 +59,19 @@ And so Xdebug is enabled and ready to use. If you don't know DDEV, please read t
 
 As we already know, the so called "Render arrays" in Drupal are just multidimensional PHP "arrays", which as we have already seen here: [davidjguru.github.io/php-performance#41--php-under-the-hood](https://davidjguru.github.io/blog/playing-with-php-8-performance#41--php-under-the-hood), are not specifically arrays as we know from another programming languages, but dynamic and relatively complex structures created in C language. These kind of arrays have a very-very extensive use in Drupal, just like an specific Drupalism.  
 
+The so called "Render Arrays" or "Rendered Arrays" in Drupal are like blocks in order to build Drupal sites. Are only associative arrays with structured data based in relationships key/value, from its properties defined in the Drupal API specifications.
+
+[**Read more about the Render Arrays properties** in Drupal, here.**](https://www.drupal.org/docs/drupal-apis/render-api/render-arrays#properties)  
 
 ## The Renderer service 
 
+In the Drupal world, "rendering" means something like this: take an render array and turning it to HTML code in a single piece of code, ready to sent to the client browser in a Drupal response context.  
+
+
+
 ## Testing the array 
+
+
 
 ## Get more info
 
