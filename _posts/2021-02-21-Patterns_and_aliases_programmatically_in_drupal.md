@@ -52,9 +52,9 @@ $ ddev drush en pathauto
 
 {% gist 590bf212c2a31528ea872a27f7bf3443 %} 
 
-When you install the Pathauto module, you can access
+When you install the Pathauto module, you can access to new tabs with some related actions. I wannna 
 
-Well, maybe the first interesting thing is that the Pathauto module is providing us with a new Entity called "PathAutoPattern", available for processing new patterns. But we have to do some initial questions...what kind of entity is? Let's ask some previus questions.  
+
 
 
 ## Creating some resources  
@@ -115,9 +115,52 @@ function testing_pathauto_install() {
 }
 ```
 
+These resources will create the three new vocabularies in your Drupal installation just in install.  
+
+### Taxonomy Terms 
+
+Now I'm gonna to populate the previous vocabularies with some terms. For doing this, I was thinking in a diverse way.  
+
 
 
 ## Adding new patterns by code 
+
+Well, maybe the first interesting thing is that the Pathauto module is providing us with a new Entity called "PathAutoPattern", available for processing new patterns. But we have to do some initial questions...what kind of entity is? For get the info, You can ask to the Entity system when Pathauto module is installed in your system. 
+
+First, If I try to create a new pattern using the classical way for Drupal Entities (the EntityTypeManager), I can get the new created entity, only with some data that I can see from the UI, just doing this:  
+
+```php 
+  $data_4 = [
+    'id' => 'my_pattern_machine_name',
+    'label' => 'Testing pattern for isolated terms',
+    'type' => 'canonical_entities:taxonomy_term',
+    'pattern' => '/random/[term:name]',
+    'weight' => -1,
+  ];
+
+  // Creates the new configuration entity and saves it.
+  $pattern = \Drupal::entityTypeManager()->getStorage('pathauto_pattern')->create($data);
+  $pattern->save();
+```
+Ok, it works. But I suspect I need more data than these former block. I need to ask for the new entity some questions about its nature. I can get some info asking to the new `$pattern` variable, so I'm doing this: 
+
+```php
+// Gets the entity type, group and ID. 
+$group = $pattern->getEntityType->getGroup();
+$type = $pattern->getEntityType();
+$id = $pattern->getEntityTypeId();
+```
+
+See the returned info:  
+
+![Getting info about the king of entity PathautoPattern is]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_2.png)
+
+
+So now my first doubt was...how I can create patterns entity by coding? And then I remembered that the entity is a Config entity, so I can access to its data and structure by going to the Config / Sync section.  
+
+
+
+What's the problem? There will be some criteria selection configured in the pattern, in order to link the pattern with an element, just like in this
 
 ```php
 // Sets values for a new pattern for films vocabulary.
