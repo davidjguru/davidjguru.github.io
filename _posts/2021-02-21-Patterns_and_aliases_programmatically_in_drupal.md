@@ -23,10 +23,15 @@ For some ideas and side-projects, I was thinking in enabling sets of taxonomy te
 
 By default Drupal implements `node/nid` or `taxonomy/term/tid` URL paths for entities and bundles. This is very easy to test, just creating a node in Drupal and seeing its related URL after published: `/node/4`. Ok. 
 
-The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `http://example-drupal.ddev.site/admin/config/search/path/patterns` and its tabs.  In the basement, there's a very interesting concept in order to work with patterns: the PathautoPatter Entity. This post talk about working with this Drupal entity from a programmatic point of view. We're going to do some tasks not from the UI, but from custom code.  
+The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `http://example-drupal.ddev.site/admin/config/search/path/patterns` and its tabs: 
 
 
-#### Recipe 
+![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_1.jpg)
+
+  In the basement, there's a very interesting concept in order to work with patterns: the PathautoPatter Entity. This post talk about working with this Drupal entity from a programmatic point of view. We're going to do some tasks not from the UI, but from custom code.  
+
+
+### Recipe 
 
 Well, for this recipe I'll use some of my usual ingredients:   
 
@@ -35,8 +40,21 @@ Well, for this recipe I'll use some of my usual ingredients:
 * The Pathauto contrib module installed and enabled with its dependencies. Follow the Snippet: [Drupal 8-9 - Install Pathauto module from a DDEV deploy](https://gitlab.com/-/snippets/2080056).  
 * A new custom Drupal module created by using `drush generate`. Follow the Snippet:  [Drupal 8-9 - Creating custom resources using Drush generate](https://gitlab.com/-/snippets/2054593).  
 
-#### Extra 
+### Extra 
 For this post, I'm using a simple [hook_install()](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Extension%21module.api.php/function/hook_install/9.0.x) as a playground. All the code was developed inside this classic hook that executes just in the installing process. You can use the same services, classes and resources from a more OOP context with Dependency Injection in Drupal.  
+
+## Let's go
+If you followed the previous steps then you have now a ready-to-go environment to test. Remember install pathauto and creates a new custom module. Just by tiping:  
+```
+$ ddev composer require drupal/pathauto 
+$ ddev drush en pathauto
+```
+
+{% gist 590bf212c2a31528ea872a27f7bf3443 %} 
+
+When you install the Pathauto module, you can access
+
+Well, maybe the first interesting thing is that the Pathauto module is providing us with a new Entity called "PathAutoPattern", available for processing new patterns. But we have to do some initial questions...what kind of entity is? Let's ask some previus questions.  
 
 ## Adding new patterns by code 
 
@@ -47,12 +65,6 @@ For this post, I'm using a simple [hook_install()](https://api.drupal.org/api/dr
 
 
 
-```
-$ ddev composer require drupal/pathauto 
-$ ddev drush en pathauto
-```
-
-{% gist 590bf212c2a31528ea872a27f7bf3443 %} 
 
 ```
 entity.pathauto_pattern.add_form:
