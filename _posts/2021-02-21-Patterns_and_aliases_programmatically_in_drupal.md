@@ -26,7 +26,7 @@ By default Drupal implements `node/nid` or `taxonomy/term/tid` URL paths for ent
 The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `http://example-drupal.ddev.site/admin/config/search/path/patterns` and its tabs: 
 
 
-![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_1.jpg)
+![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_1.png)
 
   In the basement, there's a very interesting concept in order to work with patterns: the PathautoPatter Entity. This post talk about working with this Drupal entity from a programmatic point of view. We're going to do some tasks not from the UI, but from custom code.  
 
@@ -56,7 +56,97 @@ When you install the Pathauto module, you can access
 
 Well, maybe the first interesting thing is that the Pathauto module is providing us with a new Entity called "PathAutoPattern", available for processing new patterns. But we have to do some initial questions...what kind of entity is? Let's ask some previus questions.  
 
+
+## Creating some resources  
+
+Now we're going to create some resources. We'll need new vocabularies with loaded terms, so we can see how generate the data you need just when installs. We'll create three vocabularies: films, songs and series. In order to practise, I'm using two different ways to do this:  
+
+### Vocabularies  
+* Creating a vocabulary 'songs' by a config file in path `/custom-module/config/install`.  
+* Creating a pair of vocabularies 'films' and 'series' from code, inside `the custom-module.install` file, within the hook_install().  
+
+File: taxonomy.vocabulary.songs.yml  
+
+```yaml
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - testing_pathauto
+name: Songs
+vid: songs
+description: 'Provides categories for songs.'
+hierarchy: 0
+weight: 0
+```
+By code:   
+
+```php
+<?php
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_install().
+ */
+function testing_pathauto_install() {
+// Creates a pair of new vocabularies for taxonomy terms.
+  $vid_1 = 'films';
+  $name_1 = 'Films';
+  $vocabulary_1 = Vocabulary::create([
+    'vid' => $vid_1,
+    'machine_name' => $vid_1,
+    'description' => 'Stores items for categorizing films.',
+    'name' => $name_1,
+  ]);
+  $vocabulary_1->save();
+
+  $vid_2 = 'series';
+  $name_2 = 'Series';
+  $vocabulary_2 = Vocabulary::create([
+    'vid' => $vid_2,
+    'machine_name' => $vid_2,
+    'description' => 'Stores taxonomy terms for series items.',
+    'name' => $name_2,
+  ]);
+  $vocabulary_2->save();
+}
+```
+
+
+
 ## Adding new patterns by code 
+
+```php
+// Sets values for a new pattern for films vocabulary.
+  $uuid_1 = \Drupal::service('uuid')->generate();
+
+  $data_1 = [
+    'id' => 'my_pattern_machine_name_1',
+    'label' => 'Testing pattern 1 for Films',
+    'type' => 'canonical_entities:taxonomy_term',
+    'pattern' => '/films/[term:name]',
+    'selection_criteria' => [
+      $uuid_1 => [
+        'id' => 'entity_bundle:taxonomy_term',
+        'bundles' => [
+          'films' => 'films',
+        ],
+        'negate' => FALSE,
+        'context_mapping' => [
+          'taxonomy_term' => 'taxonomy_term',
+        ],
+        'uuid' => $uuid_1,
+      ],
+    ],
+    'weight' => -4,
+  ];
+  // Creates the new configuration entity and saves it.
+  $pattern_1 = \Drupal::entityTypeManager()->getStorage('pathauto_pattern')->create($data_1);
+  $pattern_1->save();
+```
 
 ## Creating an alias for a item 
 
@@ -81,9 +171,6 @@ entity.pathauto_pattern.add_form:
 $ ddev drush en testing_pathauto
 ```
 
-
-
-https://www.specbee.com/blogs/drupal-pathauto-module-brief-tutorial-how-automatically-generate-bulk-url-aliases-drupal-8
 
 ## :wq!
 
