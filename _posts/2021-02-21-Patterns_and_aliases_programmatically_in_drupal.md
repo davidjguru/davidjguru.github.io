@@ -156,7 +156,7 @@ See the returned info:
 ![Getting info about the king of entity PathautoPattern is]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_2.png)
 
 
-So now my first doubt was...how I can create patterns entity by coding? And then I remembered that the entity is a Config entity, so I can access to its data and structure by going to the Config / Sync section.  
+So now my first doubt was...how I can create patterns entity by coding? As you can see in the former caption the entity is a Config entity, so I can access to its data and structure by going to the Config / Sync section (also can generate it by config file, but I want doing by code).  
 
 
 
