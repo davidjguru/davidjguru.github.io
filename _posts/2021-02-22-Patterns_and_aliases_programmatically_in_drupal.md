@@ -268,6 +268,8 @@ It works perfectly and now I'll have as many URL patterns created by code as I n
 
 ![Well formed patterns by pathauto created from custom code]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_4.png)  
 
+But remember: There will be (by now) some patterns with conditions ('selection_criteria') and others don't. This will be important in a next section.  
+
 
 ## 4- Creating an alias for an item 
 
@@ -275,7 +277,7 @@ Although we have been playing guessing games and practicing trial/error, what we
 
 File: pathauto.routing.yml
 
-```
+```yaml
 entity.pathauto_pattern.add_form:
   path: '/admin/config/search/path/patterns/add'
   defaults:
@@ -285,6 +287,7 @@ entity.pathauto_pattern.add_form:
   requirements:
     _permission: 'administer pathauto'
 ```
+
 The register form is marked as 'pathauto_pattern.default' and in its main Entity definition file, in annotations block:  
 
 ```php
@@ -316,7 +319,7 @@ if ($bundles = array_filter((array) $form_state->getValue('bundles'))) {
       }
 ```
 
-See more at: (git.drupalcode.org/project/pathauto/PatternEditForm.php)[https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/Form/PatternEditForm.php#L231]  
+See more at: [git.drupalcode.org/project/pathauto/PatternEditForm.php](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/Form/PatternEditForm.php#L231)  
 
 But now we can test how to apply a new pattern to a bundle, so we can use a service included in the Pathauto module, the so called "pathauto.generator". You can see all the exposed services by pathauto in the file `pathauto.services.yml`. This service delegates its functionality over a [class called `PathautoGenerator.php`](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/PathautoGenerator.php) oriented to provide methods for generating path aliases. From a procedural context (within a hook_install(), remember) we can call the service in a very simple way:  
 
@@ -334,9 +337,25 @@ And so a new pathauto pattern has been applied to our taxonomy term with tid = 1
 
 ## 5- Applying alias patterns to a vocabulary 
 
-Well, the next question is...How knows Pathauto what pattern must be applied to the item?  And its a quite interesting topic. In short, we'll say that the PathautoGenerator class, has a protected function in order to get all the patterns linked to a Entity Type. How it works? Well, do you remember our two examples about building patterns? 
+Well, the next question is...How knows Pathauto what pattern must be applied to the item?  And its a quite interesting topic. In short, we'll say that the PathautoGenerator class, has a protected function in order to get all the patterns linked to a Entity Type. How it works? Well, do you remember our two examples about building patterns? The key is in the "selection_critera", that defines the link between the pattern and the related bundle.  
 
+```php
+ 'selection_criteria' => [
+      $uuid_1 => [
+        'id' => 'entity_bundle:taxonomy_term',
+        'bundles' => [
+          'films' => 'films',
+        ],
+        'negate' => FALSE,
+        'context_mapping' => [
+          'taxonomy_term' => 'taxonomy_term',
+        ],
+        'uuid' => $uuid_1,
+      ],
+    ],
+```
 
+Due to this, if you avoid creation of a pathauto pattern without selection criteria defined, then your pattern will be available for all the bundles from the Entity Type.  But its just the first key. Now we're going to talk about the second.  
 
 So [you can see here](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/PathautoGenerator.php#L293) this:  
 
@@ -358,8 +377,14 @@ protected function getPatternByEntityType($entity_type_id) {
         ->loadMultiple($ids);
     }
 ```
+As you can see in the former snippet, the function is returning the linked patterns using "weight" as a condition for the query. And it will return the results ordered by weight property value but using descending order, I mean: If you're creating a pattern without "selection criteria" and the assigned weight is lower than your previous defined pathauto patterns, then this will be the last pattern processed and finally, the aliases wet generated comes from the last pathauto pattern with the lowest weight: Think as a pathauto pattern without conditions for selections will be available, for example, for all the vocabularis in your Drupal installation.  
+
+You can set the value for weight in your custom code or just changing the position by UI:  
+
+![Change the order in pathauto patterns available]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_6.png)  
 
 
+Taking all of the above into account as operational criteria (selectio, weight) we can launch processing for applying pathauto patterns in vocabularies, for example doing something like this:  
 
 ```php
 // Gets taxonomy terms from films vocabulary using entityTypeManager and conditions.
