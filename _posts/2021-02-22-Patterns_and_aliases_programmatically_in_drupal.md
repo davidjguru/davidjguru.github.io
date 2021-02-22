@@ -10,7 +10,7 @@ sitemap: true
 youtubeId: wqfeeRz_fwE
 ---
 
-| ![Picture from Unsplash, by @jack_1]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_main.jpg) |
+| ![Picture from Unsplash, by @jack_1]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_main.jpg) |
 |:--:|
 | *Picture from Unsplash, user [Rémi Jacquaint](https://unsplash.com/@jack_1)* |
 
@@ -46,7 +46,7 @@ By default Drupal implements `node/nid` or `taxonomy/term/tid` URL paths for ent
 The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `http://example-drupal.ddev.site/admin/config/search/path/patterns` and its tabs: 
 
 
-![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_1.png)
+![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_1.png)
 
   In the basement, there's a very interesting concept in order to work with patterns: the PathautoPatter Entity. This post talk about working with this Drupal entity from a programmatic point of view. We're going to do some tasks not from the UI, but from custom code.  
 
@@ -225,13 +225,13 @@ $id = $pattern->getEntityTypeId();
 
 See the returned info:  
 
-![Getting info about the king of entity PathautoPattern is]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_2.png)
+![Getting info about the king of entity PathautoPattern is]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_2.png)
 
 
 So now my first doubt was...how I can create patterns entity by coding? As you can see in the former caption the entity is a Config entity, so I can access to its data and structure by going to the Config / Sync section (also I can generate it by config file, but I want doing by code). So I can create some pattern by interface and then, watching the config file of the new pattern, I can understand the data structure:  
 
 
-![Config Object for Pathauto Pattern Entities]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_3.png)
+![Config Object for Pathauto Pattern Entities]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_3.png)
 
 Ok! so there's some data related with "selection criteria" in the config object...Now I understand why my first pattern has the fourth columm "Conditions" empty. So I'm gonna add some data in a related new section. What's the problem? I need to think about transform the data structure in the related YAML file as in a classic nested array. Here we go! There will be some criteria selection configured in the pattern, in order to link the pattern with an bundle, just like in the next code block:  
 
@@ -266,7 +266,7 @@ Ok! so there's some data related with "selection criteria" in the config object.
 
 It works perfectly and now I'll have as many URL patterns created by code as I need:  
 
-![Well formed patterns by pathauto created from custom code]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_4.png)  
+![Well formed patterns by pathauto created from custom code]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_4.png)  
 
 
 ## 4- Creating an alias for an item 
@@ -326,7 +326,7 @@ But now we can test how to apply a new pattern to a bundle, so we can use a serv
 ```
 In this case, I'm applying a pattern to a taxonomy term using its tid value (14), by calling to the pathauto.generator service, passing the taxonomy term and a opt key 'insert' for the method. Ok, and it works too. You can see now:  
 
-![Applying a new pathauto pattern to an existing taxonomy term]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_5.png)  
+![Applying a new pathauto pattern to an existing taxonomy term]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_5.png)  
 
 And so a new pathauto pattern has been applied to our taxonomy term with tid = 14...eh, wait a minute...how knows the pathauto.generate service which pattern has to be applied? Interesting!   
 
