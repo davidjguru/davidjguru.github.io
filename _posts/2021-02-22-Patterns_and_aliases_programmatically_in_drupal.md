@@ -31,7 +31,9 @@ Sometimes in an initial phase of a Drupal project you need prepare some kind of 
   + [2.2- Creating resources: Taxonomy Terms](#22--creating-resources-taxonomy-terms)  
 
   [3- Adding new patterns by code](#3--adding-new-patterns-by-code)    
-  [9- :wq!](#9--wq)  
+  [4- Creating an alias for an item](#4--creating-an-alias-for-an-item)  
+  [5- Applying alias patterns to a vocabulary](#5--applying-alias-patterns-to-a-vocabulary)  
+  [6- :wq!](#6--wq)  
   <!-- /TOC -->
   
   -------------------------------------------------------------------------------
@@ -264,17 +266,14 @@ Ok! so there's some data related with "selection criteria" in the config object.
 
 It works perfectly and now I'll have as many URL patterns created by code as I need:  
 
-![Well formed patterns by pathauto created from custom code]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_4.png)
+![Well formed patterns by pathauto created from custom code]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_4.png)  
 
 
+## 4- Creating an alias for an item 
 
-## Creating an alias for a item 
+Although we have been playing guessing games and practicing trial/error, what we have really been doing is intuitively approaching the most basic internal behavior of the Pathauto module. Specifically the behavior declared from its path to add new patterns via entity form (add_form), just as is declared in its routing file.  Open the Drupal installation in you main IDE and see the pathauto module. It's time to peek inside.  
 
-## Applying alias patterns to a complete vocabulary 
-
-
-
-
+File: pathauto.routing.yml
 
 ```
 entity.pathauto_pattern.add_form:
@@ -286,13 +285,64 @@ entity.pathauto_pattern.add_form:
   requirements:
     _permission: 'administer pathauto'
 ```
+The register form is marked as 'pathauto_pattern.default' and in its main Entity definition file, in annotations block:  
+
+```php
+ *      "form" = {
+ *       "default" = "Drupal\pathauto\Form\PatternEditForm",
+ *       "duplicate" = "Drupal\pathauto\Form\PatternDuplicateForm",
+ *       "delete" = "Drupal\Core\Entity\EntityDeleteForm",
+ *       "enable" = "Drupal\pathauto\Form\PatternEnableForm",
+ *       "disable" = "Drupal\pathauto\Form\PatternDisableForm"
+ *     },
+ ```
+
+Where we can see that in certain conditions we're walking the same steps (but with less complexity in our case, for sure):  
+
+```php
+if ($bundles = array_filter((array) $form_state->getValue('bundles'))) {
+        $default_weight -= 5;
+        $plugin_id = $entity_type == 'node' ? 'node_type' : 'entity_bundle:' . $entity_type;
+        $entity->addSelectionCondition(
+          [
+            'id' => $plugin_id,
+            'bundles' => $bundles,
+            'negate' => FALSE,
+            'context_mapping' => [
+              $entity_type => $entity_type,
+            ]
+          ]
+        );
+      }
+```
+
+See more at: (git.drupalcode.org/project/pathauto/PatternEditForm.php)[https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/Form/PatternEditForm.php#L231]  
+
+But now we can test how to apply a new pattern to a bundle, so we can use a service included in the Pathauto module, the so called "pathauto.generator". You can see all the exposed services by pathauto in the file `pathauto.services.yml`. This service delegates its functionality over a [class called `PathautoGenerator.php`](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/PathautoGenerator.php) oriented to provide methods for generating path aliases. From a procedural context (within a hook_install(), remember) we can call the service in a very simple way:  
+
+```php
+  $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load(14);
+  \Drupal::service('pathauto.generator')->createEntityAlias($term, 'insert');
+```
+In this case, I'm applying a pattern to a taxonomy term using its tid value (14), by calling to the pathauto.generator service, passing the taxonomy term and a opt key 'insert' for the method. Ok, and it works too. You can see now:  
+
+![Applying a new pathauto pattern to an existing taxonomy term]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_5.png)  
+
+And so a new pathauto pattern has been applied to our taxonomy term with tid = 14...eh, wait a minute...how knows the pathauto.generate service which pattern has to be applied? Interesting!   
+
+
+
+## 5- Applying alias patterns to a vocabulary 
+
+
+
 
 ```
 $ ddev drush en testing_pathauto
 ```
 
 
-## :wq!
+## 6- :wq!
 
 ### Recommended song: Asilos Magdalena - The Mars Volta
 
