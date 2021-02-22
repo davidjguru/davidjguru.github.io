@@ -3,14 +3,14 @@ layout: post
 title: Patterns and Aliases programmatically in Drupal
 permalink: /blog/patterns-and-aliases-programmatically-in-drupal
 published: true
-date: 2021-02-21
+date: 2021-02-22
 author: davidjguru
 categories: [Drupal & Coding]
 sitemap: true
 youtubeId: wqfeeRz_fwE
 ---
 
-| ![Picture from Unsplash, by @jack_1]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_main.jpg) |
+| ![Picture from Unsplash, by @jack_1]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_main.jpg) |
 |:--:|
 | *Picture from Unsplash, user [Rémi Jacquaint](https://unsplash.com/@jack_1)* |
 
@@ -23,8 +23,14 @@ Sometimes in an initial phase of a Drupal project you need prepare some kind of 
   **Table of Contents**  
   <!-- TOC -->  
   [1- Introduction](#1--Introduction)  
+  + [1.1- Recipe](#11--recipe)  
+  + [1.2- Extra](#12--extra)    
+
   [2- Let's go: Resources](#2--letsgo-resources)  
-  
+  + [2.1- Creating resources: Vocabularies](#21--creating-resources-vocabularies)  
+  + [2.2- Creating resources: Taxonomy Terms](#22--creating-resources-taxonomy-terms)  
+
+  [3- Adding new patterns by code](#3--adding-new-patterns-by-code)    
   [9- :wq!](#9--wq)  
   <!-- /TOC -->
   
@@ -38,7 +44,7 @@ By default Drupal implements `node/nid` or `taxonomy/term/tid` URL paths for ent
 The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `http://example-drupal.ddev.site/admin/config/search/path/patterns` and its tabs: 
 
 
-![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_1.png)
+![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_1.png)
 
   In the basement, there's a very interesting concept in order to work with patterns: the PathautoPatter Entity. This post talk about working with this Drupal entity from a programmatic point of view. We're going to do some tasks not from the UI, but from custom code.  
 
@@ -64,7 +70,7 @@ $ ddev drush en pathauto
 And use the example from the gist:  
 {% gist 590bf212c2a31528ea872a27f7bf3443 %} 
 
-When you install the Pathauto module, you can access to new tabs with some related actions. 
+When you install the Pathauto module, you can access to new tabs with some related actions. Now, we're gonna execute some actions just by code and from our custom module. We need generate some resources in the Drupal installation. Let's see.  
 
 
 
@@ -73,7 +79,7 @@ When you install the Pathauto module, you can access to new tabs with some relat
 Now we're going to create some resources. We'll need new vocabularies with loaded terms, so we can see how generate the data you need just when installs. We'll create three vocabularies: films, songs and series. In order to practise, I'm using two different ways to do this:  
 
 ### Vocabularies  
-* Creating a vocabulary 'songs' by a config file in path `/custom-module/config/install`.  
+* Creating a vocabulary 'songs' by a config file in path `/custom-module/config/install`.  I will put the module as a forced dependency by itself, for delete the vocabulary when disabling module.  
 * Creating a pair of vocabularies 'films' and 'series' from code, inside `the custom-module.install` file, within the hook_install().  
 
 File: taxonomy.vocabulary.songs.yml  
@@ -162,13 +168,13 @@ Now I'm gonna to populate the previous vocabularies with some terms. For doing t
   $term_two->save();
 ```
 
-And for the other two cases, I'm using a loop in order to populate the vocabularies, something like this: 
+And for the other two cases, I'm using a loop in order to populate the vocabularies 'songs' and 'series', something like this:  
 
 ```php
 // Creates sixty taxonomy terms.
 for ($i = 1; $i <= 60; $i++) {
     ${'term_' . $i} = Term::create([
-    'vid' => $vid3,
+    'vid' => 'series',
     'langcode' => 'en',
     'name' => 'term_' . $i . '_NAME_SERIE',
     'description' => [
@@ -184,6 +190,7 @@ for ($i = 1; $i <= 60; $i++) {
   }
 ```
 
+In both cases, you'll have the vocabularies already filled with terms when installs.   
 
 
 ## 3- Adding new patterns by code 
@@ -216,14 +223,15 @@ $id = $pattern->getEntityTypeId();
 
 See the returned info:  
 
-![Getting info about the king of entity PathautoPattern is]({{ site.baseurl }}/images/davidjguru_8_9_patterns_and_ aliases_programmatically_in_drupal_2.png)
+![Getting info about the king of entity PathautoPattern is]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_2.png)
 
 
-So now my first doubt was...how I can create patterns entity by coding? As you can see in the former caption the entity is a Config entity, so I can access to its data and structure by going to the Config / Sync section (also can generate it by config file, but I want doing by code).  
+So now my first doubt was...how I can create patterns entity by coding? As you can see in the former caption the entity is a Config entity, so I can access to its data and structure by going to the Config / Sync section (also I can generate it by config file, but I want doing by code). So I can create some pattern by interface and then, watching the config file of the new pattern, I can understand the data structure:  
 
 
+![Config Object for Pathauto Pattern Entities]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_3.png)
 
-What's the problem? There will be some criteria selection configured in the pattern, in order to link the pattern with an element, just like in this
+Ok! so there's some data related with "selection criteria" in the config object...Now I understand why my first pattern has the fourth columm "Conditions" empty. So I'm gonna add some data in a related new section. What's the problem? I need to think about transform the data structure in the related YAML file as in a classic nested array. Here we go! There will be some criteria selection configured in the pattern, in order to link the pattern with an bundle, just like in the next code block:  
 
 ```php
 // Sets values for a new pattern for films vocabulary.
@@ -253,6 +261,12 @@ What's the problem? There will be some criteria selection configured in the patt
   $pattern_1 = \Drupal::entityTypeManager()->getStorage('pathauto_pattern')->create($data_1);
   $pattern_1->save();
 ```
+
+It works perfectly and now I'll have as many URL patterns created by code as I need:  
+
+![Well formed patterns by pathauto created from custom code]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_ aliases_programmatically_in_drupal_4.png)
+
+
 
 ## Creating an alias for a item 
 
