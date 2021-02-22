@@ -334,7 +334,52 @@ And so a new pathauto pattern has been applied to our taxonomy term with tid = 1
 
 ## 5- Applying alias patterns to a vocabulary 
 
+Well, the next question is...How knows Pathauto what pattern must be applied to the item?  And its a quite interesting topic. In short, we'll say that the PathautoGenerator class, has a protected function in order to get all the patterns linked to a Entity Type. How it works? Well, do you remember our two examples about building patterns? 
 
+
+
+So [you can see here](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/PathautoGenerator.php#L293) this:  
+
+```php
+protected function getPatternByEntityType($entity_type_id) {
+    if (!isset($this->patternsByEntityType[$entity_type_id])) {
+
+      $ids = $this->entityTypeManager->getStorage('pathauto_pattern')
+        ->getQuery()
+        ->condition('type', array_keys(
+          $this->aliasTypeManager
+            ->getPluginDefinitionByType($this->tokenEntityMapper->getTokenTypeForEntityType($entity_type_id))))
+        ->condition('status', 1)
+        ->sort('weight')
+        ->execute();
+
+      $this->patternsByEntityType[$entity_type_id] = $this->entityTypeManager
+        ->getStorage('pathauto_pattern')
+        ->loadMultiple($ids);
+    }
+```
+
+
+
+```php
+// Gets taxonomy terms from films vocabulary using entityTypeManager and conditions.
+  $taxonomy_films_storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $query_films = $taxonomy_films_storage->getQuery()
+    ->condition('vid', 'films')
+    ->execute();
+  $entities_films = $taxonomy_films_storage->loadMultiple($query_films);
+
+  // Updates URL aliases just in case of taxonomy terms in films vocabulary.
+  foreach ($entities_films as $entity) {
+    \Drupal::service('pathauto.generator')->createEntityAlias($entity, 'insert');
+  }
+```
+
+I added a copy of my custom "testing_pathauto" module in my Gitlab folder for custom Drupal projects (only for testing, just for fun NOT FOR STAGE OR LIVE): [https://gitlab.com/davidjguru/drupal-custom-modules-examples](https://gitlab.com/davidjguru/drupal-custom-modules-examples).  
+
+You can download or git clone the whole proyect or get the specific folder for this module in: [gitlab.com/davidjguru/testing_pathauto](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/testing_pathauto).  
+
+Just download the resource and enable the module by doing:  
 
 
 ```
