@@ -14,9 +14,9 @@ youtubeId: wqfeeRz_fwE
 |:--:|
 | *Picture from Unsplash, user [Rémi Jacquaint](https://unsplash.com/@jack_1)* |
 
-Sometimes in an initial phase of a Drupal project you need prepare some kind of tasks related with routing: creates new routes, defines some Controllers or Forms o maybe just define the so called "aliases". The aliases allows us define URLs more friendly than the natural, or even thinking in build some patterns in order to apply to our content or entities (users, taxonomy terms, nodes, etc). I'm talking about pretty and semantic URLs like "mydomain.com/blog/article/special-article". Drupal allows define one by one these kinds of directions, but also we can work with batch processing, organizing the work from the code side. Let's see some ideas and examples and we're going to take a walk around [the pathauto module for Drupal](https://www.drupal.org/project/pathauto). Pay attention.  
+Sometimes in an initial phase of a Drupal project you need prepare some kind of tasks related with routing: creates new routes, defines some Controllers or Forms o maybe just define the so called "aliases". The aliases allows us define URLs more friendly than the natural, or even thinking in build some patterns in order to apply to our content or entities (users, taxonomy terms, nodes, etc). I'm talking about pretty and semantic URLs like "mydomain.com/blog/article/special-article". 
 <!--more-->
-
+Drupal allows define one by one these kinds of directions, but also we can work with batch processing, organizing the work from the code side. Let's see some ideas and examples and we're going to take a walk around [the pathauto module for Drupal](https://www.drupal.org/project/pathauto). Pay attention.   
 
  ---------------------------------------------------------------------------------
   
@@ -43,7 +43,7 @@ For some ideas and side-projects, I was thinking in enabling sets of taxonomy te
 
 By default Drupal implements `node/nid` or `taxonomy/term/tid` URL paths for entities and bundles. This is very easy to test, just creating a node in Drupal and seeing its related URL after published: `/node/4`. Ok. 
 
-The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `/admin/config -> /search/path -> /patterns` and its tabs: 
+The Pathauto module offers some interesting options to update URLs related with specific entities / bundles in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `/admin/config -> /search/path -> /patterns` and its tabs: 
 
 
 ![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_1.png)
