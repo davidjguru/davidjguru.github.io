@@ -43,7 +43,7 @@ For some ideas and side-projects, I was thinking in enabling sets of taxonomy te
 
 By default Drupal implements `node/nid` or `taxonomy/term/tid` URL paths for entities and bundles. This is very easy to test, just creating a node in Drupal and seeing its related URL after published: `/node/4`. Ok. 
 
-The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `http://example-drupal.ddev.site/admin/config/search/path/patterns` and its tabs: 
+The Pathauto module offers some interesting options to update URLs related with specific entities in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, for example). The module works from a User Interface in your Drupal installation, in path `/admin/config/search/path/patterns` and its tabs: 
 
 
 ![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_1.png)
@@ -319,7 +319,8 @@ if ($bundles = array_filter((array) $form_state->getValue('bundles'))) {
       }
 ```
 
-See more at: [git.drupalcode.org/project/pathauto/PatternEditForm.php](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/Form/PatternEditForm.php#L231)  
+See more at:  
+[drupal/pathauto/PatternEditForm.php](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/Form/PatternEditForm.php#L231)  
 
 But now we can test how to apply a new pattern to a bundle, so we can use a service included in the Pathauto module, the so called "pathauto.generator". You can see all the exposed services by pathauto in the file `pathauto.services.yml`. This service delegates its functionality over a [class called `PathautoGenerator.php`](https://git.drupalcode.org/project/pathauto/-/blob/8.x-1.x/src/PathautoGenerator.php) oriented to provide methods for generating path aliases. From a procedural context (within a hook_install(), remember) we can call the service in a very simple way:  
 
@@ -402,7 +403,7 @@ Taking all of the above into account as operational criteria (selectio, weight) 
 
 I added a copy of my custom "testing_pathauto" module in my Gitlab folder for custom Drupal projects (only for testing, just for fun NOT FOR STAGE OR LIVE): [https://gitlab.com/davidjguru/drupal-custom-modules-examples](https://gitlab.com/davidjguru/drupal-custom-modules-examples).  
 
-You can download or git clone the whole proyect or get the specific folder for this module in: [gitlab.com/davidjguru/testing_pathauto](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/testing_pathauto).  
+You can download or git clone the whole proyect or get the specific folder for this module in: [gitlab.com/davidjguru/testing-pathauto](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/testing_pathauto).  
 
 Just download the resource and enable the module by doing:  
 
