@@ -85,7 +85,7 @@ After you install the Pathauto module, you can access to new tabs with some rela
 Now we're going to create some resources. We'll need new vocabularies with loaded terms, so we can see how generate the data we need just when installs. We'll create three vocabularies: films, songs and series. In order to practise, I'm using two different ways to do this:  
 
 ### Vocabularies  
-* Creating a vocabulary 'songs' by a config file in path `/testing_pathauto/config/install`.  I will put the module as a forced dependency by itself, for delete the vocabulary when disabling module.  
+* Creating a vocabulary 'songs' by a config file in path `/testing_pathauto-> /config -> /install`.  I will put the module as a forced dependency by itself, for delete the vocabulary when disabling module.  
 * Creating a pair of vocabularies 'films' and 'series' from code, inside the `testing_pathauto.install` file, within the hook_install() function.  
 
 File: taxonomy.vocabulary.songs.yml  
