@@ -44,7 +44,9 @@ For some ideas and side-projects, I was thinking in enabling sets of taxonomy te
 
 By default Drupal implements URLs like `node/nid` or `taxonomy/term/tid` URL paths for entities and bundles. This is very easy to test, just creating a node in Drupal and seeing its related URL after published: `/node/4`. Ok.   
 
-The Pathauto module offers some interesting options to update URLs related with specific entities / bundles in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, using more granularity). The module works from a User Interface in your Drupal installation, in path `/admin/config -> /search/path -> /patterns` and you'll see its tabs: 
+The Pathauto module offers some interesting options to update URLs related with specific entities / bundles in your Drupal installation (content, taxonomy terms, users), giving support for tokens, bulk updates and automatic generation of aliases by creating patterns directly related with entities (patterns for vocabularies but also for certain vocabularies, using more granularity). In addition, the pathauto module is part of needed resources in order to avoid attacks, as you can read in this recent article about prevention for enumeration attacks in Drupal: [hashbangcode.com - drupal 9 preventing enumeration attacks](https://www.hashbangcode.com/article/drupal-9-preventing-enumeration-attacks).  
+
+The module works from a User Interface in your Drupal installation, in path `/admin/config -> /search/path -> /patterns` and you'll see its tabs: 
 
 
 ![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_drupal_8_9_patterns_and_aliases_programmatically_in_drupal_1.png)
