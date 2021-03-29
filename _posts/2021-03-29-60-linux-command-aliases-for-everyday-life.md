@@ -57,8 +57,8 @@ $ nop
 **Remember:**  
 ```bash
 1. **:~$** cd ~    
-1. **:~$** vim .bashrc // :wq! (after paste the content)      
-1. **:~$** source .bashrc   
+2. **:~$** vim .bashrc // :wq! (after paste the content)      
+3. **:~$** source .bashrc   
 ```
 
 You can download the whole file `.bash_aliases` fullfilled with all the aliases from [here like a Github Gist](https://gist.github.com/davidjguru/019beabeac6245959564499db3e45084#file-bash_aliases). 
@@ -87,7 +87,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 ### Getting info from a position in a folder.
 ```bash
 12. alias ll='ls -la'  
-    **Debian doesn't have the -ll- alias created by default, like Ubuntu.**    
+    **Debian doesn`t have the -ll- alias created by default, like Ubuntu.**    
 13. alias lf='ls -alF'  
 14. alias la='ls -A'  
 15. alias ls='ls -CF'  
@@ -148,7 +148,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
     **Show all the branches in the tree format history with pointers.**  
 43. alias glp="git log -g --grep='PHP' -10 --pretty='%h - %s - %cn - %cd'"  
     **Gets info from log filtering by some fixed key in commit messages.**  
-    **I'm using some keys in message commits, [just like these.](https://gitlab.com/-/snippets/2096890)**  
+    **I am using some keys in message commits, [just like these.](https://gitlab.com/-/snippets/2096890)**  
 44. alias glf='git for-each-ref --sort=-committerdate'   
     **Get commits list by DESC order.**
 ```
