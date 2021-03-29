@@ -55,21 +55,24 @@ $ nop
 ```
 
 **Remember:**  
-
+```bash
 1. **:~$** cd ~    
 1. **:~$** vim .bashrc // :wq! (after paste the content)      
 1. **:~$** source .bashrc   
+```
 
 You can download the whole file `.bash_aliases` fullfilled with all the aliases from [here like a Github Gist](https://gist.github.com/davidjguru/019beabeac6245959564499db3e45084#file-bash_aliases). 
 
 ## Morning Opertures
+```bash
 1. alias whatsup='service --status-all'  
 2. alias hello='sudo /etc/init.d/apache2 stop && cd workspace/project && ddev start && ddev launch'   
 3. alias hi='sudo systemctl stop apache2'  
 4. alias iad='systemctl is-active docker'  
 5. alias bye='shutdown -r now'  
-
+```
 ## Usual Instructions  
+```bash
 6. alias c='clear'  
 7. alias h='history'  
 8. alias hg='history | grep $1'  
@@ -78,10 +81,11 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 10. alias al="echo ------------Your curent aliases are:------------¡';alias"  
 **Returns all your aliases collection.**
 11. alias sup="sudo apt update && sudo apt upgrade -y"  
-
+```
 ## Content in folders  
 
 ### Getting info from a position in a folder.
+```bash
 12. alias ll='ls -la'  
 **Debian doesn't have the -ll- alias created by default, like Ubuntu.**    
 13. alias lf='ls -alF'  
@@ -97,17 +101,21 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 **Gets a total recursirve count of existing files, no folders.**   
 20. alias ld='ls -d */'  
 **Gets a list of existing directories from current folder.**   
-
+```
 ### Info from Drupal: config files, types of content and existing paragraphs  
+```bash
 21. alias lsc='ls -lah config/sync/ | wc -l'   
 22. alias lsn='ls -lah config/sync/node.type.* | wc -l'    
 23. alias lsp='ls -lah config/sync/paragraphs.paragraphs_type.* | wc -l'  
-    
+```
 ## Files, folders and resources  
+```bash
 24. alias fh='find . -name '   
 25. alias ..='cd ..'  
-26. alias ./.='cd ../..'  
+26. alias ./.='cd ../..' 
+``` 
 ### More Jump Down  
+```bash
 27. alias 1d="cd .."  
 28. alias 2d="cd ..;cd .."  
 29. alias 3d="cd ..;cd ..;cd .."  
@@ -121,15 +129,17 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 35. alias df="df -Tha --total"   
 36. alias exp='nautilus .'  
 **Opens the current directory in file explorer.**  
-
+```
 ## Git Related Aliases  
 
 ### Basic info
+```bash
 37. alias gs='git status'  
 38. alias gb='git branch'  
 39. alias gr='git remote -v'  
-
+```
 ### Getting info from 'Git log'  
+```bash
 40. alias gl='git log --oneline'  
 **Gets a log info view in a single line format.**    
 41. alias glc='git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50'  
@@ -140,13 +150,15 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 **Gets info from log filtering by some fixed key in commit messages.**  
 **I'm using some keys in message commits, [just like these.](https://gitlab.com/-/snippets/2096890)**  
 44. alias glf='git for-each-ref --sort=-committerdate'   
-
+```
 ### Pushing to basic branches 
+```bash
 45. alias gpom='git push origin master'  
 46. alias gpod='git push origin develop'  
-
+```
 ## Drush Commands
 **I'm using [DDEV-Local](https://ddev.readthedocs.io/en/stable/) for my Drupal local deploys.**  
+```bash
 47. alias cex='ddev drush cex'  
 48. alias cim='ddev drush cim'  
 49. alias cexy='yes|ddev drush cex'  
@@ -155,20 +167,22 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 52. alias dws='ddev drush watchdog:show –count=20'  
 **Shows the last 20 problems in your Drupal installation.**  
 53. alias ddc='ddev drush cr'  
-
+```
 ## DDEV Explicit Aliases   
+```bash
 54. alias dsl='ddev start && ddev launch'   
 55. alias ddy='ddev delete -Oy'  
 **Deletes the DDEV folder and resources in the current project folder.**  
 56. alias did='ddev import-db'   
 57. alias ddl='ddev list'  
-
+```
 ## Reviewing Codestyle Aliases  
+```bash
 58. alias dcs1="ddev exec -d=/var/www/html vendor/bin/phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info,txt,md' web/modules/custom/"  
 59. alias dcs2="ddev exec -d=/var/www/html vendor/bin/phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,info,txt,md' web/modules/custom/"  
 60. alias dcsr='ddev exec -d=/var/www/html vendor/bin/phpcs –report=diff'  
 **With /path/to/code, Will generate a patch file from a style diff.**
-
+```
 ## :wq!
 
 ### Recommended song: Vitamin C - CAN
