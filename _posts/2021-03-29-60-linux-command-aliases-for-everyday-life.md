@@ -3,7 +3,7 @@ layout: post
 title: 60 Linux commands aliases for everyday life
 permalink: /blog/60-linux-commands-aliases-for-everyday-life
 published: true
-date: 2021-03-28
+date: 2021-03-29
 author: davidjguru
 categories: [Drupal & Commands]
 sitemap: true
