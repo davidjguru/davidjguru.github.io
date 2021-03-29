@@ -76,10 +76,10 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 6. alias c='clear'  
 7. alias h='history'  
 8. alias hg='history | grep $1'  
-**Search using history command: $ hg somestring.**  
+    **Search using history command: $ hg somestring.**  
 9.  alias wg='wget -c '  
 10. alias al="echo ------------Your curent aliases are:------------¡';alias"  
-**Returns all your aliases collection.**
+    **Returns all your aliases collection.**
 11. alias sup="sudo apt update && sudo apt upgrade -y"  
 ```
 ## Content in folders  
@@ -87,20 +87,20 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 ### Getting info from a position in a folder.
 ```bash
 12. alias ll='ls -la'  
-**Debian doesn't have the -ll- alias created by default, like Ubuntu.**    
+    **Debian doesn't have the -ll- alias created by default, like Ubuntu.**    
 13. alias lf='ls -alF'  
 14. alias la='ls -A'  
 15. alias ls='ls -CF'  
 16. alias lt='ls --human-readable --size -1 -S --classify'  
-**Sort resources by _file_ size.**   
+    **Sort resources by _file_ size.**   
 17. alias lu='du -sh * | sort -h'  
-**Same as former but counting size from folders too.**   
+    **Same as former but counting size from folders too.**   
 18. alias lt='ls -t -1 -long'  
-**Gets an ordered list of files and folders by changes in time.**   
+    **Gets an ordered list of files and folders by changes in time.**   
 19. alias lc='find . -type f | wc -l'  
-**Gets a total recursirve count of existing files, no folders.**   
+    **Gets a total recursirve count of existing files, no folders.**   
 20. alias ld='ls -d */'  
-**Gets a list of existing directories from current folder.**   
+    **Gets a list of existing directories from current folder.**   
 ```
 ### Info from Drupal: config files, types of content and existing paragraphs  
 ```bash
@@ -122,13 +122,13 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 30. alias 4d="cd ..;cd ..;cd ..;cd .."  
 31. alias 5d="cd ..;cd ..;cd ..;cd ..;cd .."  
 32. alias untar='tar -zxvf $1'  
-**Open a tar.gz formated folder.**  
+    **Open a tar.gz formated folder.**  
 33. alias tar='tar -czvf $1'  
-**Compressing a folder in tar.gz format.**  
+    **Compressing a folder in tar.gz format.**  
 34. alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"  
 35. alias df="df -Tha --total"   
 36. alias exp='nautilus .'  
-**Opens the current directory in file explorer.**  
+    **Opens the current directory in file explorer.**  
 ```
 ## Git Related Aliases  
 
@@ -141,15 +141,16 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 ### Getting info from 'Git log'  
 ```bash
 40. alias gl='git log --oneline'  
-**Gets a log info view in a single line format.**    
+    **Gets a log info view in a single line format.**    
 41. alias glc='git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50'  
-**Get a list with the most changed files from 12 months ago.**  
+    **Get a list with the most changed files from 12 months ago.**  
 42. alias gld='git log –oneline –decorate –graph –all'  
-**Show all the branches in the tree format history with pointers.**  
+    **Show all the branches in the tree format history with pointers.**  
 43. alias glp="git log -g --grep='PHP' -10 --pretty='%h - %s - %cn - %cd'"  
-**Gets info from log filtering by some fixed key in commit messages.**  
-**I'm using some keys in message commits, [just like these.](https://gitlab.com/-/snippets/2096890)**  
+    **Gets info from log filtering by some fixed key in commit messages.**  
+    **I'm using some keys in message commits, [just like these.](https://gitlab.com/-/snippets/2096890)**  
 44. alias glf='git for-each-ref --sort=-committerdate'   
+    **Get commits list by DESC order.**
 ```
 ### Pushing to basic branches 
 ```bash
@@ -165,14 +166,14 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 50. alias cimy='yes|ddev drush cim'  
 51. alias dgm='ddev drush generate module'  
 52. alias dws='ddev drush watchdog:show –count=20'  
-**Shows the last 20 problems in your Drupal installation.**  
+    **Shows the last 20 problems in your Drupal installation.**  
 53. alias ddc='ddev drush cr'  
 ```
 ## DDEV Explicit Aliases   
 ```bash
 54. alias dsl='ddev start && ddev launch'   
 55. alias ddy='ddev delete -Oy'  
-**Deletes the DDEV folder and resources in the current project folder.**  
+    **Deletes the DDEV folder and resources in the current project folder.**  
 56. alias did='ddev import-db'   
 57. alias ddl='ddev list'  
 ```
@@ -181,7 +182,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 58. alias dcs1="ddev exec -d=/var/www/html vendor/bin/phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,info,txt,md' web/modules/custom/"  
 59. alias dcs2="ddev exec -d=/var/www/html vendor/bin/phpcs --standard=DrupalPractice --extensions='php,module,inc,install,test,profile,theme,info,txt,md' web/modules/custom/"  
 60. alias dcsr='ddev exec -d=/var/www/html vendor/bin/phpcs –report=diff'  
-**With /path/to/code, Will generate a patch file from a style diff.**
+    **With /path/to/code, Will generate a patch file from a style diff.**
 ```
 ## :wq!
 
