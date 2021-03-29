@@ -169,7 +169,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 60. alias dcsr='ddev exec -d=/var/www/html vendor/bin/phpcs –report=diff'  
 **With /path/to/code, Will generate a patch file from a style diff.**
 
-## 6- :wq!
+## :wq!
 
 ### Recommended song: Vitamin C - CAN
 
