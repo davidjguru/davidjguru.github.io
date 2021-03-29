@@ -7,6 +7,7 @@ date: 2020-12-10
 author: davidjguru
 categories: [General]
 sitemap: true
+youtubeId: XGcrqMUUMsE
 ---
 | ![Picture from Unsplash, by @thefredyjacob]({{ site.baseurl }}/images/davidjguru_playing_with_php_8_performance_main.png) |
 |:--:|
@@ -348,3 +349,7 @@ It's quite interesting see that the garbage collector is launched in PHP 5.6.40 
 ## :wq! 
 
 Finally, after comparing in the three previous sections the memory consumption in the three versions of PHP, it seems that the last one available (PHP 8) is similar in this dimension to the operations in memory of PHP 7 (in most tests the graphs of 8 and 7 overlap with the same values), and also moves away from the memory management of PHP 5.  
+
+### Recommended song: Spanish Caravan - The Doors
+
+{% include youtubePlayer.html id=page.youtubeId %}
