@@ -116,7 +116,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 ```bash
 26. alias fh='find . -name '   
 27. alias ..='cd ..'  
-28. alias ./.='cd ../..' 
+28. alias ....='cd ../..' 
 ``` 
 ### More Jump Down  
 ```bash
