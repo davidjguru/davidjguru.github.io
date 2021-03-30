@@ -175,7 +175,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 56. alias dpc='ddev drush pmu $1 && ddev drush cr'
 57. alias dec='ddev drush en -y $1 && ddev drush cr'
 58. alias dpe='ddev drush pmu $1 && ddev drush cr && ddev drush en -y $1'
-59. alias dva='ddev drush view:analyze'
+59. alias dva='ddev drush views:analyze'
 60. alias dpl='ddev drush pml'
 61. alias dle="ddev drush pm-list --status='enabled'"
 62. alias dld="ddev drush pm-list --status='disabled'"
