@@ -43,15 +43,15 @@ fi
 For example, if you wanna use reduced formats for usual instrucions, you can do something like this: 
 
 ```bash
-alias yep='sudo apt-get install'
-alias nop='sudo apt-get remove'
+alias yep='sudo apt install $1'
+alias nop='sudo apt remove $1'
 ```
 
 And so you can type by prompt using the new aliases:  
 
 ```bash
-$ yep
-$ nop
+$ yep nmap
+$ nop nmap
 ```
 
 **Remember:**  
@@ -167,7 +167,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 49. alias cex='ddev drush cex'  
 50. alias cim='ddev drush cim'  
 51. alias cexy='yes|ddev drush cex'  
-52 alias cimy='yes|ddev drush cim'  
+52. alias cimy='yes|ddev drush cim'  
 53. alias dgm='ddev drush generate module'  
 54. alias dws='ddev drush watchdog:show –count=20'  
     **Shows the last 20 problems in your Drupal installation.**  
