@@ -172,8 +172,8 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 54. alias dws='ddev drush watchdog:show –count=20'  
     **Shows the last 20 problems in your Drupal installation.**  
 55. alias ddc='ddev drush cr'  
-56. alias dpc='ddev drush pmu $1 && ddev drush cr'
-57. alias dec='ddev drush en -y $1 && ddev drush cr'
+56. alias dpc='ddev drush pmu $@'
+57. alias dec='ddev drush en -y $@'
 58. alias dpe='ddev drush pmu $1 && ddev drush cr && ddev drush en -y $1'
 59. alias dva='ddev drush views:analyze'
 60. alias dpl='ddev drush pml'
