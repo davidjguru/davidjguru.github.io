@@ -146,7 +146,7 @@ You can download the whole file `.bash_aliases` fullfilled with all the aliases 
 ```bash
 42. alias gl='git log --oneline'  
     **Gets a log info view in a single line format.**    
-43. alias glc='git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50'  
+43. alias glc="git log --format=format: --name-only --since=12.month | egrep -v '^$' | sort | uniq -c  | sort -nr | head -50"  
     **Get a list with the most changed files from 12 months ago.**  
 44. alias gld='git log –oneline –decorate –graph –all'  
     **Show all the branches in the tree format history with pointers.**  
