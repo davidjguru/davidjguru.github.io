@@ -19,34 +19,58 @@ Hello there! In this new post I want to focus on a very interesting topic of Dru
 
 We have all had at one time or another, to work with visibility conditions FOR a Block. It happens when we're using the config page of a Block in Drupal, seeing something like this:  
 
-![URL aliases section in Drupal 8 or 9]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_1.png)
+![Basic visibility conditions for Blocks in Drupal]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_1.png)
 
 Well, for this post I was thinking on writing about how to expand these visibility conditions for our own custom needs in a Drupal Project. We're going to talk about the Condition Plugins in Drupal.  
 
-
 ## What are Condition Plugins? 
 
-From the [Condition Plugin System](https://www.drupal.org/node/1961370), as was described in 2013: 
+Although there is not a lot of information on this subject, nor does it form part of the documented APIs of Drupal, We can assemble interpretative pieces about how this small extensible sub-system based on Drupal Plugins works.  
+Basically, we can say that Condition Plugins are an extensible way to generate new visibility conditions for Blocks in Drupal, based in the format of Plugins that you can implement following the Drupal rules for Plugins.  
+
+The Condition Plugins are context-aware (many of them requires explicit context in its annotations blocks), but let's see some information located within the Drupal documentation:  
+
+From the [Condition Plugin System](https://www.drupal.org/node/1961370), as was initially described in 2013: 
 
 > _"To implement a condition in a module create a class in {module}/src/Plugin/Condition/{ConditionName}.php and extend ConditionPluginBase (which implements ConditionInterface). The class must also declare a plugin annotation in its docblock comment."_  
+> 
 
-From the [Plugin Contexts Definition](https://www.drupal.org/docs/drupal-apis/plugin-api/plugin-contexts):  
+And about the Contexts, from the [Plugin Contexts Definition](https://www.drupal.org/docs/drupal-apis/plugin-api/plugin-contexts):  
 
 > _"Sometimes plugins require another object in order to perform their primary operation. This is known as plugin context. Using a practical example, almost all condition plugins require a context. Let's look at the NodeType condition's plugin definition [...] The context_definitions key stores an array of named context definitions the condition requires in order to perform its "evaluate()" method."_  
 
- 
-
 ## Existing Condition Plugins in your Drupal Installation  
 
+You can discover some existing Condition Plugins available in your Drupal installation from different core modules:   
 
+**Current Condition Plugins in Core:**
+
+* [NodeType Condition Class](https://api.drupal.org/api/drupal/core%21modules%21node%21src%21Plugin%21Condition%21NodeType.php/class/NodeType/9.2.x): namespace Drupal\node\Plugin\Condition, in core/modules/node  
+* [RequestPath Condition Class](https://api.drupal.org/api/drupal/core%21modules%21system%21src%21Plugin%21Condition%21RequestPath.php/class/RequestPath/9.2.x): namespace Drupal\system\Plugin\Condition, in core/modules/system  
+* [UserRole Condition Class](https://api.drupal.org/api/drupal/core%21modules%21user%21src%21Plugin%21Condition%21UserRole.php/class/UserRole/9.2.x): namespace Drupal\user\Plugin\Condition, in core/modules/user  
+
+These previous Plugins are the three basic items availables by default in a Block Visibility Configuration, I mean:  
+
+![Condition Classes related to basic visibility options]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_2.png)  
+
+But there are a few more in other locations (in addition to some used in test classes):  
+
+* [CurrentTheme Condition Class](https://api.drupal.org/api/drupal/core%21modules%21system%21src%21Plugin%21Condition%21CurrentThemeCondition.php/class/CurrentThemeCondition/9.2.x): namespace Drupal\system\Plugin\Condition, in core/modules/system  
+* [Language Condition Class](https://api.drupal.org/api/drupal/core%21modules%21language%21src%21Plugin%21Condition%21Language.php/class/Language/9.2.x): namespace Drupal\language\Plugin\Condition, in core/modules/language  
+  
+**And the central Interface for Conditions:**  
+* [ConditionInterface](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Condition%21ConditionInterface.php/interface/ConditionInterface/9.2.x): namespace Drupal\Core\Condition, in core/lib/Drupal/Core/Condition  
 
 ## Available Condition Plugins in Drupal Contrib Modules  
 
-[](https://www.drupal.org/project/condition_plugins)  
+As in Drupal Core you can find Condition Plugins in Contrib modules too. For instance, there are some modules developer by [Cambrico](https://www.drupal.org/cambrico) with many resources within:   
 
-[](https://www.drupal.org/project/condition_plugins_commerce) 
+* [Drupal Module Condition Plugins](https://www.drupal.org/project/condition_plugins)  
 
-[]()  
+* [Drupal Module Condition Plugins Commerce](https://www.drupal.org/project/condition_plugins_commerce)  
+
+And one of the biggest contrib modules of Drupal -[Webform](https://www.drupal.org/project/webform)- also provides its own Plugin for Conditions:  
+* [Webform Condition](https://git.drupalcode.org/project/webform/-/blob/6.x/src/Plugin/Condition/Webform.php)  
 
 ## Building your own Condition Plugin 
 
