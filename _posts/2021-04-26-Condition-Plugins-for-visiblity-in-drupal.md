@@ -17,7 +17,9 @@ youtubeId: 6O192OAzMH8
 Hello there! In this new post I want to focus on a very interesting topic of Drupal, which pertains to its extension capabilities through its Plugins system. It is not a very extensive topic, but it is also true that there is not much documentation about it. This is a very common case when you're building some kinds of Drupal Blocks in order to render specific data and you need that its visualization and its behaviour responds to special conditions.  
 <!--more-->
 
-We have all had at one time or another, to work with visibility conditions FOR a Block. It happens when we're using the config page of a Block in Drupal, seeing something like this:  
+Every Drupal Site Builder works with blocks, blocks are a basic and essential piece of functionality in Drupal and a very important building element in Drupal-based projects. And one of the most important phases of working with blocks in Drupal is managing the rules for the visibility of this important resource: We need determine when show it and when hide it.  
+
+We have all had at one time or another, to work with visibility conditions for a Block. It happens when we're using the config page of a Block in Drupal, seeing something like this:  
 
 ![Basic visibility conditions for Blocks in Drupal]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_1.png)
 
@@ -38,6 +40,11 @@ From the [Condition Plugin System](https://www.drupal.org/node/1961370), as was 
 And about the Contexts, from the [Plugin Contexts Definition](https://www.drupal.org/docs/drupal-apis/plugin-api/plugin-contexts):  
 
 > _"Sometimes plugins require another object in order to perform their primary operation. This is known as plugin context. Using a practical example, almost all condition plugins require a context. Let's look at the NodeType condition's plugin definition [...] The context_definitions key stores an array of named context definitions the condition requires in order to perform its "evaluate()" method."_  
+
+Actually, the Condition Plugin it's not a complicated concept, but it's true that you need to know quite well some basic previous steps in order to reach here the [Satori](https://en.wikipedia.org/wiki/Satori). These are key concepts for Drupal Development and maybe you'll need understand in deep the next topics:  
+* [Creating Custom Modules in Drupal](https://www.drupal.org/docs/creating-custom-modules).  
+* [The Plugin API in Drupal](https://www.drupal.org/docs/drupal-apis/plugin-api).  
+* [Annotations Based Plugins in Drupal](https://www.drupal.org/docs/drupal-apis/plugin-api/annotations-based-plugins).  
 
 ## Existing Condition Plugins in your Drupal Installation  
 
