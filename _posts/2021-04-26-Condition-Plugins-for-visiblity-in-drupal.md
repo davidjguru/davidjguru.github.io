@@ -81,6 +81,16 @@ And one of the biggest contrib modules of Drupal -[Webform](https://www.drupal.o
 
 ## Building your own Condition Plugin 
 
+Ok, now let's go to build something useful. We already know conceptually what they are, what they do and where cand find them. So is the time to implement Condition Plugins!.  
+
+### Our Goals
+For this case, I have come up with a very simple and straightforward idea:  
+We want to show a block only for nodes of type "Article" when they have checked a field. 
+
+In order to prepare this, I made the quickest way:  
+* First I added a new field for the content type "Article", the new "field_selected_article_check".  
+* Then I created a new custom block "My Block" in the most easy way, just clicking in /block/add.  
+* Finally I implemented the scaffolding for a new custom module, called "visibility_conditions"  
 
 
 
