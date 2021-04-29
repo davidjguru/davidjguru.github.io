@@ -96,17 +96,111 @@ In order to prepare this, I made the quickest way:
 
 ![Placing Block and new field for the example]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_3.png)  
 
+We're going to make a new folder in path:  
+`/modules/custom/visibility_conditions/src/Plugin/Condition/` 
 
+and creating the new file `SelectedArticle.php` This will be the new Plugin class and will have all the basic resources. Let's see.  
 ### Annotations 
 
 
+```
+/**
+ * Provides a condition for articles marked as selected.
+ *
+ * This condition evaluates to TRUE when in a node context, and the node is 
+ * Article content type and the article was marked as selected article in a field.
+ *
+ * @Condition(
+ *   id = "selected_article",
+ *   label = @Translation("Selected Article"),
+ *   context_definitions = {
+ *     "node" = @ContextDefinition("entity:node", label = @Translation("node"))
+ *   }
+ * )
+ * 
+ */
+```
+What about context? Well It's a way to know where is running our resource.  
+
+```
+ class SelectedArticle extends ConditionPluginBase implements ContainerFactoryPluginInterface {
+```
+
 ### Configuration 
 
+```
+ /**
+   * {@inheritdoc}
+   */
+  public function defaultConfiguration() {
+    // This default value will mark the block as hidden.
+      return ['show' => 0] + parent::defaultConfiguration();
+    }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+    // Build a checkbox to expose the new condition.
+    $form['show'] = [
+      '#title' => $this->t('Display only in Selected Articles'),
+      '#type' => 'checkbox',
+      // Is using the previous config value as the default.
+      '#default_value' => $this->configuration['show'],
+      '#description' => $this->t('If this box is checked, this block will only be shown for Selected Articles.'),
+      ];
+     
+      return parent::buildConfigurationForm($form, $form_state);
+    }
+```
 
 ### Evaluate 
 
+```
+  /**
+   * {@inheritdoc}
+   */
+  public function evaluate() {
+    // First ensure that doesn't disable other blocks aren't using it.
+    if (empty($this->configuration['show']) && !$this->isNegated()) {
+      return TRUE;
+    }
+    // Then review if the node Article has setted the Selected Article field.
+    $node = $this->getContextValue('node');
+
+    if (($node->getType() == "article") && ($node->hasField('field_selected_article_check')) && ($node->field_selected_article_check->value)) {
+      return TRUE;
+    }
+      // Finally if not exist marked value in Selected Article field.
+      return FALSE;
+    }
+```
 
 ### Summary
+
+```
+  /**
+   * {@inheritdoc}
+   */
+  public function summary() {
+    // We have to check three options: 
+    // 1- Condition enabled.
+    // 2- Condition enabled and negated.
+    // 3- Condition not enabled.
+    if ($this->configuration['show']) {
+      // Check if the 'negate condition' checkbox was enabled.
+      if ($this->isNegated()) {
+        // The condition is enabled and negated.
+        return $this->t('The block will be shown in all Articles except the Selected.');
+      } else {
+        // The condition is only enabled.
+        return $this->t('The block will be shown only in Selected Articles.');
+      }
+    }
+      // The condition is not enabled.
+      return $this->t('The block will be shown in all Articles.');
+    }
+```
 
 ### Some Futher Details  
 
@@ -114,7 +208,17 @@ In the previous section, we took care of preparing a Summary, but this is only a
 
 I introduce you the function "drupalsetSummary", I discovered it consulting problems [in StackExchange](https://drupal.stackexchange.com/a/252723/94320) and then I identified it in real cases like [the JavaScript added for Nodes in the Drupal core](https://git.drupalcode.org/project/drupal/blob/HEAD/core/modules/node/node.js#L12). I haven't found much information about it, so I can't explain much more than this: "it serves to place summaries" ¯\_(ツ)_/¯ . Well, ok.  
 
-The important thing is that I was playing with this function and it seems to work well for inserting elements. The pre-conditions are that JavaScript must be added to our custom module and that we must use the Drupal Behaviors format. Please review [this Drupal - JavaScript integration guide: Drupal Behaviors](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/#6--drupal-behaviors) in order to get more info about the Drupal Behaviors format and how implementing it.  
+The important thing is that I was playing with this function and it seems to work well for inserting elements. The pre-conditions are that JavaScript must be added to our custom module and that we must use the Drupal Behaviors format. Please review [this Drupal - JavaScript integration guide: Drupal Behaviors](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/#6--drupal-behaviors) in order to get more info about the Drupal Behaviors format and how implementing it, and here from [this github gist you can play with some examples of Drupal Behaviors](https://gist.github.com/davidjguru/d1df8edca861258b55b72c8659fb88a7).  
+
+
+visibility_conditions.libraries.yml:  
+```
+block_special_articles: 
+  js: 
+    js/selected_articles_conditions.js: {}
+  dependencies: 
+    - block/drupal.block
+```
 
 
  
