@@ -45,6 +45,7 @@ Actually, the Condition Plugin it's not a complicated concept, but it's true tha
 * [Creating Custom Modules in Drupal](https://www.drupal.org/docs/creating-custom-modules).  
 * [The Plugin API in Drupal](https://www.drupal.org/docs/drupal-apis/plugin-api).  
 * [Annotations Based Plugins in Drupal](https://www.drupal.org/docs/drupal-apis/plugin-api/annotations-based-plugins).  
+* [Guide: How to integrate JavaScript in Drupal 8-9](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/)  
 
 ## Existing Condition Plugins in your Drupal Installation  
 
@@ -90,9 +91,33 @@ We want to show a block only for nodes of type "Article" when they have checked 
 In order to prepare this, I made the quickest way:  
 * First I added a new field for the content type "Article", the new "field_selected_article_check".  
 * Then I created a new custom block "My Block" in the most easy way, just clicking in /block/add.  
-* Finally I implemented the scaffolding for a new custom module, called "visibility_conditions"  
+* Finally I implemented scaffolding for a new custom module, called "visibility_conditions"  
 
 
+![Placing Block and new field for the example]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_3.png)  
+
+
+### Annotations 
+
+
+### Configuration 
+
+
+### Evaluate 
+
+
+### Summary
+
+### Some Futher Details  
+
+In the previous section, we took care of preparing a Summary, but this is only available at code level, it's not visible in GUI. Could we improve the usability of our new element by adding this summary? Yes, it's possible and for this we can rely on a jQuery function in Drupal (sorry).  
+
+I introduce you the function "drupalsetSummary", I discovered it consulting problems [in StackExchange](https://drupal.stackexchange.com/a/252723/94320) and then I identified it in real cases like [the JavaScript added for Nodes in the Drupal core](https://git.drupalcode.org/project/drupal/blob/HEAD/core/modules/node/node.js#L12). I haven't found much information about it, so I can't explain much more than this: "it serves to place summaries" ¯\_(ツ)_/¯ . Well, ok.  
+
+The important thing is that I was playing with this function and it seems to work well for inserting elements. The pre-conditions are that JavaScript must be added to our custom module and that we must use the Drupal Behaviors format. Please review [this Drupal - JavaScript integration guide: Drupal Behaviors](https://www.therussianlullaby.com/blog/guide-how-to-integrate-javascript-in-drupal-8-9/#6--drupal-behaviors) in order to get more info about the Drupal Behaviors format and how implementing it.  
+
+
+ 
 
 ## :wq!
 
