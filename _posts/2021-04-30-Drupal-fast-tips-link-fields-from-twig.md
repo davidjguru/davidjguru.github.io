@@ -40,7 +40,7 @@ CHECK DAMM DEPLOY
 
 When you're getting the link field values from a view and you've selected as formatter: `separate link element and text` in config.  
 
-```twig
+```txt
 {% spaceless %}
   <div class="link-item">
     {% if title %}
