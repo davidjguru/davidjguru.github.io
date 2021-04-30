@@ -34,11 +34,11 @@ Because of this, I wanted to show some small examples of extracting and handling
 
 ------------------------------------------------------------------------------------------------
 
-## Building the link with separate items 
+## Building the link with separate items  
 
-When you're getting the link field values from a viewand you've selected as formatter: `separate link element and text` in config. 
+When you're getting the link field values from a viewand you've selected as formatter: `separate link element and text` in config.  
 
-```php
+```
 {% spaceless %}
   <div class="link-item">
     {% if title %}
@@ -53,7 +53,7 @@ When you're getting the link field values from a viewand you've selected as form
 
 How to extract some values from a field in a Paragraph: Link with url, text and target values.  
 
-```php
+```
 // key -> target="{{ paragraph.field_link_link[0].options.attributes.target }}
 
 <div>
@@ -71,7 +71,7 @@ The next snippet is a piece of code from a classic `hook_preprocess_views_view_f
 
 Let's see:    
 
-```php
+```
   if ($view->storage->id() == 'user_page' && $view->current_display == 'page_5') {
 
     // Loads and cuts the field resources_link for processing.
@@ -101,7 +101,7 @@ Let's see:
 
 Then mounting the received values in twig:  
 
-```php
+```
 <div class="row-news">
 	<div class="row-news-header {% if external %} resources-link {% endif %}">
 	  <a href="{{ url_link }}" alt={{ url_title }} title= {{ url_title }} 
