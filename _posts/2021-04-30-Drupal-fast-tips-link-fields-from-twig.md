@@ -36,6 +36,21 @@ Because of this, I wanted to show some small examples of extracting and handling
 
 CHECK DAMM DEPLOY
 
+## Building the link with separate items  
+
+When you're getting the link field values from a view and you've selected as formatter: `separate link element and text` in config.  
+
+```twig
+{% spaceless %}
+  <div class="link-item">
+    {% if title %}
+      <div class="link-title">{{ title }}</div>
+    {% endif %}
+    <div class="link-url">{{ link }}</div>
+  </div>
+{% endspaceless %}
+```
+
 ## :wq!
 
 ### Recommended song: Catalina - Rosalía & Refree
