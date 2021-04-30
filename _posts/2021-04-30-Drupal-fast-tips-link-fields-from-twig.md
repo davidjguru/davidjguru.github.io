@@ -1,29 +1,38 @@
 ---
 layout: post
-title: Condition Plugins for Visibility in Drupal  
-permalink: /blog/condition-plugins-for-visibility-in-drupal
-published: false
-date: 2021-04-26
+title: Drupal Fast Tips (VII) - Link fields from Twig  
+permalink: /blog/drupal-fast-tips-link-fields-from-twig
+published: true
+date: 2021-04-30
 author: davidjguru
 categories: [Drupal & Coding]
 sitemap: true
 youtubeId: 6O192OAzMH8
 ---
 
-| ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_main.png) |
+| ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_main.png) |
 |:--:|
-| *Picture from Unsplash, user Michael Dziedzic, [@lazycreekimages](https://unsplash.com/@lazycreekimages)* |  
+| *Picture from Unsplash, user [Michael Dziedzic, @lazycreekimages](https://unsplash.com/@lazycreekimages)* |  
 
-Hello there! In this new post I want to focus on a very interesting topic of Drupal, which pertains to its extension capabilities through its Plugins system. It is not a very extensive topic, but it is also true that there is not much documentation about it. This is a very common case when you're building some kinds of Drupal Blocks in order to render specific data and you need that its visualization and its behaviour responds to special conditions.  
+In this new issue of the Drupal Fast Tips I would like to share some basic tips and examples related with the Drupal Link field and how to get the data from its sub-fields (title and link) to rendering in a Twig template. Sometimes we need render values from a link field in a structured way through a Twig template, and depending on the location of the Link field, this may have a different articulation.  
 <!--more-->
 
-Every Drupal Site Builder works with blocks, blocks are a basic and essential piece of functionality in Drupal and a very important building element in Drupal-based projects. And one of the most important phases of working with blocks in Drupal is managing the rules for the visibility of this important resource: We need determine when show it and when hide it.  
+Because of this, I wanted to show some small examples of extracting and handling the values of this particular type of fields. This will be a post for site-builders or developers with basic knowledge on the Drupal backend (yes, Twig and the rendering are in the backend, sorry.).  
 
-We have all had at one time or another, to work with visibility conditions for a Block. It happens when we're using the config page of a Block in Drupal, seeing something like this:  
+---------------------------------------------------------------------------------------
+<!-- /TOC -->
+**This article is part of a series of posts about Drupal Tips.**
 
-![Basic visibility conditions for Blocks in Drupal]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_1.png)
+[1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
+[2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
+[3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
+[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)  
+[5- Drupal Fast Tips (V) - Placing a block by code](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
+[6- Drupal Fast Tips (VI) - From Arrays to HTML](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
+[7- Drupal Fast Tips (VII) - Link Fields from Twig](https://davidjguru.github.io/blog/drupal-fast-tips-link-fields-from-twig)  
+<!-- /TOC -->
 
-Well, for this post I was thinking on writing about how to expand these visibility conditions for our own custom needs in a Drupal Project. We're going to talk about the Condition Plugins in Drupal.  
+------------------------------------------------------------------------------------------------
 
 ## What are Condition Plugins? 
 
@@ -102,12 +111,13 @@ We're going to make a new folder in path:
 and creating the new file `SelectedArticle.php` This will be the new Plugin class and will have all the basic resources. Let's see.  
 ### Annotations 
 
+In order to create a new vertical tab for the block configuration page, we hace to register our new Plugin, and in Drupal the Plugins uses annotations to register themselves and provide all the relevant information for indexing. For instance:  
 
 ```
 /**
  * Provides a condition for articles marked as selected.
  *
- * This condition evaluates to TRUE when in a node context, and the node is 
+ * This condition evaluates to TRUE when is in a node context, and the node is 
  * Article content type and the article was marked as selected article in a field.
  *
  * @Condition(
@@ -120,13 +130,19 @@ and creating the new file `SelectedArticle.php` This will be the new Plugin clas
  * 
  */
 ```
-What about context? Well It's a way to know where is running our resource.  
+What about context? Well It's a way to know where is running our resource. Some Drupal's Plugins require context information to operate. In this case, we need to know if our Block is inside a node corpus, or not.  
+
+For the next lines, we have to extend the [ConditionPluginBase Class](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Condition%21ConditionPluginBase.php/class/ConditionPluginBase/9.2.x) and implement the ContainerFactoryPluginInterface Class](https://api.drupal.org/api/drupal/core!lib!Drupal!Core!Plugin!ContainerFactoryPluginInterface.php/interface/ContainerFactoryPluginInterface/9.2.x):  
 
 ```
  class SelectedArticle extends ConditionPluginBase implements ContainerFactoryPluginInterface {
 ```
 
-### Configuration 
+And this is the most relevant information from the top of our new class (as well as the '<?php' operture tag). Let's continue.  
+### Configuration  
+
+Ok, our next step is define the configure by our new Plugin: what values are important and how we go to get these values.  
+For the first need, we build a basic method `defaultConfiguration()` from [the mother Class](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Condition%21ConditionPluginBase.php/function/ConditionPluginBase%3A%3AdefaultConfiguration/9.2.x). This will set the initial value of the new field in the tab:  
 
 ```
  /**
@@ -154,7 +170,24 @@ What about context? Well It's a way to know where is running our resource.
     }
 ```
 
+And then we call to the submit function:  
+
+```
+  /**
+   * {@inheritdoc}
+   */
+  public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
+    // Save the selected value to configuration.
+    $this->configuration['show'] = $form_state->getValue('show'); 
+      parent::submitConfigurationForm($form, $form_state);
+    }
+```
+
+After that, we've built an extension for the Configuration Form of the visibility general block, adding a new item called `show` which contains the new element, a checkbox for select our new condition (or not).  
+
 ### Evaluate 
+
+Now we need a way for measure if our new condition applies or not and we're using a function inherited from the mother class in order to evaluate the condition, returning TRUE or FALSE. It's from ConditionBase Class, which implements ConditionInterface:  
 
 ```
   /**
@@ -165,9 +198,11 @@ What about context? Well It's a way to know where is running our resource.
     if (empty($this->configuration['show']) && !$this->isNegated()) {
       return TRUE;
     }
-    // Then review if the node Article has setted the Selected Article field.
+    
+    // Gets the context value.
     $node = $this->getContextValue('node');
 
+    // Then review if the node Article has setted the Selected Article field.
     if (($node->getType() == "article") && ($node->hasField('field_selected_article_check')) && ($node->field_selected_article_check->value)) {
       return TRUE;
     }
@@ -175,8 +210,12 @@ What about context? Well It's a way to know where is running our resource.
       return FALSE;
     }
 ```
+As you can see in the block above, we're using a first part to ensure that if none of the above fields are checked, TRUE is returned and the block is displayed. This will ensure that by default if we have not activated the visibility of the block, we have it visible in general terms until we limit its visibility.  
+
 
 ### Summary
+
+One more time, we have a function available from the mother class ConditionBase and required by ConditionInterface, just a method for expose descriptions about the works of the Conditions. These descriptions will not be available from the vertical tabs of the block configuration page, but will be only available from code.  
 
 ```
   /**
@@ -221,8 +260,53 @@ block_special_articles:
 ```
 
 
- 
+The Drupal Behavior:  
 
+```
+  /**
+   * Provide the summary information for the block settings vertical tabs.
+   *
+   */
+  Drupal.behaviors.blockSettingsSummarySelectedArticles = {
+    attach: function () {
+      // Check if the function drupalSetSummary is available.
+      if (jQuery.fn.drupalSetSummary !== undefined) {
+        // Add the summary on tab.
+        $('[data-drupal-selector="edit-visibility-selected-article"]').drupalSetSummary(checkSummary);
+      }
+    }
+  };
+```
+
+And the function for setting the strings of summary:  
+
+```
+function checkSummary(context) {
+    // Check if the condition has been selected.
+    var selectedCondition = $(context).find('[data-drupal-selector="edit-visibility-selected-article-show"]:checked').length;
+    // Check if the negate condition has been selected.
+    var selectedNegate = $(context).find('[data-drupal-selector="edit-visibility-selected-article-negate"]:checked').length;
+
+    // Reviews scenarios.
+    if (selectedCondition) {
+      if (selectedNegate) {
+        // Condition and Negation were selected.
+        return Drupal.t("The block will be shown in all Articles except the Selected.");
+      }
+
+      // Only the condition was selected.
+      return Drupal.t("The block will be shown only in Selected Articles.");
+    }
+
+    // The condition has not been enabled and is not negated.
+    return Drupal.t('The block will be shown in all Articles');
+  }
+``` 
+That's all! interesting? it's true that it requires basic knowledge of other Drupal elements (Annotations, Plugins, JavaScript Libraries, Drupal Behaviors...) but in itself, the result is quite interesting. Now we can build our own visibility conditions Plugins!  
+ 
+![Rendering new Visibility Condition Plugin]({{ site.baseurl }}/images/davidjguru_drupal_8_9_condition_plugins_for_visibility_4.gif)
+  
+I have uploaded this test module to [my custom modules repository for testing, in Gitlab](https://gitlab.com/davidjguru/drupal-custom-modules-examples). You can [download it from here](https://gitlab.com/davidjguru/drupal-custom-modules-examples/-/tree/master/visibility_conditions). And remember, don't use these modules in production environments!  
 ## :wq!
 
 ### Recommended song: Catalina - Rosalía & Refree
