@@ -41,7 +41,7 @@ Only starts when you add a new Link field to your content, directly or from a Pa
 
 ![Link field basic configuration]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_1.png)
 
-It's also quite possible that you have added [the contrib module 'Link Attributes'](https://www.drupal.org/project/link_attributes) for adding some extra widgets to the Link field. For instance, this is a very common configuration for saving values in `target` attribute. After passing by `/admin/structure/types/manage/article/form-display` and select `link with attributes' for your Link field display, now you have got something like this:  
+It's also quite possible that you have added [the contrib module 'Link Attributes'](https://www.drupal.org/project/link_attributes) for adding some extra widgets to the Link field. For instance, this is a very common configuration for saving values in `target` attribute. After passing by `/admin/structure/types/manage/article/form-display` and select `link with attributes` for your Link field display, now you have got something like this:  
 
 ![Link field basic configuration]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_2.png)
 
@@ -60,9 +60,12 @@ When you're getting the link field values from a view and you've selected as for
   </div>
 {% endraw %}
 ```
+
+This is basic structure for showing the link from Twig if you have separate values for link and title, and you aren't returning the values mounting in a single object.  
 ## Getting value of the target attribute from a Link Field in Paragraph
 
-How to extract some values from a field in a Paragraph: Link with url, text and target values.  
+Sometimes you can use the Link Field within a Paragraph and then you need get the values of the link from a Twig Template. 
+Here the syntax can be more strange, but let's see how to extract some values from a field in a Paragraph: Link with url, text and target values.  
 
 ```php
 {% raw %}
@@ -74,6 +77,7 @@ How to extract some values from a field in a Paragraph: Link with url, text and 
 </div>
 {% endraw %}
 ```
+In the snippet from above, you can see that we're using as title of the link the data from the content, mixing origins.  
 
 ## Processing and building links from a View to a Twig Template
 
@@ -123,7 +127,7 @@ Then mounting the received values in twig:
         {{ fields.title.content }} 
       </a>
 	</div>
-	{{fields.field_recursos_descripcion.content}}
+	{{fields.field_resource_description.content}}
 </div>
 {% endraw %}
 ```
