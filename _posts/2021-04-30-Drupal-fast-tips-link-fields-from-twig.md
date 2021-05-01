@@ -8,6 +8,7 @@ author: davidjguru
 categories: [Drupal & Coding]
 sitemap: true
 youtubeId: 6O192OAzMH8
+spotifyplaylist: spotify/playlist/7IxZbo2WOPme5oQmRwpnzg
 ---
 
 | ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_main.png) |
@@ -144,3 +145,7 @@ Then mounting the received values in twig:
 ### Recommended song: Catalina - Rosalía & Refree
 
 {% include youtubePlayer.html id=page.youtubeId %}
+
+From the playlist:  
+
+{% include spotifyplaylist.html id=page.spotifyplaylist %}
