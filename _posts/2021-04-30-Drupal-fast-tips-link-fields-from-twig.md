@@ -8,7 +8,7 @@ author: davidjguru
 categories: [Drupal & Coding]
 sitemap: true
 youtubeId: 6O192OAzMH8
-spotifyplaylist: spotify/playlist/7IxZbo2WOPme5oQmRwpnzg
+spotifyplaylist: 7IxZbo2WOPme5oQmRwpnzg
 ---
 
 | ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_main.png) |
