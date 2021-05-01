@@ -20,6 +20,8 @@ In this new issue of the Drupal Fast Tips I would like to share some basic tips 
 Because of this, I wanted to show some small examples of extracting and handling the values of this particular type of fields. This will be a post for site-builders or developers with basic knowledge on the Drupal backend (yes, Twig and the rendering are in the backend, sorry.).  
 
 **Note:** This month (april 2021) I've published an article about [Visibility Condition Plugins for Drupal in The Russian Lullaby](https://www.therussianlullaby.com/blog/condition-plugins-for-visibility-in-drupal/). This could be interesting for you.  
+
+
 ---------------------------------------------------------------------------------------
 <!-- /TOC -->
 **This article is part of a series of posts about Drupal Tips.**
