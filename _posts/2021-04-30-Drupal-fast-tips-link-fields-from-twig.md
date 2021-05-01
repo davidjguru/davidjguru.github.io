@@ -19,6 +19,7 @@ In this new issue of the Drupal Fast Tips I would like to share some basic tips 
 
 Because of this, I wanted to show some small examples of extracting and handling the values of this particular type of fields. This will be a post for site-builders or developers with basic knowledge on the Drupal backend (yes, Twig and the rendering are in the backend, sorry.).  
 
+**Note:** This month (april 2021) I've published an article about [Visibility Condition Plugins for Drupal in The Russian Lullaby](https://www.therussianlullaby.com/blog/condition-plugins-for-visibility-in-drupal/). This could be interesting for you.  
 ---------------------------------------------------------------------------------------
 <!-- /TOC -->
 **This article is part of a series of posts about Drupal Tips.**
@@ -26,7 +27,7 @@ Because of this, I wanted to show some small examples of extracting and handling
 [1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
 [2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
 [3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
-[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)  
+[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/drupal-fast-tips-xdebug-ddev-and-postman)  
 [5- Drupal Fast Tips (V) - Placing a block by code](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
 [6- Drupal Fast Tips (VI) - From Arrays to HTML](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
 [7- Drupal Fast Tips (VII) - Link Fields from Twig](https://davidjguru.github.io/blog/drupal-fast-tips-link-fields-from-twig)  
