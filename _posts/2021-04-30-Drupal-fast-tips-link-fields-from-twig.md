@@ -83,7 +83,11 @@ In the snippet from above, you can see that we're using as title of the link the
 
 I'm getting some fields from a specific view, passing values from a Link field (text, link), and a I want review if external / internal links and put some attributes from the link text.    
 
-The next snippet is a piece of code from a classic `hook_preprocess_views_view_fields()` included in a *.theme file.  
+The next snippet is a piece of code from a classic `hook_preprocess_views_view_fields()` included in a *.theme file, where we're using a control variable registering if the link was external or not. Then we'll try to reach this variable and take some decisions about the structure in Twig. This case involves three areas of work:  
+
+1. The view itself, when we configure the exit of the fields to the render system (You can overwrite the fields output here).
+2. The `theme_name.theme` file, with hooks and methods for altering the future render.  
+3. The related Twig template, catching the variables from the theme file and processing values.  
 
 Let's see:    
 
