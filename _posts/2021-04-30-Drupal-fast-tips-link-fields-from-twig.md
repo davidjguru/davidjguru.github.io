@@ -5,7 +5,7 @@ permalink: /blog/drupal-fast-tips-link-fields-from-twig
 published: true
 date: 2021-04-30
 author: davidjguru
-categories: [Drupal & Coding]
+categories: [Drupal & Tips]
 sitemap: true
 youtubeId: 6O192OAzMH8
 ---

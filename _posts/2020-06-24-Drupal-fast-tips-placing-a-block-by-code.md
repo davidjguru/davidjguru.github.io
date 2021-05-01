@@ -5,7 +5,7 @@ permalink: /blog/drupal-fast-tips-placing-a-block-by-code
 published: true
 date: 2020-06-24
 author: davidjguru
-categories: [Drupal & Coding]
+categories: [Drupal & Tips]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @xavi_cabrera]({{ site.baseurl }}/images/davidjguru_drupal_placing_a_block_by_code_main_1.jpg) |
@@ -24,7 +24,7 @@ The context of this post is that I was practicing with modules that at the time 
 [1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
 [2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
 [3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
-[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)  
+[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/drupal-fast-tips-xdebug-ddev-and-postman)  
 [5- Drupal Fast Tips (V) - Placing a block by code](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
 [6- Drupal Fast Tips (VI) - From Arrays to HTML](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
 [7- Drupal Fast Tips (VII) - Link Fields from Twig](https://davidjguru.github.io/blog/drupal-fast-tips-link-fields-from-twig)  
@@ -33,7 +33,7 @@ The context of this post is that I was practicing with modules that at the time 
 ------------------------------------------------------------------------------------------------
 
 1. The configuration management system (files that can be in /config/install or in /config/optional, settings or assembly of content types, views, etc in .yml format).  
-1. The actions described in a hook_install() // hook_uninstall(), that is, tasks that can be implemented during the installation process of a module.  
+2. The actions described in a hook_install() // hook_uninstall(), that is, tasks that can be implemented during the installation process of a module.  
 
 In the mechanics I'm thinking, I have modifiable values in configuration files... and I also have a form based on Form API, a new Plugin for a visual block, and everything inside a new custom module. **How can I make the configuration and the code relate right at the time of installation of my module?**
 

@@ -5,7 +5,7 @@ permalink: /blog/drupal-fast-tips-using-links-in-drupal-8
 published: true
 date: 2019-08-15
 author: davidjguru
-categories: [Drupal & Coding]
+categories: [Drupal & Tips]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @osmanrana]({{ site.baseurl }}/images/davidjguru_drupal_8_using_links_from_unsplash_1.jpeg) |
@@ -29,11 +29,12 @@ Do you follow me?...
 [1- Drupal Fast Tips (I) - Using links in Drupal 8](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
 [2- Drupal Fast Tips (II) - Prefilling fields in forms](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
 [3- Drupal Fast Tips (III) - The Magic of '#attached'](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
-[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/xdebug-ddev-and-postman)  
+[4- Drupal Fast Tips (IV) - Xdebug, DDEV and Postman](https://davidjguru.github.io/blog/drupal-fast-tips-xdebug-ddev-and-postman)  
 [5- Drupal Fast Tips (V) - Placing a block by code](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
 [6- Drupal Fast Tips (VI) - From Arrays to HTML](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
 [7- Drupal Fast Tips (VII) - Link Fields from Twig](https://davidjguru.github.io/blog/drupal-fast-tips-link-fields-from-twig)  
 <!-- /TOC -->
+
 
 ------------------------------------------------------------------------------------------------
 
