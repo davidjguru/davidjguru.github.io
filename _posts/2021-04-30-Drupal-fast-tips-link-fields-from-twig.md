@@ -34,11 +34,21 @@ Because of this, I wanted to show some small examples of extracting and handling
 
 ------------------------------------------------------------------------------------------------
 
-CHECK DAMM DEPLOY
+## Using a Link Field 
 
+Only starts when you add a new Link field to your content, directly or from a Paragraph using this field. Now you have two sub-fields (title and link) and some config options.  
+
+
+![Link field basic configuration]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_1.png)
+
+It's also quite possible that you have added [the contrib module 'Link Attributes'](https://www.drupal.org/project/link_attributes) for adding some extra widgets to the Link field. For instance, this is a very common configuration for saving values in `target` attribute. After passing by `/admin/structure/types/manage/article/form-display` and select `link with attributes' for your Link field display, now you have got something like this:  
+
+![Link field basic configuration]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_2.png)
+
+So you're building links to render with two subfields and one related attribute.  
 ## Building the link with separate items  
 
-When you're getting the link field values from a view and you've selected as formatter: `separate link element and text` in config.  
+When you're getting the link field values from a view and you've selected as formatter: `separate link element and text` in config. First check if title exists and render it. If not, only builds the link data:  
 
 ```twig
 {% raw %}
@@ -48,6 +58,73 @@ When you're getting the link field values from a view and you've selected as for
     {% endif %}`
     <div class="link-url">{{ link }}</div>
   </div>
+{% endraw %}
+```
+## Getting value of the target attribute from a Link Field in Paragraph
+
+How to extract some values from a field in a Paragraph: Link with url, text and target values.  
+
+```php
+{% raw %}
+// key -> target="{{ paragraph.field_link_link[0].options.attributes.target }}
+<div>
+<a href="{{ paragraph.field_link_link.0.url  }}" target="{{ paragraph.field_link_link[0].options.attributes.target }}">
+{{ content.field_link_title }}
+</a>
+</div>
+{% endraw %}
+```
+
+## Processing and building links from a View to a Twig Template
+
+I'm getting some fields from a specific view, passing values from a Link field (text, link), and a I want review if external / internal links and put some attributes from the link text.    
+
+The next snippet is a piece of code from a classic `hook_preprocess_views_view_fields()` included in a *.theme file.  
+
+Let's see:    
+
+```php
+  if ($view->storage->id() == 'user_page' && $view->current_display == 'page_5') {
+
+    // Loads and cuts the field resources_link for processing.
+    $link = $variables['fields']['field_resources_link']->content->__toString();
+
+    //$link -> "<a href="https://www.google.com/" target="_blank">External Link Example</a>"
+    //$link -> "<a href="/blog">Internal Link Example</a>
+
+    $sliced_link = explode ('"', $link);
+    $url_link = $sliced_link[1];
+
+    // Check if external link.
+    if(isset($link) && $link!=""  && str_contains($link, 'target="_blank"')){
+      $variables['external'] = true;
+      $url_title = explode( "<", substr($sliced_link[4], 1))[0];
+    } else if (isset($link) && $link!=""  && !str_contains($link, 'target="_blank"')) {
+      // Check if internal link.
+      $variables['external'] = false;
+      $url_title = explode( "<", substr($sliced_link[2], 1))[0];
+    }
+    
+    // Loads the final values for twig template.
+    $variables['url_link'] = $url_link;
+    $variables['url_title'] = $url_title;
+  }
+```
+
+Then mounting the received values in twig:  
+
+```php{% raw %}
+<div class="row-news">
+	<div class="row-news-header {% if external %} resources-link {% endif %}">
+	  <a href="{{ url_link }}" alt={{ url_title }} title= {{ url_title }} 
+        {% if external %} 
+          target="_blank" 
+        {% endif %}> 
+        {{ fields.title.content }} 
+      </a>
+	</div>
+	{{fields.field_recursos_descripcion.content}}
+</div>
 {% endraw %}
 ```
 
