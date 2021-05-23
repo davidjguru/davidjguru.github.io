@@ -4,13 +4,60 @@ permalink: /projects/
 layout: page
 sitemap: true
 ---
-This is a placeholder page for some Drupal-based Projects I've worked on.
+This is a placeholder page for some Drupal-based Projects I've worked on, and also some formative references.  
+
+## Year 2021 
+
+### Training 
+
+<table class="table_books">
+  <colgroup>
+    <col width="10%" />
+    <col width="50%" />
+    <col width="20%" />
+    <col width="20%" />
+  </colgroup>
+  <thead>
+    <tr class="header_books_table">
+      <th class="th_table_books"><strong>Year</strong></th>
+      <th class="th_table_books"><strong>Course / Certificate</strong></th>
+      <th class="th_table_books"><strong>Provider</strong></th>
+      <th class="th_table_books"><strong>Link</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span" class="td_table_books">2021</td>
+      <td markdown="span" class="td_table_books">Fundamentals RedHat Linux RH066X</td>
+      <td markdown="span" class="td_table_books">Edx / RedHat</td>
+      <td markdown="span" class="td_table_books"><a href="https://courses.edx.org/certificates/46628d1b0a7c45c6817a8a609906bcb8">Certificate</a></td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">2021</td>
+      <td markdown="span" class="td_table_books">SPFC - Scrum Foundation Professional</td>
+      <td markdown="span" class="td_table_books">CertiProf</td>
+      <td markdown="span" class="td_table_books"><a href="https://www.credly.com/badges/f4bc3c37-dbc0-4f07-a1e2-f9180e3e4e4a/public_url">Certificate</a></td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">2021</td>
+      <td markdown="span" class="td_table_books">Docker Swarm Advanced</td>
+      <td markdown="span" class="td_table_books">Udemy</td>
+      <td markdown="span" class="td_table_books"><a href="https://www.udemy.com/certificate/UC-7396ca30-c332-43e7-b7d2-92b5099736aa/">Certificate</a></td>
+    </tr>
+  </tbody>
+</table>
+
+ <br>
+
 
 ## Year 2020 
 
+### Training 
 
 
 ## Year 2019
+
+### Training 
 
 
 
