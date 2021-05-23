@@ -46,7 +46,6 @@ This is a placeholder page for some Drupal-based Projects I've worked on, and al
     </tr>
   </tbody>
 </table>
-
  <br>
 
 
@@ -54,11 +53,73 @@ This is a placeholder page for some Drupal-based Projects I've worked on, and al
 
 ### Training 
 
+<table class="table_books">
+  <colgroup>
+    <col width="10%" />
+    <col width="50%" />
+    <col width="20%" />
+    <col width="20%" />
+  </colgroup>
+  <thead>
+    <tr class="header_books_table">
+      <th class="th_table_books"><strong>Year</strong></th>
+      <th class="th_table_books"><strong>Course / Certificate</strong></th>
+      <th class="th_table_books"><strong>Provider</strong></th>
+      <th class="th_table_books"><strong>Link</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span" class="td_table_books">2020</td>
+      <td markdown="span" class="td_table_books">JavaScript algorithms and data</td>
+      <td markdown="span" class="td_table_books">FreeCodeCamp</td>
+      <td markdown="span" class="td_table_books"><a href="https://www.freecodecamp.org/certification/davidjguru/javascript-algorithms-and-data-structures">Certificate</a></td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">2020</td>
+      <td markdown="span" class="td_table_books">Certified Drupal Backend Developer</td>
+      <td markdown="span" class="td_table_books">Forcontu</td>
+      <td markdown="span" class="td_table_books"><a href="https://gitlab.com/davidjguru/trainings-and-certs/-/blob/8696766c9323c896bcb2b8de8df0c0a517cb3c60/Drupal_PHP/david_rodriguez_expert_drupal_8_backend_en.pdf">Certificate</a></td>
+    </tr>
+  </tbody>
+</table>
+ <br>
 
 ## Year 2019
 
 ### Training 
 
+<table class="table_books">
+  <colgroup>
+    <col width="10%" />
+    <col width="50%" />
+    <col width="20%" />
+    <col width="20%" />
+  </colgroup>
+  <thead>
+    <tr class="header_books_table">
+      <th class="th_table_books"><strong>Year</strong></th>
+      <th class="th_table_books"><strong>Course / Certificate</strong></th>
+      <th class="th_table_books"><strong>Provider</strong></th>
+      <th class="th_table_books"><strong>Link</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td markdown="span" class="td_table_books">2019</td>
+      <td markdown="span" class="td_table_books">Docker for Beginners</td>
+      <td markdown="span" class="td_table_books">Udemy</td>
+      <td markdown="span" class="td_table_books"><a href="https://www.udemy.com/certificate/UC-7K8MX7MH/">Certificate</a></td>
+    </tr>
+    <tr>
+      <td markdown="span" class="td_table_books">2019</td>
+      <td markdown="span" class="td_table_books">Responsive Web Design</td>
+      <td markdown="span" class="td_table_books">FreeCodeCamp</td>
+      <td markdown="span" class="td_table_books"><a href="https://www.freecodecamp.org/certification/davidjguru/responsive-web-design">Certificate</a></td>
+    </tr>
+  </tbody>
+</table>
+ <br>
 
 
 ## Year 2018 
