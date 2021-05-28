@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Books/ Local Web development with DDEV explained
-permalink: /blog/books-local-web-development-with-ddev-explained
+title: 'Reading: Local Web development with DDEV'
+permalink: /blog/reading-local-web-development-with-ddev
 published: true
 date: 2019-12-30
 author: davidjguru
-categories: [Drupal & Readings]
+categories: [Reading Materials]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @specialdaddy]({{ site.baseurl }}/images/davidjguru_drupal_8_books_local_web_development_with_ddev_explained.png) |

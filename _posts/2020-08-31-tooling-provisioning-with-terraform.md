@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Drupal & DevOps(I) - Provisioning with Terraform
-permalink: /blog/drupal-and-devops-provisioning-with-terraform
+title: 'Tooling: Provisioning with Terraform'
+permalink: /blog/tooling-provisioning-with-terraform
 published: true
 date: 2020-08-31
 author: davidjguru
-categories: [Drupal & DevOps]
+categories: [Tooling]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @gmmoreno]({{ site.baseurl }}/images/davidjguru_terraform_and_drupal_main.jpg) |

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: OpenEuropa-The European Commission in Drupal 8
-permalink: /blog/openeuropa-the-european-commission-in-drupal-8
+title: 'Drupal Resources: OpenEuropa-European Commission'
+permalink: /blog/drupal-resources-openeuropa-european-commission
 published: true
 date: 2019-05-21
 author: davidjguru
-categories: [Drupal & Resources]
+categories: [Drupal Resources]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @peterlaster]({{ site.baseurl }}/images/davidjguru_drupal_8_openeuropa_from_unsplash_gargoyle.jpeg) |

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Thinking about Drupal Migrations(II) - Examples
-permalink: /blog/thinking-about-drupal-migrations-examples
+title: 'Drupal Techniques: Examples for Migrations'
+permalink: /blog/drupal-techniques-examples-for-migrations
 published: true
 date: 2020-03-17
 author: davidjguru
-categories: [Drupal & Migrations]
+categories: [Drupal Techniques]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @emileseguin]({{ site.baseurl }}/images/davidjguru_drupal_thinking_about_drupal_migrations_examples_main.jpg) |

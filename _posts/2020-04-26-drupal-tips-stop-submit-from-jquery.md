@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Drupal Snippets (I) - Stop submit from jQuery
-permalink: /blog/drupal-snippets-stop-submit-from-jquery
+title: 'Drupal Tips: Stop submit from jQuery'
+permalink: /blog/drupal-tips-stop-submit-from-jquery
 published: true
 date: 2020-04-26
 author: davidjguru
-categories: [Drupal & JavaScript]
+categories: [Drupal Tips]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @jodaarba]({{ site.baseurl }}/images/davidjguru_drupal_snippets_stop_submit_jquery.jpg) |

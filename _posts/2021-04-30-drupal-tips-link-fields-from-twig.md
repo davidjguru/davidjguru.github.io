@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Drupal Fast Tips (VII) - Link fields from Twig  
-permalink: /blog/drupal-fast-tips-link-fields-from-twig
+title: 'Drupal Tips: Link fields from Twig'
+permalink: /blog/drupal-tips-link-fields-from-twig
 published: true
 date: 2021-04-30
 author: davidjguru
-categories: [Drupal & Tips]
+categories: [Drupal Tips]
 sitemap: true
 youtubeId: 6O192OAzMH8
 ---

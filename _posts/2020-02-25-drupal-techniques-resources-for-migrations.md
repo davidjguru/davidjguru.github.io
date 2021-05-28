@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Thinking about Drupal Migrations(I) - Resources
-permalink: /blog/thinking-about-drupal-migrations-resources
+title: 'Drupal Techniques: Resources for Migrations'
+permalink: /blog/drupal-techniques-resources-for-migrations
 published: true
 date: 2020-02-25
 author: davidjguru
-categories: [Drupal & Migrations]
+categories: [Drupal Techniques]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @inmasantiago]({{ site.baseurl

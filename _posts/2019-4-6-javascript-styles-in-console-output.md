@@ -1,11 +1,11 @@
 ---
 layout: post
-title: JavaScript Fast Tips (II) - Styles in console output
-permalink: /blog/javascript-fast-tips-stylizing-output-console-log
+title: 'JavaScript: Styles in console output'
+permalink: /blog/javascript-styles-in-console-output
 published: true
 date: 2019-04-06
 author: davidjguru
-categories: [Drupal & JavaScript]
+categories: [JavaScript]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @danielwatsondesign]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_image_from_unsplash_colours.jpeg) |

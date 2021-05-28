@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Drupal Sevilla, a group is moving
-permalink: /blog/drupal-sevilla-a-group-is-moving
+title: 'Community: Drupal Sevilla is moving'
+permalink: /blog/community-drupal-sevilla-is-moving
 published: true
 date: 2017-06-30
 author: davidjguru
-categories: [Drupal & Community]
+categories: [Community & Events]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @tegan]({{ site.baseurl }}/images/davidjguru_drupal_8_drupal_sevilla_moving_group.png) |

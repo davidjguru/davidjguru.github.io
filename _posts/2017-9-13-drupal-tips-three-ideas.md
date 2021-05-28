@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Three tips working with Drupal
-permalink: /blog/three-tips-working-with-drupal
+title: 'Drupal Tips: Three ideas'
+permalink: /blog/drupal-tips-three-ideas
 published: true
 date: 2017-09-13
 author: davidjguru
-categories: [Drupal & Tips]
+categories: [Drupal Tips]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @markusspiske]({{ site.baseurl }}/images/davidjguru_drupal_7_tips_drupal.png) |

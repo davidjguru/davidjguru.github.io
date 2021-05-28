@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Patterns and Aliases programmatically in Drupal
-permalink: /blog/patterns-and-aliases-programmatically-in-drupal
+title: 'Drupal Techniques: Patterns and Aliases by code'
+permalink: /blog/drupal-techniques-patterns-and-aliases-by-code
 published: true
 date: 2021-02-22
 author: davidjguru
-categories: [Drupal & Coding]
+categories: [Drupal Techniques]
 sitemap: true
 youtubeId: wqfeeRz_fwE
 ---

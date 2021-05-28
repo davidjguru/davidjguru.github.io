@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Development environments for Drupal with DDEV
-permalink: /blog/creating-development-environments-for-drupal-with-ddev
+title: 'Drupal Techniques: Development environments with DDEV'
+permalink: /blog/drupal-techniques-development-environments-with-ddev
 published: true
 date: 2019-05-18
 author: davidjguru
-categories: [Drupal & DevOps]
+categories: [Drupal Techniques]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @heapdump]({{ site.baseurl }}/images/davidjguru_drupal_8_ddev_image_from_unsplash_harddrive.jpg) |

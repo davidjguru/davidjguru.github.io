@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Playing with PHP 8 Performance
-permalink: /blog/playing-with-php-8-performance
+title: 'PHP Coding: Playing with Performance'
+permalink: /blog/php-coding-playing-with-performance
 published: true
 date: 2020-12-10
 author: davidjguru
-categories: [General]
+categories: [PHP Coding]
 sitemap: true
 youtubeId: XGcrqMUUMsE
 ---

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Drupal Fast Tips (III) - The Magic of '#attached'
-permalink: /blog/drupal-fast-tips-the-magic-of-attached
+title: "Drupal Tips: The Magic of '#attached'"
+permalink: /blog/drupal-tips-the-magic-of-attached
 published: true
 date: 2020-01-29
 author: davidjguru
-categories: [Drupal & Tips]
+categories: [Drupal Tips]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @gaspanik]({{ site.baseurl }}/images/davidjguru_drupal_8_magik_of_attached_1.jpg) |

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 70 Linux commands aliases for everyday life
-permalink: /blog/70-linux-commands-aliases-for-everyday-life
+title: 'Linux: 70 commands aliases for everyday life'
+permalink: /blog/linux-70-commands-aliases-for-everyday-life
 published: true
 date: 2021-03-29
 author: davidjguru
-categories: [Drupal & Commands]
+categories: [Linux & Commands]
 sitemap: true
 youtubeId: NTFFhcEus5o
 ---

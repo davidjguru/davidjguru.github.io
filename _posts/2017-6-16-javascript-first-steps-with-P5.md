@@ -1,11 +1,11 @@
 ---
 layout: post
-title: First steps with the P5.js library
-permalink: /blog/First-steps-with-P5
+title: 'JavaScript: first steps with P5.js'
+permalink: /blog/javascript-first-steps-with-P5
 published: true
 date: 2017-06-16
 author: davidjguru
-categories: [Drupal & JavaScript]
+categories: [JavaScript]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @davideragusa]({{ site.baseurl }}/images/davidjguru_drupal_8_javascript_p5_library_steps.png) |

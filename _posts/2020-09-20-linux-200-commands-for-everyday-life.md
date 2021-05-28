@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 200 Linux commands for everyday life
-permalink: /blog/200-linux-commands-for-everyday-life
+title: 'Linux: 200 commands for everyday life'
+permalink: /blog/linux-200-commands-for-everyday-life
 published: true
 date: 2020-09-20
 author: davidjguru
-categories: [Drupal & Commands]
+categories: [Linux & Commands]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_drupal_n_linux_commands_main.jpg) |

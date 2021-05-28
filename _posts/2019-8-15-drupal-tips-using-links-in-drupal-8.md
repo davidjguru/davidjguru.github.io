@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Drupal Fast Tips (I) - Using links in Drupal 8
-permalink: /blog/drupal-fast-tips-using-links-in-drupal-8
+title: 'Drupal Tips: Using links in Drupal 8'
+permalink: /blog/drupal-tips-using-links-in-drupal-8
 published: true
 date: 2019-08-15
 author: davidjguru
-categories: [Drupal & Tips]
+categories: [Drupal Tips]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @osmanrana]({{ site.baseurl }}/images/davidjguru_drupal_8_using_links_from_unsplash_1.jpeg) |

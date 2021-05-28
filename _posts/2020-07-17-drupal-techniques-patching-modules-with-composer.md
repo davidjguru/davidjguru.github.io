@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Patching Drupal modules with Composer
-permalink: /blog/patching-drupal-modules-with-composer
+title: 'Drupal Techniques: Patching modules with Composer'
+permalink: /blog/drupal-techniques-patching-modules-with-composer
 published: true
 date: 2020-07-17
 author: davidjguru
-categories: [Drupal & Tips]
+categories: [Drupal Techniques]
 sitemap: true
 ---
 | ![Picture from Unsplash, by @tony_wanli]({{ site.baseurl }}/images/davidjguru_drupal_8_patching_drupal_modules_with_composer_main.png) |
