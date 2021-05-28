@@ -1,7 +1,7 @@
 ---
 layout: post  
-title: Random commands for your daily life with Drupal 
-permalink: /blog/random-commands-for-your-daily-life-with-drupal 
+title: 'Linux: Random commands for your daily life'
+permalink: /blog/linux-random-commands-for-your-daily-life 
 published: true  
 date: 2019-10-30 
 author: davidjguru

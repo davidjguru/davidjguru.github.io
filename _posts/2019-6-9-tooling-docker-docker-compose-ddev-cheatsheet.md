@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Tooling: Docker, Docker-Compose and DDEV-Cheatsheet'
+title: 'Tooling: Docker Docker-Compose DDEV - Cheatsheet'
 permalink: /blog/tooling-docker-docker-compose-ddev-cheatsheet
 published: true
 date: 2019-06-09

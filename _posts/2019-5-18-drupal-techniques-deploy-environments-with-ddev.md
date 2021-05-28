@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Drupal Techniques: Development environments with DDEV'
-permalink: /blog/drupal-techniques-development-environments-with-ddev
+title: 'Drupal Techniques: Deploy environments with DDEV'
+permalink: /blog/drupal-techniques-deploy-environments-with-ddev
 published: true
 date: 2019-05-18
 author: davidjguru

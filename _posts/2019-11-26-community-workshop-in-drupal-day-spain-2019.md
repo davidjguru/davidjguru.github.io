@@ -1,7 +1,7 @@
 ---
 layout: post  
-title: 'Community: Backend Workshop in Drupal Day Spain 2019'
-permalink: /blog/community-backend-workshop-in-drupal-day-spain-2019
+title: 'Community: Workshop in Drupal Day Spain 2019'
+permalink: /blog/community-workshop-in-drupal-day-spain-2019
 published: true  
 date: 2019-11-26 
 author: davidjguru
