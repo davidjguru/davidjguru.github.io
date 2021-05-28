@@ -3,23 +3,23 @@ layout: post
 title: 'PHP Coding: functions that can save your day' 
 permalink: /blog/php-coding-functions-that-can-save-your-day
 published: false
-date: 2021-04-30
+date: 2021-05-30
 author: davidjguru
 categories: [PHP Coding]
 sitemap: true
 youtubeId: 6O192OAzMH8
 ---
 
-| ![Picture from Unsplash, by @lazycreekimages]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_main.png) |
+| ![Picture from Unsplash, by @umby]({{ site.baseurl }}/images/davidjguru_php_coding_functions_can_save_your_day_main.png) |
 |:--:|
-| *Picture from Unsplash, user [Michael Dziedzic, @lazycreekimages](https://unsplash.com/@lazycreekimages)* |  
+| *Picture from Unsplash, user [Umberto, @umby](https://unsplash.com/@umby)* |  
 
 In this new issue of the Drupal Fast Tips I would like to share some basic tips and examples related with the Drupal Link field and how to get the data from its sub-fields (title and link) to rendering in a Twig template. Sometimes we need render values from a link field in a structured way through a Twig template, and depending on the location of the Link field, this may have a different articulation.  
 <!--more-->
 
 Because of this, I wanted to show some small examples of extracting and handling the values of this particular type of fields. This will be a post for site-builders or developers with basic knowledge on the Drupal backend (yes, Twig and the rendering are in the backend, sorry.).  
 
-**Note:** This month (april 2021) I've published an article about [Visibility Condition Plugins for Drupal in The Russian Lullaby](https://www.therussianlullaby.com/blog/condition-plugins-for-visibility-in-drupal/). This could be interesting for you.  
+**Note:** This month (april 2021) I've published an article with a review about [the book '31 Days of Drupal Migrations' in The Russian Lullaby](https://www.therussianlullaby.com/blog/books-31-days-of-drupal-migrations). This could be interesting for you.  
 
 
 ---------------------------------------------------------------------------------------
