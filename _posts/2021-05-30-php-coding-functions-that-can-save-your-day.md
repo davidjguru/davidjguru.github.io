@@ -47,8 +47,6 @@ $cut_url = basename($url);
 + [php.net/basename](https://www.php.net/manual/en/function.basename.php)
 
 
-![Link field basic configuration]({{ site.baseurl }}/images/davidjguru_drupal_8_9_link_fields_from_twig_2.png)
-
 ## getElementsByTagName()
 
 Ok, well I was doing some data extractions from web scraping and suddenly remembered the existence of 
