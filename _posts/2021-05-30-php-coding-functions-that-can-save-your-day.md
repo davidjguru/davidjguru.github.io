@@ -51,12 +51,13 @@ $cut_url = basename($url);
 
 ## getElementsByTagName()
 
-Ok, well I was doing some data extract from web scraping and suddenly remembered the existence of 
-the DOMDocument class, a set of available functions for getting a HTML document and parsing / extracting diverse information from the DOM object.  
+Ok, well I was doing some data extractions from web scraping and suddenly remembered the existence of 
+the DOMDocument class in PHP, a set of available functions for getting a HTML document and parsing / extracting diverse information from the DOM object.  
 
 This function getElementsByTagName() gives you a set of results gettings values only from reffered tags in the processed DOM. For instance, I can do something like:  
 
 ```php
+<?php
 // Create a new DOM Document to get the HTML remote content.
 $html_code = new DOMDocument();
 
@@ -66,6 +67,8 @@ $html_code->loadHTMLFile($url);
 
 But in my Drupal context will be just like:  
 ```php 
+<?php
+[...]
 // Third: Gets a whole post from original website.
 $post = file_get_contents($domain_link_post);
 $dom = Html::load($post);
@@ -91,6 +94,8 @@ In fact Drupal is using this DOMDocument class under the hood through a wrapper,
 ```
 In this class is doing an extensive use of the DOMDocument class. Just in the load() main function you can see for instance:  
 ```php
+<?php
+[...]
 $dom = new \DOMDocument();
 // Ignore warnings during HTML soup loading.
 @$dom->loadHTML($document);
@@ -102,12 +107,59 @@ return $dom;
 + [DOMDocument class of PHP](https://www.php.net/manual/en/class.domdocument.php)  
 + [Html class of Drupal](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Utility%21Html.php/class/Html/8.2.x)  
   
-## Getting value of the target attribute from a Link Field in Paragraph
+## glob()
+
+What is glob? (baby don't hurt me...) xD Well the glob() function will return naming of files in a certain path, and I was using the function for treating files and processing values, or delete existing files from a folder.  
+
+Examples:  
+
+Here deleting files by unlink function.  
+```php
+<?php
+[...]
+$initial_files = glob('sites/default/files/my_folder/*');
+// Deleting all the files in the list
+foreach($initial_files as $file) {
+  if(is_file($file)){
+    // Delete the given file
+    unlink($file); 
+  }
+}
+```
+
+And here looping over the files for processing some specific values. 
+```php
+<?php
+[...]
+// Get all the existing files.
+$geodata_files = glob('modules/custom/my_custom_module/geodata_files/*');
+
+// Now we are going to loop over the existing files for doing stuff.
+foreach($geodata_files as $geodata_file) {
+
+  // Doing your things.
+  [...]
+}
+
+```
+
+**More Info:**  
++ [Glob function of PHP](https://www.php.net/manual/en/function.glob.php)  
 
 
 
+## curl_init()
 
-## Processing and building links from a View to a Twig Template
+ // Enables a new cURL resource.
+    $ch = curl_init();
+    $url_map = "https://maps.googleapis.com/maps/api/place/details/json?cid=" . $required_cid_code . "&key=" . $this->ipbConfig->get('google_places_api_key');
+    curl_setopt($ch, CURLOPT_URL, $url_map);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    // Get the geo file from google maps API for places.
+    $result_value = curl_exec($ch);
+    $converted_result = json_decode($result_value, true);
+    curl_close($ch);
 
 
 
