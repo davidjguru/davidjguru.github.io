@@ -2,7 +2,7 @@
 layout: post
 title: 'PHP Coding: functions that can save your day' 
 permalink: /blog/php-coding-functions-that-can-save-your-day
-published: false
+published: true
 date: 2021-05-30
 author: davidjguru
 categories: [PHP Coding]
@@ -150,18 +150,37 @@ foreach($geodata_files as $geodata_file) {
 
 ## curl_init()
 
- // Enables a new cURL resource.
-    $ch = curl_init();
-    $url_map = "https://maps.googleapis.com/maps/api/place/details/json?cid=" . $required_cid_code . "&key=" . $this->ipbConfig->get('google_places_api_key');
-    curl_setopt($ch, CURLOPT_URL, $url_map);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    // Get the geo file from google maps API for places.
-    $result_value = curl_exec($ch);
-    $converted_result = json_decode($result_value, true);
-    curl_close($ch);
+Curl is a function library supported by PHP that allows HTTP request and also is available as command line tool for prompt. In that context I've been using it for a while now, but only from the Linux console... The reason? Well, for almost all the code related to REST clients from Drupal I've implemented it using Guzzle (the PHP reference library for REST clients and integrated in Drupal) or indirectly using the HTTP Client Manager, a resource that allows you manage HTTP Clients from YAML description files -or JSON- (and is using Guzzle under the hood, by the way). 
 
+But the last week I had to implement a small external query from my code to the Google Places API and I thought I'd try curl directly from PHP. This was my case:  
 
+```php
+<?php
+
+[...]
+
+// Enables a new cURL resource.
+$ch = curl_init();
+$url_map = "https://maps.googleapis.com/maps/api/place/details/json?cid=" . $required_cid_code . "&key=" . $this->myConfig->get('google_places_api_key');
+curl_setopt($ch, CURLOPT_URL, $url_map);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+curl_setopt($ch, CURLOPT_HEADER, 0);
+
+// Get the geo file from google maps API for places.
+$result_value = curl_exec($ch);
+$converted_result = json_decode($result_value, true);
+curl_close($ch);
+
+[...]
+```
+
+curl is available from your server installation as a PHP resource, in my case the web container of [my DDEV local deploy](https://www.digitalocean.com/community/tutorials/how-to-develop-a-drupal-9-website-on-your-local-machine-using-docker-and-ddev), and only requires initialize a session, set your options for the work, then execute the session and finally close it.  
+
+**More Info:**  
++ [The PHP's book of curl](https://www.php.net/manual/en/book.curl.php)  
++ [curl basic example](https://www.php.net/manual/en/curl.examples-basic.php)  
++ [Guzzle the PHP HTTP client](https://docs.guzzlephp.org/en/stable/)  
++ [Drupal HTTP Manager contrib module](https://www.drupal.org/project/http_client_manager)  
 
 ## :wq!
 
