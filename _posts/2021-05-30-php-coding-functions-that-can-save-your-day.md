@@ -17,9 +17,9 @@ youtubeId: MxXNNOXiUgI
 Well, this month I've been doing some things I haven't practiced for some time: data migrations, intensive connections to Gitlab API v4 and even some web-scraping to get data. Along the way I've recovered some old PHP functions that I had forgotten or hadn't used for a long time. As I didn't want to forget them again, I took this notebook as a reference and wrote down a small post with some functions of our old friend PHP that can give us a little help in the day to day.  
 <!--more-->
 
-The old man PHP has over 1000 built-in functions that can be called and used directly from your code and will be independient of the platform/CMS/framework (Drupal, Symfony, Laravel...) so you can load the functions in your scripts or classes in order to execute specific tasks. I've given a little context to each one and possible uses. You probably already know them or they seem very obvious to you, but I thought it was fun to share them. I'm sure someone might find them useful. .  
+The old man PHP has over 1000 built-in functions that can be called and used directly from your code and will be independient of the platform/CMS/framework (Drupal, Symfony, Laravel...) so you can load the functions in your scripts or classes in order to execute specific tasks. I've given a little context to each one and possible uses. You probably already know them or they seem very obvious to you, but I thought it was fun to share them. I'm sure someone might find them useful.  
 
-**Note:** This month (april 2021) I've published an article with a review about [the book '31 Days of Drupal Migrations' in The Russian Lullaby](https://www.therussianlullaby.com/blog/books-31-days-of-drupal-migrations). This could be interesting for you.  
+**Note:** This month (may 2021) I've published an article with a review about [the book '31 Days of Drupal Migrations' in The Russian Lullaby](https://www.therussianlullaby.com/blog/books-31-days-of-drupal-migrations). This could be interesting for you.  
 
 
 
