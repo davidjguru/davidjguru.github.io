@@ -23,7 +23,7 @@ The old man PHP has over 1000 built-in functions that can be called and used dir
 
 
 
-## basename()
+## 1- basename()
 
 I really don't know why I had forgotten this function of PHP...but the fact is that I had been processing URLs for some time and cutting them to get paths, directory names and final files.  
 
@@ -45,12 +45,12 @@ $cut_url = basename($url);
 ### Remember
 
 **Function / Method:** basename() returns the final element of a path.  
-**Using:** basename($path); basename($path, $suffix);
+**Using:** basename($path); basename($path, $suffix);  
 **Available:** PHP4, PHP5, PHP7, PHP8.  
 **More Info:** [php.net/basename](https://www.php.net/manual/en/function.basename.php)  
 
 
-## getElementsByTagName()
+## 2- getElementsByTagName()
 
 Ok, well I was doing some data extractions from web scraping and suddenly remembered the existence of 
 the DOMDocument class in PHP, a set of available functions for getting a HTML document and parsing / extracting diverse information from the DOM object.  
@@ -97,7 +97,7 @@ In fact Drupal is using this DOMDocument class under the hood through a wrapper,
 ```php
 /core/lib/Drupal/Component/Utility/Html.php
 ```
-In this class is doing an extensive use of the DOMDocument class. Just in the load() main function you can see for instance:  
+Inside this class we're doing an extensive use of the DOMDocument class. Just in the load() main function you can see, for instance:  
 ```php
 <?php
 [...]
@@ -118,7 +118,7 @@ return $dom;
 + [DOMDocument class of PHP](https://www.php.net/manual/en/class.domdocument.php)  
 + [Html class of Drupal](https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Utility%21Html.php/class/Html/8.2.x)  
   
-## glob()
+## 3- glob()
 
 What is glob? (baby don't hurt me... xD) Well the glob() function will return naming of files in a certain path, and I was using the function for treating files and processing values, or delete existing files from a folder.  
 
@@ -156,13 +156,13 @@ foreach($geodata_files as $geodata_file) {
 ```
 ### Remember  
 **Function / Method:** glob(), find pathnames matching a pattern.  
-**Using:** count(glob('folder/files/*')); $files = glob('folder/files/*');
+**Using:** count(glob('folder/files/*')); $files = glob('folder/files/*');  
 **Available:** PHP4, PHP5, PHP7, PHP8.  
 **More Info:** [Glob function of PHP](https://www.php.net/manual/en/function.glob.php)  
 
 
 
-## curl_init()
+## 4- curl_init()
 
 Curl is a function library supported by PHP that allows HTTP request and also is available as command line tool for prompt. In that context I've been using it for a while now, but only from the Linux console... The reason? Well, for almost all the code related to REST clients from Drupal I've implemented it using Guzzle (the PHP reference library for REST clients and integrated in Drupal) or indirectly using the HTTP Client Manager, a resource that allows you manage HTTP Clients from YAML description files -or JSON- (and is using Guzzle under the hood, by the way). 
 
@@ -193,7 +193,7 @@ curl_close($ch);
 curl is available from your server installation as a PHP resource, in my case the web container of [my DDEV local deploy](https://www.digitalocean.com/community/tutorials/how-to-develop-a-drupal-9-website-on-your-local-machine-using-docker-and-ddev), and only requires initialize a session, set your options for the work, then execute the session and finally close it.  
 ### Remember  
 **Function / Method:** curl_init(), initializes a new session and return a cURL handle for use.  
-**Using:** $ch = curl_init(); $ch = curl_init("http://www.externaldomain.com/");
+**Using:** $ch = curl_init(); $ch = curl_init("http://www.externaldomain.com/");  
 **Available:** PHP4, PHP5, PHP7, PHP8.  
 **More Info:** [The PHP's book of curl](https://www.php.net/manual/en/book.curl.php)  
 **Read More:**  
@@ -201,9 +201,9 @@ curl is available from your server installation as a PHP resource, in my case th
 + [Guzzle the PHP HTTP client](https://docs.guzzlephp.org/en/stable/)  
 + [Drupal HTTP Manager contrib module](https://www.drupal.org/project/http_client_manager)  
 
-## htmlspecialchars_decode() 
+## 5- htmlspecialchars_decode() 
 
-I was extracting values from an external web source, from HTML, real numbers, but in some cases when loading them in target and then rendering my nodes, some of these fields were showing character encoding using HTML entities, changing a single quote or apostrophe: `'`  by its HTML encoding: `&#39;` (you can see equivalences [here](https://www.toptal.com/designers/htmlarrows/punctuation/apostrophe/)). So in a received and then loaded value for a field, instead of get some like from the external source:  
+I was extracting values from an external web source of HTML, real numbers, but in some cases when loading them in target and then rendering my nodes, some of these fields were showing character encoding using HTML entities, changing a single quote or apostrophe: `'`  by its HTML encoding: `&#39;` (you can see equivalences [here](https://www.toptal.com/designers/htmlarrows/punctuation/apostrophe/)). So in a received and then loaded value for a field, instead of get some like from the external source:  
 
 ```php
 Price marked in Soles
@@ -231,7 +231,7 @@ $value_dolars = htmlspecialchars_decode($dolars_value_string, ENT_QUOTES);
 
 ### Remember
 **Function / Method:** htmlspecialchars_decode(), convert special HTML entities to characters.  
-**Using:** htmlspecialchars_decode($original_string, ENT_QUOTES); htmlspecialchars_decode($original_string);
+**Using:** htmlspecialchars_decode($original_string, ENT_QUOTES); htmlspecialchars_decode($original_string);  
 **Available:** PHP5, PHP7, PHP8.  
 **More Info:** [php.net/htmlspecialchars-decode.php](https://www.php.net/manual/en/function.htmlspecialchars-decode.php)  
 **Read More:**  
