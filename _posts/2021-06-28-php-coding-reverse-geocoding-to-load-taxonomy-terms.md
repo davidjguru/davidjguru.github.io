@@ -20,12 +20,12 @@ Have you ever had to perform geocoding? I mean, the exercise of getting some kin
 The fact is that I recently had to perform some tasks related to Geocoding: I needed to get some values from latitude and longitude values, the so-called "Reverse Geocoding". My goal was fill out a Drupal taxonomy and populating a related field in a specific content type. 
 I have decided to compile my case notes here in a sequential way, but the experience was previously published separately as a sucession of Gitlab Snippets and Gist from Github that you can follow from here.  
 
-**TL;DR** -> This is a post about how to execute Reverse Geocoding for populating a taxonomy term field in Drupal 8 || 9.  
+**TL;DR** -> This is a post about how to execute Reverse Geocoding for populating a taxonomy term field in Drupal 8, 9.  
 
   
-* [Drupal 8 || 9 - Reverse Geocoding using external Service from PHP](https://gist.github.com/davidjguru/0ba7b135ae2d9738278c5dff2a311e09)  
-* [Drupal 8 || 9 - Getting Taxonomy Terms from different levels programmatically ](https://gist.github.com/davidjguru/3b9d36bf3e00dd338d751b7bfa2c41eb)  
-* [Drupal 8 || 9 - Populating taxonomy with hierarchical structure from external geocoding ](https://gitlab.com/-/snippets/2137785)  
+* [Drupal 8, 9 - Reverse Geocoding using external Service from PHP](https://gist.github.com/davidjguru/0ba7b135ae2d9738278c5dff2a311e09)  
+* [Drupal 8,9 - Getting Taxonomy Terms from different levels programmatically ](https://gist.github.com/davidjguru/3b9d36bf3e00dd338d751b7bfa2c41eb)  
+* [Drupal 8,9 - Populating taxonomy with hierarchical structure from external geocoding ](https://gitlab.com/-/snippets/2137785)  
 
 ---------------------------------------------------------------------------------------
 <!-- /TOC -->
@@ -157,30 +157,26 @@ You have to follow the instructions from its README file: [geocoder/README.md](h
 I certainly haven't had much luck using this module. Some strange bug limits me to use it for quick situations. There are some weird issues installing providers, see the [Issue 3153678](https://www.drupal.org/project/geocoder/issues/3153678).  
 
 
-### Nominatim 
+### Nominatim  
 
-> "Nominatim is the geocoding software that powers the official OSM site www.openstreetmap.org. It serves 30 million queries per day on a single server."
+[Maria Arias de Reyna](https://www.linkedin.com/in/delawen/), [@delawen](https://twitter.com/delawen) and [Juan Luis Rodríguez](https://www.linkedin.com/in/juanluisrp/), [@juanluisrp](https://twitter.com/juanluisrp) guided me in this way. They are the greatest [GIS](https://en.wikipedia.org/wiki/Geographic_information_system) experts I ever know and they were very helpful here, givin' me some ideas and links to resources. Kudos. Specifically, @delawen told me about Nominatim, a heavy-weight solution for Geocoding Operations and I began to play with it. What is 'Nominatim'? First Bus Stop:  
+
+> "Nominatim is the geocoding software that powers the official OSM site www.openstreetmap.org. It serves 30 million queries per day on a single server."  
 
 Source: [https://nominatim.org](https://nominatim.org/)  
 
-Nominatim based in Docker:
-https://github.com/mediagis/nominatim-docker
-Selecting Region: 
-https://download.geofabrik.de/
-Selecting Sub-Region:
-https://download.geofabrik.de/south-america.html
-Selecting Country: 
-https://download.geofabrik.de/south-america/peru.html
-Selecting Continent:  
-https://download.geofabrik.de/europe/
-Main Repository::
-https://github.com/osm-search/Nominatim
-Nominatim API overview::
-https://nominatim.org/release-docs/develop/api/Overview/
+Ok, I see I can do my queries using Nominatim, but what else?  
+
+- [There is a Nominatim version based in Docker](https://github.com/mediagis/nominatim-docker).  
+- [You can select Region for your Docker deploy](https://download.geofabrik.de/).  
+- [And select Sub-Region](https://download.geofabrik.de/south-america.html).  
+- [Country](https://download.geofabrik.de/south-america/peru.html).  
+- [Or Continent](https://download.geofabrik.de/europe/).  
+- [You can download the source code from its main repository](https://github.com/osm-search/Nominatim).  
+- [And get an overview about how it works](https://nominatim.org/release-docs/develop/api/Overview/).
 
 
-
-Endpoints for queries
+Nominatim offers some Endpoints for specific queries:  
 
 ```bash
 /search - search OSM objects by name or type
@@ -191,12 +187,14 @@ Endpoints for queries
 /polygons - list of broken polygons detected by Nominatim
 /details - show internal details for an object (for debugging only)
 ```
+And you can use Nominatim from a local Docker deploy or from live in external server:  
 
+```bash
 https://nominatim.openstreetmap.org/reverse?lat=<value>&lon=<value>&<params>
 https://nominatim.openstreetmap.org/reverse?format=json&lat=-12.046374&lon=-77.042793
 https://nominatim.openstreetmap.org/reverse?format=json&lat=-9.949480903131423&lon=-78.22368622836807
-
-
+```
+What will return a Reverse Geocoding Query from Nominatim? Take a look:  
 ```json
 {
   "place_id": 159358569,
@@ -220,8 +218,11 @@ https://nominatim.openstreetmap.org/reverse?format=json&lat=-9.949480903131423&l
     "-78.2215248"
   ]
 }
-
 ```
+
+Ok, This seems to be all I need!...  
+Nominatim is my great solution! well, let's get to work.  
+
 
 ## 4- Loading taxonomy terms 
 
