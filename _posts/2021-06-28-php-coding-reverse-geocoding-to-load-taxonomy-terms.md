@@ -233,13 +233,15 @@ I need to complete the next field:
 ![Taxonomy Terms field based in geodata]({{ site.baseurl }}/images/davidjguru_php_coding_reverse_geocoding_loading_taxonomy_terms_2.png)  
 
 ### Getting data for Peru
-In Peru there are 24 departments, 25 regions, 196 provinces and 1838 districts. I need to save Department, Province and Districts for every item.  In the former example I will catch the data from the Nominatim reverse endpoint, where Department="Ancash" , Province="Huarmey"  District="Culebras", adapting this:  
+In Peru there are 24 departments, 25 regions, 196 provinces and 1838 districts. I need to save Department, Province and Districts for every item.  In the former example I will catch the data from the Nominatim reverse endpoint, where Department="Ancash" , Province="Huarmey"  District="Culebras", so based on the data received from Nominatim that you can see in a former example, I need to adapt this:  
 
 - Department=state  
 - Province=region  
 - District=village  
 
 ### Mounting the new container  
+
+Ok, now I'm gonna launch the Nominatim container using my local Docker Installation and the selected URLs with data from my required country (Peru):  
 
 ```bash
 $ docker run -it --rm \
@@ -251,6 +253,8 @@ $ docker run -it --rm \
 ```
 
 ### Resolving queries  
+
+Now I can build some queries to my new Nominatim Server:  
 
 ```php
 <?php
@@ -275,6 +279,46 @@ $response = $adapter->sendRequest($request);
 $geo_nominatim = json_decode($response->getBody(), true);
 [...]
 ```
+And I can extract the required values following the returned format in the json response, putting some control in the case of the value for "District" (sometimes is a City, sometimes is a Village):  
+
+```php 
+// First get the initial strings. 
+$initial_department = $geo_nominatim['address']['state'];
+$initial_province = $geo_nominatim['address']['region'];
+if(empty($geo_nominatim['address']['village'])){
+  $initial_district = $geo_nominatim['address']['city'];
+} else {
+  $initial_district = $geo_nominatim['address']['village'];
+}
+```
+
+### My next problem: the 'Ñ' character and the diacritics 
+
+The first thing I notice is that Nominatim is returning me naming without accents or diacritics, in pure English. 
+
+The 'Ñ' character is the sign for a very common sound that you can build using 'gn' in French or Italian, and using 'ny' in Catalan language. But at some point an old transcriber monk decided to use this symbol, and here we are... 
+
+So, I normalize some values but maintaining the 'ñ' character in names, just in ['San Vicente de Cañete'](https://en.wikipedia.org/wiki/San_Vicente_de_Ca%C3%B1ete).  
+
+How Can Normalize string but maintaining special characters like 'ñ'? well, I was thinking about changes the character, normalize and then return the 'ñ' character to the strings, so I can try something like this:  
+
+```php
+// Changes the 'ñ' character.
+$first_step_replace_1 = str_replace('ñ', '\001', $initial_department);
+$first_step_replace_2 = str_replace('ñ', '\001', $initial_province);
+$first_step_replace_3 = str_replace('ñ', '\001', $initial_district);
+
+// Normalizes all the strings.
+$normalized_department = preg_replace('/[\x{0300}-\x{036f}]/u', "", Normalizer::normalize($first_step_replace_1 , Normalizer::FORM_D));
+$normalized_province = preg_replace('/[\x{0300}-\x{036f}]/u', "", Normalizer::normalize($first_step_replace_2 , Normalizer::FORM_D));
+$normalized_district = preg_replace('/[\x{0300}-\x{036f}]/u', "", Normalizer::normalize($first_step_replace_3 , Normalizer::FORM_D));
+
+// Returns the 'ñ' character to the strings.
+$normalized_department = str_replace('\001', 'ñ', $normalized_department);
+$normalized_province = str_replace('\001', 'ñ', $normalized_province);
+$normalized_district = str_replace('\001', 'ñ', $normalized_district);
+``` 
+
 ### Loading the whole taxonomy  
 
 ```php
