@@ -17,7 +17,10 @@ youtubeId: k84G4ODpBsE
 Have you ever had to perform geocoding? I mean, the exercise of getting some kind of data from stuff like a specific naming in order to get values like longitude and latitude. It had been a long time since I had used the know as "Geographic Information Systems" (GIS), when I was a young (and naive) Java developer...
 <!--more-->
 
-The fact is that I recently had to perform some tasks related to Geocoding: I needed to get some values from latitude and longitude values, the so-called "Reverse Geocoding". My goal was fill out a Drupal taxonomy and populating a related field in a specific content type. I have decided to compile my case notes here in a sequential way, but the experience was previously published separately as a sucession of Gitlab Snippets and Gist from Github that you can follow from here:  
+The fact is that I recently had to perform some tasks related to Geocoding: I needed to get some values from latitude and longitude values, the so-called "Reverse Geocoding". My goal was fill out a Drupal taxonomy and populating a related field in a specific content type. 
+I have decided to compile my case notes here in a sequential way, but the experience was previously published separately as a sucession of Gitlab Snippets and Gist from Github that you can follow from here.  
+
+**TL;DR** -> This is a post about how to execute Reverse Geocoding for populating a taxonomy term field in Drupal 8 || 9.  
 
   
 * [Drupal 8 || 9 - Reverse Geocoding using external Service from PHP](https://gist.github.com/davidjguru/0ba7b135ae2d9738278c5dff2a311e09)  
@@ -43,7 +46,6 @@ Well, I'm inside a scenario where I'm creating new nodes of a specific content t
 
 At a higher zoom level, within all its related fields, I have a Entity Reference field, specfically for a Hierarchical Taxonomy Term, I mean, a field with values to pre-charged taxonomy terms from a populated vocabulary which contains terms in three levels:  
 
-
 My vocabulary is storing places from Peru (Perú, Piruw) in South America. This is a set of more than 2000 terms divided in a tree of hierarchy with three level. In Peru there are 24 departments, 25 regions, 196 provinces and 1838 districts, so It looks pretty extensive, something like:  
 
 ![Reverse Geocoding: vocabulary view]({{ site.baseurl }}/images/davidjguru_php_coding_reverse_geocoding_loading_taxonomy_terms_1.png)  
@@ -59,8 +61,9 @@ Steps:
 5- Saving the new populated node.  
 
 
-
 ## 2- Reverse Geocoding for PHP  
+
+Since we have to perform Geocoding tasks, let's first remember some basic concepts and what kind of main resources we have available.  
 
 ### What is "Reverse Geocoding"  
 
@@ -70,8 +73,8 @@ First, let us initially review the concept of Reverse Geocoding:
 Source: [Reverse Geocoding in Wikipedia](https://en.wikipedia.org/wiki/Reverse_geocoding)  
 
 ### Installing geocoder for PHP  
-
-Installing in my Drupal local deploy:  
+[Geocoder PHP](https://geocoder-php.org/) is the most famous library for Geocoding operations written in PHP language.  
+Geocoder PHP provides: “an abstraction layer for geocoding manipulations”. You can get the resources from [its repository in Github](https://github.com/geocoder-php/Geocoder) and as a [Packagist set of packages](https://packagist.org/providers/geocoder-php/provider-implementation). The main library is divided into three basic concepts in order to work with Geocoding: an HttpAdapter for doing requests, several geocoding Providers and various Dumpers to get a formatting output. You will need two basic resources: the main library and a provider. I'm gonna install it in my Drupal local deploy:  
 
 ```bash 
 $ ddev composer require willdurand/geocoder
@@ -86,26 +89,28 @@ $ composer require willdurand/geocoder
 $ composer require geocoder-php/locationiq-provider 
 ```
 
-Now I have now the classes available through the class loader. I can use the resources in my installation. Geocoder only requires just a pair of keyresources:
+Now I have the classes available through the class loader. I can use the resources in my installation. Geocoder only requires just a pair of keyresources:
 
 - An external provider
 - A HTTP Client for connections.
 
-I have the provider and I have the HTTP Client too, Guzzle library, present and available in Drupal. So what I need now is an external service.  
-
+I have the provider clasess and I have the HTTP Client too, Guzzle library, present and available in Drupal. So what I need now is get data from an external service. Let's see some ideas about it.   
 
 ### External Services  
 
-I'm using the classical https://geocoder-php.org library. It requires the main library and the external providers classes in order to connect to others external APIs.
-In this case I'm using LocationIQ to get the addresses:  https://locationiq.com in free mode. I'm getting a token API for queries.  
+As you can see in former sections I'm using the classical https://geocoder-php.org library. It requires the main library and the external providers classes in order to connect to others external APIs.  
+In this case I'm using LocationIQ to get the addresses:  https://locationiq.com in free mode. I've created a new user in this platform and I'm getting a token API for queries.  
 
-Some Limitations:  
+Some Limitations for the free mode of LocationIQ:  
 
 - 1 Access Token
 - 5,000 request/day
 - 2 request/second
 
+But well, only for some tests this may be useful.  
 ### Making External Reverse Geocoding Queries 
+
+Now I have the Geocoding library, the classes for the provider and data for connections to external provider, I can do some tests for Reverse Geocoding. Now for instance, I wanna build a address like an unique string builded from external received data:  
 
 ```php
 <?php
@@ -132,22 +137,24 @@ $address = $result->first()->getStreetName() . ' ' . $result->first()->getStreet
             $result->first()->getCountry()->getName();
 
 ```
-
+And then I can load the address variable in a Drupal field. But this is not my case, remember I need to populate taxonomy terms fields in a Drupal node, so beyond this example I need to test more resouces.  
 
 ## 3- Resources 
 
+By searching these resources we can find libraries, services and APIs for consumption that have as few limitations as possible (rate limit, requests per second/day, etc), and finally achieve a more efficient implementation.  
 ### External Public Resources 
 
-There are some public resources opened to connections, like:
-http://www.cartociudad.es/geocoder/api/geocoder/reverseGeocode?lon=-0.562854&lat=39.918735  
+There are some public resources opened to connections, URLs ready to connections, just like this [cartociudad.es/geocoder/](http://www.cartociudad.es/geocoder/) with its own [Geocoding / Reverse Geocoding services](http://www.cartociudad.es/geocoder/api/geocoder/reverseGeocode?lon=-0.562854&lat=39.918735 ) (click and see the results in browser).  
 
+The operations are free and simple, just an open URL and query parameters, but maybe the service is not available or stable enough for you. Let's see other options.  
+ 
 ### What about Drupal 
 
 In Drupal you can use the [Drupal Geocoder Module](https://www.drupal.org/project/geocoder), a contrib module that acting like a wrapper for geocoder library and resolves by itself the installation of the main library, as you can see in: [geocoder/composer.json](https://git.drupalcode.org/project/geocoder/-/blob/8.x-3.x/composer.json).  
 
 You have to follow the instructions from its README file: [geocoder/README.md](https://git.drupalcode.org/project/geocoder/-/blob/8.x-3.x/README.md).  
 
-There are some weird issues installing providers, see the [Issue 3153678](https://www.drupal.org/project/geocoder/issues/3153678).  
+I certainly haven't had much luck using this module. Some strange bug limits me to use it for quick situations. There are some weird issues installing providers, see the [Issue 3153678](https://www.drupal.org/project/geocoder/issues/3153678).  
 
 
 ### Nominatim 
