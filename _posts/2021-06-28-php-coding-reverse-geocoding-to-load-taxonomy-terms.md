@@ -14,22 +14,60 @@ youtubeId: k84G4ODpBsE
 |:--:|
 | *Picture from Unsplash, user [Nafis Al Sadnan, @saddy143](https://unsplash.com/@saddy143)* |  
 
-Well, this month I've been doing some things I haven't practiced for some time: data migrations, intensive connections to Gitlab API v4 and even some web-scraping to get data. Along the way I've recovered some old PHP functions that I had forgotten or hadn't used for a long time. As I didn't want to forget them again, I took this notebook as a reference and wrote down a small post with some functions of our old friend PHP that can give us a little help in the day to day.  
+Have you ever had to perform geocoding? I mean, the exercise of getting some kind of data from stuff like a specific naming in order to get values like longitude and latitude. It had been a long time since I had used the know as "Geographic Information Systems" (GIS), when I was a young (and naive) Java developer...
 <!--more-->
 
-The old man PHP has over 1000 built-in functions that can be called and used directly from your code and will be independient of the platform/CMS/framework (Drupal, Symfony, Laravel...) so you can load the functions in your scripts or classes in order to execute specific tasks. I've given a little context to each one and possible uses. You probably already know them or they seem very obvious to you, but I thought it was fun to share them. I'm sure someone might find them useful.  
+The fact is that I recently had to perform some tasks related to Geocoding: I needed to get some values from latitude and longitude values, the so-called "Reverse Geocoding". My goal was fill out a Drupal taxonomy and populating a related field in a specific content type. I have decided to compile my case notes here in a sequential way, but the experience was previously published separately as a sucession of Gitlab Snippets and Gist from Github that you can follow from here:  
 
-**Note:** This month (may 2021) I've published an article with a review about [the book '31 Days of Drupal Migrations' in The Russian Lullaby](https://www.therussianlullaby.com/blog/books-31-days-of-drupal-migrations). This could be interesting for you.  
+  
+* [Drupal 8 || 9 - Reverse Geocoding using external Service from PHP](https://gist.github.com/davidjguru/0ba7b135ae2d9738278c5dff2a311e09)  
+* [Drupal 8 || 9 - Getting Taxonomy Terms from different levels programmatically ](https://gist.github.com/davidjguru/3b9d36bf3e00dd338d751b7bfa2c41eb)  
+* [Drupal 8 || 9 - Populating taxonomy with hierarchical structure from external geocoding ](https://gitlab.com/-/snippets/2137785)  
+
+---------------------------------------------------------------------------------------
+<!-- /TOC -->
+**Table of Contents.**
+
+[1- What am I looking for?](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
+[2- Reverse Geocoding for PHP](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
+[3- Options for Reverse Geocoding](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
+[4- Loading taxonomy terms](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
+[5- :wq!](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
+<!-- /TOC -->
+------------------------------------------------------------------------------------------------
+
+
+## 1- What am I looking for?
+
+Well, I'm inside a scenario where I'm creating new nodes of a specific content type, then I'm populating its fields programmatically and finally saving the whole new node. I'm doing all the process by coding, out of the Drupal GUI and from a custom code made by me. This is the big picture.  
+
+At a higher zoom level, within all its related fields, I have a Entity Reference field, specfically for a Hierarchical Taxonomy Term, I mean, a field with values to pre-charged taxonomy terms from a populated vocabulary which contains terms in three levels:  
+
+
+My vocabulary is storing places from Peru (Perú, Piruw) in South America. This is a set of more than 2000 terms divided in a tree of hierarchy with three level. In Peru there are 24 departments, 25 regions, 196 provinces and 1838 districts, so It looks pretty extensive, something like:  
+
+![Reverse Geocoding: vocabulary view]({{ site.baseurl }}/images/davidjguru_php_coding_reverse_geocoding_loading_taxonomy_terms_1.png)  
+
+I receive geocoded files with some values and I take long, lat and I start to consult to wich point they belong, in order to obtain their things like its department, province and district. Then I'll look for a match with my pre-populated taxonomy and I'll save the three references to taxonomy terms maintaining hierarchy. Ok? Let's recap.  
+
+Steps:  
+----------
+1- Processing long, lat values.  
+2- Getting Department, Province and District from the long, lat values.  
+3- Looking for matching in my vocabulary.  
+4- Setting the matched values in the taxonomy hierarchy for each new node. 
+5- Saving the new populated node.  
 
 
 
-## 1- What is "Reverse Geocoding"?
+## 2- Reverse Geocoding for PHP  
 
+### What is "Reverse Geocoding"  
+
+First, let us initially review the concept of Reverse Geocoding:  
 > "Reverse geocoding is the process of converting a location as described by geographic coordinates (latitude, longitude) to a human-readable address or place name. It is the opposite of forward geocoding."  
 
 Source: [Reverse Geocoding in Wikipedia](https://en.wikipedia.org/wiki/Reverse_geocoding)  
-
-## 2- Options for Reverse Geocoding  
 
 ### Installing geocoder for PHP  
 
@@ -224,8 +262,23 @@ $response = $adapter->sendRequest($request);
 $geo_nominatim = json_decode($response->getBody(), true);
 [...]
 ```
+### Loading the whole taxonomy  
 
-## :wq!
+```php
+[...]
+// Load the whole taxonomy tree using values.
+$manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+$taxonomy_tree = $manager->loadTree(
+        'departamentos', // The taxonomy term vocabulary machine name.
+        0,                 // The "tid" of parent using "0" to get all.
+        3,                 // Get all available level.
+        TRUE               // Get full load of taxonomy term entity.
+        );
+[...]
+```
+
+
+## 5- :wq!
 
 ### Recommended song: Addio Lugano bella  
 
