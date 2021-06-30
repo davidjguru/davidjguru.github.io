@@ -226,6 +226,11 @@ Nominatim is my great solution! well, let's get to work.
 
 ## 4- Loading taxonomy terms 
 
+Well, I feel that throughout the previous sections we have already laid some firm foundations. Well, I feel that throughout the previous sections we have already laid some firm foundations. Now I want to recover my initial goal: to load taxonomy terms. For this I will use Nominatim, but as the local container addresses are not queryable from this article, I will change the URLs to external queries so you can try.  
+
+I need to complete the next field:  
+
+![Taxonomy Terms field based in geodata]({{ site.baseurl }}/images/davidjguru_php_coding_reverse_geocoding_loading_taxonomy_terms_2.png)  
 
 ### Getting data for Peru
 In Peru there are 24 departments, 25 regions, 196 provinces and 1838 districts. I need to save Department, Province and Districts for every item.  In the former example I will catch the data from the Nominatim reverse endpoint, where Department="Ancash" , Province="Huarmey"  District="Culebras", adapting this:  
@@ -278,9 +283,9 @@ $geo_nominatim = json_decode($response->getBody(), true);
 $manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
 $taxonomy_tree = $manager->loadTree(
         'departamentos', // The taxonomy term vocabulary machine name.
-        0,                 // The "tid" of parent using "0" to get all.
-        3,                 // Get all available level.
-        TRUE               // Get full load of taxonomy term entity.
+        0,               // The "tid" of parent using "0" to get all.
+        3,               // Get all available level.
+        TRUE             // Get full load of taxonomy term entity.
         );
 [...]
 ```
