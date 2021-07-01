@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'PHP Coding: Reverse Geocoding loading taxonomy terms' 
-permalink: /blog/php-coding-reverse-geocoding-loading-taxonomy-terms
+title: 'PHP Coding: Reverse Geocoding for taxonomy terms' 
+permalink: /blog/php-coding-reverse-geocoding-for-taxonomy-terms
 published: true
 date: 2021-06-28
 author: davidjguru
