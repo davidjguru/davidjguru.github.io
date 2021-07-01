@@ -58,7 +58,7 @@ Steps:
 1- Processing long, lat values.  
 2- Getting Department, Province and District from the long, lat values.  
 3- Looking for matching in my vocabulary.  
-4- Setting the matched values in the taxonomy hierarchy for each new node. 
+4- Setting the matched values in the taxonomy hierarchy for each new node.  
 5- Saving the new populated node.  
 
 
