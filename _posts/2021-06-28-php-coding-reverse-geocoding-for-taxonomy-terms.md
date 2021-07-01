@@ -439,6 +439,7 @@ Done!
 ## 5- Read More 
 
 - [Getting started with OpenStreetMap Nominatim API, by Adrián Espejo](https://medium.com/@adri.espejo/getting-started-with-openstreetmap-nominatim-api-e0da5a95fc8a).  
+- [Getting OpenStreetMap geodata with Nominatim API, by Ivan Lokhov](https://blog.ivanlokhov.com/osm-geodata-with-nominatim-api/).
 - [Open Search Nominatim API](https://developer.mapquest.com/documentation/open/nominatim-search/).  
 
 ## 6- :wq!
