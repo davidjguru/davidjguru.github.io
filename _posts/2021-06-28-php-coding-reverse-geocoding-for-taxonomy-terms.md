@@ -294,7 +294,7 @@ if(empty($geo_nominatim['address']['village'])){
 
 ### My next problem: the 'Ñ' character and the diacritics 
 
-The first thing I notice is that Nominatim is returning me naming without accents or diacritics, in pure English. 
+The first thing I notice is that Nominatim is returning me naming without accents or diacritics, in pure English. So now having observed this issue, I now have to check that there are no misinterpretations, normalizing all the strings on both sides of the matching.  
 
 The 'Ñ' character is the sign for a very common sound that you can build using 'gn' in French or Italian, and using 'ny' in Catalan language. But at some point an old transcriber monk decided to use this symbol, and here we are... 
 
