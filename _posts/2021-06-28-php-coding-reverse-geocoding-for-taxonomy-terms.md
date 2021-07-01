@@ -346,19 +346,96 @@ The next step for me is to make sure that I can execute a matching between the r
 
 ![Same term for all the structure]({{ site.baseurl }}/images/davidjguru_php_coding_reverse_geocoding_loading_taxonomy_terms_3.png)  
 
+So I have to do some thinking to discern how to know that a specific name is part of the first, second or third level within the taxonomy. For the moment to start with, I load the whole taxonomy, all its terms, using [the loadTree() method](https://api.drupal.org/api/drupal/core%21modules%21taxonomy%21src%21TermStorage.php/function/TermStorage%3A%3AloadTree/8.2.x). Although it is a heavy process to load all the complete entities (TRUE parameter), later I can change this for a "light" load of only name and numeric tid.  
 
 ```php
 [...]
 // Load the whole taxonomy tree using values.
 $manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
 $taxonomy_tree = $manager->loadTree(
-        'departamentos', // The taxonomy term vocabulary machine name.
+        'location', // The taxonomy term vocabulary machine name.
         0,               // The "tid" of parent using "0" to get all.
         3,               // Get all available level.
         TRUE             // Get full load of taxonomy term entity.
         );
 [...]
 ```
+Ok, now I'm in a loop going through the values taken from Nominatim, point by point. I need to find the term matching from traversing the taxonomy values and know in which position (by level) I should load the geolocated point. To do this I'm planning to ask each term if it has children or if it has parents, since (I think): 
+
+- If it has no parents and it has children, it will be first level. 
+- If it has parents and has children, it will be second level. 
+- If it has parents and has no children, it will be third level. 
+
+But as first step:  
+
+```php
+[...]
+// Prepares the future array of taxonomy terms to load.
+$array_of_tids = [];
+[...]
+```
+
+Now I'm gonna loop over all the taxonomy terms in a Normalized way:  
+
+```php
+[...]
+foreach ($taxonomy_tree as $term) {
+  $first_step_naming = str_replace('ñ', '\001', $term->getName());
+  $second_step_naming = preg_replace('/[\x{0300}-\x{036f}]/u', "", Normalizer::normalize( $first_step_naming, Normalizer::FORM_D));
+  $normalized_naming = str_replace('\001', 'ñ', $second_step_naming);
+[...]
+}
+```
+
+I can play with terms using conditions and testing parents and childrens. I can use [the loadChildren() method](https://api.drupal.org/api/drupal/core%21modules%21taxonomy%21src%21TermStorage.php/function/TermStorage%3A%3AloadChildren/8.2.x) and [the loadParents() method](https://api.drupal.org/api/drupal/core%21modules%21taxonomy%21src%21TermStorage.php/function/TermStorage%3A%3AloadParents/8.2.x) passing by its tid for every term.  
+
+```php
+// If has not parent and has children is a first level term. 
+if((empty($manager->loadParents($term->id()))) && (!empty($manager->loadChildren($term->id()))) && (($normalized_naming === $normalized_department))) {
+  $array_of_tids[0] = $term->id();
+}
+
+// If has parent and children then is a second level term.
+if((!empty($manager->loadParents($term->id()))) && (!empty($manager->loadChildren($term->id()))) && (($normalized_naming === $normalized_province))) {
+  $array_of_tids[1] = $term->id();
+}
+
+// If has parent and has not children then is a third level term.
+if((!empty($manager->loadParents($term->id()))) && (empty($manager->loadChildren($term->id()))) && (($normalized_naming === $normalized_district))) {
+  $array_of_tids[2] = $term->id();
+  $parent = reset($manager->loadParents($term->id()));
+  $array_of_tids[1] = $parent->id();
+}
+```
+
+Also I can save the terms in hierarchy using only the final term from the third level, completing the tree from bottom to top, each time I identify a third-level term:   
+
+```php
+// If has parent and has not children then is a third level term.
+if((!empty($manager->loadParents($term->id()))) && (empty($manager->loadChildren($term->id()))) && (($normalized_naming === $normalized_district))) {
+
+  // Third level Term.
+  $array_of_tids[2] = $term->id();
+
+  // Second level Term.
+  $array_of_tids[1] = $parent->id();
+  $parent = reset($manager->loadParents($term->id()));
+  
+  // First level Term.
+  $grandparent = reset($manager->loadParents($parent->id());
+  $array_of_tids[0] = $grandparent->id();
+}
+```
+My goal is to finally have an array composed of three numeric values that will be the tids of the terms found. This array can be saved in the Entity Reference field for the taxonomy and finally when the node is saved, these taxonomy terms will be charged in every node.  
+
+```php
+$new_node->field_taxonomy_location = $array_of_tids;
+$new_node->save();
+```
+
+Done!  
+
+
 ## 5- Read More 
 
 - [Getting started with OpenStreetMap Nominatim API, by Adrián Espejo](https://medium.com/@adri.espejo/getting-started-with-openstreetmap-nominatim-api-e0da5a95fc8a).  
