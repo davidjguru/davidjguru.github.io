@@ -31,12 +31,12 @@ I have decided to compile my case notes here in a sequential way, but the experi
 <!-- /TOC -->
 **Table of Contents.**
 
-[1- What am I looking for?](https://davidjguru.github.io/blog/drupal-fast-tips-using-links-in-drupal-8)  
-[2- Reverse Geocoding for PHP](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
-[3- Options for Reverse Geocoding](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
-[4- Loading taxonomy terms](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
-[5- Read More]()  
-[6- :wq!](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
+[1- What am I looking for?](#1--what-am-i-looking-for)  
+[2- Reverse Geocoding for PHP](#2--reverse-geocoding-for-php)  
+[3- Resources](#3--resources)  
+[4- Loading taxonomy terms](#4--loading-taxonomy-terms)  
+[5- Read More](#5--read-more)  
+[6- :wq!](#6--wq)  
 <!-- /TOC -->
 ------------------------------------------------------------------------------------------------
 
