@@ -23,7 +23,7 @@ I have decided to compile my case notes here in a sequential way, but the experi
 **TL;DR** -> This is a post about how to execute Reverse Geocoding for populating a taxonomy term field in Drupal 8, 9.  
 
   
-* [Drupal 8, 9 - Reverse Geocoding using external Service from PHP](https://gist.github.com/davidjguru/0ba7b135ae2d9738278c5dff2a311e09)  
+* [Drupal 8,9 - Reverse Geocoding using external Service from PHP](https://gist.github.com/davidjguru/0ba7b135ae2d9738278c5dff2a311e09)  
 * [Drupal 8,9 - Getting Taxonomy Terms from different levels programmatically ](https://gist.github.com/davidjguru/3b9d36bf3e00dd338d751b7bfa2c41eb)  
 * [Drupal 8,9 - Populating taxonomy with hierarchical structure from external geocoding ](https://gitlab.com/-/snippets/2137785)  
 
@@ -35,7 +35,8 @@ I have decided to compile my case notes here in a sequential way, but the experi
 [2- Reverse Geocoding for PHP](https://davidjguru.github.io/blog/drupal-fast-tips-prefilling-fields-in-forms)  
 [3- Options for Reverse Geocoding](https://davidjguru.github.io/blog/drupal-fast-tips-the-magic-of-attached)  
 [4- Loading taxonomy terms](https://davidjguru.github.io/blog/drupal-fast-tips-placing-a-block-by-code)  
-[5- :wq!](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
+[5- Read More]()  
+[6- :wq!](https://davidjguru.github.io/blog/drupal-fast-tips-from-array-to-html)  
 <!-- /TOC -->
 ------------------------------------------------------------------------------------------------
 
@@ -159,6 +160,7 @@ I certainly haven't had much luck using this module. Some strange bug limits me 
 
 ### Nominatim  
 
+Nominatim is an API used to search OSM data by name and address in order to doing Geocoding and Reverse Geocoding. [OSM is "Open Street Map"](https://www.openstreetmap.org), a collaborative project creating a big, free and editable map of the world. 
 [Maria Arias de Reyna](https://www.linkedin.com/in/delawen/), [@delawen](https://twitter.com/delawen) and [Juan Luis Rodríguez](https://www.linkedin.com/in/juanluisrp/), [@juanluisrp](https://twitter.com/juanluisrp) guided me in this way. They are the greatest [GIS](https://en.wikipedia.org/wiki/Geographic_information_system) experts I ever know and they were very helpful here, givin' me some ideas and links to resources. Kudos. Specifically, @delawen told me about Nominatim, a heavy-weight solution for Geocoding Operations and I began to play with it. What is 'Nominatim'? First Bus Stop:  
 
 > "Nominatim is the geocoding software that powers the official OSM site www.openstreetmap.org. It serves 30 million queries per day on a single server."  
@@ -232,7 +234,7 @@ I need to complete the next field:
 
 ![Taxonomy Terms field based in geodata]({{ site.baseurl }}/images/davidjguru_php_coding_reverse_geocoding_loading_taxonomy_terms_2.png)  
 
-### Getting data for Peru
+### Getting data for Country
 In Peru there are 24 departments, 25 regions, 196 provinces and 1838 districts. I need to save Department, Province and Districts for every item.  In the former example I will catch the data from the Nominatim reverse endpoint, where Department="Ancash" , Province="Huarmey"  District="Culebras", so based on the data received from Nominatim that you can see in a former example, I need to adapt this:  
 
 - Department=state  
@@ -252,9 +254,13 @@ $ docker run -it --rm \
   mediagis/nominatim:3.7
 ```
 
+This new container will expose the API address at:  
+```bash
+http://localhost:8080/search.php?q=KEYWORD
+```
 ### Resolving queries  
 
-Now I can build some queries to my new Nominatim Server:  
+Now I can build some queries to my new Nominatim Server from my PHP code (in a Drupal custom module, like a service or from a Controller, you know):  
 
 ```php
 <?php
@@ -294,7 +300,20 @@ if(empty($geo_nominatim['address']['village'])){
 
 ### My next problem: the 'Ñ' character and the diacritics 
 
-The first thing I notice is that Nominatim is returning me naming without accents or diacritics, in pure English. So now having observed this issue, I now have to check that there are no misinterpretations, normalizing all the strings on both sides of the matching.  
+The first thing I notice is that Nominatim is returning me some naming without accents or diacritics in some cases, in pure English. Let's see an example about this. I'm looking for data (lat, lon) for "Huánuco" (Perú) and Nominatim is returning me something like this: 
+
+```json
+{
+  "city":"Chinchao",
+  "region":"Province of Huánuco",
+  "state":"Huánuco",
+  "postcode":"062",
+  "country":"Peru",
+  "country_code":"pe"
+}
+```
+
+As you can see, "Huánuco" is comming with diacritics but the country name "Peru" is returned without accent. Can this cause me problems in the future? So now having observed this issue, I now have to check that there are no misinterpretations, normalizing all the strings on both sides of the matching.  
 
 The 'Ñ' character is the sign for a very common sound that you can build using 'gn' in French or Italian, and using 'ny' in Catalan language. But at some point an old transcriber monk decided to use this symbol, and here we are... 
 
@@ -318,8 +337,15 @@ $normalized_department = str_replace('\001', 'ñ', $normalized_department);
 $normalized_province = str_replace('\001', 'ñ', $normalized_province);
 $normalized_district = str_replace('\001', 'ñ', $normalized_district);
 ``` 
+Now I can make sure that everything is normalized, flattened without diacritics and maintaining the 'ñ' character.  
 
 ### Loading the whole taxonomy  
+
+The next step for me is to make sure that I can execute a matching between the received values and the existing ones from my vocabulary. In addition, I must take into account that the same name can be repeated throughout the tree structure: A province and a district may share a name, and it may even be the case that the same name is shared at all three levels of the hierarchy of terms, for instance, see the next example where "Arequipa" is a Department, a Province and a District:  
+
+
+![Same term for all the structure]({{ site.baseurl }}/images/davidjguru_php_coding_reverse_geocoding_loading_taxonomy_terms_3.png)  
+
 
 ```php
 [...]
@@ -333,9 +359,12 @@ $taxonomy_tree = $manager->loadTree(
         );
 [...]
 ```
+## 5- Read More 
 
+- [Getting started with OpenStreetMap Nominatim API, by Adrián Espejo](https://medium.com/@adri.espejo/getting-started-with-openstreetmap-nominatim-api-e0da5a95fc8a).  
+- [Open Search Nominatim API](https://developer.mapquest.com/documentation/open/nominatim-search/).  
 
-## 5- :wq!
+## 6- :wq!
 
 ### Recommended song: Addio Lugano bella  
 
