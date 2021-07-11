@@ -418,8 +418,8 @@ if((!empty($manager->loadParents($term->id()))) && (empty($manager->loadChildren
   $array_of_tids[2] = $term->id();
 
   // Second level Term.
-  $array_of_tids[1] = $parent->id();
   $parent = reset($manager->loadParents($term->id()));
+  $array_of_tids[1] = $parent->id();
   
   // First level Term.
   $grandparent = reset($manager->loadParents($parent->id());
